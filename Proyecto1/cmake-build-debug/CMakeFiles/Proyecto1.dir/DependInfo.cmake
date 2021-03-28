@@ -4,15 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-<<<<<<< HEAD
-  "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp" "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.o"
-  "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/main.cpp" "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1.dir/main.cpp.o"
-  "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/mainwindow.cpp" "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1.dir/mainwindow.cpp.o"
-=======
   "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp" "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.o"
   "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/main.cpp" "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1.dir/main.cpp.o"
   "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.cpp" "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1.dir/mainwindow.cpp.o"
->>>>>>> main
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

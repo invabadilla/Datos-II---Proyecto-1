@@ -10,7 +10,6 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-<<<<<<< HEAD
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QColumnView>
@@ -21,18 +20,11 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextEdit>
-=======
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
->>>>>>> main
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-<<<<<<< HEAD
-class Ui_IDE
+class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
@@ -49,15 +41,15 @@ public:
     QMenu *menuIDE_C;
     QStatusBar *statusbar;
 
-    void setupUi(QMainWindow *IDE)
+    void setupUi(QMainWindow *MainWindow)
     {
-        if (IDE->objectName().isEmpty())
-            IDE->setObjectName(QString::fromUtf8("IDE"));
-        IDE->setEnabled(true);
-        IDE->resize(814, 797);
-        IDE->setMinimumSize(QSize(814, 797));
-        IDE->setMaximumSize(QSize(814, 797));
-        centralwidget = new QWidget(IDE);
+        if (MainWindow->objectName().isEmpty())
+            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
+        MainWindow->setEnabled(true);
+        MainWindow->resize(814, 797);
+        MainWindow->setMinimumSize(QSize(814, 797));
+        MainWindow->setMaximumSize(QSize(814, 797));
+        centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
@@ -106,57 +98,18 @@ public:
 
         gridLayout->addWidget(textEdit_3, 5, 0, 1, 2);
 
-        IDE->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(IDE);
+        MainWindow->setCentralWidget(centralwidget);
+        menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 814, 22));
         menuIDE_C = new QMenu(menubar);
         menuIDE_C->setObjectName(QString::fromUtf8("menuIDE_C"));
-        IDE->setMenuBar(menubar);
-        statusbar = new QStatusBar(IDE);
-        statusbar->setObjectName(QString::fromUtf8("statusbar"));
-        IDE->setStatusBar(statusbar);
-
-        menubar->addAction(menuIDE_C->menuAction());
-
-        retranslateUi(IDE);
-
-        QMetaObject::connectSlotsByName(IDE);
-    } // setupUi
-
-    void retranslateUi(QMainWindow *IDE)
-    {
-        IDE->setWindowTitle(QApplication::translate("IDE", "IDE C!", nullptr));
-#ifndef QT_NO_TOOLTIP
-        IDE->setToolTip(QString());
-#endif // QT_NO_TOOLTIP
-        label->setText(QApplication::translate("IDE", "RUN", nullptr));
-        label_2->setText(QApplication::translate("IDE", "RAM", nullptr));
-        label_3->setText(QApplication::translate("IDE", "Std Out", nullptr));
-        label_4->setText(QApplication::translate("IDE", "Log", nullptr));
-        menuIDE_C->setTitle(QApplication::translate("IDE", "IDE C!", nullptr));
-=======
-class Ui_MainWindow
-{
-public:
-    QWidget *centralwidget;
-    QMenuBar *menubar;
-    QStatusBar *statusbar;
-
-    void setupUi(QMainWindow *MainWindow)
-    {
-        if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
-        centralwidget = new QWidget(MainWindow);
-        centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
+
+        menubar->addAction(menuIDE_C->menuAction());
 
         retranslateUi(MainWindow);
 
@@ -165,18 +118,21 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
->>>>>>> main
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "IDE C!", nullptr));
+#ifndef QT_NO_TOOLTIP
+        MainWindow->setToolTip(QString());
+#endif // QT_NO_TOOLTIP
+        label->setText(QApplication::translate("MainWindow", "RUN", nullptr));
+        label_2->setText(QApplication::translate("MainWindow", "RAM", nullptr));
+        label_3->setText(QApplication::translate("MainWindow", "Std Out", nullptr));
+        label_4->setText(QApplication::translate("MainWindow", "Log", nullptr));
+        menuIDE_C->setTitle(QApplication::translate("MainWindow", "IDE C!", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-<<<<<<< HEAD
-    class IDE: public Ui_IDE {};
-=======
     class MainWindow: public Ui_MainWindow {};
->>>>>>> main
 } // namespace Ui
 
 QT_END_NAMESPACE

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/snap/clion/145/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1
-=======
 /snap/clion/145/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1
->>>>>>> main
 -- The CXX compiler identification is GNU 9.3.0
 -- Check for working CXX compiler: /usr/bin/c++
 -- Check for working CXX compiler: /usr/bin/c++ - works
@@ -12,8 +8,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
-<<<<<<< HEAD
--- Build files have been written to: /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug
-=======
 -- Build files have been written to: /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug
->>>>>>> main

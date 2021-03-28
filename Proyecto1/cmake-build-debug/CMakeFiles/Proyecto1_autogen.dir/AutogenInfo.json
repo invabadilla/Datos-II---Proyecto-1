@@ -1,17 +1,4 @@
 {
-<<<<<<< HEAD
-	"BUILD_DIR" : "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen",
-	"CMAKE_BINARY_DIR" : "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug",
-	"CMAKE_CURRENT_SOURCE_DIR" : "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1",
-	"CMAKE_EXECUTABLE" : "/snap/clion/145/bin/cmake/linux/bin/cmake",
-	"CMAKE_LIST_FILES" : 
-	[
-		"/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/CMakeLists.txt",
-		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeDetermineSystem.cmake",
-		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeSystem.cmake.in",
-		"/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/3.17.5/CMakeSystem.cmake",
-=======
 	"BUILD_DIR" : "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen",
 	"CMAKE_BINARY_DIR" : "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug",
 	"CMAKE_CURRENT_BINARY_DIR" : "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug",
@@ -23,7 +10,6 @@
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeDetermineSystem.cmake",
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeSystem.cmake.in",
 		"/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/3.17.5/CMakeSystem.cmake",
->>>>>>> main
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeUnixFindMake.cmake",
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeSystemSpecificInitialize.cmake",
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeDetermineCXXCompiler.cmake",
@@ -68,11 +54,7 @@
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeFindBinUtils.cmake",
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/GNU-FindBinUtils.cmake",
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCXXCompiler.cmake.in",
-<<<<<<< HEAD
-		"/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/3.17.5/CMakeCXXCompiler.cmake",
-=======
 		"/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/3.17.5/CMakeCXXCompiler.cmake",
->>>>>>> main
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeSystemSpecificInformation.cmake",
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeGenericSystem.cmake",
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeInitializeConfigs.cmake",
@@ -101,11 +83,7 @@
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeDetermineCompileFeatures.cmake",
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/Internal/FeatureTesting.cmake",
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCXXCompiler.cmake.in",
-<<<<<<< HEAD
-		"/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/3.17.5/CMakeCXXCompiler.cmake",
-=======
 		"/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/3.17.5/CMakeCXXCompiler.cmake",
->>>>>>> main
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake",
@@ -148,33 +126,20 @@
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake",
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeParseArguments.cmake"
 	],
-<<<<<<< HEAD
-	"CMAKE_SOURCE_DIR" : "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1",
-=======
 	"CMAKE_SOURCE_DIR" : "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1",
->>>>>>> main
 	"DEP_FILE" : "",
 	"DEP_FILE_RULE_NAME" : "",
 	"HEADERS" : 
 	[
 		[
-<<<<<<< HEAD
-			"/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/mainwindow.h",
-=======
 			"/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.h",
->>>>>>> main
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp"
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-<<<<<<< HEAD
-	"INCLUDE_DIR" : "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/include",
-	"MOC_COMPILATION_FILE" : "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp",
-=======
 	"INCLUDE_DIR" : "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/include",
 	"MOC_COMPILATION_FILE" : "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp",
->>>>>>> main
 	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
@@ -185,13 +150,8 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-<<<<<<< HEAD
-		"/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug",
-		"/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1",
-=======
 		"/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug",
 		"/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1",
->>>>>>> main
 		"/usr/include/x86_64-linux-gnu/qt5",
 		"/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
 		"/usr/include/x86_64-linux-gnu/qt5/QtGui",
@@ -216,35 +176,16 @@
 		"-c",
 		"/snap/clion/145/bin/cmake/linux/share/cmake-3.17/Modules/CMakeCXXCompilerABI.cpp"
 	],
-<<<<<<< HEAD
-	"MOC_PREDEFS_FILE" : "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/moc_predefs.h",
-=======
 	"MOC_PREDEFS_FILE" : "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/moc_predefs.h",
->>>>>>> main
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 4,
-<<<<<<< HEAD
-	"PARSE_CACHE_FILE" : "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1_autogen.dir/ParseCache.txt",
-=======
 	"PARSE_CACHE_FILE" : "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1_autogen.dir/ParseCache.txt",
->>>>>>> main
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
 	"QT_VERSION_MAJOR" : 5,
 	"QT_VERSION_MINOR" : 12,
-<<<<<<< HEAD
-	"SETTINGS_FILE" : "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1_autogen.dir/AutogenUsed.txt",
-	"SOURCES" : 
-	[
-		[
-			"/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/main.cpp",
-			"MU"
-		],
-		[
-			"/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/mainwindow.cpp",
-=======
 	"SETTINGS_FILE" : "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
@@ -254,7 +195,6 @@
 		],
 		[
 			"/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.cpp",
->>>>>>> main
 			"MU"
 		]
 	],

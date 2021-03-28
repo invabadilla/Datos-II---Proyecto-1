@@ -1,6 +1,2 @@
 # Hashes of file build rules.
-<<<<<<< HEAD
-e39d6b39b1959dc1d057538c9bec1f49 CMakeFiles/Proyecto1_autogen
-=======
 38200cf45e104ed778d7d9a10ee2a286 CMakeFiles/Proyecto1_autogen
->>>>>>> main
