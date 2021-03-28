@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1.dir
 /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1_autogen.dir
+=======
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1.dir
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1_autogen.dir
+>>>>>>> main

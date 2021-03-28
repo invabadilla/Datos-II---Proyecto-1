@@ -11,6 +11,7 @@
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
     </configurations>
   </component>
+<<<<<<< HEAD
   <component name="ChangeListManager">
     <list default="true" id="6826a600-8fae-4788-9683-5dfec5d7ff17" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +41,14 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunManager" selected="CMake Application.Proyecto1">
+=======
+  <component name="RunManager" selected="CMake Application.Proyecto1">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+>>>>>>> main
     <configuration name="Proyecto1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Proyecto1" TARGET_NAME="Proyecto1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Proyecto1" RUN_TARGET_NAME="Proyecto1">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -60,6 +69,7 @@
       <item itemvalue="CMake Application.Proyecto1_autogen" />
     </list>
   </component>
+<<<<<<< HEAD
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -76,4 +86,6 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+=======
+>>>>>>> main
 </project>

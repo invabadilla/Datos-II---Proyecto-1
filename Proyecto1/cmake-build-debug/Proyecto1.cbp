@@ -8,6 +8,7 @@
 		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\;"/>
 		<Build>
 			<Target title="all">
+<<<<<<< HEAD
 				<Option working_dir="/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
@@ -40,6 +41,40 @@
 			<Target title="Proyecto1">
 				<Option output="/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug"/>
+=======
+				<Option working_dir="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Proyecto1">
+				<Option output="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug"/>
+>>>>>>> main
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -47,9 +82,15 @@
 					<Add option="-DQT_WIDGETS_LIB"/>
 					<Add option="-DQT_GUI_LIB"/>
 					<Add option="-DQT_CORE_LIB"/>
+<<<<<<< HEAD
 					<Add directory="/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug"/>
 					<Add directory="/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1"/>
 					<Add directory="/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/include"/>
+=======
+					<Add directory="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug"/>
+					<Add directory="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1"/>
+					<Add directory="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/include"/>
+>>>>>>> main
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
@@ -64,6 +105,7 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
+<<<<<<< HEAD
 					<Build command="/usr/bin/make -j4 -f &quot;/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Proyecto1"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -73,6 +115,17 @@
 			<Target title="Proyecto1/fast">
 				<Option output="/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug"/>
+=======
+					<Build command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Proyecto1"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Proyecto1/fast">
+				<Option output="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug"/>
+>>>>>>> main
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -80,9 +133,15 @@
 					<Add option="-DQT_WIDGETS_LIB"/>
 					<Add option="-DQT_GUI_LIB"/>
 					<Add option="-DQT_CORE_LIB"/>
+<<<<<<< HEAD
 					<Add directory="/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug"/>
 					<Add directory="/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1"/>
 					<Add directory="/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/include"/>
+=======
+					<Add directory="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug"/>
+					<Add directory="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1"/>
+					<Add directory="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/include"/>
+>>>>>>> main
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
@@ -97,6 +156,7 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
+<<<<<<< HEAD
 					<Build command="/usr/bin/make -j4 -f &quot;/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Proyecto1/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -247,6 +307,158 @@
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
 		</Unit>
 		<Unit filename="/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake">
+=======
+					<Build command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Proyecto1/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Proyecto1_autogen">
+				<Option working_dir="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Proyecto1_autogen"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp">
+			<Option target="Proyecto1"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/main.cpp">
+			<Option target="Proyecto1"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.cpp">
+			<Option target="Proyecto1"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.h">
+			<Option target="Proyecto1"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.ui">
+			<Option target="Proyecto1"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QComposePlatformInputContextPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSEmulatorIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsEglDeviceIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsGbmIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSX11IntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevKeyboardPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevMousePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTabletPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTouchScreenPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QIbusPlatformInputContextPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLibInputPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLinuxFbIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalEglIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QVncIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbEglIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbGlxIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake">
+>>>>>>> main
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
 		</Unit>
 	</Project>

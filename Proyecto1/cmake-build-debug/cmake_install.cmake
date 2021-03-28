@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Install script for directory: /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1
+=======
+# Install script for directory: /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1
+>>>>>>> main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +49,9 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
+<<<<<<< HEAD
 file(WRITE "/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+=======
+file(WRITE "/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> main
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

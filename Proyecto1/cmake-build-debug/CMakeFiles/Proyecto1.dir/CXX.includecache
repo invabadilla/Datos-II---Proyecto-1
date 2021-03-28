@@ -6,6 +6,7 @@
 
 #IncludeRegexTransform: 
 
+<<<<<<< HEAD
 /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/main.cpp
 mainwindow.h
 /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
@@ -16,6 +17,40 @@ QApplication
 QMainWindow
 -
 
+=======
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/EWIEGA46WW/moc_mainwindow.cpp
+../../../mainwindow.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp
+EWIEGA46WW/moc_mainwindow.cpp
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/EWIEGA46WW/moc_mainwindow.cpp
+
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/main.cpp
+mainwindow.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+QApplication
+-
+
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.cpp
+mainwindow.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+./ui_mainwindow.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/ui_mainwindow.h
+
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+QMainWindow
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
+qvariant.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h
+
+>>>>>>> main
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
 QtCore/qglobal.h
 -
@@ -1054,6 +1089,43 @@ qapplication.h
 qmainwindow.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
 
+<<<<<<< HEAD
+=======
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar
+qmenubar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStatusBar
+qstatusbar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstatusbar.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget
+qwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtGui/qkeysequence.h
+-
+QtCore/qstring.h
+-
+QtWidgets/qwidget.h
+-
+QtCore/qvariant.h
+-
+QtGui/qicon.h
+-
+QtWidgets/qactiongroup.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qaction.h
+-
+
+>>>>>>> main
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
 QtWidgets/qtwidgetsglobal.h
 -
@@ -1086,6 +1158,27 @@ QtWidgets/qwidget.h
 QtWidgets/qtabwidget.h
 -
 
+<<<<<<< HEAD
+=======
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qwidget.h
+-
+QtCore/qstring.h
+-
+QtGui/qicon.h
+-
+QtWidgets/qaction.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qmenu.h
+-
+
+>>>>>>> main
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
 QtWidgets/qtwidgetsglobal.h
 -
@@ -1094,6 +1187,15 @@ QtCore/qobject.h
 QtCore/qalgorithms.h
 -
 
+<<<<<<< HEAD
+=======
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstatusbar.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qwidget.h
+-
+
+>>>>>>> main
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
@@ -1142,3 +1244,20 @@ QtGui/qkeysequence.h
 QtGui/qevent.h
 -
 
+<<<<<<< HEAD
+=======
+Proyecto1_autogen/include/ui_mainwindow.h
+QtCore/QVariant
+-
+QtWidgets/QApplication
+-
+QtWidgets/QMainWindow
+-
+QtWidgets/QMenuBar
+-
+QtWidgets/QStatusBar
+-
+QtWidgets/QWidget
+-
+
+>>>>>>> main

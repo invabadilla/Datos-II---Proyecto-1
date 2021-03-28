@@ -230,7 +230,10 @@ CMakeFiles/Proyecto1.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: ../mainwindow.cpp
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: ../mainwindow.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
+<<<<<<< HEAD
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
+=======
+>>>>>>> main
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h
@@ -260,7 +263,10 @@ CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtC
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qhashfunctions.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qiodevice.h
+<<<<<<< HEAD
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qitemselectionmodel.h
+=======
+>>>>>>> main
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qiterator.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qline.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h
@@ -282,7 +288,10 @@ CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtC
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qrect.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qrefcount.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h
+<<<<<<< HEAD
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h
+=======
+>>>>>>> main
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedpointer.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h
@@ -323,21 +332,28 @@ CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtG
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainterpath.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h
+<<<<<<< HEAD
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h
+=======
+>>>>>>> main
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qpolygon.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qregion.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgb.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgba64.h
+<<<<<<< HEAD
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextdocument.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h
+=======
+>>>>>>> main
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qtgui-config.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiglobal.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h
+<<<<<<< HEAD
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
@@ -381,6 +397,26 @@ CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtW
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtextedit.h
+=======
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStatusBar
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstatusbar.h
+CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h
+>>>>>>> main
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgets-config.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h

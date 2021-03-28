@@ -1,0 +1,4 @@
+/home/usuario/Proyectos/Datos-II---Proyecto-1/build-Proyecto1-Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/usuario/Proyectos/Datos-II---Proyecto-1/build-Proyecto1-Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/usuario/Proyectos/Datos-II---Proyecto-1/build-Proyecto1-Desktop-Debug/CMakeFiles/Proyecto1.dir
+/home/usuario/Proyectos/Datos-II---Proyecto-1/build-Proyecto1-Desktop-Debug/CMakeFiles/Proyecto1_autogen.dir
