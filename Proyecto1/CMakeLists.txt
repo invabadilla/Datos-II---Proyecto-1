@@ -39,7 +39,7 @@ else()
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-  )
+          )
 endif()
 
 target_link_libraries(Proyecto1 PRIVATE Qt5::Widgets)

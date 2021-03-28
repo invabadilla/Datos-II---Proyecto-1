@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/tcpServer.cpp
+iostream
+-
+sys/types.h
+-
+unistd.h
+-
+sys/socket.h
+-
+netdb.h
+-
+arpa/inet.h
+-
+string.h
+-
+string
+-
+tcpServer.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/tcpServer.h
+
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/tcpServer.h
+
