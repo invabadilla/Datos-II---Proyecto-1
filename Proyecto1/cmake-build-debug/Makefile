@@ -156,6 +156,33 @@ Proyecto1_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Proyecto1_autogen.dir/build.make CMakeFiles/Proyecto1_autogen.dir/build
 .PHONY : Proyecto1_autogen/fast
 
+Compiler.o: Compiler.cpp.o
+
+.PHONY : Compiler.o
+
+# target to build an object file
+Compiler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Proyecto1.dir/build.make CMakeFiles/Proyecto1.dir/Compiler.cpp.o
+.PHONY : Compiler.cpp.o
+
+Compiler.i: Compiler.cpp.i
+
+.PHONY : Compiler.i
+
+# target to preprocess a source file
+Compiler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Proyecto1.dir/build.make CMakeFiles/Proyecto1.dir/Compiler.cpp.i
+.PHONY : Compiler.cpp.i
+
+Compiler.s: Compiler.cpp.s
+
+.PHONY : Compiler.s
+
+# target to generate assembly for a file
+Compiler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Proyecto1.dir/build.make CMakeFiles/Proyecto1.dir/Compiler.cpp.s
+.PHONY : Compiler.cpp.s
+
 Proyecto1_autogen/mocs_compilation.o: Proyecto1_autogen/mocs_compilation.cpp.o
 
 .PHONY : Proyecto1_autogen/mocs_compilation.o
@@ -247,6 +274,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Proyecto1_autogen"
 	@echo "... Proyecto1"
+	@echo "... Compiler.o"
+	@echo "... Compiler.i"
+	@echo "... Compiler.s"
 	@echo "... Proyecto1_autogen/mocs_compilation.o"
 	@echo "... Proyecto1_autogen/mocs_compilation.i"
 	@echo "... Proyecto1_autogen/mocs_compilation.s"

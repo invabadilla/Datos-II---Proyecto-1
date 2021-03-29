@@ -10,6 +10,8 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_FLAGS "-pthread")
+
 
 # QtCreator supports the following variables for Android, which are identical to qmake Android variables.
 # Check http://doc.qt.io/qt-5/deployment-android.html for more information.
@@ -39,7 +41,7 @@ else()
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-          )
+          Compiler.cpp Compiler.h)
 endif()
 
 target_link_libraries(Proyecto1 PRIVATE Qt5::Widgets)

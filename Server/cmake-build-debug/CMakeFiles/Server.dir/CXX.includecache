@@ -6,8 +6,10 @@
 
 #IncludeRegexTransform: 
 
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/tcpServer.cpp
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/main.cpp
 iostream
+-
+thread
 -
 sys/types.h
 -
@@ -23,8 +25,4 @@ string.h
 -
 string
 -
-tcpServer.h
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/tcpServer.h
-
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/tcpServer.h
 

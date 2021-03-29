@@ -13,11 +13,11 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QColumnView>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
@@ -28,8 +28,6 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QGridLayout *gridLayout;
-    QLabel *label;
     QLabel *label_2;
     QTextEdit *textEdit;
     QColumnView *columnView;
@@ -37,6 +35,7 @@ public:
     QTextEdit *textEdit_2;
     QLabel *label_4;
     QTextEdit *textEdit_3;
+    QPushButton *pushButton;
     QMenuBar *menubar;
     QMenu *menuIDE_C;
     QStatusBar *statusbar;
@@ -51,53 +50,35 @@ public:
         MainWindow->setMaximumSize(QSize(814, 797));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        gridLayout = new QGridLayout(centralwidget);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        label = new QLabel(centralwidget);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        gridLayout->addWidget(label, 0, 0, 1, 1);
-
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-
-        gridLayout->addWidget(label_2, 0, 1, 1, 1);
-
+        label_2->setGeometry(QRect(520, 10, 33, 17));
         textEdit = new QTextEdit(centralwidget);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
         textEdit->setEnabled(true);
-
-        gridLayout->addWidget(textEdit, 1, 0, 1, 1);
-
+        textEdit->setGeometry(QRect(9, 40, 471, 301));
         columnView = new QColumnView(centralwidget);
         columnView->setObjectName(QString::fromUtf8("columnView"));
         columnView->setEnabled(false);
+        columnView->setGeometry(QRect(520, 40, 281, 301));
         columnView->setLineWidth(4);
-
-        gridLayout->addWidget(columnView, 1, 1, 1, 1);
-
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-
-        gridLayout->addWidget(label_3, 2, 0, 1, 1);
-
+        label_3->setGeometry(QRect(10, 350, 53, 17));
         textEdit_2 = new QTextEdit(centralwidget);
         textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
         textEdit_2->setEnabled(false);
-
-        gridLayout->addWidget(textEdit_2, 3, 0, 1, 2);
-
+        textEdit_2->setGeometry(QRect(10, 380, 791, 151));
         label_4 = new QLabel(centralwidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-
-        gridLayout->addWidget(label_4, 4, 0, 1, 1);
-
+        label_4->setGeometry(QRect(10, 540, 26, 17));
         textEdit_3 = new QTextEdit(centralwidget);
         textEdit_3->setObjectName(QString::fromUtf8("textEdit_3"));
         textEdit_3->setEnabled(false);
-
-        gridLayout->addWidget(textEdit_3, 5, 0, 1, 2);
-
+        textEdit_3->setGeometry(QRect(10, 570, 791, 161));
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(9, 9, 89, 25));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -122,10 +103,10 @@ public:
 #ifndef QT_NO_TOOLTIP
         MainWindow->setToolTip(QString());
 #endif // QT_NO_TOOLTIP
-        label->setText(QApplication::translate("MainWindow", "RUN", nullptr));
         label_2->setText(QApplication::translate("MainWindow", "RAM", nullptr));
         label_3->setText(QApplication::translate("MainWindow", "Std Out", nullptr));
         label_4->setText(QApplication::translate("MainWindow", "Log", nullptr));
+        pushButton->setText(QApplication::translate("MainWindow", "RUN", nullptr));
         menuIDE_C->setTitle(QApplication::translate("MainWindow", "IDE C!", nullptr));
     } // retranslateUi
 

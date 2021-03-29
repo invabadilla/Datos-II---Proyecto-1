@@ -170,33 +170,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-tcpServer.o: tcpServer.cpp.o
-
-.PHONY : tcpServer.o
-
-# target to build an object file
-tcpServer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/tcpServer.cpp.o
-.PHONY : tcpServer.cpp.o
-
-tcpServer.i: tcpServer.cpp.i
-
-.PHONY : tcpServer.i
-
-# target to preprocess a source file
-tcpServer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/tcpServer.cpp.i
-.PHONY : tcpServer.cpp.i
-
-tcpServer.s: tcpServer.cpp.s
-
-.PHONY : tcpServer.s
-
-# target to generate assembly for a file
-tcpServer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/tcpServer.cpp.s
-.PHONY : tcpServer.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -209,9 +182,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... tcpServer.o"
-	@echo "... tcpServer.i"
-	@echo "... tcpServer.s"
 .PHONY : help
 
 

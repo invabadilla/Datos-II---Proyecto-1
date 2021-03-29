@@ -85,12 +85,6 @@
 		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/main.cpp">
 			<Option target="Server"/>
 		</Unit>
-		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/tcpServer.cpp">
-			<Option target="Server"/>
-		</Unit>
-		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/tcpServer.h">
-			<Option target="Server"/>
-		</Unit>
 		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

@@ -114,6 +114,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/Compiler.cpp">
+			<Option target="Proyecto1"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/Compiler.h">
+			<Option target="Proyecto1"/>
+		</Unit>
 		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/main.cpp">
 			<Option target="Proyecto1"/>
 		</Unit>
