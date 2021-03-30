@@ -9,10 +9,11 @@
 #include <arpa/inet.h>
 #include <string.h>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
-int startServer() {
+int startClient() {
     int sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock == -1)
     {
@@ -75,11 +76,12 @@ int startServer() {
 
 int main(int argc, char *argv[])
 {
+
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
 
-    std::thread th (startServer);
+    std::thread th (startClient);
     th.detach();
 
     return a.exec();

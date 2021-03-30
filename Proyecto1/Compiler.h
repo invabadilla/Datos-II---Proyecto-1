@@ -7,12 +7,14 @@
 
 
 #include <string>
+#include <QString>
 
 class Compiler {
 public:
-    void compile(std::string line);
+    void compile(QString line);
     void sendServer();
 
+    bool validename(std::string name);
 };
 
 
