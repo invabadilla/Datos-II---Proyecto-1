@@ -1,7 +1,9 @@
-#include "mainwindow.h"
-#include <QApplication>
+//
+// Created by ingrid on 3/28/21.
+//
+
+#include "Client.h"
 #include <iostream>
-#include <thread>
 #include <sys/types.h>
 #include <unistd.h>
 #include <sys/socket.h>
@@ -10,9 +12,15 @@
 #include <string.h>
 #include <string>
 
+#include "thread"
+
 using namespace std;
 
-int startServer() {
+Client::Client() {}
+
+
+int start(){
+    //	Create a socket
     int sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock == -1)
     {
@@ -71,16 +79,4 @@ int startServer() {
     close(sock);
 
     return 0;
-}
-
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-
-    std::thread th (startServer);
-    th.detach();
-
-    return a.exec();
 }

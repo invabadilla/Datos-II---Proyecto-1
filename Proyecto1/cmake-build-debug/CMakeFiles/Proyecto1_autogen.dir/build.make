@@ -63,10 +63,10 @@ RM = /snap/clion/145/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1
+CMAKE_SOURCE_DIR = /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug
 
 # Utility rule file for Proyecto1_autogen.
 
@@ -74,8 +74,8 @@ CMAKE_BINARY_DIR = /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake
 include CMakeFiles/Proyecto1_autogen.dir/progress.make
 
 CMakeFiles/Proyecto1_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target Proyecto1"
-	/snap/clion/145/bin/cmake/linux/bin/cmake -E cmake_autogen /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1_autogen.dir/AutogenInfo.json Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target Proyecto1"
+	/snap/clion/145/bin/cmake/linux/bin/cmake -E cmake_autogen /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1_autogen.dir/AutogenInfo.json Debug
 
 Proyecto1_autogen: CMakeFiles/Proyecto1_autogen
 Proyecto1_autogen: CMakeFiles/Proyecto1_autogen.dir/build.make
@@ -92,6 +92,6 @@ CMakeFiles/Proyecto1_autogen.dir/clean:
 .PHONY : CMakeFiles/Proyecto1_autogen.dir/clean
 
 CMakeFiles/Proyecto1_autogen.dir/depend:
-	cd /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1 /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1 /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1 /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1 /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug /home/ingrid/Documents/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Proyecto1_autogen.dir/depend
 

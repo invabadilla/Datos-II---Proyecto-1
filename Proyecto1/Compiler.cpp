@@ -8,7 +8,7 @@
 using namespace std;
 
 void Compiler::compile(string line) {
-    ;
+    cout<<line<<"\n";
 }
 
 void Compiler::sendServer() {

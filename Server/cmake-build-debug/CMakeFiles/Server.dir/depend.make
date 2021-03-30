@@ -3,6 +3,3 @@
 
 CMakeFiles/Server.dir/main.cpp.o: ../main.cpp
 
-CMakeFiles/Server.dir/tcpServer.cpp.o: ../tcpServer.cpp
-CMakeFiles/Server.dir/tcpServer.cpp.o: ../tcpServer.h
-
