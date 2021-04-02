@@ -12,6 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac71cbdf-e05c-46c5-aa8c-28fbbeecce13" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/../Proyecto1/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Proyecto1/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Proyecto1/ThreadPool.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Proyecto1/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../Proyecto1/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
@@ -56,6 +57,10 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Server.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Server.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/../Proyecto1/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Proyecto1/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,11 +104,14 @@
   </component>
   <component name="RunManager">
     <configuration name="Server" type="CMakeRunConfiguration" factoryName="Application" singleton="false" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Server" TARGET_NAME="Server" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Server" RUN_TARGET_NAME="Server">
+<<<<<<< Updated upstream
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+=======
+>>>>>>> Stashed changes
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -131,7 +139,11 @@
       <workItem from="1616977320126" duration="3551000" />
       <workItem from="1617040725427" duration="1085000" />
       <workItem from="1617041826048" duration="745000" />
+<<<<<<< Updated upstream
       <workItem from="1617127296243" duration="1486000" />
+=======
+      <workItem from="1617127296243" duration="2085000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>

@@ -13,7 +13,9 @@
 
 using namespace std;
 
+
 int startClient() {
+
     int sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock == -1)
     {
@@ -82,7 +84,6 @@ int main(int argc, char *argv[])
     w.show();
 
     std::thread th (startClient);
-    th.detach();
 
     return a.exec();
 }

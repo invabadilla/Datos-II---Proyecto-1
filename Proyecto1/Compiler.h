@@ -8,6 +8,7 @@
 
 #include <string>
 #include <QString>
+#include <QStringList>
 
 class Compiler {
 public:
@@ -15,6 +16,12 @@ public:
     void sendServer();
 
     bool validename(std::string name);
+    bool validNum(std::string num);
+
+    QStringList Divide(QStringList initial);
+
+
+
 };
 
 

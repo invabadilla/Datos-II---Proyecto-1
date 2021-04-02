@@ -11,12 +11,69 @@
 
 using namespace std;
 
+QStringList Compiler::Divide(QStringList initial) {
+    QString str = initial.join(" ");
+    QStringList newList = str.split("=");
+    QStringList aux;
+    string name = str.toStdString();
+    int canti = newList.length();
+    switch (canti) {
+        case 1:
+            aux = newList.at(0).split(" ", QString::SkipEmptyParts);
+            if (validename(newList.at(0).toStdString()) && aux.length() == 1) {
+                cout  <<"nombre correcto\n";
+                string name = newList.at(0).toStdString();
+                if (name[name.length()-1] == ';'){
+                    newList.prepend("int");
+                    newList.replaceInStrings(QRegExp(";"),"");
+                }else{cout  <<"declaracion invalida, falta ;\n";}}
+            else{ cout<<"Error de nombre de variable, sintaxis incorrecta\n";}
+            break;
+        case 2:
+            if (validename(newList.at(0).toStdString())) {
+                cout  <<"nombre correcto\n";
+                string name = newList.at(1).toStdString();
+                aux = newList.at(1).split(" ", QString::SkipEmptyParts);
+                if (name[name.length()-1] == ';' && aux.length() == 1){
+                    newList.prepend("int");
+                    newList.replaceInStrings(QRegExp(";"),"");
+                }else{cout  <<"declaracion invalida, falta ;\n";}}
+            else{ cout<<"Error en valor de variable\n";}
+            break;
+        default:
+            cout<<"Error de sintaxis\n";
+            break;
 
+    }
+    return newList;
+}
 
 void Compiler::compile(QString line) {
-    QStringList words = line.split(" ", QString::SkipEmptyParts);
+    QStringList words = line.split(" ");
     if ("int" == words.at(0).toStdString()){
         cout <<"soy un int\n";
+        words.removeOne("int");
+        QStringList newList = Divide(words);
+        int num = newList.length();
+        switch (num) {
+            case 2:
+                newList.append(NULL);
+                cout<<"Generando variable\n";
+                break;
+            case 3:
+                string value = newList.at(2).toStdString();
+                try{
+                    if (value.length() == to_string(stoi(value)).length()){
+                        cout  <<"declaracion de variable con un valor de: " + value + "\n";
+                    }else{ cout  <<"tipo no coincide con valor\n";}
+                }catch (std::invalid_argument){
+                    cout  <<"tipo no coincide con valor\n";
+                }
+                break;
+        }
+
+
+        /**
         if (validename(words.at(1).toStdString())){
             cout  <<"nombre correcto\n";
             string name = words.at(1).toStdString();
@@ -57,7 +114,7 @@ void Compiler::compile(QString line) {
         }
         else{
             cout  <<"nombre incorrecto\n";
-        }
+        }**/
     }
 
     else if("long" == words.at(0).toStdString()){
@@ -121,22 +178,26 @@ void Compiler::compile(QString line) {
     }
 }
 
-bool Compiler::validename(string name){
-    if (name != "int" && name != "long" && name != "char" && name != "float" && name != "double" && name != "struct" && name != "reference"){
-        if ((name[0] == '_') || (isalpha(name[0]))){
-            for (int i=1; i < name.length();i++){
-                if (isalpha(name[i]) || name[i] == '_' || isdigit(name[i])){
+
+
+bool Compiler::validename(string name) {
+    if (name != "int" && name != "long" && name != "char" && name != "float" && name != "double" && name != "struct" &&
+        name != "reference") {
+        if ((name[0] == '_') || (isalpha(name[0]))) {
+            for (int i = 1; i < name.length(); i++) {
+                if (isalpha(name[i]) || name[i] == '_' || isdigit(name[i])) {
                     continue;
-                }
-                else if (i+1 == name.length() && name[i] == ';'){
+                } else if (i + 1 == name.length() && name[i] == ';') {
                     return true;
-                }
-                else{return false;}
-            }return true;
-        }else{return false;}
-    }else{return false;}
+                } else { return false; }
+            }
+            return true;
+        } else { return false; }
+    } else { return false; }
 }
 
-void Compiler::sendServer() {
 
-}
+
+void Compiler::sendServer() {}
+
+
