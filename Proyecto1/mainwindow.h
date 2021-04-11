@@ -20,5 +20,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    void UpdateGUI();
 };
 #endif // MAINWINDOW_H

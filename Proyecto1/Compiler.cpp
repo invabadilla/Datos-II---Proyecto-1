@@ -1,15 +1,103 @@
 //
 // Created by usuario on 3/29/21.
 //
-
+#include <iomanip>
 #include "Compiler.h"
 #include <string>
 #include <iostream>
 #include <QString>
 #include <QStringList>
-
+#include "mainwindow.h"
+#include <QApplication>
+#include <iostream>
+#include <thread>
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/socket.h>
+#include <netdb.h>
+#include <arpa/inet.h>
+#include <string.h>
+#include <string>
+#include <sstream>
+#include "json.hpp"
+#include <iomanip>
 
 using namespace std;
+using json = nlohmann::json;
+
+int startClient(json message) {
+
+    int sock = socket(AF_INET, SOCK_STREAM, 0);
+    if (sock == -1){
+        return 1;
+    }
+
+    //	Create a hint structure for the server we're connecting with
+    int port = 54000;
+    string ipAddress = "127.0.0.1";
+
+    sockaddr_in hint;
+    hint.sin_family = AF_INET;
+    hint.sin_port = htons(port);
+    inet_pton(AF_INET, ipAddress.c_str(), &hint.sin_addr);
+
+    //	Connect to the server on the socket
+    int connectRes = connect(sock, (sockaddr*)&hint, sizeof(hint));
+    if (connectRes == -1){
+        cout << "Could not send to server! Whoops!\r\n";
+        return 1;
+    }
+
+    //	While loop:
+    char buf[4096];
+    string userInput;
+    string mymessage = message.dump();
+    cout << mymessage;
+    //		Send to server
+    int sendRes = send(sock, mymessage.c_str(), mymessage.size() + 1, 0);
+    if (sendRes == -1){
+        cout << "Could not send to server! Whoops!\r\n";
+    }
+
+    //		Wait for response
+    memset(buf, 0, 4096);
+    int bytesReceived = recv(sock, buf, 4096, 0);
+    if (bytesReceived == -1){
+        cout << "There was an error getting response from server\r\n";
+    }
+    else{
+        //		Display response
+        cout << "SERVER> " << string(buf, bytesReceived) << "\r\n";
+    }
+
+//	Close the socket
+close(sock);
+
+return 0;
+}
+
+json parseJson (QStringList message){
+    // jdEmployees
+    json mymessage =
+            {
+                    {"type", message.at(0).toStdString()},
+                    {"name",message.at(1).toStdString()},
+                    {"value",message.at(2).toStdString()},
+            };
+
+    // Access the values
+    string type = mymessage.value("type", "oops");
+    string name = mymessage.value("name", "oops");
+    string value = mymessage.value("value", "oops");
+
+    // Print the values
+    std::cout << "Type: " << type << std::endl;
+    std::cout << "Name: " << name << std::endl;
+    std::cout << "Value: " << value << std::endl;
+
+    return mymessage;
+
+}
 
 QStringList Compiler::Divide(QStringList initial) {
     QString str = initial.join(" ");
@@ -27,7 +115,9 @@ QStringList Compiler::Divide(QStringList initial) {
                     newList.prepend("int");
                     newList.replaceInStrings(QRegExp(";"),"");
                 }else{cout  <<"declaracion invalida, falta ;\n";}}
-            else{ cout<<"Error de nombre de variable, sintaxis incorrecta\n";}
+            else{ cout<<"Error de nombre de variable, sintaxis incorrecta\n";
+                QStringList temp;
+                newList = temp;}
             break;
         case 2:
             if (validename(newList.at(0).toStdString())) {
@@ -38,15 +128,24 @@ QStringList Compiler::Divide(QStringList initial) {
                     newList.prepend("int");
                     newList.replaceInStrings(QRegExp(";"),"");
                 }else{cout  <<"declaracion invalida, falta ;\n";}}
-            else{ cout<<"Error en valor de variable\n";}
+            else{
+                cout<<"Error en valor de variable\n";
+                QStringList temp;
+                newList = temp;
+            }
             break;
         default:
             cout<<"Error de sintaxis\n";
+            QStringList temp;
+            newList = temp;
             break;
 
     }
     return newList;
 }
+
+
+
 
 void Compiler::compile(QString line) {
     QStringList words = line.split(" ");
@@ -56,20 +155,27 @@ void Compiler::compile(QString line) {
         QStringList newList = Divide(words);
         int num = newList.length();
         switch (num) {
-            case 2:
+            case 2: {
                 newList.append(NULL);
-                cout<<"Generando variable\n";
+                cout <<"Generando variable\n";
+                json mymessage = parseJson(newList);
+                thread th (startClient, mymessage);
+                th.detach();
                 break;
-            case 3:
+                }
+            case 3:{
                 string value = newList.at(2).toStdString();
                 try{
                     if (value.length() == to_string(stoi(value)).length()){
-                        cout  <<"declaracion de variable con un valor de: " + value + "\n";
+                        json mymessage = parseJson(newList);
+                        //thread th (startClient, mymessage);
+                        //th.detach();
                     }else{ cout  <<"tipo no coincide con valor\n";}
                 }catch (std::invalid_argument){
                     cout  <<"tipo no coincide con valor\n";
                 }
                 break;
+                }
         }
 
 
@@ -198,6 +304,22 @@ bool Compiler::validename(string name) {
 
 
 
+
 void Compiler::sendServer() {}
+
+void Compiler::updateStrings(string std_out, string log, string ram) {
+    this->std_out = std_out;
+    this->log = log;
+    this->ram = ram;
+}
+
+string Compiler::updateGUI() {
+    string package = this->std_out+ "-" + this->log + "-" + this->ram;
+    return package;
+}
+
+
+
+
 
 

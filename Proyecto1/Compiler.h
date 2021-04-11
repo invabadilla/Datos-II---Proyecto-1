@@ -9,9 +9,16 @@
 #include <string>
 #include <QString>
 #include <QStringList>
+using namespace std;
 
 class Compiler {
 public:
+    static std::string std_out;
+    static std::string log;
+    static std::string ram;
+
+    void updateStrings(string std_out, string log, string ram);
+    string updateGUI();
     void compile(QString line);
     void sendServer();
 
