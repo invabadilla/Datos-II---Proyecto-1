@@ -231,8 +231,11 @@ CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.o: /usr/include/
 CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h
 CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
 
+CMakeFiles/Proyecto1.dir/main.cpp.o: ../Compiler.h
 CMakeFiles/Proyecto1.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Proyecto1.dir/main.cpp.o: ../mainwindow.h
+CMakeFiles/Proyecto1.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QString
+CMakeFiles/Proyecto1.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList
 CMakeFiles/Proyecto1.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
 CMakeFiles/Proyecto1.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h
 CMakeFiles/Proyecto1.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h

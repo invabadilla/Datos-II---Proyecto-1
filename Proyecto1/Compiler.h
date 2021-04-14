@@ -13,12 +13,13 @@ using namespace std;
 
 class Compiler {
 public:
-    static std::string std_out;
-    static std::string log;
-    static std::string ram;
+    inline static std::string std_out;
+    inline static std::string log;
+    inline static std::string ram;
+    inline static int port;
 
-    void updateStrings(string std_out, string log, string ram);
-    string updateGUI();
+    static void updateStrings(string std_out, string log, string ram);
+    static string updateGUI();
     void compile(QString line);
     void sendServer();
 

@@ -6,26 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMemoryPool.cpp
-CMemoryPool.h
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMemoryPool.h
-SMemoryChunk.h
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/SMemoryChunk.h
-stdlib.h
--
-stdio.h
--
-math.h
--
-assert.h
--
-iostream
--
-fstream
--
-cstring
--
-
 /home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMemoryPool.h
 string
 -

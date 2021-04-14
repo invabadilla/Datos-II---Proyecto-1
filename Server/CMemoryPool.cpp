@@ -60,11 +60,15 @@ GetMemory
             ptrChunk = FindChunkSuitableToHoldMemory(sBestMemBlockSize) ;
             if(!ptrChunk)
             {
+                std::cout << "toy chikito";
+                //INSERTAR LOG
+                break;
+
                 // No chunk can be found
                 // => Memory-Pool is to small. We have to request
                 //    more Memory from the Operating-System....
-                sBestMemBlockSize = MaxValue(sBestMemBlockSize, CalculateBestMemoryBlockSize(m_sMinimalMemorySizeToAllocate)) ;
-                AllocateMemory(sBestMemBlockSize) ;
+                //sBestMemBlockSize = MaxValue(sBestMemBlockSize, CalculateBestMemoryBlockSize(m_sMinimalMemorySizeToAllocate)) ;
+                //AllocateMemory(sBestMemBlockSize) ;
             }
         }
 
@@ -77,6 +81,8 @@ GetMemory
         SetMemoryChunkValues(ptrChunk, sBestMemBlockSize) ;
 
         // eventually, return the Pointer to the User
+        std::cout << (void *) ptrChunk->Data<< std::endl;
+
         return ((void *) ptrChunk->Data) ;
     }
 
@@ -142,6 +148,7 @@ AllocateMemory
         TByte *ptrNewMemBlock = (TByte *) malloc(sBestMemBlockSize) ; // allocate from Operating System
         SMemoryChunk *ptrNewChunks = (SMemoryChunk *) malloc((uiNeededChunks * sizeof(SMemoryChunk))) ; // allocate Chunk-Array to Manage the Memory
         assert(((ptrNewMemBlock) && (ptrNewChunks)) && "Error : System ran out of Memory") ;
+
 
         // Adjust internal Values (Total/Free Memory, etc.)
         m_sTotalMemoryPoolSize += sBestMemBlockSize ;
@@ -233,6 +240,7 @@ FindChunkSuitableToHoldMemory
                         m_ptrCursorChunk = ptrChunk ;
                         return ptrChunk ;
                     }
+
                 }
                 uiChunksToSkip = CalculateNeededChunks(ptrChunk->UsedSize) ;
                 if(uiChunksToSkip == 0) uiChunksToSkip = 1 ;

@@ -1,6 +1,7 @@
 //
 // Created by usuario on 3/29/21.
 //
+
 #include <iomanip>
 #include "Compiler.h"
 #include <string>
@@ -19,6 +20,7 @@
 #include <string.h>
 #include <string>
 #include <sstream>
+#include <utility>
 #include "json.hpp"
 #include <iomanip>
 
@@ -33,7 +35,7 @@ int startClient(json message) {
     }
 
     //	Create a hint structure for the server we're connecting with
-    int port = 54000;
+    int port = Compiler::port;
     string ipAddress = "127.0.0.1";
 
     sockaddr_in hint;
@@ -83,6 +85,7 @@ json parseJson (QStringList message){
                     {"type", message.at(0).toStdString()},
                     {"name",message.at(1).toStdString()},
                     {"value",message.at(2).toStdString()},
+                    {"key",message.at(3).toStdString()},
             };
 
     // Access the values
@@ -157,19 +160,20 @@ void Compiler::compile(QString line) {
         switch (num) {
             case 2: {
                 newList.append(NULL);
+                newList.append("define");
                 cout <<"Generando variable\n";
                 json mymessage = parseJson(newList);
-                thread th (startClient, mymessage);
-                th.detach();
+                startClient(mymessage);
                 break;
                 }
             case 3:{
                 string value = newList.at(2).toStdString();
                 try{
                     if (value.length() == to_string(stoi(value)).length()){
+                        newList.append("define");
                         json mymessage = parseJson(newList);
-                        //thread th (startClient, mymessage);
-                        //th.detach();
+                        startClient (mymessage);
+                        break;
                     }else{ cout  <<"tipo no coincide con valor\n";}
                 }catch (std::invalid_argument){
                     cout  <<"tipo no coincide con valor\n";
@@ -307,14 +311,14 @@ bool Compiler::validename(string name) {
 
 void Compiler::sendServer() {}
 
-void Compiler::updateStrings(string std_out, string log, string ram) {
-    this->std_out = std_out;
-    this->log = log;
-    this->ram = ram;
+void Compiler::updateStrings(string stdout_, string log_, string ram_) {
+    Compiler::std_out = std::move(stdout_);
+    Compiler::log = log_;
+    Compiler::ram = ram_;
 }
 
 string Compiler::updateGUI() {
-    string package = this->std_out+ "-" + this->log + "-" + this->ram;
+    string package = Compiler::std_out+ "-" + Compiler::log + "-" + Compiler::ram;
     return package;
 }
 

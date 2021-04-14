@@ -11,18 +11,13 @@
 #include <string.h>
 #include <string>
 #include "CMemoryPool.h"
+#include "json.hpp"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include <assert.h>
 
-#include <iostream>
-#include <fstream>
-
+using json = nlohmann::json;
 using namespace std;
 
-int startServer(int port) {
+int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
     // Create a socket
     int listening = socket(AF_INET, SOCK_STREAM, 0);
     if (listening == -1)
@@ -87,11 +82,23 @@ int startServer(int port) {
         cout << "Client disconnected " << endl;
         break;
     }
+    string messageR = string(buf, 0, bytesReceived);
+    cout << messageR << endl;
+    json jmessageR = json::parse(messageR);
+    string key = jmessageR.value("key", "oops");
+    if (key == "define"){
+        string type = jmessageR.value("key", "oops");
+        if (type == "int"){
+            int *ptrint = (int *) ptr_mpool->GetMemory(sizeof(int));
+            string value = jmessageR.value("value", "oops");
+            *ptrint = stoi(value);
 
-    cout << string(buf, 0, bytesReceived) << endl;
 
+            send(clientSocket, buf, bytesReceived + 1, 0);
+        }
+    }
     // Echo message back to client
-    send(clientSocket, buf, bytesReceived + 1, 0);
+    //send(clientSocket, buf, bytesReceived + 1, 0);
 
     close(clientSocket);
     }
@@ -101,222 +108,17 @@ int startServer(int port) {
     return 0;
 }
 
-/**int main()
-{
-    std::thread ser (startServer, 54000);
-    ser.join();
+int main(){
+    cout<< "Ingrese el size del server en bits: ";
+    string size;//En esta variable estará almacenado el nombre ingresado.
+    cin >> size; //Se lee el nombre
+    cout<< "Ingrese el puerto de escucha del server: ";
+    string port;//En esta variable estará almacenado el nombre ingresado.
+    cin >> port; //Se lee el nombre
+    MemPool::CMemoryPool *g_ptrMemPool = new MemPool::CMemoryPool(stoi(size), 1, 1, true);
+    std::thread ser (startServer, stoi(port), g_ptrMemPool);
+    ser.detach();
     return 0;
-}**/
-
-MemPool::CMemoryPool *g_ptrMemPool = NULL  ; //!< Global MemoryPool (Testing purpose)
-unsigned int TestCount             = 50000 ; //!< Nr of (de-)allocations (Testing purpose)
-unsigned int ArraySize             = 1000  ; //!< Size of the "Testing"-Array
-
-/*! \class MyTestClass_OPOverload
- *  \brief Test Class (Operator new/delete overloaded)
- *
- * The only purpose of this class is the testing of the Memory-Pool.
- */
-class MyTestClass_OPOverload
-{
-public :
-    MyTestClass_OPOverload()
-    {
-        m_cMyArray[0] = 'H' ;
-        m_cMyArray[1] = 'e' ;
-        m_cMyArray[2] = 'l' ;
-        m_cMyArray[3] = 'l' ;
-        m_cMyArray[4] = 'o' ;
-        m_cMyArray[5] = NULL ;
-        m_strMyString = "This is a small Test-String" ;
-        m_iMyInt = 12345 ;
-
-        m_fFloatValue = 23456.7890f ;
-        m_fDoubleValue = 6789.012345 ;
-
-        Next = this ;
-    }
-
-    virtual ~MyTestClass_OPOverload() {} ;
-
-    void *operator new(std::size_t ObjectSize)
-    {
-        return g_ptrMemPool->GetMemory(ObjectSize) ;
-    }
-
-    void operator delete(void *ptrObject, std::size_t ObjectSize)
-    {
-        g_ptrMemPool->FreeMemory(ptrObject, ObjectSize) ;
-    }
-private :
-    // Test-Data
-    char m_cMyArray[25] ;
-    unsigned char m_BigArray[10000] ;
-    std::string m_strMyString ;
-    int m_iMyInt ;
-    MyTestClass_OPOverload *Next ;
-    float m_fFloatValue ;
-    double m_fDoubleValue ;
-} ;
-
-/*! \class MyTestClass
- *  \brief Test Class ("Original" new/delete operator)
- *
- * The only purpose of this class is the testing of the Memory-Pool.
- */
-class MyTestClass
-{
-public :
-    MyTestClass()
-    {
-        m_cMyArray[0] = 'H' ;
-        m_cMyArray[1] = 'e' ;
-        m_cMyArray[2] = 'l' ;
-        m_cMyArray[3] = 'l' ;
-        m_cMyArray[4] = 'o' ;
-        m_cMyArray[5] = NULL ;
-        m_strMyString = "This is a small Test-String" ;
-        m_iMyInt = 12345 ;
-
-        m_fFloatValue = 23456.7890f ;
-        m_fDoubleValue = 6789.012345 ;
-
-        Next = this ;
-    }
-
-    virtual ~MyTestClass() {} ;
-private :
-    // Test-Data
-    char m_cMyArray[25] ;
-    unsigned char m_BigArray[10000] ;
-    std::string m_strMyString ;
-    int m_iMyInt ;
-    MyTestClass *Next ;
-    float m_fFloatValue ;
-    double m_fDoubleValue ;
-} ;
-
-/******************
-CreateGlobalMemPool
-******************/
-void CreateGlobalMemPool()
-{
-    std::cerr << "Creating MemoryPool...." ;
-    g_ptrMemPool = new MemPool::CMemoryPool(100000, 10000, 2, true) ;
-    std::cerr << "OK" << std::endl ;
 }
 
-/******************
-DestroyGlobalMemPool
-******************/
-void DestroyGlobalMemPool()
-{
-    std::cerr << "Deleting MemPool...." ;
-    if(g_ptrMemPool) delete g_ptrMemPool ;
-    std::cerr << "OK" << std::endl ;
-}
-
-/******************
-TestAllocationSpeedClassMemPool
-******************/
-void TestAllocationSpeedClassMemPool()
-{
-    std::cerr << "Allocating Memory (Object Size : " << sizeof(MyTestClass_OPOverload) << ")..." ;
-
-
-    for(unsigned int j = 0; j < TestCount; j++)
-    {
-        MyTestClass_OPOverload *ptrTestClass = new MyTestClass_OPOverload ;
-        delete ptrTestClass ;
-    }
-
-    std::cerr << "OK" << std::endl ;
-
-}
-
-/******************
-TestAllocationSpeedClassHeap
-******************/
-void TestAllocationSpeedClassHeap()
-{
-    std::cerr << "Allocating Memory (Object Size : " << sizeof(MyTestClass) << ")..." ;
-
-    for(unsigned int j = 0; j < TestCount; j++)
-    {
-        MyTestClass *ptrTestClass = new MyTestClass ;
-        delete ptrTestClass ;
-    }
-
-    std::cerr << "OK" << std::endl ;
-
-
-}
-
-/******************
-TestAllocationSpeedArrayMemPool
-******************/
-void TestAllocationSpeedArrayMemPool()
-{
-    std::cerr << "Allocating Memory (Object Size : " << ArraySize << ")..." ;
-    for(unsigned int j = 0; j < TestCount; j++)
-    {
-        char *ptrArray = (char *) g_ptrMemPool->GetMemory(ArraySize)  ;
-        g_ptrMemPool->FreeMemory(ptrArray, ArraySize) ;
-    }
-
-    std::cerr << "OK" << std::endl ;
-
-}
-
-/******************
-TestAllocationSpeedArrayHeap
-******************/
-void TestAllocationSpeedArrayHeap()
-{
-    std::cerr << "Allocating Memory (Object Size : " << ArraySize << ")..." ;
-
-    for(unsigned int j = 0; j < TestCount; j++)
-    {
-        char *ptrArray = (char *) malloc(ArraySize)  ;
-        free(ptrArray) ;
-    }
-
-    std::cerr << "OK" << std::endl ;
-
-}
-
-
-
-/******************
-WriteMemoryDumpToFile
-******************/
-void WriteMemoryDumpToFile()
-{
-    std::cerr << "Writing MemoryDump to File..." ;
-    g_ptrMemPool->WriteMemoryDumpToFile("MemoryDump.bin") ;
-    std::cerr << "OK" << std::endl ;
-}
-
-/******************
-main
-******************/
-int main(int argc, char *argv[])
-{
-    /**std::cout << "MemoryPool Program started..." << std::endl ;
-    CreateGlobalMemPool() ;
-
-    TestAllocationSpeedArrayMemPool() ;
-    TestAllocationSpeedArrayHeap() ;
-
-    TestAllocationSpeedClassMemPool() ;
-    TestAllocationSpeedClassHeap() ;
-
-**/
-    CreateGlobalMemPool() ;
-    MyTestClass *ptrTestClass = new MyTestClass ;
-    g_ptrMemPool->WriteMemoryDumpToFile("MemoryDump.bin");
-    std::cout << "MemoryPool Program finished..." << std::endl ;
-    system("PAUSE") ;
-    return 0 ;
-}
 
