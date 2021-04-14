@@ -4,4 +4,4 @@ project(Server)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS "-pthread")
 
-add_executable(Server main.cpp CMemoryPool.cpp CMemoryPool.h IMemoryBlock.h SMemoryChunk.h)
+add_executable(Server main.cpp CMemoryPool.cpp CMemoryPool.h IMemoryBlock.h SMemoryChunk.h Variable.cpp Variable.h)
