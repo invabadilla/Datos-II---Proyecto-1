@@ -34,6 +34,8 @@ namespace MemPool
         bool FindChunkHoldingSameName(std::string name, CMemoryPool *ptr_mpoolfirst);
         SMemoryChunk *getMPtrFirstChunk() const;
 
+        void setMPtrFirstChunk(SMemoryChunk *mPtrFirstChunk);
+
     private:
         bool AllocateMemory(const size_t &sMemorySize);
         void FreeAllAllocatedMemory();

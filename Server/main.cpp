@@ -22,6 +22,8 @@ using namespace std;
 int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
     // Create a socket
 
+    cout << "Name: " << ptr_mpool->getMPtrFirstChunk() << endl;
+
     int listening = socket(AF_INET, SOCK_STREAM, 0);
     if (listening == -1)
     {
@@ -90,26 +92,30 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
     json jmessageR = json::parse(messageR);
     string key = jmessageR.value("key", "oops");
     if (key == "define"){
-
+        cout << "line 95" << endl;
         string name = jmessageR.value("name", "oops");
-        MemPool::SMemoryChunk can = *ptr_mpool->FindChunkHoldingNameTo(name);
-        if (can.name == "0"){
+
+        //g_ptrMemPool->setMPtrFirstChunk(ptrChunk);
+
+        MemPool::SMemoryChunk *can = ptr_mpool->FindChunkHoldingNameTo(name);
+
+        if (can->name == "0"){
             string type = jmessageR.value("type", "oops");
             if (type == "int"){
                 string operation = jmessageR.value("operation", "oops");
                 if (operation == "true"){
                     int *ptrvar = (int *) ptr_mpool->GetMemory(sizeof(int));  //CREACION DE VARIABLE CON EL POOL CREADO
                     string value = jmessageR.value("value", "oops");
-                    MemPool::SMemoryChunk ptrChunk = *ptr_mpool->FindChunkHoldingPointerTo(ptrvar);
-                    ptrChunk.name = name;
-                    ptrChunk.type = type;
-                    ptrChunk.counter = 1;
+                    MemPool::SMemoryChunk *ptrChunk = ptr_mpool->FindChunkHoldingPointerTo(ptrvar);
+                    ptrChunk->name = name;
+                    ptrChunk->type = type;
+                    ptrChunk->counter = 1;
                     double newvalue = split_getline(value, ptr_mpool);
                     cout << "1" << newvalue << endl;
                     int newvaluei = newvalue;
                     cout << "2" << newvaluei << endl;
-                    *ptrChunk.Data = newvaluei;
-                    cout << "3" << *ptrChunk.Data << endl;
+                    *ptrChunk->Data = newvaluei;
+                    cout << "3" << *ptrChunk->Data << endl;
 
 
                 }
@@ -117,15 +123,20 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     cout << "Hola" << endl;
                     int *ptrvar = (int *) ptr_mpool->GetMemory(sizeof(int));  //CREACION DE VARIABLE CON EL POOL CREADO
                     string value = jmessageR.value("value", "oops");
-                    MemPool::SMemoryChunk ptrChunk = *ptr_mpool->FindChunkHoldingPointerTo(ptrvar);
-                    ptrChunk.name = name;
-                    ptrChunk.type = type;
-                    ptrChunk.counter = 1;
-                    *ptrChunk.Data = stoi(value);
+                    MemPool::SMemoryChunk *ptrChunk = ptr_mpool->FindChunkHoldingPointerTo(ptrvar);
+                    //cout<< "Else: " << ptrChunk << "\n";
+                    ptrChunk->name = name;
+                    ptrChunk->type = type;
+                    ptrChunk->counter = 1;
+                    *ptrChunk->Data = stoi(value);
+
 
                 }
                 send(clientSocket, buf, bytesReceived + 1, 0);
             }
+        }
+        else{
+            cout<<"la madre \n";
         }
 
     }
@@ -150,7 +161,7 @@ int main(){
     string port;//En esta variable estará almacenado el nombre ingresado.
     cin >> port; //Se lee el nombre
     int portint = stoi(port);
-    int sizeint = stoi(size);
+    int sizeint = stoi(size) + 1;
     //MALLOC DEL POOL PARA ASIGNACION DE MEMORIA
     MemPool::CMemoryPool *g_ptrMemPool = new MemPool::CMemoryPool(stoi(size), 1, 1, true);
     startServer(stoi(port), g_ptrMemPool);

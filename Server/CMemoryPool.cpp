@@ -81,7 +81,7 @@ GetMemory
         SetMemoryChunkValues(ptrChunk, sBestMemBlockSize) ;
 
         // eventually, return the Pointer to the User
-        std::cout << (void *) ptrChunk->Data<< std::endl;
+        std::cout << ptrChunk << std::endl;
 
         return ((void *) ptrChunk->Data) ;
     }
@@ -330,6 +330,7 @@ LinkChunksToData
                 m_ptrFirstChunk = SetChunkDefaults(&(ptrNewChunks[0])) ;
                 m_ptrLastChunk = m_ptrFirstChunk ;
                 m_ptrCursorChunk = m_ptrFirstChunk ;
+
             }
             else
             {
@@ -402,6 +403,7 @@ FindChunkHoldingPointerTo
     SMemoryChunk *CMemoryPool::FindChunkHoldingPointerTo(void *ptrMemoryBlock)
     {
         SMemoryChunk *ptrTempChunk = m_ptrFirstChunk ;
+        std::cout<< "PointerTo: " << m_ptrFirstChunk << "\n";
         while(ptrTempChunk)
         {
             if(ptrTempChunk->Data == ((TByte *) ptrMemoryBlock))
@@ -420,7 +422,8 @@ FindChunkHoldingNameTo
 
     SMemoryChunk *CMemoryPool::FindChunkHoldingNameTo(std::string name)
     {
-        SMemoryChunk *ptrTempChunk = m_ptrFirstChunk ;
+
+        SMemoryChunk *ptrTempChunk = CMemoryPool::m_ptrFirstChunk ;
         bool flag = true;
         while(ptrTempChunk)
         {
@@ -432,9 +435,10 @@ FindChunkHoldingNameTo
             ptrTempChunk = ptrTempChunk->Next ;
         }
         if (flag) {
-            auto *ptrnulls = (SMemoryChunk *) malloc(1);
-            SMemoryChunk *ptrnull = CMemoryPool::SetChunkDefaults(ptrnulls) ;
-            return ptrnull;
+            //auto *ptrnulls = (SMemoryChunk *) malloc(1);
+            //SMemoryChunk *ptrnull = CMemoryPool::SetChunkDefaults(ptrnulls) ;
+            std::cout<< "First-Find: " << CMemoryPool::m_ptrFirstChunk;
+            return CMemoryPool::m_ptrFirstChunk;
         }
         return ptrTempChunk ;
     }
@@ -535,4 +539,10 @@ MaxValue
         return false;
     }
 
+    void CMemoryPool::setMPtrFirstChunk(SMemoryChunk *mPtrFirstChunk) {
+        m_ptrFirstChunk = mPtrFirstChunk;
+    }
+
 }
+
+
