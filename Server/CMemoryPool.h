@@ -28,7 +28,9 @@ namespace MemPool
 
         bool IsValidPointer(void *ptrPointer);
 
+        std::string *FindChunkHoldingNameToa(std::string name);
         SMemoryChunk *FindChunkHoldingNameTo(std::string name);
+
         SMemoryChunk *FindChunkHoldingPointerTo(void *ptrMemoryBlock);
         bool *FindChunkHoldingSameName(std::string name_);
         bool FindChunkHoldingSameName(std::string name, CMemoryPool *ptr_mpoolfirst);

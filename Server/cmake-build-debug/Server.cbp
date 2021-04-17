@@ -103,7 +103,14 @@
 		<Unit filename="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.h">
 			<Option target="Server"/>
 		</Unit>
+<<<<<<< Updated upstream
 		<Unit filename="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/main.cpp">
+=======
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/json.hpp">
+			<Option target="Server"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/main.cpp">
+>>>>>>> Stashed changes
 			<Option target="Server"/>
 		</Unit>
 		<Unit filename="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMakeLists.txt">

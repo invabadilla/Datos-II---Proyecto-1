@@ -420,7 +420,7 @@ FindChunkHoldingPointerTo
 FindChunkHoldingNameTo
 ******************/
 
-    SMemoryChunk *CMemoryPool::FindChunkHoldingNameTo(std::string name)
+    std::string *CMemoryPool::FindChunkHoldingNameToa(std::string name)
     {
 
         SMemoryChunk *ptrTempChunk = CMemoryPool::m_ptrFirstChunk ;
@@ -429,7 +429,7 @@ FindChunkHoldingNameTo
         {
             if(ptrTempChunk->name == name)
             {
-                flag = false;
+                flag = (std::string *) "false";
                 break ;
             }
             ptrTempChunk = ptrTempChunk->Next ;
@@ -447,7 +447,7 @@ FindChunkHoldingNameTo
 FindChunkHoldingNameTo
 ******************/
 
-    bool *CMemoryPool::FindChunkHoldingSameName(std::string name_)
+    bool CMemoryPool::FindChunkHoldingSameName(std::string name_)
     {
         SMemoryChunk *ptrTempChunk = m_ptrFirstChunk;
         std::cout << m_ptrFirstChunk << std::endl;
@@ -462,7 +462,7 @@ FindChunkHoldingNameTo
             ptrTempChunk = ptrTempChunk->Next ;
         }
         std::cout << can << std::endl;
-        return &can;
+        return can;
     }
 
 /******************
