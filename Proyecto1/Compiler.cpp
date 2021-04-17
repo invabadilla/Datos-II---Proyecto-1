@@ -78,7 +78,7 @@ close(sock);
 return 0;
 }
 
-json parseJson (QStringList message){
+json parseJson (QStringList message, string operation){
     // jdEmployees
     json mymessage =
             {
@@ -86,6 +86,7 @@ json parseJson (QStringList message){
                     {"name",message.at(1).toStdString()},
                     {"value",message.at(2).toStdString()},
                     {"key",message.at(3).toStdString()},
+                    {"operation", operation},
             };
 
     // Access the values
@@ -162,23 +163,32 @@ void Compiler::compile(QString line) {
                 newList.append(NULL);
                 newList.append("define");
                 cout <<"Generando variable\n";
-                json mymessage = parseJson(newList);
+                json mymessage = parseJson(newList, "false");
                 startClient(mymessage);
                 break;
                 }
             case 3:{
                 string value = newList.at(2).toStdString();
-                try{
-                    if (value.length() == to_string(stoi(value)).length()){
+                    QRegExp separator("[(+-/*)]");
+                    if(newList.at(2).split(separator).length() != 1){
                         newList.append("define");
-                        json mymessage = parseJson(newList);
+                        json mymessage = parseJson(newList, "true");
                         startClient (mymessage);
                         break;
-                    }else{ cout  <<"tipo no coincide con valor\n";}
-                }catch (std::invalid_argument){
-                    cout  <<"tipo no coincide con valor\n";
-                }
-                break;
+                    }
+                    else{
+                        try{
+                            if (value.length() == to_string(stoi(value)).length()){
+                                newList.append("define");
+                                json mymessage = parseJson(newList, "false");
+                                startClient (mymessage);
+                                break;
+                            }else{ cout  <<"tipo no coincide con valor\n";}
+                        }catch (std::invalid_argument){
+                            cout  <<"tipo no coincide con valor\n";
+                        }
+                        break;
+                    }
                 }
         }
 
@@ -254,6 +264,7 @@ void Compiler::compile(QString line) {
             cout  <<"nombre incorrecto\n";
         }
     }
+
     else if("double" == words.at(0).toStdString()){
         cout <<"soy un double\n";
         if (validename(words.at(1).toStdString())){

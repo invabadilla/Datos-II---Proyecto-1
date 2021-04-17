@@ -8,14 +8,18 @@
 #include <string>
 
 using namespace std;
+template <class T>
+
 class Variable {
 public:
-    Variable(string type_, string name_, int *ptr_, int counter_);
+    Variable(string type_, string name_, T *ptr_, int counter_);
     string type;
     string name;
-    int *ptr;
+    T *ptr;
     int counter;
 };
+
+
 
 
 #endif //SERVER_VARIABLE_H

@@ -28,6 +28,12 @@ namespace MemPool
 
         bool IsValidPointer(void *ptrPointer);
 
+        SMemoryChunk *FindChunkHoldingNameTo(std::string name);
+        SMemoryChunk *FindChunkHoldingPointerTo(void *ptrMemoryBlock);
+        bool *FindChunkHoldingSameName(std::string name_);
+        bool FindChunkHoldingSameName(std::string name, CMemoryPool *ptr_mpoolfirst);
+        SMemoryChunk *getMPtrFirstChunk() const;
+
     private:
         bool AllocateMemory(const size_t &sMemorySize);
         void FreeAllAllocatedMemory();
@@ -36,7 +42,7 @@ namespace MemPool
         size_t CalculateBestMemoryBlockSize(const size_t &sRequestMemoryBlockSize);
 
         SMemoryChunk *FindChunkSuitableToHoldMemory(const size_t &sMemorySize);
-        SMemoryChunk *FindChunkHoldingPointerTo(void *ptrMemoryBlock);
+
 
         SMemoryChunk *SkipChunks(SMemoryChunk *ptrStartChunk, unsigned int uiChunksToSkip);
         SMemoryChunk *SetChunkDefaults(SMemoryChunk *ptrChunk);
@@ -64,6 +70,8 @@ namespace MemPool
 
         bool m_bSetMemoryData;
         size_t m_sMinimalMemorySizeToAllocate;
+
+
 
     };
 

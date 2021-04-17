@@ -384,6 +384,9 @@ SetChunkDefaults
     {
         if(ptrChunk)
         {
+            ptrChunk->counter = 0;
+            ptrChunk->name = "0";
+            ptrChunk->type = "0";
             ptrChunk->Data = NULL ;
             ptrChunk->DataSize = 0 ;
             ptrChunk->UsedSize = 0 ;
@@ -405,9 +408,57 @@ FindChunkHoldingPointerTo
             {
                 break ;
             }
+
             ptrTempChunk = ptrTempChunk->Next ;
         }
         return ptrTempChunk ;
+    }
+
+/******************
+FindChunkHoldingNameTo
+******************/
+
+    SMemoryChunk *CMemoryPool::FindChunkHoldingNameTo(std::string name)
+    {
+        SMemoryChunk *ptrTempChunk = m_ptrFirstChunk ;
+        bool flag = true;
+        while(ptrTempChunk)
+        {
+            if(ptrTempChunk->name == name)
+            {
+                flag = false;
+                break ;
+            }
+            ptrTempChunk = ptrTempChunk->Next ;
+        }
+        if (flag) {
+            auto *ptrnulls = (SMemoryChunk *) malloc(1);
+            SMemoryChunk *ptrnull = CMemoryPool::SetChunkDefaults(ptrnulls) ;
+            return ptrnull;
+        }
+        return ptrTempChunk ;
+    }
+
+/******************
+FindChunkHoldingNameTo
+******************/
+
+    bool *CMemoryPool::FindChunkHoldingSameName(std::string name_)
+    {
+        SMemoryChunk *ptrTempChunk = m_ptrFirstChunk;
+        std::cout << m_ptrFirstChunk << std::endl;
+        bool can = true;
+        while(ptrTempChunk)
+        {
+            if(ptrTempChunk->name == name_)
+            {
+                can = false;
+                break ;
+            }
+            ptrTempChunk = ptrTempChunk->Next ;
+        }
+        std::cout << can << std::endl;
+        return &can;
     }
 
 /******************
@@ -474,6 +525,14 @@ MaxValue
             return sValueA ;
         }
         return sValueB ;
+    }
+
+    SMemoryChunk *CMemoryPool::getMPtrFirstChunk() const {
+        return m_ptrFirstChunk;
+    }
+
+    bool CMemoryPool::FindChunkHoldingSameName(std::string name, CMemoryPool *ptr_mpoolfirst) {
+        return false;
     }
 
 }

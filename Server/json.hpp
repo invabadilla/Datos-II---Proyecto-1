@@ -19564,7 +19564,8 @@ class basic_json
     */
     template<typename PointerType, typename std::enable_if<
                  std::is_pointer<PointerType>::value, int>::type = 0>
-    auto get_ptr() noexcept -> decltype(std::declval<basic_json_t&>().get_impl_ptr(std::declval<PointerType>()))
+    auto get_ptr() noexcept -> decltype(std::declval<basic_json_t&>().get_impl_ptr(
+            static_cast<binary_t *>(std::declval<PointerType>())))
     {
         // delegate the call to get_impl_ptr<>()
         return get_impl_ptr(static_cast<PointerType>(nullptr));

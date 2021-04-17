@@ -14,13 +14,10 @@
 #include "json.hpp"
 #include "Variable.h"
 #include <list>
-
-list<Variable*> globalList;
+#include "Split_getline.h"
 
 using json = nlohmann::json;
 using namespace std;
-
-
 
 int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
     // Create a socket
@@ -36,9 +33,9 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
     sockaddr_in hint;
     hint.sin_family = AF_INET;
     hint.sin_port = htons(port);
+
     inet_pton(AF_INET, "0.0.0.0", &hint.sin_addr);
     bind(listening, (sockaddr*)&hint, sizeof(hint));
-
     // Tell Winsock the socket is for listening
     listen(listening, SOMAXCONN);
     while (true)
@@ -58,7 +55,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
 
     if (getnameinfo((sockaddr*)&client, sizeof(client), host, NI_MAXHOST, service, NI_MAXSERV, 0) == 0)
     {
-        cout << host << " connected on port " << service << endl;
+        cout << host << " Conected " << endl;
     }
     else
     {
@@ -93,34 +90,44 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
     json jmessageR = json::parse(messageR);
     string key = jmessageR.value("key", "oops");
     if (key == "define"){
-        string type = jmessageR.value("key", "oops");
+
         string name = jmessageR.value("name", "oops");
-        if (type == "int"){
-            //list<Variable*>::iterator pos;
-            Variable *pos;
-            bool can = true;
-            for(int i =0; i >= globalList.size(); i++){
-                pos = *globalList.begin();
-                if (pos->name == name){
-                    cout <<"Error en el nombre de la variable, ya existe";
-                    can = false;
-                    break;
+        MemPool::SMemoryChunk can = *ptr_mpool->FindChunkHoldingNameTo(name);
+        if (can.name == "0"){
+            string type = jmessageR.value("type", "oops");
+            if (type == "int"){
+                string operation = jmessageR.value("operation", "oops");
+                if (operation == "true"){
+                    int *ptrvar = (int *) ptr_mpool->GetMemory(sizeof(int));  //CREACION DE VARIABLE CON EL POOL CREADO
+                    string value = jmessageR.value("value", "oops");
+                    MemPool::SMemoryChunk ptrChunk = *ptr_mpool->FindChunkHoldingPointerTo(ptrvar);
+                    ptrChunk.name = name;
+                    ptrChunk.type = type;
+                    ptrChunk.counter = 1;
+                    double newvalue = split_getline(value, ptr_mpool);
+                    cout << "1" << newvalue << endl;
+                    int newvaluei = newvalue;
+                    cout << "2" << newvaluei << endl;
+                    *ptrChunk.Data = newvaluei;
+                    cout << "3" << *ptrChunk.Data << endl;
+
+
                 }
-                pos++;
-            }
-            if (can) {
-                int *ptrint = (int *) ptr_mpool->GetMemory(sizeof(int));  //CREACION DE VARIABLE CON EL POOL CREADO
-                string value = jmessageR.value("value", "oops");
-                *ptrint = stoi(value);
-                string type = jmessageR.value("type", "oops");
+                else{
+                    cout << "Hola" << endl;
+                    int *ptrvar = (int *) ptr_mpool->GetMemory(sizeof(int));  //CREACION DE VARIABLE CON EL POOL CREADO
+                    string value = jmessageR.value("value", "oops");
+                    MemPool::SMemoryChunk ptrChunk = *ptr_mpool->FindChunkHoldingPointerTo(ptrvar);
+                    ptrChunk.name = name;
+                    ptrChunk.type = type;
+                    ptrChunk.counter = 1;
+                    *ptrChunk.Data = stoi(value);
 
-                Variable *myvar = new Variable(type, name, ptrint, 1);
-                globalList.push_back(myvar);
-                cout << *globalList.begin() << "\n";
-
+                }
                 send(clientSocket, buf, bytesReceived + 1, 0);
             }
         }
+
     }
     // Echo message back to client
     //send(clientSocket, buf, bytesReceived + 1, 0);
@@ -133,6 +140,8 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
     return 0;
 }
 
+
+
 int main(){
     cout<< "Ingrese el size del server en bits: ";
     string size;//En esta variable estará almacenado el nombre ingresado.
@@ -140,11 +149,11 @@ int main(){
     cout<< "Ingrese el puerto de escucha del server: ";
     string port;//En esta variable estará almacenado el nombre ingresado.
     cin >> port; //Se lee el nombre
-
+    int portint = stoi(port);
+    int sizeint = stoi(size);
     //MALLOC DEL POOL PARA ASIGNACION DE MEMORIA
     MemPool::CMemoryPool *g_ptrMemPool = new MemPool::CMemoryPool(stoi(size), 1, 1, true);
-    std::thread ser (startServer, stoi(port), g_ptrMemPool);
-    ser.detach();
+    startServer(stoi(port), g_ptrMemPool);
     return 0;
 }
 

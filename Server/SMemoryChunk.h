@@ -10,6 +10,9 @@
 namespace MemPool {
 
     typedef struct SMemoryChunk {
+        std::string type;         //TIpo de la variable almacenada
+        std::string name;         //Nombre de la variable
+        int counter;              //contador de referencias
         TByte *Data;              //El dato actual
         size_t DataSize;          //Tamano del bloque de datos
         size_t UsedSize;          //Tamano usado acutal
