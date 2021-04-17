@@ -25,6 +25,7 @@ public:
 
     bool validename(std::string name);
     bool validNum(std::string num);
+    string valideReference(std::string nom);
 
     QStringList Divide(QStringList initial);
 

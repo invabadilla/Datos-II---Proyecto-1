@@ -116,7 +116,6 @@ QStringList Compiler::Divide(QStringList initial) {
                 cout  <<"nombre correcto\n";
                 string name = newList.at(0).toStdString();
                 if (name[name.length()-1] == ';'){
-                    newList.prepend("int");
                     newList.replaceInStrings(QRegExp(";"),"");
                 }else{cout  <<"declaracion invalida, falta ;\n";}}
             else{ cout<<"Error de nombre de variable, sintaxis incorrecta\n";
@@ -129,7 +128,6 @@ QStringList Compiler::Divide(QStringList initial) {
                 string name = newList.at(1).toStdString();
                 aux = newList.at(1).split(" ", QString::SkipEmptyParts);
                 if (name[name.length()-1] == ';' && aux.length() == 1){
-                    newList.prepend("int");
                     newList.replaceInStrings(QRegExp(";"),"");
                 }else{cout  <<"declaracion invalida, falta ;\n";}}
             else{
@@ -159,7 +157,8 @@ void Compiler::compile(QString line) {
         QStringList newList = Divide(words);
         int num = newList.length();
         switch (num) {
-            case 2: {
+            case 1: {
+                newList.prepend("int");
                 newList.append(NULL);
                 newList.append("define");
                 cout <<"Generando variable\n";
@@ -167,7 +166,8 @@ void Compiler::compile(QString line) {
                 startClient(mymessage);
                 break;
                 }
-            case 3:{
+            case 2:{
+                newList.prepend("int");
                 string value = newList.at(2).toStdString();
                     QRegExp separator("[(+-/*)]");
                     if(newList.at(2).split(separator).length() != 1){
@@ -185,7 +185,10 @@ void Compiler::compile(QString line) {
                                 break;
                             }else{ cout  <<"tipo no coincide con valor\n";}
                         }catch (std::invalid_argument){
-                            cout  <<"tipo no coincide con valor\n";
+                            newList.append("define");
+                            json mymessage = parseJson(newList, "true");
+                            startClient (mymessage);
+                            break;
                         }
                         break;
                     }
@@ -283,25 +286,72 @@ void Compiler::compile(QString line) {
         else{
             cout  <<"nombre incorrecto\n";
         }
-    }
+    }**/
 
     else if("reference" == words.at(0).toStdString()){
-        cout <<"soy un reference\n";
-        if (validename(words.at(1).toStdString())){
-            cout  <<"nombre correcto\n";
+        words.removeFirst();
+        string type = valideReference(words.at(0).toStdString());
+        if (type != "false") {
+            words.removeFirst();
+            QStringList newList = Divide(words);
+            int size = newList.length();
+            cout<<"Size: "<<size<<endl;
+            switch (size) {
+                case 1: {
+                    newList.prepend(QString::fromStdString(type));
+                    newList.append(NULL);
+                    newList.append("defineR");
+                    cout <<"Generando reference\n";
+                    json mymessage = parseJson(newList, "false");
+                    startClient(mymessage);
+                    break;
+                }
+                case 2:{
+                    newList.prepend(QString::fromStdString(type));
+                    string value = newList.at(2).toStdString();
+
+                    if(newList.at(2).split(".").length() == 1){
+                        cout<<"no hay get\n";
+                        newList.append("defineR");
+                        json mymessage = parseJson(newList, "false");
+                        startClient (mymessage);
+                        break;
+                    }
+                    else if(newList.at(2).split(".").at(1).toStdString() == "getAddr()"){
+                        cout<<"si hay get\n";
+                        newList.append("defineR");
+                        //value.erase(value.end()-10, value.end());
+                        json mymessage = parseJson(newList, "true");
+                        startClient (mymessage);
+                        break;
+                    }else{ cout<< "Sintaxis Error\n";}
+                }
+            }
+            cout << "nombre correcto\n";
+
         }
         else{
-            cout  <<"nombre incorrecto\n";
+            cout  <<"Tipo incorrecto\n";
         }
-    }**/
+
+    }
     else{
         cout <<"error\n";
     }
 }
 
+string Compiler::valideReference(std::string name) {
+    if(name == "<int>" || name == "<long>" || name == "<char>" || name == "<float>" || name == "<double>"){
+        name.erase(name.begin());
+        int size = name.size();
+        name.erase(name.begin()+(size-1));
+        return name;
+    } else {return "false";}
+}
 
 
 bool Compiler::validename(string name) {
+    cout << name <<"\n";
     if (name != "int" && name != "long" && name != "char" && name != "float" && name != "double" && name != "struct" &&
         name != "reference") {
         if ((name[0] == '_') || (isalpha(name[0]))) {
