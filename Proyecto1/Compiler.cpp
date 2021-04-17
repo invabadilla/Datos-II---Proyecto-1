@@ -169,7 +169,7 @@ void Compiler::compile(QString line) {
                 }
             case 3:{
                 string value = newList.at(2).toStdString();
-                    QRegExp separator("[(+-/*)]");
+                QRegExp separator("[(+-/*)]");
                     if(newList.at(2).split(separator).length() != 1){
                         newList.append("define");
                         json mymessage = parseJson(newList, "true");
@@ -185,7 +185,10 @@ void Compiler::compile(QString line) {
                                 break;
                             }else{ cout  <<"tipo no coincide con valor\n";}
                         }catch (std::invalid_argument){
-                            cout  <<"tipo no coincide con valor\n";
+                            newList.append("define");
+                            json mymessage = parseJson(newList, "true");
+                            startClient (mymessage);
+                            break;
                         }
                         break;
                     }
