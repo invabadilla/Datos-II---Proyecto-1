@@ -22,9 +22,14 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
 
         if (str[i] == '+') {
             try{
-                total += stod(myword);
-                myword = "";
-                final = '+';
+                if (myword.length() == to_string(stoi(myword)).length()){
+                    total += stod(myword);
+                    myword = "";
+                    final = '+';
+                }
+                else{
+                    stod("a");
+                }
             }catch(std::invalid_argument){
                 if(ptr_mpool->FindChunkHoldingSameName(myword)){
                     cout<< "No hay variable con ese nombre1";
@@ -49,9 +54,14 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
         }
         else if (str[i] == '-'){
             try{
-                total -= stod(myword);
-                myword = "";
-                final = '-';
+                if (myword.length() == to_string(stoi(myword)).length()){
+                    total -= stod(myword);
+                    myword = "";
+                    final = '-';
+                }
+                else{
+                    stod("a");
+                }
             }catch(std::invalid_argument){
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk = ptr_mpool->FindChunkHoldingNameTo(myword);
@@ -74,9 +84,14 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
         }
         else if (str[i] == '*'){
             try{
-                total *= stod(myword);
-                myword = "";
-                final = '*';
+                if (myword.length() == to_string(stoi(myword)).length()){
+                    total *= stod(myword);
+                    myword = "";
+                    final = '*';
+                }
+                else{
+                    stod("a");
+                }
             }catch(std::invalid_argument){
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
@@ -99,9 +114,14 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
         }
         else if (str[i] == '/'){
             try{
-                total /= stod(myword);
-                myword = "";
-                final = '/';
+                if (myword.length() == to_string(stoi(myword)).length()){
+                    total /= stod(myword);
+                    myword = "";
+                    final = '/';
+                }
+                else{
+                    stod("a");
+                }
             }catch(std::invalid_argument){
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
@@ -132,7 +152,12 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
     if (myword != ""){
         if (final == '+') {
             try{
-                total += stod(myword);
+                if (myword.length() == to_string(stoi(myword)).length()){
+                    total += stod(myword);
+                }
+                else{
+                    stod("a");
+                }
             }catch(std::invalid_argument){
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk = ptr_mpool->FindChunkHoldingNameTo(myword);
@@ -153,7 +178,12 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
         }
         else if (final == '-'){
             try{
-                total -= stod(myword);
+                if (myword.length() == to_string(stoi(myword)).length()){
+                    total -= stod(myword);
+                }
+                else{
+                    stod("a");
+                }
             }catch(std::invalid_argument){
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
@@ -174,7 +204,12 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
         }
         else if (final == '*'){
             try{
-                total *= stod(myword);
+                if (myword.length() == to_string(stoi(myword)).length()){
+                    total *= stod(myword);
+                }
+                else{
+                    stod("a");
+                }
             }catch(std::invalid_argument){
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
@@ -195,7 +230,12 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
         }
         else if (final == '/'){
             try{
-                total /= stod(myword);
+                if (myword.length() == to_string(stoi(myword)).length()){
+                    total /= stod(myword);
+                }
+                else{
+                    stod("a");
+                }
             }catch(std::invalid_argument){
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
@@ -214,11 +254,28 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                 }
             }
         }
+        else{
+            if(!ptr_mpool->FindChunkHoldingSameName(myword)){
+                MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
+                if (ptrChunk->type != "char" && ptrChunk->type != "struct"){
+                    total = *ptrChunk->Data;
+                }
+                    //eslseif(reference)
+                else{
+                    cout<< "El tipo de la variable llamada no coincide con el operador usado";
+                    return -1;
+                }
+            }
+            else{
+                cout<< "No hay variable con ese nombre o valor no coincide con tipo de variable";
+                return -1;
+            }
+        }
     }
+
     else{
         cout<< "Exrepresion esperada despues del ultimo operador";
         return -1;
-
     }
     cout<< total << endl;
     return total;

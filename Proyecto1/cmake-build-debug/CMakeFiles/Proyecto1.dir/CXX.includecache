@@ -58,7 +58,11 @@ QString
 QStringList
 -
 
+<<<<<<< HEAD
 /home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/json.hpp
+=======
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/json.hpp
+>>>>>>> main
 algorithm
 -
 cstddef
@@ -382,7 +386,11 @@ utility
 vector
 -
 
+<<<<<<< HEAD
 /home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+=======
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+>>>>>>> main
 QMainWindow
 -
 

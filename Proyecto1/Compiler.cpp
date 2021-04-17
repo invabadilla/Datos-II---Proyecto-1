@@ -169,7 +169,7 @@ void Compiler::compile(QString line) {
             case 2:{
                 newList.prepend("int");
                 string value = newList.at(2).toStdString();
-                    QRegExp separator("[(+-/*)]");
+                QRegExp separator("[(+-/*)]");
                     if(newList.at(2).split(separator).length() != 1){
                         newList.append("define");
                         json mymessage = parseJson(newList, "true");
