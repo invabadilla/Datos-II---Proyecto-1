@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/Compiler.cpp
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/Compiler.cpp
 iomanip
 -
 Compiler.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/Compiler.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/Compiler.h
 string
 -
 iostream
@@ -20,7 +20,7 @@ QString
 QStringList
 -
 mainwindow.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
 QApplication
 -
 iostream
@@ -46,11 +46,11 @@ sstream
 utility
 -
 json.hpp
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/json.hpp
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/json.hpp
 iomanip
 -
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/Compiler.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/Compiler.h
 string
 -
 QString
@@ -58,19 +58,19 @@ QString
 QStringList
 -
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/EWIEGA46WW/moc_mainwindow.cpp
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/EWIEGA46WW/moc_mainwindow.cpp
 ../../../mainwindow.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp
 EWIEGA46WW/moc_mainwindow.cpp
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/EWIEGA46WW/moc_mainwindow.cpp
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/EWIEGA46WW/moc_mainwindow.cpp
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/json.hpp
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/json.hpp
 algorithm
 -
 cstddef
@@ -394,23 +394,23 @@ utility
 vector
 -
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/main.cpp
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/main.cpp
 mainwindow.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
 Compiler.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/Compiler.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/Compiler.h
 QApplication
 -
 iostream
 -
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.cpp
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.cpp
 mainwindow.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
 ./ui_mainwindow.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/ui_mainwindow.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/ui_mainwindow.h
 Compiler.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/Compiler.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/Compiler.h
 string
 -
 iostream
@@ -418,7 +418,7 @@ iostream
 thread
 -
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
 QMainWindow
 -
 

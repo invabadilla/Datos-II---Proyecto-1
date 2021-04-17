@@ -81,8 +81,6 @@ GetMemory
         SetMemoryChunkValues(ptrChunk, sBestMemBlockSize) ;
 
         // eventually, return the Pointer to the User
-        std::cout << ptrChunk << std::endl;
-
         return ((void *) ptrChunk->Data) ;
     }
 
@@ -403,7 +401,6 @@ FindChunkHoldingPointerTo
     SMemoryChunk *CMemoryPool::FindChunkHoldingPointerTo(void *ptrMemoryBlock)
     {
         SMemoryChunk *ptrTempChunk = m_ptrFirstChunk ;
-        std::cout<< "PointerTo: " << m_ptrFirstChunk << "\n";
         while(ptrTempChunk)
         {
             if(ptrTempChunk->Data == ((TByte *) ptrMemoryBlock))
@@ -420,25 +417,16 @@ FindChunkHoldingPointerTo
 FindChunkHoldingNameTo
 ******************/
 
-    std::string *CMemoryPool::FindChunkHoldingNameToa(std::string name)
+    SMemoryChunk *CMemoryPool::FindChunkHoldingNameTo(std::string name)
     {
-
         SMemoryChunk *ptrTempChunk = CMemoryPool::m_ptrFirstChunk ;
-        bool flag = true;
         while(ptrTempChunk)
         {
             if(ptrTempChunk->name == name)
             {
-                flag = (std::string *) "false";
                 break ;
             }
             ptrTempChunk = ptrTempChunk->Next ;
-        }
-        if (flag) {
-            //auto *ptrnulls = (SMemoryChunk *) malloc(1);
-            //SMemoryChunk *ptrnull = CMemoryPool::SetChunkDefaults(ptrnulls) ;
-            std::cout<< "First-Find: " << CMemoryPool::m_ptrFirstChunk;
-            return CMemoryPool::m_ptrFirstChunk;
         }
         return ptrTempChunk ;
     }
@@ -447,10 +435,8 @@ FindChunkHoldingNameTo
 FindChunkHoldingNameTo
 ******************/
 
-    bool CMemoryPool::FindChunkHoldingSameName(std::string name_)
-    {
+    bool CMemoryPool::FindChunkHoldingSameName(std::string name_) {
         SMemoryChunk *ptrTempChunk = m_ptrFirstChunk;
-        std::cout << m_ptrFirstChunk << std::endl;
         bool can = true;
         while(ptrTempChunk)
         {
@@ -461,7 +447,7 @@ FindChunkHoldingNameTo
             }
             ptrTempChunk = ptrTempChunk->Next ;
         }
-        std::cout << can << std::endl;
+
         return can;
     }
 
@@ -531,17 +517,6 @@ MaxValue
         return sValueB ;
     }
 
-    SMemoryChunk *CMemoryPool::getMPtrFirstChunk() const {
-        return m_ptrFirstChunk;
-    }
-
-    bool CMemoryPool::FindChunkHoldingSameName(std::string name, CMemoryPool *ptr_mpoolfirst) {
-        return false;
-    }
-
-    void CMemoryPool::setMPtrFirstChunk(SMemoryChunk *mPtrFirstChunk) {
-        m_ptrFirstChunk = mPtrFirstChunk;
-    }
 
 }
 
