@@ -6,6 +6,7 @@
 
 #IncludeRegexTransform: 
 
+<<<<<<< Updated upstream
 /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/Compiler.cpp
 iomanip
 -
@@ -1905,6 +1906,9 @@ QtGui/qkeysequence.h
 -
 QtGui/qevent.h
 -
+=======
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp
+>>>>>>> Stashed changes
 
 Proyecto1_autogen/include/ui_mainwindow.h
 QtCore/QVariant

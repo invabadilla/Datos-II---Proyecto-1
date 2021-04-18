@@ -206,6 +206,9 @@ Proyecto1_BINARY_DIR:STATIC=/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyec
 //Value Computed by CMake
 Proyecto1_SOURCE_DIR:STATIC=/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1
 
+//The directory containing a CMake configuration file for Qt5Charts.
+Qt5Charts_DIR:PATH=Qt5Charts_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for Qt5Core.
 Qt5Core_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Core
 

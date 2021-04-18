@@ -41,9 +41,11 @@ else()
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-          Compiler.cpp Compiler.h)
+    Compiler.cpp
+    Compiler.h)
 
 endif()
 
 
 target_link_libraries(Proyecto1 PRIVATE Qt5::Widgets)
+

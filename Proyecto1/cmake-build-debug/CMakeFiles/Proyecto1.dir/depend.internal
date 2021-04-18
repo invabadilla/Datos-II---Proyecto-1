@@ -122,6 +122,7 @@ CMakeFiles/Proyecto1.dir/Compiler.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
 CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.o
+<<<<<<< Updated upstream
  /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/EWIEGA46WW/moc_mainwindow.cpp
  /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp
  /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
@@ -231,6 +232,9 @@ CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgets-config.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
+=======
+ /home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp
+>>>>>>> Stashed changes
 CMakeFiles/Proyecto1.dir/main.cpp.o
  /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/Compiler.h
  /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/main.cpp
