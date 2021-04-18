@@ -15,11 +15,55 @@
 #include "Variable.h"
 #include <list>
 #include "Split_getline.h"
+#include <sstream>
 
 using json = nlohmann::json;
 using namespace std;
 
-list<Variable> globalList;
+vector<Variable> globalList;
+string ram_;
+string std_out_;
+string log_;
+json parseJson (){
+    // jdEmployees
+    json mymessage =
+            {
+                    {"std_out_", std_out_},
+                    {"ram_", ram_},
+                    {"log_", log_},
+
+            };
+    return mymessage;
+
+}
+
+void LtoS(){
+    ram_ = "";
+    for (int i=0; i<globalList.size(); i++){
+        Variable variable = globalList.at(i);
+        ostringstream get_the_address;
+        get_the_address << variable.ptr;
+        string address = get_the_address.str();
+        string name = variable.name;
+        string value;
+        string ref;
+        if (variable.ptr->type == "int" && !variable.ptr->isReference){
+            value = to_string(*((int *)variable.ptr->Data));
+            ref = to_string(variable.ptr->counter);
+        }
+        else if (variable.ptr->isReference){
+            ostringstream get_the_address_r;
+            get_the_address_r << variable.ptr->reference;
+            value = get_the_address_r.str();
+            ref = "/";
+        }
+        //otros casos
+
+        ram_ +=" "+address+" / "+name+" / "+value+" / "+ref+" \n";
+
+    }
+
+}
 
 int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
     // Create a socket
@@ -106,13 +150,15 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
                     double newvalue = split_getline(value, ptr_mpool);
-                    cout << "Double: " << newvalue << endl;
                     int newvaluei = newvalue;
-                    cout << "int: " << newvaluei << endl;
                     *ptrvar = newvaluei;
-                    cout << "Desreferencia: " << *ptrChunk->Data << endl;
-                    Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
+                    Variable *variable = new Variable(name, ptrChunk);
                     globalList.push_back(*variable);
+                    LtoS();
+                    json mymessage = parseJson();
+                    string message = mymessage.dump();
+                    send(clientSocket, message.c_str(), message.size() + 1, 0);
+
                 }
                 else{
                     int *ptrvar = (int *) ptr_mpool->GetMemory(sizeof(int));  //CREACION DE VARIABLE CON EL POOL CREADO
@@ -122,13 +168,13 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
                     *ptrvar = stoi(value);
-                    cout << "Desreferencia: " << *ptrChunk->Data << endl;
-                    Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
+                    Variable *variable = new Variable(name, ptrChunk);
                     globalList.push_back(*variable);
-
-
+                    LtoS();
+                    json mymessage = parseJson();
+                    string message = mymessage.dump();
+                    send(clientSocket, message.c_str(), message.size() + 1, 0);
                 }
-                send(clientSocket, buf, bytesReceived + 1, 0);
             }
         }
         else{
@@ -154,10 +200,14 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                         ptrChunk->type = type;
                         ptrChunk->isReference = true;
                         ptrChunk->reference = ptrOrig;
+                        ptrChunk->counter= -1;
                         ptrOrig->counter++;
                         Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
                         globalList.push_back(*variable);
-                        cout<< "Operation: " << ptrChunk->reference->name << endl;
+                        LtoS();
+                        json mymessage = parseJson();
+                        string message = mymessage.dump();
+                        send(clientSocket, message.c_str(), message.size() + 1, 0);
                     }else{ cout<< "LAS VARIABLES NO COINCIDEN EN EL TIPO\n";}
                 } else{
                     cout<< "Variable no existe\n";
@@ -177,10 +227,14 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                         ptrChunk->type = type;
                         ptrChunk->isReference = true;
                         ptrChunk->reference = ptrOrig;
+                        ptrChunk->counter= -1;
                         ptrOrig->counter++;
                         Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
                         globalList.push_back(*variable);
-                        cout<< "Operation: " << ptrChunk->reference->name << endl;
+                        LtoS();
+                        json mymessage = parseJson();
+                        string message = mymessage.dump();
+                        send(clientSocket, message.c_str(), message.size() + 1, 0);
                     }else{ cout<< "LAS VARIABLES NO COINCIDEN EN EL TIPO\n";}}
                 else{
                     cout<< "Variable no existe\n";
@@ -188,6 +242,26 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
             }
 
         }
+    }
+    else if(key == "print"){
+        string value = jmessageR.value("value", "oops");
+        bool can = ptr_mpool->FindChunkHoldingSameName(value);
+        if (!can) {
+            MemPool::SMemoryChunk *ptrRef = ptr_mpool->FindChunkHoldingNameTo(value);
+            string type = ptrRef->type;
+            if (type != "int" && !ptrRef->isReference){
+                int valueprint = *((int *) ptrRef->Data);
+                std_out_ += to_string(valueprint) + "\n";
+                json mymessage = parseJson();
+                string message = mymessage.dump();
+                cout << mymessage<< endl;
+                send(clientSocket, message.c_str(), message.size() + 1, 0);
+            }
+        }
+        else{
+            cout<< "Variable no existe\n";
+        }
+
     }
     // Echo message back to client
     //send(clientSocket, buf, bytesReceived + 1, 0);
