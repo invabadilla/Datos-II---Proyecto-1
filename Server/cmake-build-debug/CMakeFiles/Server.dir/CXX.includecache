@@ -6,35 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.cpp
-CMemoryPool.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.h
-SMemoryChunk.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/SMemoryChunk.h
-stdlib.h
--
-stdio.h
--
-math.h
--
-assert.h
--
-iostream
--
-fstream
--
-cstring
--
-
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMemoryPool.h
 string
 -
 IMemoryBlock.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/IMemoryBlock.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/IMemoryBlock.h
 SMemoryChunk.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/SMemoryChunk.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/SMemoryChunk.h
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/IMemoryBlock.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/IMemoryBlock.h
 stdlib.h
 -
 stdio.h
@@ -48,29 +28,27 @@ iostream
 fstream
 -
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/SMemoryChunk.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/SMemoryChunk.h
 IMemoryBlock.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/IMemoryBlock.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/IMemoryBlock.h
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Split_getline.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Split_getline.h
 iostream
 -
 string
 -
 CMemoryPool.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMemoryPool.h
 json.hpp
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/json.hpp
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/json.hpp
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.cpp
-Variable.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.h
-
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable.h
 string
 -
+SMemoryChunk.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/SMemoryChunk.h
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/json.hpp
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/json.hpp
 algorithm
 -
 cstddef
@@ -394,7 +372,7 @@ utility
 vector
 -
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/main.cpp
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/main.cpp
 iostream
 -
 thread
@@ -414,13 +392,13 @@ string.h
 string
 -
 CMemoryPool.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMemoryPool.h
 json.hpp
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/json.hpp
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/json.hpp
 Variable.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable.h
 list
 -
 Split_getline.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Split_getline.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Split_getline.h
 

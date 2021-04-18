@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/cmake-build-debug"/>
+				<Option working_dir="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/cmake-build-debug"/>
+				<Option working_dir="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/cmake-build-debug"/>
+				<Option working_dir="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Server">
-				<Option output="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Server" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/cmake-build-debug"/>
+				<Option output="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Server" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -53,15 +53,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 Server"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 Server"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Server/fast">
-				<Option output="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Server" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/cmake-build-debug"/>
+				<Option output="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Server" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -75,41 +75,41 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 Server/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ingrid/Documents/Proyecto\ 1/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 Server/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.cpp">
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMemoryPool.cpp">
 			<Option target="Server"/>
 		</Unit>
-		<Unit filename="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.h">
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMemoryPool.h">
 			<Option target="Server"/>
 		</Unit>
-		<Unit filename="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/IMemoryBlock.h">
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/IMemoryBlock.h">
 			<Option target="Server"/>
 		</Unit>
-		<Unit filename="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/SMemoryChunk.h">
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/SMemoryChunk.h">
 			<Option target="Server"/>
 		</Unit>
-		<Unit filename="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Split_getline.h">
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Split_getline.h">
 			<Option target="Server"/>
 		</Unit>
-		<Unit filename="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.cpp">
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable.cpp">
 			<Option target="Server"/>
 		</Unit>
-		<Unit filename="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.h">
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable.h">
 			<Option target="Server"/>
 		</Unit>
-		<Unit filename="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/json.hpp">
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/json.hpp">
 			<Option target="Server"/>
 		</Unit>
-		<Unit filename="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/main.cpp">
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/main.cpp">
 			<Option target="Server"/>
 		</Unit>
-		<Unit filename="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMakeLists.txt">
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

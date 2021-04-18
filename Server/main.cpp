@@ -111,8 +111,8 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     cout << "int: " << newvaluei << endl;
                     *ptrvar = newvaluei;
                     cout << "Desreferencia: " << *ptrChunk->Data << endl;
-                    Variable *a = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
-                    globalList.push_back(*a);
+                    Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
+                    globalList.push_back(*variable);
                 }
                 else{
                     int *ptrvar = (int *) ptr_mpool->GetMemory(sizeof(int));  //CREACION DE VARIABLE CON EL POOL CREADO
@@ -123,8 +123,8 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->counter = 1;
                     *ptrvar = stoi(value);
                     cout << "Desreferencia: " << *ptrChunk->Data << endl;
-                    Variable *a = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
-                    globalList.push_back(*a);
+                    Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
+                    globalList.push_back(*variable);
 
 
                 }
@@ -139,40 +139,52 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
         string name = jmessageR.value("name", "oops");
         bool can = ptr_mpool->FindChunkHoldingSameName(name);
         if (can) {
-
             string operation = jmessageR.value("operation", "oops");
             if(operation == "true"){
-                string type = jmessageR.value("type", "oops");
-                MemPool::SMemoryChunk *ptrOrig = ptr_mpool->FindChunkHoldingNameTo(name);
-
-                if(ptrOrig->type == type){
-                    void *ptrvar = ptr_mpool->GetMemory(1);  //CREACION DE VARIABLE CON EL POOL CREADO
-                    MemPool::SMemoryChunk *ptrChunk = ptr_mpool->FindChunkHoldingPointerTo(ptrvar);
-                    ptrChunk->name = name;
-                    ptrChunk->type = type;
-                    ptrChunk->isReference = true;
-                    ptrChunk->reference = ptrOrig;
-                    ptrOrig->counter++;
-                    Variable *a = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
-                    globalList.push_back(*a);
-                }else{ cout<< "LAS VARIABLES NO COINCIDEN EN EL TIPO\n";}
+                string value = jmessageR.value("value", "oops");
+                value.erase(value.end()-10, value.end());
+                bool can = ptr_mpool->FindChunkHoldingSameName(value);
+                if (!can) {
+                    string type = jmessageR.value("type", "oops");
+                    MemPool::SMemoryChunk *ptrOrig = ptr_mpool->FindChunkHoldingNameTo(value);
+                    if(ptrOrig->type == type){
+                        void *ptrvar = ptr_mpool->GetMemory(1);  //CREACION DE VARIABLE CON EL POOL CREADO
+                        MemPool::SMemoryChunk *ptrChunk = ptr_mpool->FindChunkHoldingPointerTo(ptrvar);
+                        ptrChunk->name = name;
+                        ptrChunk->type = type;
+                        ptrChunk->isReference = true;
+                        ptrChunk->reference = ptrOrig;
+                        ptrOrig->counter++;
+                        Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
+                        globalList.push_back(*variable);
+                        cout<< "Operation: " << ptrChunk->reference->name << endl;
+                    }else{ cout<< "LAS VARIABLES NO COINCIDEN EN EL TIPO\n";}
+                } else{
+                    cout<< "Variable no existe\n";
+                }
 
             }else{
-                string type = jmessageR.value("type", "oops");
-                MemPool::SMemoryChunk *ptrRef = ptr_mpool->FindChunkHoldingNameTo(name);
-                if (ptrRef->isReference && ptrRef->type == type) {
-                    MemPool::SMemoryChunk *ptrOrig = ptrRef->reference;
-
-                    void *ptrvar = ptr_mpool->GetMemory(1);  //CREACION DE VARIABLE CON EL POOL CREADO
-                    MemPool::SMemoryChunk *ptrChunk = ptr_mpool->FindChunkHoldingPointerTo(ptrvar);
-                    ptrChunk->name = name;
-                    ptrChunk->type = type;
-                    ptrChunk->isReference = true;
-                    ptrChunk->reference = ptrOrig;
-                    ptrOrig->counter++;
-                    Variable *a = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
-                    globalList.push_back(*a);
-                }else{ cout<< "LAS VARIABLES NO COINCIDEN EN EL TIPO\n";}
+                string value = jmessageR.value("value", "oops");
+                bool can = ptr_mpool->FindChunkHoldingSameName(value);
+                if (!can) {
+                    string type = jmessageR.value("type", "oops");
+                    MemPool::SMemoryChunk *ptrRef = ptr_mpool->FindChunkHoldingNameTo(value);
+                    if (ptrRef->isReference && ptrRef->type == type) {
+                        MemPool::SMemoryChunk *ptrOrig = ptrRef->reference;
+                        void *ptrvar = ptr_mpool->GetMemory(1);  //CREACION DE VARIABLE CON EL POOL CREADO
+                        MemPool::SMemoryChunk *ptrChunk = ptr_mpool->FindChunkHoldingPointerTo(ptrvar);
+                        ptrChunk->name = name;
+                        ptrChunk->type = type;
+                        ptrChunk->isReference = true;
+                        ptrChunk->reference = ptrOrig;
+                        ptrOrig->counter++;
+                        Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
+                        globalList.push_back(*variable);
+                        cout<< "Operation: " << ptrChunk->reference->name << endl;
+                    }else{ cout<< "LAS VARIABLES NO COINCIDEN EN EL TIPO\n";}}
+                else{
+                    cout<< "Variable no existe\n";
+                }
             }
 
         }

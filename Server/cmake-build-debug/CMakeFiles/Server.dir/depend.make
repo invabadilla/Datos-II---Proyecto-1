@@ -6,6 +6,8 @@ CMakeFiles/Server.dir/CMemoryPool.cpp.o: ../CMemoryPool.h
 CMakeFiles/Server.dir/CMemoryPool.cpp.o: ../IMemoryBlock.h
 CMakeFiles/Server.dir/CMemoryPool.cpp.o: ../SMemoryChunk.h
 
+CMakeFiles/Server.dir/Variable.cpp.o: ../IMemoryBlock.h
+CMakeFiles/Server.dir/Variable.cpp.o: ../SMemoryChunk.h
 CMakeFiles/Server.dir/Variable.cpp.o: ../Variable.cpp
 CMakeFiles/Server.dir/Variable.cpp.o: ../Variable.h
 
