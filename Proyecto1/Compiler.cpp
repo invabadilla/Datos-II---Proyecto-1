@@ -69,14 +69,12 @@ int startClient(json message) {
     }
     else{
         string messageR = string(buf, bytesReceived);
-        if (messageR != ""){
-            cout << string(buf, bytesReceived);
-            json jmessageR = json::parse(messageR);
-            string std_out_ = jmessageR.value("std_out_", "oops");
-            string ram_ = jmessageR.value("ram_", "oops");
-            string log_ = jmessageR.value("log_", "oops");
-            Compiler::updateStrings(std_out_, log_, ram_);
-        }
+        cout << string(buf, bytesReceived);
+        json jmessageR = json::parse(messageR);
+        string std_out_ = jmessageR.value("std_out_", "oops");
+        string ram_ = jmessageR.value("ram_", "oops");
+        string log_ = jmessageR.value("log_", "oops");
+        Compiler::updateStrings(std_out_, log_, ram_);
     }
 
 //	Close the socket
@@ -175,12 +173,19 @@ void Compiler::compile(QString line) {
             case 2:{
                 newList.prepend("int");
                 string value = newList.at(2).toStdString();
-                QRegExp separator("[(+-/*)]");
+                QRegExp separator("[+-/*]");
                     if(newList.at(2).split(separator).length() != 1){
+                        cout  <<"Operation"<< endl ;
                         newList.append("define");
                         json mymessage = parseJson(newList, "true");
                         startClient (mymessage);
                         break;
+                    }
+                    else if(newList.at(2).split("_").length() == 2 && newList.at(2).split("_").at(1).toStdString() == "getValue()"){
+                        cout  <<"get value"<< endl ;
+                        newList.append("define");
+                        json mymessage = parseJson(newList, "reference");
+                        startClient (mymessage);
                     }
                     else{
                         try{
@@ -272,14 +277,14 @@ void Compiler::compile(QString line) {
                     newList.prepend(QString::fromStdString(type));
                     string value = newList.at(2).toStdString();
 
-                    if(newList.at(2).split(".").length() == 1){
+                    if(newList.at(2).split("_").length() == 1){
                         cout<<"no hay get\n";
                         newList.append("defineR");
                         json mymessage = parseJson(newList, "false");
                         startClient (mymessage);
                         break;
                     }
-                    else if(newList.at(2).split(".").at(1).toStdString() == "getAddr()"){
+                    else if(newList.at(2).split("_").at(1).toStdString() == "getAddr()"){
                         cout<<"si hay get\n";
                         newList.append("defineR");
                         //value.erase(value.end()-10, value.end());

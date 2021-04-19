@@ -80,7 +80,7 @@ public:
         textEdit_4->setObjectName(QString::fromUtf8("textEdit_4"));
         textEdit_4->setEnabled(true);
         textEdit_4->setGeometry(QRect(440, 40, 361, 301));
-        textEdit_4->setReadOnly(false);
+        textEdit_4->setReadOnly(true);
         label_5 = new QLabel(centralwidget);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(440, 20, 361, 17));
@@ -116,8 +116,8 @@ public:
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> 0x7f8c24aa3010     a            123          1 </p></body></html>", nullptr));
-        label_5->setText(QApplication::translate("MainWindow", "Address                   Name      Value      Ref                       ", nullptr));
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">&gt;&gt;</p></body></html>", nullptr));
+        label_5->setText(QApplication::translate("MainWindow", "Address / Name / Value / Counter Ref                       ", nullptr));
         menuIDE_C->setTitle(QApplication::translate("MainWindow", "IDE C!", nullptr));
     } // retranslateUi
 
