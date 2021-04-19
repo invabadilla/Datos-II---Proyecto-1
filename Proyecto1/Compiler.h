@@ -13,9 +13,9 @@ using namespace std;
 
 class Compiler {
 public:
-    inline static std::string std_out;
-    inline static std::string log;
-    inline static std::string ram;
+    inline static std::string std_out = "<< \n";
+    inline static std::string log= "<< \n";
+    inline static std::string ram ="<< \n";
     inline static int port;
 
     static void updateStrings(string std_out, string log, string ram);

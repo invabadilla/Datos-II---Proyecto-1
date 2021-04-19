@@ -54,7 +54,7 @@ int startClient(json message) {
     char buf[4096];
     string userInput;
     string mymessage = message.dump();
-    cout << mymessage;
+    cout << mymessage << endl;
     //		Send to server
     int sendRes = send(sock, mymessage.c_str(), mymessage.size() + 1, 0);
     if (sendRes == -1){
@@ -68,8 +68,13 @@ int startClient(json message) {
         cout << "There was an error getting response from server\r\n";
     }
     else{
-        //		Display response
-        cout << "SERVER> " << string(buf, bytesReceived) << "\r\n";
+        string messageR = string(buf, bytesReceived);
+        cout << string(buf, bytesReceived);
+        json jmessageR = json::parse(messageR);
+        string std_out_ = jmessageR.value("std_out_", "oops");
+        string ram_ = jmessageR.value("ram_", "oops");
+        string log_ = jmessageR.value("log_", "oops");
+        Compiler::updateStrings(std_out_, log_, ram_);
     }
 
 //	Close the socket
@@ -79,7 +84,6 @@ return 0;
 }
 
 json parseJson (QStringList message, string operation){
-    // jdEmployees
     json mymessage =
             {
                     {"type", message.at(0).toStdString()},
@@ -169,12 +173,19 @@ void Compiler::compile(QString line) {
             case 2:{
                 newList.prepend("int");
                 string value = newList.at(2).toStdString();
-                QRegExp separator("[(+-/*)]");
+                QRegExp separator("[+-/*]");
                     if(newList.at(2).split(separator).length() != 1){
+                        cout  <<"Operation"<< endl ;
                         newList.append("define");
                         json mymessage = parseJson(newList, "true");
                         startClient (mymessage);
                         break;
+                    }
+                    else if(newList.at(2).split("_").length() == 2 && newList.at(2).split("_").at(1).toStdString() == "getValue()"){
+                        cout  <<"get value"<< endl ;
+                        newList.append("define");
+                        json mymessage = parseJson(newList, "reference");
+                        startClient (mymessage);
                     }
                     else{
                         try{
@@ -194,50 +205,6 @@ void Compiler::compile(QString line) {
                     }
                 }
         }
-
-
-        /**
-        if (validename(words.at(1).toStdString())){
-            cout  <<"nombre correcto\n";
-            string name = words.at(1).toStdString();
-            if (name[name.length()-1] == ';'){
-                cout  <<"declaracion de variable vacia\n";
-            }
-            else if (words.at(2).toStdString() == "="){
-                if (words.length() == 4){
-                    string value = words.at(3).toStdString().erase(words.at(3).toStdString().length()-1);
-                    try{
-                        if (value.length() == to_string(stoi(value)).length()){
-                            cout  <<"declaracion de variable con un valor de: " + value + "\n";
-                        }else{ cout  <<"tipo no coincide con valor\n";}
-                    }catch (std::invalid_argument){
-                        cout  <<"tipo no coincide con valor\n";
-                    }
-                }
-                else{
-                    if (words.at(4).toStdString() == ";" && words.length() == 5){
-                        string value = words.at(3).toStdString();
-                        try{
-                            if (value.length() == to_string(stoi(value)).length()){
-                                cout  <<"declaracion de variable con un valor de: " + value + "\n";
-                            }else{ cout  <<"tipo no coincide con valor\n";}
-                        }catch (std::invalid_argument){
-                            cout  <<"tipo no coincide con valor\n";
-                        }
-                    }
-                    else{
-                        cout  <<"error cosas escritas luego del ;\n";
-                    }
-                }
-            }
-            else{
-                cout <<"error sintaxis\n";
-            }
-
-        }
-        else{
-            cout  <<"nombre incorrecto\n";
-        }**/
     }
 
     else if("long" == words.at(0).toStdString()){
@@ -310,14 +277,14 @@ void Compiler::compile(QString line) {
                     newList.prepend(QString::fromStdString(type));
                     string value = newList.at(2).toStdString();
 
-                    if(newList.at(2).split(".").length() == 1){
+                    if(newList.at(2).split("_").length() == 1){
                         cout<<"no hay get\n";
                         newList.append("defineR");
                         json mymessage = parseJson(newList, "false");
                         startClient (mymessage);
                         break;
                     }
-                    else if(newList.at(2).split(".").at(1).toStdString() == "getAddr()"){
+                    else if(newList.at(2).split("_").at(1).toStdString() == "getAddr()"){
                         cout<<"si hay get\n";
                         newList.append("defineR");
                         //value.erase(value.end()-10, value.end());
@@ -332,6 +299,21 @@ void Compiler::compile(QString line) {
         }
         else{
             cout  <<"Tipo incorrecto\n";
+        }
+
+    }
+    else if("print" == words.at(0).toStdString()){
+        if (words.length() == 2){
+            words.removeFirst();
+            words.replaceInStrings(QRegExp(";"),"");
+            words.prepend(QString::fromStdString("print"));
+            words.prepend(QString::fromStdString("print"));
+            words.append("print");
+            json mymessage = parseJson(words, "true");
+            startClient (mymessage);
+        }
+        else{
+            cout <<"error sintatactico en la funcion print\n";
         }
 
     }
@@ -373,8 +355,8 @@ bool Compiler::validename(string name) {
 void Compiler::sendServer() {}
 
 void Compiler::updateStrings(string stdout_, string log_, string ram_) {
-    Compiler::std_out = std::move(stdout_);
-    Compiler::log = log_;
+    Compiler::std_out += stdout_;
+    Compiler::log += log_;
     Compiler::ram = ram_;
 }
 

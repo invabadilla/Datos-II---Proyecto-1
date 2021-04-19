@@ -37,7 +37,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                 }
                 else{
                     MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
-                    if (ptrChunk->type != "char" && ptrChunk->type != "struct"){
+                    if (ptrChunk->type != "char" && ptrChunk->type != "struct" && !ptrChunk->isReference){
                         total += *ptrChunk->Data;
                     }
                         //eslseif(reference)
@@ -65,7 +65,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
             }catch(std::invalid_argument){
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk = ptr_mpool->FindChunkHoldingNameTo(myword);
-                    if (ptrChunk->type != "char" && ptrChunk->type != "struct"){
+                    if (ptrChunk->type != "char" && ptrChunk->type != "struct" && !ptrChunk->isReference){
                         total -= *ptrChunk->Data;
                     }
                         //eslseif(reference)
@@ -95,7 +95,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
             }catch(std::invalid_argument){
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
-                    if (ptrChunk->type != "char" && ptrChunk->type != "struct"){
+                    if (ptrChunk->type != "char" && ptrChunk->type != "struct" && !ptrChunk->isReference){
                         total *= *ptrChunk->Data;
                     }
                         //eslseif(reference)
@@ -125,7 +125,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
             }catch(std::invalid_argument){
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
-                    if (ptrChunk->type != "char" && ptrChunk->type != "struct"){
+                    if (ptrChunk->type != "char" && ptrChunk->type != "struct" && !ptrChunk->isReference){
                         total /= *ptrChunk->Data;
                     }
                         //eslseif(reference)
@@ -161,7 +161,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
             }catch(std::invalid_argument){
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk = ptr_mpool->FindChunkHoldingNameTo(myword);
-                    if (ptrChunk->type != "char" && ptrChunk->type != "struct"){
+                    if (ptrChunk->type != "char" && ptrChunk->type != "struct" && !ptrChunk->isReference){
                         total += *ptrChunk->Data;
                     }
                         //eslseif(reference)
@@ -187,7 +187,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
             }catch(std::invalid_argument){
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
-                    if (ptrChunk->type != "char" && ptrChunk->type != "struct"){
+                    if (ptrChunk->type != "char" && ptrChunk->type != "struct" && !ptrChunk->isReference){
                         total -= *ptrChunk->Data;
                     }
                         //eslseif(reference)
@@ -213,7 +213,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
             }catch(std::invalid_argument){
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
-                    if (ptrChunk->type != "char" && ptrChunk->type != "struct"){
+                    if (ptrChunk->type != "char" && ptrChunk->type != "struct" && !ptrChunk->isReference){
                         total *= *ptrChunk->Data;
                     }
                         //eslseif(reference)
@@ -239,7 +239,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
             }catch(std::invalid_argument){
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
-                    if (ptrChunk->type != "char" && ptrChunk->type != "struct"){
+                    if (ptrChunk->type != "char" && ptrChunk->type != "struct"&& !ptrChunk->isReference){
                         total /= *ptrChunk->Data;
                     }
                         //eslseif(reference)
@@ -257,7 +257,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
         else{
             if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                 MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
-                if (ptrChunk->type != "char" && ptrChunk->type != "struct"){
+                if (ptrChunk->type != "char" && ptrChunk->type != "struct"&& !ptrChunk->isReference){
                     total = *ptrChunk->Data;
                 }
                     //eslseif(reference)

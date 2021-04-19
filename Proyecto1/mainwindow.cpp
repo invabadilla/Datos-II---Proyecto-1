@@ -34,10 +34,10 @@ void MainWindow::on_pushButton_clicked()
         }
         Compiler *compiler = new Compiler();
         compiler->compile(line);
-        //this->UpdateGUI();
+        this->UpdateGUI();
     }
 }
-/**void MainWindow::UpdateGUI() {
+void MainWindow::UpdateGUI() {
     Compiler *compiler = new Compiler();
     std::string info = compiler->updateGUI();
     QString Qinfo = QString::fromStdString(info);
@@ -45,8 +45,10 @@ void MainWindow::on_pushButton_clicked()
     QString std_out = Qlistinfo.at(0);
     QString log = Qlistinfo.at(1);
     QString ram = Qlistinfo.at(2);
-}**/
-
+    this->ui->textEdit_2->setText(std_out);
+    this->ui->textEdit_3->setText(log);
+    this->ui->textEdit_4->setText(ram);
+}
 
 
 
