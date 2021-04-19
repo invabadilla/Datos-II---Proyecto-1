@@ -1,0 +1,92 @@
+\hypertarget{classnlohmann_1_1detail_1_1other__error}{}\doxysection{Referencia de la Clase nlohmann\+::detail\+::other\+\_\+error}
+\label{classnlohmann_1_1detail_1_1other__error}\index{nlohmann::detail::other\_error@{nlohmann::detail::other\_error}}
+
+
+exception indicating other library errors  
+
+
+
+
+{\ttfamily \#include $<$json.\+hpp$>$}
+
+Diagrama de herencias de nlohmann\+::detail\+::other\+\_\+error\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classnlohmann_1_1detail_1_1other__error}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classnlohmann_1_1detail_1_1other__error}{other\+\_\+error}} \mbox{\hyperlink{classnlohmann_1_1detail_1_1other__error_a87e8ab894e8c85c0d97a0919782d3683}{create}} (int id\+\_\+, const std\+::string \&what\+\_\+arg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Otros miembros heredados}
+
+
+\doxysubsection{Descripción detallada}
+exception indicating other library errors 
+
+This exception is thrown in case of errors that cannot be classified with the other exception types.
+
+Exceptions have ids 5xx.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ name / id   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ example message   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ description    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ name / id   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ example message   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ description    }\\\cline{1-3}
+\endhead
+json.\+exception.\+other\+\_\+error.\+501   &unsuccessful\+: \{\char`\"{}op\char`\"{}\+:\char`\"{}test\char`\"{},\char`\"{}path\char`\"{}\+:\char`\"{}/baz\char`\"{}, \char`\"{}value\char`\"{}\+:\char`\"{}bar\char`\"{}\}   &A JSON Patch operation \textquotesingle{}test\textquotesingle{} failed. The unsuccessful operation is also printed.   \\\cline{1-3}
+\end{longtabu}
+
+
+\begin{DoxySeeAlso}{Ver también}
+-\/ \mbox{\hyperlink{classnlohmann_1_1detail_1_1exception}{exception}} for the base class of the library exceptions 
+
+-\/ \mbox{\hyperlink{classnlohmann_1_1detail_1_1parse__error}{parse\+\_\+error}} for exceptions indicating a parse error 
+
+-\/ \mbox{\hyperlink{classnlohmann_1_1detail_1_1invalid__iterator}{invalid\+\_\+iterator}} for exceptions indicating errors with iterators 
+
+-\/ \mbox{\hyperlink{classnlohmann_1_1detail_1_1type__error}{type\+\_\+error}} for exceptions indicating executing a member function with a wrong type 
+
+-\/ \mbox{\hyperlink{classnlohmann_1_1detail_1_1out__of__range}{out\+\_\+of\+\_\+range}} for exceptions indicating access out of the defined range
+\end{DoxySeeAlso}
+@liveexample\{The following code shows how an {\ttfamily \mbox{\hyperlink{classnlohmann_1_1detail_1_1other__error}{other\+\_\+error}}} exception can be caught.,\mbox{\hyperlink{classnlohmann_1_1detail_1_1other__error}{other\+\_\+error}}\}
+
+\begin{DoxySince}{Desde}
+version 3.\+0.\+0 
+\end{DoxySince}
+
+
+Definición en la línea 2649 del archivo json.\+hpp.
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classnlohmann_1_1detail_1_1other__error_a87e8ab894e8c85c0d97a0919782d3683}\label{classnlohmann_1_1detail_1_1other__error_a87e8ab894e8c85c0d97a0919782d3683}} 
+\index{nlohmann::detail::other\_error@{nlohmann::detail::other\_error}!create@{create}}
+\index{create@{create}!nlohmann::detail::other\_error@{nlohmann::detail::other\_error}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classnlohmann_1_1detail_1_1other__error}{other\+\_\+error}} nlohmann\+::detail\+::other\+\_\+error\+::create (\begin{DoxyParamCaption}\item[{int}]{id\+\_\+,  }\item[{const std\+::string \&}]{what\+\_\+arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definición en la línea 2652 del archivo json.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2653     \{}
+\DoxyCodeLine{2654         std::string w = \mbox{\hyperlink{classnlohmann_1_1detail_1_1exception_abf41a7e9178356314082284e6cfea278}{exception::name}}(\textcolor{stringliteral}{"{}other\_error"{}}, id\_) + what\_arg;}
+\DoxyCodeLine{2655         \textcolor{keywordflow}{return} other\_error(id\_, w.c\_str());}
+\DoxyCodeLine{2656     \}}
+
+\end{DoxyCode}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{json_8hpp}{json.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,435 @@
+\hypertarget{classCompiler}{}\doxysection{Referencia de la Clase Compiler}
+\label{classCompiler}\index{Compiler@{Compiler}}
+
+
+{\ttfamily \#include $<$Compiler.\+h$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCompiler_a029eaac36f999682335987a81ddabfc5}{compile}} (QString line)
+\item 
+void \mbox{\hyperlink{classCompiler_af06426b1919680c8c9f1494d4c8d7afb}{send\+Server}} ()
+\item 
+bool \mbox{\hyperlink{classCompiler_a83f78434a3f6a0f7f094998d51fa20b8}{validename}} (std\+::string name)
+\item 
+bool \mbox{\hyperlink{classCompiler_aea86d30dcba15978af96832906e344b4}{valid\+Num}} (std\+::string num)
+\item 
+string \mbox{\hyperlink{classCompiler_a4ae436752ed9e71c45db3ff2ff4609df}{valide\+Reference}} (std\+::string nom)
+\item 
+QString\+List \mbox{\hyperlink{classCompiler_a6cb276b11c20bd015cb3237e4f03ff41}{Divide}} (QString\+List initial)
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classCompiler_a1942f43fbbc0eebcf496564e5de43562}{update\+Strings}} (string \mbox{\hyperlink{classCompiler_aa3856bbd850b3bd52a2f826036c98a2d}{std\+\_\+out}}, string \mbox{\hyperlink{classCompiler_a09d7fbbf218a7306d5fe26e02e819c45}{log}}, string \mbox{\hyperlink{classCompiler_af367642238d1651185125c2311f13960}{ram}})
+\item 
+static string \mbox{\hyperlink{classCompiler_ab10bda95cf921baf9bd82f4108775408}{update\+GUI}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{classCompiler_aa3856bbd850b3bd52a2f826036c98a2d}{std\+\_\+out}} = \char`\"{}$<$$<$ \textbackslash{}n\char`\"{}
+\item 
+static std\+::string \mbox{\hyperlink{classCompiler_a09d7fbbf218a7306d5fe26e02e819c45}{log}} = \char`\"{}$<$$<$ \textbackslash{}n\char`\"{}
+\item 
+static std\+::string \mbox{\hyperlink{classCompiler_af367642238d1651185125c2311f13960}{ram}} =\char`\"{}$<$$<$ \textbackslash{}n\char`\"{}
+\item 
+static int \mbox{\hyperlink{classCompiler_a4f7f12dd59e9e6163962afbb09d3cd9c}{port}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+
+
+Definición en la línea 14 del archivo Compiler.\+h.
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classCompiler_a029eaac36f999682335987a81ddabfc5}\label{classCompiler_a029eaac36f999682335987a81ddabfc5}} 
+\index{Compiler@{Compiler}!compile@{compile}}
+\index{compile@{compile}!Compiler@{Compiler}}
+\doxysubsubsection{\texorpdfstring{compile()}{compile()}}
+{\footnotesize\ttfamily void Compiler\+::compile (\begin{DoxyParamCaption}\item[{QString}]{line }\end{DoxyParamCaption})}
+
+else if(\char`\"{}struct\char`\"{} == words.\+at(0).to\+Std\+String())\{ cout $<$$<$\char`\"{}soy un struct\textbackslash{}n\char`\"{}; if (validename(words.\+at(1).to\+Std\+String()))\{ cout $<$$<$\char`\"{}nombre correcto\textbackslash{}n\char`\"{}; \} else\{ cout $<$$<$\char`\"{}nombre incorrecto\textbackslash{}n\char`\"{}; \} \}
+
+Definición en la línea 156 del archivo Compiler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{156                                    \{}
+\DoxyCodeLine{157     QStringList words = line.split(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{158     \textcolor{keywordflow}{if} (\textcolor{stringliteral}{"{}int"{}} == words.at(0).toStdString())\{}
+\DoxyCodeLine{159         cout <<\textcolor{stringliteral}{"{}soy un int\(\backslash\)n"{}};}
+\DoxyCodeLine{160         words.removeOne(\textcolor{stringliteral}{"{}int"{}});}
+\DoxyCodeLine{161         QStringList newList = \mbox{\hyperlink{classCompiler_a6cb276b11c20bd015cb3237e4f03ff41}{Divide}}(words);}
+\DoxyCodeLine{162         \textcolor{keywordtype}{int} num = newList.length();}
+\DoxyCodeLine{163         \textcolor{keywordflow}{switch} (num) \{}
+\DoxyCodeLine{164             \textcolor{keywordflow}{case} 1: \{}
+\DoxyCodeLine{165                 newList.prepend(\textcolor{stringliteral}{"{}int"{}});}
+\DoxyCodeLine{166                 newList.append(NULL);}
+\DoxyCodeLine{167                 newList.append(\textcolor{stringliteral}{"{}define"{}});}
+\DoxyCodeLine{168                 cout <<\textcolor{stringliteral}{"{}Generando variable\(\backslash\)n"{}};}
+\DoxyCodeLine{169                 \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage = \mbox{\hyperlink{Compiler_8cpp_a4e53be69a03ac34b74784627e3e20a8b}{parseJson}}(newList, \textcolor{stringliteral}{"{}false"{}});}
+\DoxyCodeLine{170                 \mbox{\hyperlink{Compiler_8cpp_af6f4bcc815818e0b997f86f940b61870}{startClient}}(mymessage);}
+\DoxyCodeLine{171                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{172                 \}}
+\DoxyCodeLine{173             \textcolor{keywordflow}{case} 2:\{}
+\DoxyCodeLine{174                 newList.prepend(\textcolor{stringliteral}{"{}int"{}});}
+\DoxyCodeLine{175                 \textcolor{keywordtype}{string} \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = newList.at(2).toStdString();}
+\DoxyCodeLine{176                 QRegExp separator(\textcolor{stringliteral}{"{}[+-\//*]"{}});}
+\DoxyCodeLine{177                     \textcolor{keywordflow}{if}(newList.at(2).split(separator).length() != 1)\{}
+\DoxyCodeLine{178                         cout  <<\textcolor{stringliteral}{"{}Operation"{}}<< endl ;}
+\DoxyCodeLine{179                         newList.append(\textcolor{stringliteral}{"{}define"{}});}
+\DoxyCodeLine{180                         \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage = \mbox{\hyperlink{Compiler_8cpp_a4e53be69a03ac34b74784627e3e20a8b}{parseJson}}(newList, \textcolor{stringliteral}{"{}true"{}});}
+\DoxyCodeLine{181                         \mbox{\hyperlink{Compiler_8cpp_af6f4bcc815818e0b997f86f940b61870}{startClient}} (mymessage);}
+\DoxyCodeLine{182                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{183                     \}}
+\DoxyCodeLine{184                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(newList.at(2).split(\textcolor{stringliteral}{"{}\_"{}}).length() == 2 \&\& newList.at(2).split(\textcolor{stringliteral}{"{}\_"{}}).at(1).toStdString() == \textcolor{stringliteral}{"{}getValue()"{}})\{}
+\DoxyCodeLine{185                         cout  <<\textcolor{stringliteral}{"{}get value"{}}<< endl ;}
+\DoxyCodeLine{186                         newList.append(\textcolor{stringliteral}{"{}define"{}});}
+\DoxyCodeLine{187                         \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage = \mbox{\hyperlink{Compiler_8cpp_a4e53be69a03ac34b74784627e3e20a8b}{parseJson}}(newList, \textcolor{stringliteral}{"{}reference"{}});}
+\DoxyCodeLine{188                         \mbox{\hyperlink{Compiler_8cpp_af6f4bcc815818e0b997f86f940b61870}{startClient}} (mymessage);}
+\DoxyCodeLine{189                     \}}
+\DoxyCodeLine{190                     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{191                         \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{192                             \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}}.length() == \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(stoi(value)).length())\{}
+\DoxyCodeLine{193                                 newList.append(\textcolor{stringliteral}{"{}define"{}});}
+\DoxyCodeLine{194                                 \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage = \mbox{\hyperlink{Compiler_8cpp_a4e53be69a03ac34b74784627e3e20a8b}{parseJson}}(newList, \textcolor{stringliteral}{"{}false"{}});}
+\DoxyCodeLine{195                                 \mbox{\hyperlink{Compiler_8cpp_af6f4bcc815818e0b997f86f940b61870}{startClient}} (mymessage);}
+\DoxyCodeLine{196                                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{197                             \}\textcolor{keywordflow}{else}\{ cout  <<\textcolor{stringliteral}{"{}tipo no coincide con valor\(\backslash\)n"{}};\}}
+\DoxyCodeLine{198                         \}\textcolor{keywordflow}{catch} (std::invalid\_argument)\{}
+\DoxyCodeLine{199                             newList.append(\textcolor{stringliteral}{"{}define"{}});}
+\DoxyCodeLine{200                             \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage = \mbox{\hyperlink{Compiler_8cpp_a4e53be69a03ac34b74784627e3e20a8b}{parseJson}}(newList, \textcolor{stringliteral}{"{}true"{}});}
+\DoxyCodeLine{201                             \mbox{\hyperlink{Compiler_8cpp_af6f4bcc815818e0b997f86f940b61870}{startClient}} (mymessage);}
+\DoxyCodeLine{202                             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{203                         \}}
+\DoxyCodeLine{204                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{205                     \}}
+\DoxyCodeLine{206                 \}}
+\DoxyCodeLine{207         \}}
+\DoxyCodeLine{208     \}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\textcolor{stringliteral}{"{}long"{}} == words.at(0).toStdString())\{}
+\DoxyCodeLine{211         cout <<\textcolor{stringliteral}{"{}soy un long\(\backslash\)n"{}};}
+\DoxyCodeLine{212         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classCompiler_a83f78434a3f6a0f7f094998d51fa20b8}{validename}}(words.at(1).toStdString()))\{}
+\DoxyCodeLine{213             cout  <<\textcolor{stringliteral}{"{}nombre correcto\(\backslash\)n"{}};}
+\DoxyCodeLine{214         \}}
+\DoxyCodeLine{215         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{216             cout  <<\textcolor{stringliteral}{"{}nombre incorrecto\(\backslash\)n"{}};}
+\DoxyCodeLine{217         \}}
+\DoxyCodeLine{218     \}}
+\DoxyCodeLine{219     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\textcolor{stringliteral}{"{}char"{}} == words.at(0).toStdString())\{}
+\DoxyCodeLine{220         cout <<\textcolor{stringliteral}{"{}soy un char\(\backslash\)n"{}};}
+\DoxyCodeLine{221         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classCompiler_a83f78434a3f6a0f7f094998d51fa20b8}{validename}}(words.at(1).toStdString()))\{}
+\DoxyCodeLine{222             cout  <<\textcolor{stringliteral}{"{}nombre correcto\(\backslash\)n"{}};}
+\DoxyCodeLine{223         \}}
+\DoxyCodeLine{224         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{225             cout  <<\textcolor{stringliteral}{"{}nombre incorrecto\(\backslash\)n"{}};}
+\DoxyCodeLine{226         \}}
+\DoxyCodeLine{227     \}}
+\DoxyCodeLine{228     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\textcolor{stringliteral}{"{}float"{}} == words.at(0).toStdString())\{}
+\DoxyCodeLine{229         cout <<\textcolor{stringliteral}{"{}soy un float\(\backslash\)n"{}};}
+\DoxyCodeLine{230         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classCompiler_a83f78434a3f6a0f7f094998d51fa20b8}{validename}}(words.at(1).toStdString()))\{}
+\DoxyCodeLine{231             cout  <<\textcolor{stringliteral}{"{}nombre correcto\(\backslash\)n"{}};}
+\DoxyCodeLine{232         \}}
+\DoxyCodeLine{233         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{234             cout  <<\textcolor{stringliteral}{"{}nombre incorrecto\(\backslash\)n"{}};}
+\DoxyCodeLine{235         \}}
+\DoxyCodeLine{236     \}}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{238     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\textcolor{stringliteral}{"{}double"{}} == words.at(0).toStdString())\{}
+\DoxyCodeLine{239         cout <<\textcolor{stringliteral}{"{}soy un double\(\backslash\)n"{}};}
+\DoxyCodeLine{240         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classCompiler_a83f78434a3f6a0f7f094998d51fa20b8}{validename}}(words.at(1).toStdString()))\{}
+\DoxyCodeLine{241             cout  <<\textcolor{stringliteral}{"{}nombre correcto\(\backslash\)n"{}};}
+\DoxyCodeLine{242         \}}
+\DoxyCodeLine{243         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{244             cout  <<\textcolor{stringliteral}{"{}nombre incorrecto\(\backslash\)n"{}};}
+\DoxyCodeLine{245         \}}
+\DoxyCodeLine{246     \}}
+\DoxyCodeLine{258     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\textcolor{stringliteral}{"{}reference"{}} == words.at(0).toStdString())\{}
+\DoxyCodeLine{259         words.removeFirst();}
+\DoxyCodeLine{260         \textcolor{keywordtype}{string} type = \mbox{\hyperlink{classCompiler_a4ae436752ed9e71c45db3ff2ff4609df}{valideReference}}(words.at(0).toStdString());}
+\DoxyCodeLine{261         \textcolor{keywordflow}{if} (type != \textcolor{stringliteral}{"{}false"{}}) \{}
+\DoxyCodeLine{262             words.removeFirst();}
+\DoxyCodeLine{263             QStringList newList = \mbox{\hyperlink{classCompiler_a6cb276b11c20bd015cb3237e4f03ff41}{Divide}}(words);}
+\DoxyCodeLine{264             \textcolor{keywordtype}{int} size = newList.length();}
+\DoxyCodeLine{265             cout<<\textcolor{stringliteral}{"{}Size: "{}}<<size<<endl;}
+\DoxyCodeLine{266             \textcolor{keywordflow}{switch} (size) \{}
+\DoxyCodeLine{267                 \textcolor{keywordflow}{case} 1: \{}
+\DoxyCodeLine{268                     newList.prepend(QString::fromStdString(type));}
+\DoxyCodeLine{269                     newList.append(NULL);}
+\DoxyCodeLine{270                     newList.append(\textcolor{stringliteral}{"{}defineR"{}});}
+\DoxyCodeLine{271                     cout <<\textcolor{stringliteral}{"{}Generando reference\(\backslash\)n"{}};}
+\DoxyCodeLine{272                     \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage = \mbox{\hyperlink{Compiler_8cpp_a4e53be69a03ac34b74784627e3e20a8b}{parseJson}}(newList, \textcolor{stringliteral}{"{}false"{}});}
+\DoxyCodeLine{273                     \mbox{\hyperlink{Compiler_8cpp_af6f4bcc815818e0b997f86f940b61870}{startClient}}(mymessage);}
+\DoxyCodeLine{274                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{275                 \}}
+\DoxyCodeLine{276                 \textcolor{keywordflow}{case} 2:\{}
+\DoxyCodeLine{277                     newList.prepend(QString::fromStdString(type));}
+\DoxyCodeLine{278                     \textcolor{keywordtype}{string} \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = newList.at(2).toStdString();}
+\DoxyCodeLine{279 }
+\DoxyCodeLine{280                     \textcolor{keywordflow}{if}(newList.at(2).split(\textcolor{stringliteral}{"{}\_"{}}).length() == 1)\{}
+\DoxyCodeLine{281                         cout<<\textcolor{stringliteral}{"{}no hay get\(\backslash\)n"{}};}
+\DoxyCodeLine{282                         newList.append(\textcolor{stringliteral}{"{}defineR"{}});}
+\DoxyCodeLine{283                         \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage = \mbox{\hyperlink{Compiler_8cpp_a4e53be69a03ac34b74784627e3e20a8b}{parseJson}}(newList, \textcolor{stringliteral}{"{}false"{}});}
+\DoxyCodeLine{284                         \mbox{\hyperlink{Compiler_8cpp_af6f4bcc815818e0b997f86f940b61870}{startClient}} (mymessage);}
+\DoxyCodeLine{285                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{286                     \}}
+\DoxyCodeLine{287                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(newList.at(2).split(\textcolor{stringliteral}{"{}\_"{}}).at(1).toStdString() == \textcolor{stringliteral}{"{}getAddr()"{}})\{}
+\DoxyCodeLine{288                         cout<<\textcolor{stringliteral}{"{}si hay get\(\backslash\)n"{}};}
+\DoxyCodeLine{289                         newList.append(\textcolor{stringliteral}{"{}defineR"{}});}
+\DoxyCodeLine{290                         \textcolor{comment}{//value.erase(value.end()-\/10, value.end());}}
+\DoxyCodeLine{291                         \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage = \mbox{\hyperlink{Compiler_8cpp_a4e53be69a03ac34b74784627e3e20a8b}{parseJson}}(newList, \textcolor{stringliteral}{"{}true"{}});}
+\DoxyCodeLine{292                         \mbox{\hyperlink{Compiler_8cpp_af6f4bcc815818e0b997f86f940b61870}{startClient}} (mymessage);}
+\DoxyCodeLine{293                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{294                     \}\textcolor{keywordflow}{else}\{ cout<< \textcolor{stringliteral}{"{}Sintaxis Error\(\backslash\)n"{}};\}}
+\DoxyCodeLine{295                 \}}
+\DoxyCodeLine{296             \}}
+\DoxyCodeLine{297             cout << \textcolor{stringliteral}{"{}nombre correcto\(\backslash\)n"{}};}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299         \}}
+\DoxyCodeLine{300         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{301             cout  <<\textcolor{stringliteral}{"{}Tipo incorrecto\(\backslash\)n"{}};}
+\DoxyCodeLine{302         \}}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304     \}}
+\DoxyCodeLine{305     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\textcolor{stringliteral}{"{}print"{}} == words.at(0).toStdString())\{}
+\DoxyCodeLine{306         \textcolor{keywordflow}{if} (words.length() == 2)\{}
+\DoxyCodeLine{307             words.removeFirst();}
+\DoxyCodeLine{308             words.replaceInStrings(QRegExp(\textcolor{stringliteral}{"{};"{}}),\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{309             words.prepend(QString::fromStdString(\textcolor{stringliteral}{"{}print"{}}));}
+\DoxyCodeLine{310             words.prepend(QString::fromStdString(\textcolor{stringliteral}{"{}print"{}}));}
+\DoxyCodeLine{311             words.append(\textcolor{stringliteral}{"{}print"{}});}
+\DoxyCodeLine{312             \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage = \mbox{\hyperlink{Compiler_8cpp_a4e53be69a03ac34b74784627e3e20a8b}{parseJson}}(words, \textcolor{stringliteral}{"{}true"{}});}
+\DoxyCodeLine{313             \mbox{\hyperlink{Compiler_8cpp_af6f4bcc815818e0b997f86f940b61870}{startClient}} (mymessage);}
+\DoxyCodeLine{314         \}}
+\DoxyCodeLine{315         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{316             cout <<\textcolor{stringliteral}{"{}error sintatactico en la funcion print\(\backslash\)n"{}};}
+\DoxyCodeLine{317         \}}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319     \}}
+\DoxyCodeLine{320     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{321         cout <<\textcolor{stringliteral}{"{}error\(\backslash\)n"{}};}
+\DoxyCodeLine{322     \}}
+\DoxyCodeLine{323 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCompiler_a6cb276b11c20bd015cb3237e4f03ff41}\label{classCompiler_a6cb276b11c20bd015cb3237e4f03ff41}} 
+\index{Compiler@{Compiler}!Divide@{Divide}}
+\index{Divide@{Divide}!Compiler@{Compiler}}
+\doxysubsubsection{\texorpdfstring{Divide()}{Divide()}}
+{\footnotesize\ttfamily QString\+List Compiler\+::\+Divide (\begin{DoxyParamCaption}\item[{QString\+List}]{initial }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 110 del archivo Compiler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110                                                 \{}
+\DoxyCodeLine{111     QString str = initial.join(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{112     QStringList newList = str.split(\textcolor{stringliteral}{"{}="{}});}
+\DoxyCodeLine{113     QStringList aux;}
+\DoxyCodeLine{114     \textcolor{keywordtype}{string} name = str.toStdString();}
+\DoxyCodeLine{115     \textcolor{keywordtype}{int} canti = newList.length();}
+\DoxyCodeLine{116     \textcolor{keywordflow}{switch} (canti) \{}
+\DoxyCodeLine{117         \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{118             aux = newList.at(0).split(\textcolor{stringliteral}{"{} "{}}, QString::SkipEmptyParts);}
+\DoxyCodeLine{119             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classCompiler_a83f78434a3f6a0f7f094998d51fa20b8}{validename}}(newList.at(0).toStdString()) \&\& aux.length() == 1) \{}
+\DoxyCodeLine{120                 cout  <<\textcolor{stringliteral}{"{}nombre correcto\(\backslash\)n"{}};}
+\DoxyCodeLine{121                 \textcolor{keywordtype}{string} name = newList.at(0).toStdString();}
+\DoxyCodeLine{122                 \textcolor{keywordflow}{if} (name[name.length()-\/1] == \textcolor{charliteral}{';'})\{}
+\DoxyCodeLine{123                     newList.replaceInStrings(QRegExp(\textcolor{stringliteral}{"{};"{}}),\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{124                 \}\textcolor{keywordflow}{else}\{cout  <<\textcolor{stringliteral}{"{}declaracion invalida, falta ;\(\backslash\)n"{}};\}\}}
+\DoxyCodeLine{125             \textcolor{keywordflow}{else}\{ cout<<\textcolor{stringliteral}{"{}Error de nombre de variable, sintaxis incorrecta\(\backslash\)n"{}};}
+\DoxyCodeLine{126                 QStringList temp;}
+\DoxyCodeLine{127                 newList = temp;\}}
+\DoxyCodeLine{128             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{129         \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{130             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classCompiler_a83f78434a3f6a0f7f094998d51fa20b8}{validename}}(newList.at(0).toStdString())) \{}
+\DoxyCodeLine{131                 cout  <<\textcolor{stringliteral}{"{}nombre correcto\(\backslash\)n"{}};}
+\DoxyCodeLine{132                 \textcolor{keywordtype}{string} name = newList.at(1).toStdString();}
+\DoxyCodeLine{133                 aux = newList.at(1).split(\textcolor{stringliteral}{"{} "{}}, QString::SkipEmptyParts);}
+\DoxyCodeLine{134                 \textcolor{keywordflow}{if} (name[name.length()-\/1] == \textcolor{charliteral}{';'} \&\& aux.length() == 1)\{}
+\DoxyCodeLine{135                     newList.replaceInStrings(QRegExp(\textcolor{stringliteral}{"{};"{}}),\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{136                 \}\textcolor{keywordflow}{else}\{cout  <<\textcolor{stringliteral}{"{}declaracion invalida, falta ;\(\backslash\)n"{}};\}\}}
+\DoxyCodeLine{137             \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{138                 cout<<\textcolor{stringliteral}{"{}Error en valor de variable\(\backslash\)n"{}};}
+\DoxyCodeLine{139                 QStringList temp;}
+\DoxyCodeLine{140                 newList = temp;}
+\DoxyCodeLine{141             \}}
+\DoxyCodeLine{142             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{143         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{144             cout<<\textcolor{stringliteral}{"{}Error de sintaxis\(\backslash\)n"{}};}
+\DoxyCodeLine{145             QStringList temp;}
+\DoxyCodeLine{146             newList = temp;}
+\DoxyCodeLine{147             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149     \}}
+\DoxyCodeLine{150     \textcolor{keywordflow}{return} newList;}
+\DoxyCodeLine{151 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCompiler_af06426b1919680c8c9f1494d4c8d7afb}\label{classCompiler_af06426b1919680c8c9f1494d4c8d7afb}} 
+\index{Compiler@{Compiler}!sendServer@{sendServer}}
+\index{sendServer@{sendServer}!Compiler@{Compiler}}
+\doxysubsubsection{\texorpdfstring{sendServer()}{sendServer()}}
+{\footnotesize\ttfamily void Compiler\+::send\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 355 del archivo Compiler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{355 \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCompiler_ab10bda95cf921baf9bd82f4108775408}\label{classCompiler_ab10bda95cf921baf9bd82f4108775408}} 
+\index{Compiler@{Compiler}!updateGUI@{updateGUI}}
+\index{updateGUI@{updateGUI}!Compiler@{Compiler}}
+\doxysubsubsection{\texorpdfstring{updateGUI()}{updateGUI()}}
+{\footnotesize\ttfamily string Compiler\+::update\+GUI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definición en la línea 363 del archivo Compiler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{363                            \{}
+\DoxyCodeLine{364     \textcolor{keywordtype}{string} \textcolor{keyword}{package }= Compiler::std\_out+ "{}-\/"{} + Compiler::log + "{}-\/"{} + Compiler::ram;}
+\DoxyCodeLine{365     \textcolor{keywordflow}{return} package;}
+\DoxyCodeLine{366 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCompiler_a1942f43fbbc0eebcf496564e5de43562}\label{classCompiler_a1942f43fbbc0eebcf496564e5de43562}} 
+\index{Compiler@{Compiler}!updateStrings@{updateStrings}}
+\index{updateStrings@{updateStrings}!Compiler@{Compiler}}
+\doxysubsubsection{\texorpdfstring{updateStrings()}{updateStrings()}}
+{\footnotesize\ttfamily void Compiler\+::update\+Strings (\begin{DoxyParamCaption}\item[{string}]{std\+\_\+out,  }\item[{string}]{log,  }\item[{string}]{ram }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definición en la línea 357 del archivo Compiler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{357                                                                      \{}
+\DoxyCodeLine{358     \mbox{\hyperlink{classCompiler_aa3856bbd850b3bd52a2f826036c98a2d}{Compiler::std\_out}} += stdout\_;}
+\DoxyCodeLine{359     \mbox{\hyperlink{classCompiler_a09d7fbbf218a7306d5fe26e02e819c45}{Compiler::log}} += log\_;}
+\DoxyCodeLine{360     \mbox{\hyperlink{classCompiler_af367642238d1651185125c2311f13960}{Compiler::ram}} = ram\_;}
+\DoxyCodeLine{361 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCompiler_a83f78434a3f6a0f7f094998d51fa20b8}\label{classCompiler_a83f78434a3f6a0f7f094998d51fa20b8}} 
+\index{Compiler@{Compiler}!validename@{validename}}
+\index{validename@{validename}!Compiler@{Compiler}}
+\doxysubsubsection{\texorpdfstring{validename()}{validename()}}
+{\footnotesize\ttfamily bool Compiler\+::validename (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 335 del archivo Compiler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{335                                      \{}
+\DoxyCodeLine{336     cout << name <<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{337     \textcolor{keywordflow}{if} (name != \textcolor{stringliteral}{"{}int"{}} \&\& name != \textcolor{stringliteral}{"{}long"{}} \&\& name != \textcolor{stringliteral}{"{}char"{}} \&\& name != \textcolor{stringliteral}{"{}float"{}} \&\& name != \textcolor{stringliteral}{"{}double"{}} \&\& name != \textcolor{stringliteral}{"{}struct"{}} \&\&}
+\DoxyCodeLine{338         name != \textcolor{stringliteral}{"{}reference"{}}) \{}
+\DoxyCodeLine{339         \textcolor{keywordflow}{if} ((name[0] == \textcolor{charliteral}{'\_'}) || (isalpha(name[0]))) \{}
+\DoxyCodeLine{340             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < name.length(); i++) \{}
+\DoxyCodeLine{341                 \textcolor{keywordflow}{if} (isalpha(name[i]) || name[i] == \textcolor{charliteral}{'\_'} || isdigit(name[i])) \{}
+\DoxyCodeLine{342                     \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{343                 \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (i + 1 == name.length() \&\& name[i] == \textcolor{charliteral}{';'}) \{}
+\DoxyCodeLine{344                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{345                 \} \textcolor{keywordflow}{else} \{ \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{346             \}}
+\DoxyCodeLine{347             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{348         \} \textcolor{keywordflow}{else} \{ \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{349     \} \textcolor{keywordflow}{else} \{ \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{350 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCompiler_a4ae436752ed9e71c45db3ff2ff4609df}\label{classCompiler_a4ae436752ed9e71c45db3ff2ff4609df}} 
+\index{Compiler@{Compiler}!valideReference@{valideReference}}
+\index{valideReference@{valideReference}!Compiler@{Compiler}}
+\doxysubsubsection{\texorpdfstring{valideReference()}{valideReference()}}
+{\footnotesize\ttfamily string Compiler\+::valide\+Reference (\begin{DoxyParamCaption}\item[{std\+::string}]{nom }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 325 del archivo Compiler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{325                                                \{}
+\DoxyCodeLine{326     \textcolor{keywordflow}{if}(name == \textcolor{stringliteral}{"{}<int>"{}} || name == \textcolor{stringliteral}{"{}<long>"{}} || name == \textcolor{stringliteral}{"{}<char>"{}} || name == \textcolor{stringliteral}{"{}<float>"{}} || name == \textcolor{stringliteral}{"{}<double>"{}})\{}
+\DoxyCodeLine{327         name.erase(name.begin());}
+\DoxyCodeLine{328         \textcolor{keywordtype}{int} size = name.size();}
+\DoxyCodeLine{329         name.erase(name.begin()+(size-\/1));}
+\DoxyCodeLine{330         \textcolor{keywordflow}{return} name;}
+\DoxyCodeLine{331     \} \textcolor{keywordflow}{else} \{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}false"{}};\}}
+\DoxyCodeLine{332 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCompiler_aea86d30dcba15978af96832906e344b4}\label{classCompiler_aea86d30dcba15978af96832906e344b4}} 
+\index{Compiler@{Compiler}!validNum@{validNum}}
+\index{validNum@{validNum}!Compiler@{Compiler}}
+\doxysubsubsection{\texorpdfstring{validNum()}{validNum()}}
+{\footnotesize\ttfamily bool Compiler\+::valid\+Num (\begin{DoxyParamCaption}\item[{std\+::string}]{num }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classCompiler_a09d7fbbf218a7306d5fe26e02e819c45}\label{classCompiler_a09d7fbbf218a7306d5fe26e02e819c45}} 
+\index{Compiler@{Compiler}!log@{log}}
+\index{log@{log}!Compiler@{Compiler}}
+\doxysubsubsection{\texorpdfstring{log}{log}}
+{\footnotesize\ttfamily std\+::string Compiler\+::log = \char`\"{}$<$$<$ \textbackslash{}n\char`\"{}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definición en la línea 17 del archivo Compiler.\+h.
+
+\mbox{\Hypertarget{classCompiler_a4f7f12dd59e9e6163962afbb09d3cd9c}\label{classCompiler_a4f7f12dd59e9e6163962afbb09d3cd9c}} 
+\index{Compiler@{Compiler}!port@{port}}
+\index{port@{port}!Compiler@{Compiler}}
+\doxysubsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily int Compiler\+::port\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definición en la línea 19 del archivo Compiler.\+h.
+
+\mbox{\Hypertarget{classCompiler_af367642238d1651185125c2311f13960}\label{classCompiler_af367642238d1651185125c2311f13960}} 
+\index{Compiler@{Compiler}!ram@{ram}}
+\index{ram@{ram}!Compiler@{Compiler}}
+\doxysubsubsection{\texorpdfstring{ram}{ram}}
+{\footnotesize\ttfamily std\+::string Compiler\+::ram =\char`\"{}$<$$<$ \textbackslash{}n\char`\"{}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definición en la línea 18 del archivo Compiler.\+h.
+
+\mbox{\Hypertarget{classCompiler_aa3856bbd850b3bd52a2f826036c98a2d}\label{classCompiler_aa3856bbd850b3bd52a2f826036c98a2d}} 
+\index{Compiler@{Compiler}!std\_out@{std\_out}}
+\index{std\_out@{std\_out}!Compiler@{Compiler}}
+\doxysubsubsection{\texorpdfstring{std\_out}{std\_out}}
+{\footnotesize\ttfamily std\+::string Compiler\+::std\+\_\+out = \char`\"{}$<$$<$ \textbackslash{}n\char`\"{}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definición en la línea 16 del archivo Compiler.\+h.
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Compiler_8h}{Compiler.\+h}}\item 
+\mbox{\hyperlink{Compiler_8cpp}{Compiler.\+cpp}}\end{DoxyCompactItemize}

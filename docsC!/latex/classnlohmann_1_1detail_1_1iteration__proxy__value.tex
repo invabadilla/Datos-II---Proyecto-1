@@ -1,0 +1,300 @@
+\hypertarget{classnlohmann_1_1detail_1_1iteration__proxy__value}{}\doxysection{Referencia de la plantilla de la Clase nlohmann\+::detail\+::iteration\+\_\+proxy\+\_\+value$<$ Iterator\+Type $>$}
+\label{classnlohmann_1_1detail_1_1iteration__proxy__value}\index{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}}
+
+
+{\ttfamily \#include $<$json.\+hpp$>$}
+
+\doxysubsection*{Tipos públicos}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_ada6b4e6d55d8ed7ac79e49a03e9d1fe2}{difference\+\_\+type}} = std\+::ptrdiff\+\_\+t
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a5e90a5810cc1bb6c1000eabbfdfe7b9e}{value\+\_\+type}} = \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{iteration\+\_\+proxy\+\_\+value}}
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a44c64feee85b8e7164a05310e6418a4b}{pointer}} = \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a5e90a5810cc1bb6c1000eabbfdfe7b9e}{value\+\_\+type}} $\ast$
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a5bc7d3133daab5ec4797f3132e093af8}{reference}} = \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a5e90a5810cc1bb6c1000eabbfdfe7b9e}{value\+\_\+type}} \&
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a1ab8c44e3772c03651b5ad07216043cf}{iterator\+\_\+category}} = std\+::input\+\_\+iterator\+\_\+tag
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a1fc63b88a585fa39942007aab69a74e6}{string\+\_\+type}} = typename std\+::remove\+\_\+cv$<$ typename std\+::remove\+\_\+reference$<$ decltype(std\+::declval$<$ Iterator\+Type $>$().\mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_af2949ac0d70212738030bfda29c5bcc2}{key}}()) $>$\+::type $>$\+::type
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a459dd8961b80b2089d8161c9aa466581}{iteration\+\_\+proxy\+\_\+value}} (Iterator\+Type it) noexcept
+\item 
+\mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{iteration\+\_\+proxy\+\_\+value}} \& \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a10accadf05a172fdc69a016bec201e81}{operator$\ast$}} ()
+\begin{DoxyCompactList}\small\item\em dereference operator (needed for range-\/based for) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{iteration\+\_\+proxy\+\_\+value}} \& \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_adf4db2aef31822f3a179435158a4de11}{operator++}} ()
+\begin{DoxyCompactList}\small\item\em increment operator (needed for range-\/based for) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_af2b78a8b9c9276b07c928b21bb1e2d54}{operator==}} (const \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{iteration\+\_\+proxy\+\_\+value}} \&o) const
+\begin{DoxyCompactList}\small\item\em equality operator (needed for Input\+Iterator) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a646dbb2b1842f44f42ee1e14245b8595}{operator!=}} (const \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{iteration\+\_\+proxy\+\_\+value}} \&o) const
+\begin{DoxyCompactList}\small\item\em inequality operator (needed for range-\/based for) \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a1fc63b88a585fa39942007aab69a74e6}{string\+\_\+type}} \& \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_af2949ac0d70212738030bfda29c5bcc2}{key}} () const
+\begin{DoxyCompactList}\small\item\em return key of the iterator \end{DoxyCompactList}\item 
+Iterator\+Type\+::reference \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_ab8e33bd01c285a1a80b737a1905ceb97}{value}} () const
+\begin{DoxyCompactList}\small\item\em return value of the iterator \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\subsubsection*{template$<$typename Iterator\+Type$>$\newline
+class nlohmann\+::detail\+::iteration\+\_\+proxy\+\_\+value$<$ Iterator\+Type $>$}
+
+
+Definición en la línea 3841 del archivo json.\+hpp.
+
+
+
+\doxysubsection{Documentación de los \textquotesingle{}Typedef\textquotesingle{} miembros de la clase}
+\mbox{\Hypertarget{classnlohmann_1_1detail_1_1iteration__proxy__value_ada6b4e6d55d8ed7ac79e49a03e9d1fe2}\label{classnlohmann_1_1detail_1_1iteration__proxy__value_ada6b4e6d55d8ed7ac79e49a03e9d1fe2}} 
+\index{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}!difference\_type@{difference\_type}}
+\index{difference\_type@{difference\_type}!nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{difference\_type}{difference\_type}}
+{\footnotesize\ttfamily template$<$typename Iterator\+Type $>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{nlohmann\+::detail\+::iteration\+\_\+proxy\+\_\+value}}$<$ Iterator\+Type $>$\+::\mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_ada6b4e6d55d8ed7ac79e49a03e9d1fe2}{difference\+\_\+type}} =  std\+::ptrdiff\+\_\+t}
+
+
+
+Definición en la línea 3844 del archivo json.\+hpp.
+
+\mbox{\Hypertarget{classnlohmann_1_1detail_1_1iteration__proxy__value_a1ab8c44e3772c03651b5ad07216043cf}\label{classnlohmann_1_1detail_1_1iteration__proxy__value_a1ab8c44e3772c03651b5ad07216043cf}} 
+\index{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}!iterator\_category@{iterator\_category}}
+\index{iterator\_category@{iterator\_category}!nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{iterator\_category}{iterator\_category}}
+{\footnotesize\ttfamily template$<$typename Iterator\+Type $>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{nlohmann\+::detail\+::iteration\+\_\+proxy\+\_\+value}}$<$ Iterator\+Type $>$\+::\mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a1ab8c44e3772c03651b5ad07216043cf}{iterator\+\_\+category}} =  std\+::input\+\_\+iterator\+\_\+tag}
+
+
+
+Definición en la línea 3848 del archivo json.\+hpp.
+
+\mbox{\Hypertarget{classnlohmann_1_1detail_1_1iteration__proxy__value_a44c64feee85b8e7164a05310e6418a4b}\label{classnlohmann_1_1detail_1_1iteration__proxy__value_a44c64feee85b8e7164a05310e6418a4b}} 
+\index{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}!pointer@{pointer}}
+\index{pointer@{pointer}!nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{pointer}{pointer}}
+{\footnotesize\ttfamily template$<$typename Iterator\+Type $>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{nlohmann\+::detail\+::iteration\+\_\+proxy\+\_\+value}}$<$ Iterator\+Type $>$\+::\mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a44c64feee85b8e7164a05310e6418a4b}{pointer}} =  \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a5e90a5810cc1bb6c1000eabbfdfe7b9e}{value\+\_\+type}} $\ast$}
+
+
+
+Definición en la línea 3846 del archivo json.\+hpp.
+
+\mbox{\Hypertarget{classnlohmann_1_1detail_1_1iteration__proxy__value_a5bc7d3133daab5ec4797f3132e093af8}\label{classnlohmann_1_1detail_1_1iteration__proxy__value_a5bc7d3133daab5ec4797f3132e093af8}} 
+\index{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}!reference@{reference}}
+\index{reference@{reference}!nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{reference}{reference}}
+{\footnotesize\ttfamily template$<$typename Iterator\+Type $>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{nlohmann\+::detail\+::iteration\+\_\+proxy\+\_\+value}}$<$ Iterator\+Type $>$\+::\mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a5bc7d3133daab5ec4797f3132e093af8}{reference}} =  \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a5e90a5810cc1bb6c1000eabbfdfe7b9e}{value\+\_\+type}} \&}
+
+
+
+Definición en la línea 3847 del archivo json.\+hpp.
+
+\mbox{\Hypertarget{classnlohmann_1_1detail_1_1iteration__proxy__value_a1fc63b88a585fa39942007aab69a74e6}\label{classnlohmann_1_1detail_1_1iteration__proxy__value_a1fc63b88a585fa39942007aab69a74e6}} 
+\index{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}!string\_type@{string\_type}}
+\index{string\_type@{string\_type}!nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{string\_type}{string\_type}}
+{\footnotesize\ttfamily template$<$typename Iterator\+Type $>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{nlohmann\+::detail\+::iteration\+\_\+proxy\+\_\+value}}$<$ Iterator\+Type $>$\+::\mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a1fc63b88a585fa39942007aab69a74e6}{string\+\_\+type}} =  typename std\+::remove\+\_\+cv$<$ typename std\+::remove\+\_\+reference$<$decltype( std\+::declval$<$Iterator\+Type$>$().\mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_af2949ac0d70212738030bfda29c5bcc2}{key}}() ) $>$\+::type $>$\+::type}
+
+
+
+Definición en la línea 3849 del archivo json.\+hpp.
+
+\mbox{\Hypertarget{classnlohmann_1_1detail_1_1iteration__proxy__value_a5e90a5810cc1bb6c1000eabbfdfe7b9e}\label{classnlohmann_1_1detail_1_1iteration__proxy__value_a5e90a5810cc1bb6c1000eabbfdfe7b9e}} 
+\index{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily template$<$typename Iterator\+Type $>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{nlohmann\+::detail\+::iteration\+\_\+proxy\+\_\+value}}$<$ Iterator\+Type $>$\+::\mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a5e90a5810cc1bb6c1000eabbfdfe7b9e}{value\+\_\+type}} =  \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{iteration\+\_\+proxy\+\_\+value}}}
+
+
+
+Definición en la línea 3845 del archivo json.\+hpp.
+
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classnlohmann_1_1detail_1_1iteration__proxy__value_a459dd8961b80b2089d8161c9aa466581}\label{classnlohmann_1_1detail_1_1iteration__proxy__value_a459dd8961b80b2089d8161c9aa466581}} 
+\index{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}!iteration\_proxy\_value@{iteration\_proxy\_value}}
+\index{iteration\_proxy\_value@{iteration\_proxy\_value}!nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{iteration\_proxy\_value()}{iteration\_proxy\_value()}}
+{\footnotesize\ttfamily template$<$typename Iterator\+Type $>$ \\
+\mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{nlohmann\+::detail\+::iteration\+\_\+proxy\+\_\+value}}$<$ Iterator\+Type $>$\+::\mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{iteration\+\_\+proxy\+\_\+value}} (\begin{DoxyParamCaption}\item[{Iterator\+Type}]{it }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+Definición en la línea 3864 del archivo json.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{3864 : anchor(it) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classnlohmann_1_1detail_1_1iteration__proxy__value_af2949ac0d70212738030bfda29c5bcc2}\label{classnlohmann_1_1detail_1_1iteration__proxy__value_af2949ac0d70212738030bfda29c5bcc2}} 
+\index{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}!key@{key}}
+\index{key@{key}!nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{key()}{key()}}
+{\footnotesize\ttfamily template$<$typename Iterator\+Type $>$ \\
+const \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value_a1fc63b88a585fa39942007aab69a74e6}{string\+\_\+type}}\& \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{nlohmann\+::detail\+::iteration\+\_\+proxy\+\_\+value}}$<$ Iterator\+Type $>$\+::key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+return key of the iterator 
+
+
+
+Definición en la línea 3894 del archivo json.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{3895     \{}
+\DoxyCodeLine{3896         \mbox{\hyperlink{json_8hpp_a69f131cff49da1989667220173fbeae6}{JSON\_ASSERT}}(anchor.m\_object != \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{3897 }
+\DoxyCodeLine{3898         \textcolor{keywordflow}{switch} (anchor.m\_object-\/>type())}
+\DoxyCodeLine{3899         \{}
+\DoxyCodeLine{3900             \textcolor{comment}{// use integer array index as key}}
+\DoxyCodeLine{3901             \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacenlohmann_1_1detail_a1ed8fc6239da25abcaf681d30ace4985af1f713c9e000f5d3f280adbd124df4f5}{value\_t::array}}:}
+\DoxyCodeLine{3902             \{}
+\DoxyCodeLine{3903                 \textcolor{keywordflow}{if} (array\_index != array\_index\_last)}
+\DoxyCodeLine{3904                 \{}
+\DoxyCodeLine{3905                     \mbox{\hyperlink{namespacenlohmann_1_1detail_a3c45286b0a2f15ea0a756cb87a76cf9b}{int\_to\_string}}( array\_index\_str, array\_index );}
+\DoxyCodeLine{3906                     array\_index\_last = array\_index;}
+\DoxyCodeLine{3907                 \}}
+\DoxyCodeLine{3908                 \textcolor{keywordflow}{return} array\_index\_str;}
+\DoxyCodeLine{3909             \}}
+\DoxyCodeLine{3910 }
+\DoxyCodeLine{3911             \textcolor{comment}{// use key from the object}}
+\DoxyCodeLine{3912             \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacenlohmann_1_1detail_a1ed8fc6239da25abcaf681d30ace4985aa8cfde6331bd59eb2ac96f8911c4b666}{value\_t::object}}:}
+\DoxyCodeLine{3913                 \textcolor{keywordflow}{return} anchor.key();}
+\DoxyCodeLine{3914 }
+\DoxyCodeLine{3915             \textcolor{comment}{// use an empty key for all primitive types}}
+\DoxyCodeLine{3916             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{3917                 \textcolor{keywordflow}{return} empty\_str;}
+\DoxyCodeLine{3918         \}}
+\DoxyCodeLine{3919     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classnlohmann_1_1detail_1_1iteration__proxy__value_a646dbb2b1842f44f42ee1e14245b8595}\label{classnlohmann_1_1detail_1_1iteration__proxy__value_a646dbb2b1842f44f42ee1e14245b8595}} 
+\index{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename Iterator\+Type $>$ \\
+bool \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{nlohmann\+::detail\+::iteration\+\_\+proxy\+\_\+value}}$<$ Iterator\+Type $>$\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{iteration\+\_\+proxy\+\_\+value}}$<$ Iterator\+Type $>$ \&}]{o }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+inequality operator (needed for range-\/based for) 
+
+
+
+Definición en la línea 3888 del archivo json.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{3889     \{}
+\DoxyCodeLine{3890         \textcolor{keywordflow}{return} anchor != o.anchor;}
+\DoxyCodeLine{3891     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classnlohmann_1_1detail_1_1iteration__proxy__value_a10accadf05a172fdc69a016bec201e81}\label{classnlohmann_1_1detail_1_1iteration__proxy__value_a10accadf05a172fdc69a016bec201e81}} 
+\index{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename Iterator\+Type $>$ \\
+\mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{iteration\+\_\+proxy\+\_\+value}}\& \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{nlohmann\+::detail\+::iteration\+\_\+proxy\+\_\+value}}$<$ Iterator\+Type $>$\+::operator$\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+dereference operator (needed for range-\/based for) 
+
+
+
+Definición en la línea 3867 del archivo json.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{3868     \{}
+\DoxyCodeLine{3869         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{3870     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classnlohmann_1_1detail_1_1iteration__proxy__value_adf4db2aef31822f3a179435158a4de11}\label{classnlohmann_1_1detail_1_1iteration__proxy__value_adf4db2aef31822f3a179435158a4de11}} 
+\index{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}!operator++@{operator++}}
+\index{operator++@{operator++}!nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}}
+{\footnotesize\ttfamily template$<$typename Iterator\+Type $>$ \\
+\mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{iteration\+\_\+proxy\+\_\+value}}\& \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{nlohmann\+::detail\+::iteration\+\_\+proxy\+\_\+value}}$<$ Iterator\+Type $>$\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+increment operator (needed for range-\/based for) 
+
+
+
+Definición en la línea 3873 del archivo json.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{3874     \{}
+\DoxyCodeLine{3875         ++anchor;}
+\DoxyCodeLine{3876         ++array\_index;}
+\DoxyCodeLine{3877 }
+\DoxyCodeLine{3878         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{3879     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classnlohmann_1_1detail_1_1iteration__proxy__value_af2b78a8b9c9276b07c928b21bb1e2d54}\label{classnlohmann_1_1detail_1_1iteration__proxy__value_af2b78a8b9c9276b07c928b21bb1e2d54}} 
+\index{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename Iterator\+Type $>$ \\
+bool \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{nlohmann\+::detail\+::iteration\+\_\+proxy\+\_\+value}}$<$ Iterator\+Type $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{iteration\+\_\+proxy\+\_\+value}}$<$ Iterator\+Type $>$ \&}]{o }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+equality operator (needed for Input\+Iterator) 
+
+
+
+Definición en la línea 3882 del archivo json.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{3883     \{}
+\DoxyCodeLine{3884         \textcolor{keywordflow}{return} anchor == o.anchor;}
+\DoxyCodeLine{3885     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classnlohmann_1_1detail_1_1iteration__proxy__value_ab8e33bd01c285a1a80b737a1905ceb97}\label{classnlohmann_1_1detail_1_1iteration__proxy__value_ab8e33bd01c285a1a80b737a1905ceb97}} 
+\index{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}!value@{value}}
+\index{value@{value}!nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$@{nlohmann::detail::iteration\_proxy\_value$<$ IteratorType $>$}}
+\doxysubsubsection{\texorpdfstring{value()}{value()}}
+{\footnotesize\ttfamily template$<$typename Iterator\+Type $>$ \\
+Iterator\+Type\+::reference \mbox{\hyperlink{classnlohmann_1_1detail_1_1iteration__proxy__value}{nlohmann\+::detail\+::iteration\+\_\+proxy\+\_\+value}}$<$ Iterator\+Type $>$\+::value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+return value of the iterator 
+
+
+
+Definición en la línea 3922 del archivo json.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{3923     \{}
+\DoxyCodeLine{3924         \textcolor{keywordflow}{return} anchor.value();}
+\DoxyCodeLine{3925     \}}
+
+\end{DoxyCode}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{json_8hpp}{json.\+hpp}}\end{DoxyCompactItemize}

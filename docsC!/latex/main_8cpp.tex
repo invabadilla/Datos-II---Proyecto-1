@@ -1,0 +1,42 @@
+\hypertarget{main_8cpp}{}\doxysection{Referencia del Archivo main.\+cpp}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include \char`\"{}mainwindow.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Compiler.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$QApplication$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 8 del archivo main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     cout<< \textcolor{stringliteral}{"{}Ingrese el puerto de escucha del server: "{}};}
+\DoxyCodeLine{11     \textcolor{keywordtype}{string} port;}
+\DoxyCodeLine{12     cin >> port; \textcolor{comment}{//Se lee el nombre}}
+\DoxyCodeLine{13     \mbox{\hyperlink{classCompiler}{Compiler}} *compiler = \textcolor{keyword}{new} \mbox{\hyperlink{classCompiler}{Compiler}}();}
+\DoxyCodeLine{14     compiler-\/>\mbox{\hyperlink{classCompiler_a4f7f12dd59e9e6163962afbb09d3cd9c}{port}} = stoi(port);}
+\DoxyCodeLine{15     QApplication a(argc, argv);}
+\DoxyCodeLine{16     \mbox{\hyperlink{classMainWindow}{MainWindow}} w;}
+\DoxyCodeLine{17     w.show();}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordflow}{return} a.exec();}
+\DoxyCodeLine{22 \}}
+
+\end{DoxyCode}

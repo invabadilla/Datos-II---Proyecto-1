@@ -1,0 +1,70 @@
+\hypertarget{structnlohmann_1_1detail_1_1external__constructor_3_01value__t_1_1binary_01_4}{}\doxysection{Referencia de la Estructura nlohmann\+::detail\+::external\+\_\+constructor$<$ value\+\_\+t\+::binary $>$}
+\label{structnlohmann_1_1detail_1_1external__constructor_3_01value__t_1_1binary_01_4}\index{nlohmann::detail::external\_constructor$<$ value\_t::binary $>$@{nlohmann::detail::external\_constructor$<$ value\_t::binary $>$}}
+
+
+{\ttfamily \#include $<$json.\+hpp$>$}
+
+\doxysubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type $>$ }\\static void \mbox{\hyperlink{structnlohmann_1_1detail_1_1external__constructor_3_01value__t_1_1binary_01_4_a0ff0da4f9a4d27955961477102c50a27}{construct}} (Basic\+Json\+Type \&j, const typename Basic\+Json\+Type\+::binary\+\_\+t \&b)
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type $>$ }\\static void \mbox{\hyperlink{structnlohmann_1_1detail_1_1external__constructor_3_01value__t_1_1binary_01_4_a1c478157dc8bad20f09572c5b2406150}{construct}} (Basic\+Json\+Type \&j, typename Basic\+Json\+Type\+::binary\+\_\+t \&\&b)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+
+
+Definición en la línea 4059 del archivo json.\+hpp.
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{structnlohmann_1_1detail_1_1external__constructor_3_01value__t_1_1binary_01_4_a0ff0da4f9a4d27955961477102c50a27}\label{structnlohmann_1_1detail_1_1external__constructor_3_01value__t_1_1binary_01_4_a0ff0da4f9a4d27955961477102c50a27}} 
+\index{nlohmann::detail::external\_constructor$<$ value\_t::binary $>$@{nlohmann::detail::external\_constructor$<$ value\_t::binary $>$}!construct@{construct}}
+\index{construct@{construct}!nlohmann::detail::external\_constructor$<$ value\_t::binary $>$@{nlohmann::detail::external\_constructor$<$ value\_t::binary $>$}}
+\doxysubsubsection{\texorpdfstring{construct()}{construct()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Basic\+Json\+Type $>$ \\
+static void \mbox{\hyperlink{structnlohmann_1_1detail_1_1external__constructor}{nlohmann\+::detail\+::external\+\_\+constructor}}$<$ \mbox{\hyperlink{namespacenlohmann_1_1detail_a1ed8fc6239da25abcaf681d30ace4985a9d7183f16acce70658f686ae7f1a4d20}{value\+\_\+t\+::binary}} $>$\+::construct (\begin{DoxyParamCaption}\item[{Basic\+Json\+Type \&}]{j,  }\item[{const typename Basic\+Json\+Type\+::binary\+\_\+t \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definición en la línea 4062 del archivo json.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{4063     \{}
+\DoxyCodeLine{4064         j.m\_type = \mbox{\hyperlink{namespacenlohmann_1_1detail_a1ed8fc6239da25abcaf681d30ace4985a9d7183f16acce70658f686ae7f1a4d20}{value\_t::binary}};}
+\DoxyCodeLine{4065         \textcolor{keyword}{typename} BasicJsonType::binary\_t \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}}\{b\};}
+\DoxyCodeLine{4066         j.m\_value = \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}};}
+\DoxyCodeLine{4067         j.assert\_invariant();}
+\DoxyCodeLine{4068     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{structnlohmann_1_1detail_1_1external__constructor_3_01value__t_1_1binary_01_4_a1c478157dc8bad20f09572c5b2406150}\label{structnlohmann_1_1detail_1_1external__constructor_3_01value__t_1_1binary_01_4_a1c478157dc8bad20f09572c5b2406150}} 
+\index{nlohmann::detail::external\_constructor$<$ value\_t::binary $>$@{nlohmann::detail::external\_constructor$<$ value\_t::binary $>$}!construct@{construct}}
+\index{construct@{construct}!nlohmann::detail::external\_constructor$<$ value\_t::binary $>$@{nlohmann::detail::external\_constructor$<$ value\_t::binary $>$}}
+\doxysubsubsection{\texorpdfstring{construct()}{construct()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Basic\+Json\+Type $>$ \\
+static void \mbox{\hyperlink{structnlohmann_1_1detail_1_1external__constructor}{nlohmann\+::detail\+::external\+\_\+constructor}}$<$ \mbox{\hyperlink{namespacenlohmann_1_1detail_a1ed8fc6239da25abcaf681d30ace4985a9d7183f16acce70658f686ae7f1a4d20}{value\+\_\+t\+::binary}} $>$\+::construct (\begin{DoxyParamCaption}\item[{Basic\+Json\+Type \&}]{j,  }\item[{typename Basic\+Json\+Type\+::binary\+\_\+t \&\&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definición en la línea 4071 del archivo json.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{4072     \{}
+\DoxyCodeLine{4073         j.m\_type = \mbox{\hyperlink{namespacenlohmann_1_1detail_a1ed8fc6239da25abcaf681d30ace4985a9d7183f16acce70658f686ae7f1a4d20}{value\_t::binary}};}
+\DoxyCodeLine{4074         \textcolor{keyword}{typename} BasicJsonType::binary\_t \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}}\{std::move(b)\};}
+\DoxyCodeLine{4075         j.m\_value = \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}};}
+\DoxyCodeLine{4076         j.assert\_invariant();}
+\DoxyCodeLine{4077     \}}
+
+\end{DoxyCode}
+
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{json_8hpp}{json.\+hpp}}\end{DoxyCompactItemize}

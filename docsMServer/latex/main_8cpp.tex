@@ -1,0 +1,446 @@
+\hypertarget{main_8cpp}{}\doxysection{Referencia del Archivo main.\+cpp}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}CMemory\+Pool.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}json.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Variable.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include \char`\"{}Split\+\_\+getline.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+\doxysubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} = \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \mbox{\hyperlink{main_8cpp_a36895be712ca27d24fbb9bc7273863eb}{parse\+Json}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_ab7be60372a907489a01fe0c7a042f4d5}{LtoS}} ()
+\item 
+int \mbox{\hyperlink{main_8cpp_a9f6ffd1a86814a07e12cb56f323845cb}{start\+Server}} (int port, \mbox{\hyperlink{classMemPool_1_1CMemoryPool}{Mem\+Pool\+::\+CMemory\+Pool}} $\ast$ptr\+\_\+mpool)
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{classVariable}{Variable}} $>$ \mbox{\hyperlink{main_8cpp_ab75bcb21af682a64c175845a1d7848f9}{global\+List}}
+\item 
+string \mbox{\hyperlink{main_8cpp_aad25264a369aa0e504c42908037ec45a}{ram\+\_\+}}
+\item 
+string \mbox{\hyperlink{main_8cpp_a28c18df06b723c9a8b2b4da835c3b5d6}{std\+\_\+out\+\_\+}}
+\item 
+string \mbox{\hyperlink{main_8cpp_aa1fa0cc327ca39566995318f7123225e}{log\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de los \textquotesingle{}typedefs\textquotesingle{}}
+\mbox{\Hypertarget{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}\label{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}} 
+\index{main.cpp@{main.cpp}!json@{json}}
+\index{json@{json}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{json}{json}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} =  \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}}
+
+
+
+Definición en la línea 20 del archivo main.\+cpp.
+
+
+
+\doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{main_8cpp_ab7be60372a907489a01fe0c7a042f4d5}\label{main_8cpp_ab7be60372a907489a01fe0c7a042f4d5}} 
+\index{main.cpp@{main.cpp}!LtoS@{LtoS}}
+\index{LtoS@{LtoS}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{LtoS()}{LtoS()}}
+{\footnotesize\ttfamily void LtoS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 40 del archivo main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40            \{}
+\DoxyCodeLine{41     \mbox{\hyperlink{main_8cpp_aad25264a369aa0e504c42908037ec45a}{ram\_}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{42     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<\mbox{\hyperlink{main_8cpp_ab75bcb21af682a64c175845a1d7848f9}{globalList}}.size(); i++)\{}
+\DoxyCodeLine{43         \mbox{\hyperlink{classVariable}{Variable}} variable = \mbox{\hyperlink{main_8cpp_ab75bcb21af682a64c175845a1d7848f9}{globalList}}.at(i);}
+\DoxyCodeLine{44         ostringstream get\_the\_address;}
+\DoxyCodeLine{45         get\_the\_address << variable.\mbox{\hyperlink{classVariable_a855a4931dffad56c6048ac813c4038ab}{ptr}};}
+\DoxyCodeLine{46         \textcolor{keywordtype}{string} address = get\_the\_address.str();}
+\DoxyCodeLine{47         \textcolor{keywordtype}{string} name = variable.\mbox{\hyperlink{classVariable_a20d3268aae34f6b98d7dbdecb65b17ed}{name}};}
+\DoxyCodeLine{48         \textcolor{keywordtype}{string} \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}};}
+\DoxyCodeLine{49         \textcolor{keywordtype}{string} ref;}
+\DoxyCodeLine{50         \textcolor{keywordflow}{if} (variable.\mbox{\hyperlink{classVariable_a855a4931dffad56c6048ac813c4038ab}{ptr}}-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} == \textcolor{stringliteral}{"{}int"{}} \&\& !variable.\mbox{\hyperlink{classVariable_a855a4931dffad56c6048ac813c4038ab}{ptr}}-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}})\{}
+\DoxyCodeLine{51             \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(*((\textcolor{keywordtype}{int} *)variable.\mbox{\hyperlink{classVariable_a855a4931dffad56c6048ac813c4038ab}{ptr}}-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}{Data}}));}
+\DoxyCodeLine{52             ref = \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(variable.\mbox{\hyperlink{classVariable_a855a4931dffad56c6048ac813c4038ab}{ptr}}-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a8babb6293dfbecf2a430ab8286309f03}{counter}});}
+\DoxyCodeLine{53         \}}
+\DoxyCodeLine{54         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (variable.\mbox{\hyperlink{classVariable_a855a4931dffad56c6048ac813c4038ab}{ptr}}-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}})\{}
+\DoxyCodeLine{55             ostringstream get\_the\_address\_r;}
+\DoxyCodeLine{56             get\_the\_address\_r << variable.\mbox{\hyperlink{classVariable_a855a4931dffad56c6048ac813c4038ab}{ptr}}-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a0378b8bec7c39aa4a8329c030bbc6281}{reference}};}
+\DoxyCodeLine{57             \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = get\_the\_address\_r.str();}
+\DoxyCodeLine{58             ref = \textcolor{stringliteral}{"{}Null"{}};}
+\DoxyCodeLine{59         \}}
+\DoxyCodeLine{60         \textcolor{comment}{//otros casos}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62         \mbox{\hyperlink{main_8cpp_aad25264a369aa0e504c42908037ec45a}{ram\_}} +=\textcolor{stringliteral}{"{} "{}}+address+\textcolor{stringliteral}{"{} / "{}}+name+\textcolor{stringliteral}{"{} / "{}}+\mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}}+\textcolor{stringliteral}{"{} / "{}}+ref+\textcolor{stringliteral}{"{} \(\backslash\)n"{}};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 305 del archivo main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{305           \{}
+\DoxyCodeLine{306 }
+\DoxyCodeLine{307 }
+\DoxyCodeLine{308     cout<< \textcolor{stringliteral}{"{}Ingrese el size del server en bits: "{}};}
+\DoxyCodeLine{309     \textcolor{keywordtype}{string} size;\textcolor{comment}{//En esta variable estará almacenado el nombre ingresado.}}
+\DoxyCodeLine{310     cin >> size; \textcolor{comment}{//Se lee el nombre}}
+\DoxyCodeLine{311     cout<< \textcolor{stringliteral}{"{}Ingrese el puerto de escucha del server: "{}};}
+\DoxyCodeLine{312     \textcolor{keywordtype}{string} port;\textcolor{comment}{//En esta variable estará almacenado el nombre ingresado.}}
+\DoxyCodeLine{313     cin >> port; \textcolor{comment}{//Se lee el nombre}}
+\DoxyCodeLine{314     \textcolor{comment}{//MALLOC DEL POOL PARA ASIGNACION DE MEMORIA}}
+\DoxyCodeLine{315     \mbox{\hyperlink{classMemPool_1_1CMemoryPool}{MemPool::CMemoryPool}} *g\_ptrMemPool = \textcolor{keyword}{new} \mbox{\hyperlink{classMemPool_1_1CMemoryPool}{MemPool::CMemoryPool}}(stoi(size), 1, 1, \textcolor{keyword}{true});}
+\DoxyCodeLine{316     \mbox{\hyperlink{main_8cpp_a9f6ffd1a86814a07e12cb56f323845cb}{startServer}}(stoi(port), g\_ptrMemPool);}
+\DoxyCodeLine{317     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{318 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_a36895be712ca27d24fbb9bc7273863eb}\label{main_8cpp_a36895be712ca27d24fbb9bc7273863eb}} 
+\index{main.cpp@{main.cpp}!parseJson@{parseJson}}
+\index{parseJson@{parseJson}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{parseJson()}{parseJson()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} parse\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 27 del archivo main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27                  \{}
+\DoxyCodeLine{28     \textcolor{comment}{// jdEmployees}}
+\DoxyCodeLine{29     \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage =}
+\DoxyCodeLine{30             \{}
+\DoxyCodeLine{31                     \{\textcolor{stringliteral}{"{}std\_out\_"{}}, \mbox{\hyperlink{main_8cpp_a28c18df06b723c9a8b2b4da835c3b5d6}{std\_out\_}}\},}
+\DoxyCodeLine{32                     \{\textcolor{stringliteral}{"{}ram\_"{}}, \mbox{\hyperlink{main_8cpp_aad25264a369aa0e504c42908037ec45a}{ram\_}}\},}
+\DoxyCodeLine{33                     \{\textcolor{stringliteral}{"{}log\_"{}}, \mbox{\hyperlink{main_8cpp_aa1fa0cc327ca39566995318f7123225e}{log\_}}\},}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35             \};}
+\DoxyCodeLine{36     \textcolor{keywordflow}{return} mymessage;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_a9f6ffd1a86814a07e12cb56f323845cb}\label{main_8cpp_a9f6ffd1a86814a07e12cb56f323845cb}} 
+\index{main.cpp@{main.cpp}!startServer@{startServer}}
+\index{startServer@{startServer}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{startServer()}{startServer()}}
+{\footnotesize\ttfamily int start\+Server (\begin{DoxyParamCaption}\item[{int}]{port,  }\item[{\mbox{\hyperlink{classMemPool_1_1CMemoryPool}{Mem\+Pool\+::\+CMemory\+Pool}} $\ast$}]{ptr\+\_\+mpool }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 68 del archivo main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{68                                                          \{}
+\DoxyCodeLine{69     \textcolor{comment}{// Create a socket}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{int} listening = socket(AF\_INET, SOCK\_STREAM, 0);}
+\DoxyCodeLine{72     \textcolor{keywordflow}{if} (listening == -\/1)}
+\DoxyCodeLine{73     \{}
+\DoxyCodeLine{74         cerr << \textcolor{stringliteral}{"{}Can't create a socket! Quitting"{}} << endl;}
+\DoxyCodeLine{75         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{comment}{// Bind the ip address and port to a socket}}
+\DoxyCodeLine{79     sockaddr\_in hint;}
+\DoxyCodeLine{80     hint.sin\_family = AF\_INET;}
+\DoxyCodeLine{81     hint.sin\_port = htons(port);}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     inet\_pton(AF\_INET, \textcolor{stringliteral}{"{}0.0.0.0"{}}, \&hint.sin\_addr);}
+\DoxyCodeLine{84     bind(listening, (sockaddr*)\&hint, \textcolor{keyword}{sizeof}(hint));}
+\DoxyCodeLine{85     \textcolor{comment}{// Tell Winsock the socket is for listening}}
+\DoxyCodeLine{86     listen(listening, SOMAXCONN);}
+\DoxyCodeLine{87     \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
+\DoxyCodeLine{88     \{}
+\DoxyCodeLine{89     \textcolor{comment}{// Wait for a connection}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     sockaddr\_in client;}
+\DoxyCodeLine{92     socklen\_t clientSize = \textcolor{keyword}{sizeof}(client);}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{keywordtype}{int} clientSocket = accept(listening, (sockaddr*)\&client, \&clientSize);}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     \textcolor{keywordtype}{char} host[NI\_MAXHOST];      \textcolor{comment}{// Client's remote name}}
+\DoxyCodeLine{97     \textcolor{keywordtype}{char} service[NI\_MAXSERV];   \textcolor{comment}{// Service (i.e. port) the client is connect on}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     memset(host, 0, NI\_MAXHOST); \textcolor{comment}{// same as memset(host, 0, NI\_MAXHOST);}}
+\DoxyCodeLine{100     memset(service, 0, NI\_MAXSERV);}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{keywordflow}{if} (getnameinfo((sockaddr*)\&client, \textcolor{keyword}{sizeof}(client), host, NI\_MAXHOST, service, NI\_MAXSERV, 0) == 0)}
+\DoxyCodeLine{103     \{}
+\DoxyCodeLine{104         cout << host << \textcolor{stringliteral}{"{} Conected "{}} << endl;}
+\DoxyCodeLine{105     \}}
+\DoxyCodeLine{106     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{107     \{}
+\DoxyCodeLine{108         inet\_ntop(AF\_INET, \&client.sin\_addr, host, NI\_MAXHOST);}
+\DoxyCodeLine{109         cout << host << \textcolor{stringliteral}{"{} connected on port "{}} << ntohs(client.sin\_port) << endl;}
+\DoxyCodeLine{110     \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \textcolor{comment}{// Close listening socket}}
+\DoxyCodeLine{113     \textcolor{comment}{//close(listening);}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \textcolor{comment}{// While loop: accept and echo message back to client}}
+\DoxyCodeLine{116     \textcolor{keywordtype}{char} buf[4096];}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119     memset(buf, 0, 4096);}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \textcolor{comment}{// Wait for client to send data}}
+\DoxyCodeLine{122     \textcolor{keywordtype}{int} bytesReceived = recv(clientSocket, buf, 4096, 0);}
+\DoxyCodeLine{123     \textcolor{keywordflow}{if} (bytesReceived == -\/1)}
+\DoxyCodeLine{124     \{}
+\DoxyCodeLine{125         cerr << \textcolor{stringliteral}{"{}Error in recv(). Quitting"{}} << endl;}
+\DoxyCodeLine{126         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{127     \}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     \textcolor{keywordflow}{if} (bytesReceived == 0)}
+\DoxyCodeLine{130     \{}
+\DoxyCodeLine{131         cout << \textcolor{stringliteral}{"{}Client disconnected "{}} << endl;}
+\DoxyCodeLine{132         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{133     \}}
+\DoxyCodeLine{134     \textcolor{keywordtype}{string} messageR = \mbox{\hyperlink{namespacenlohmann_1_1detail_a1ed8fc6239da25abcaf681d30ace4985ab45cffe084dd3d20d928bee85e7b0f21}{string}}(buf, 0, bytesReceived);}
+\DoxyCodeLine{135     \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} jmessageR = \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(messageR);}
+\DoxyCodeLine{136     cout<< jmessageR<<endl;}
+\DoxyCodeLine{137     \textcolor{keywordtype}{string} \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa3c6e0b8a9c15224a8228b9a98ca1531d}{key}} = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}key"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{138     \textcolor{keywordflow}{if} (key == \textcolor{stringliteral}{"{}define"{}})\{}
+\DoxyCodeLine{139         \textcolor{keywordtype}{string} name = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}name"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{140         \textcolor{keywordtype}{bool} can = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{FindChunkHoldingSameName}}(name);}
+\DoxyCodeLine{141         \textcolor{keywordflow}{if} (can)\{}
+\DoxyCodeLine{142             \textcolor{keywordtype}{string} type = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}type"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{143             \textcolor{keywordflow}{if} (type == \textcolor{stringliteral}{"{}int"{}})\{}
+\DoxyCodeLine{144                 \textcolor{keywordtype}{string} operation = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}operation"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{145                 \textcolor{keywordflow}{if} (operation == \textcolor{stringliteral}{"{}true"{}})\{}
+\DoxyCodeLine{146                     \textcolor{keywordtype}{int} *ptrvar = (\textcolor{keywordtype}{int} *) ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a3a00773e69c242bd75614a264bf50ae1}{GetMemory}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));  \textcolor{comment}{//CREACION DE VARIABLE CON EL POOL CREADO}}
+\DoxyCodeLine{147                     \textcolor{keywordtype}{string} \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}value"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{148                     \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrChunk = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a11be1060630220191d9b781028577b14}{FindChunkHoldingPointerTo}}(ptrvar);}
+\DoxyCodeLine{149                     ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aea2d750e12b1661ca8691fd2934e97d4}{name}} = name;}
+\DoxyCodeLine{150                     ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} = type;}
+\DoxyCodeLine{151                     ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a8babb6293dfbecf2a430ab8286309f03}{counter}} = 1;}
+\DoxyCodeLine{152                     \textcolor{keywordtype}{double} newvalue = \mbox{\hyperlink{Split__getline_8h_a2a44680693c8951519e4c71877b8de48}{split\_getline}}(value, ptr\_mpool);}
+\DoxyCodeLine{153                     \textcolor{keywordtype}{int} newvaluei = newvalue;}
+\DoxyCodeLine{154                     *ptrvar = newvaluei;}
+\DoxyCodeLine{155                     \mbox{\hyperlink{classVariable}{Variable}} *variable = \textcolor{keyword}{new} \mbox{\hyperlink{classVariable}{Variable}}(name, ptrChunk);}
+\DoxyCodeLine{156                     \mbox{\hyperlink{main_8cpp_ab75bcb21af682a64c175845a1d7848f9}{globalList}}.push\_back(*variable);}
+\DoxyCodeLine{157                     \mbox{\hyperlink{main_8cpp_ab7be60372a907489a01fe0c7a042f4d5}{LtoS}}();}
+\DoxyCodeLine{158                     \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage = \mbox{\hyperlink{main_8cpp_a36895be712ca27d24fbb9bc7273863eb}{parseJson}}();}
+\DoxyCodeLine{159                     \textcolor{keywordtype}{string} message = mymessage.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}();}
+\DoxyCodeLine{160                     send(clientSocket, message.c\_str(), message.size() + 1, 0);}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162                 \}}
+\DoxyCodeLine{163                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (operation == \textcolor{stringliteral}{"{}reference"{}})\{}
+\DoxyCodeLine{164                     \textcolor{keywordtype}{string} \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}value"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{165                     \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}}.erase(\mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}}.end()-\/11, \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}}.end());}
+\DoxyCodeLine{166                     \textcolor{keywordtype}{bool} can = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{FindChunkHoldingSameName}}(value);}
+\DoxyCodeLine{167                     \textcolor{keywordflow}{if} (!can) \{}
+\DoxyCodeLine{168                         \textcolor{keywordtype}{string} type = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}type"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{169                         \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrRef = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_abc397437f82e468445f5094ba9fbd974}{FindChunkHoldingNameTo}}(value);}
+\DoxyCodeLine{170                         \textcolor{keywordflow}{if}(ptrRef-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} == type \&\& ptrRef-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}})\{}
+\DoxyCodeLine{171                             \textcolor{keywordtype}{int} *ptrvar = (\textcolor{keywordtype}{int} *) ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a3a00773e69c242bd75614a264bf50ae1}{GetMemory}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));   \textcolor{comment}{//CREACION DE VARIABLE CON EL POOL CREADO}}
+\DoxyCodeLine{172                             \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrChunk = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a11be1060630220191d9b781028577b14}{FindChunkHoldingPointerTo}}(ptrvar);}
+\DoxyCodeLine{173                             ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aea2d750e12b1661ca8691fd2934e97d4}{name}} = name;}
+\DoxyCodeLine{174                             ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} = type;}
+\DoxyCodeLine{175                             ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a8babb6293dfbecf2a430ab8286309f03}{counter}}= 1;}
+\DoxyCodeLine{176                             cout<< \textcolor{stringliteral}{"{}Reference value: "{}}<< *(\textcolor{keywordtype}{int} *)ptrRef-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a0378b8bec7c39aa4a8329c030bbc6281}{reference}}-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}{Data}}<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{177                             *ptrvar = *(\textcolor{keywordtype}{int} *)ptrRef-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a0378b8bec7c39aa4a8329c030bbc6281}{reference}}-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}{Data}};}
+\DoxyCodeLine{178                             \mbox{\hyperlink{classVariable}{Variable}} *variable = \textcolor{keyword}{new} \mbox{\hyperlink{classVariable}{Variable}}(name, ptrChunk);        \textcolor{comment}{//NO ESTOY SEGURA JEJEPS}}
+\DoxyCodeLine{179                             \mbox{\hyperlink{main_8cpp_ab75bcb21af682a64c175845a1d7848f9}{globalList}}.push\_back(*variable);}
+\DoxyCodeLine{180                             \mbox{\hyperlink{main_8cpp_ab7be60372a907489a01fe0c7a042f4d5}{LtoS}}();}
+\DoxyCodeLine{181                             \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage = \mbox{\hyperlink{main_8cpp_a36895be712ca27d24fbb9bc7273863eb}{parseJson}}();}
+\DoxyCodeLine{182                             \textcolor{keywordtype}{string} message = mymessage.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}();}
+\DoxyCodeLine{183                             send(clientSocket, message.c\_str(), message.size() + 1, 0);}
+\DoxyCodeLine{184                         \}\textcolor{keywordflow}{else}\{ cout<< \textcolor{stringliteral}{"{}LAS VARIABLES NO COINCIDEN EN EL TIPO\(\backslash\)n"{}};\}}
+\DoxyCodeLine{185                     \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{186                         cout<< \textcolor{stringliteral}{"{}Variable no existe\(\backslash\)n"{}};}
+\DoxyCodeLine{187                     \}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189                 \}}
+\DoxyCodeLine{190                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{191                     \textcolor{keywordtype}{int} *ptrvar = (\textcolor{keywordtype}{int} *) ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a3a00773e69c242bd75614a264bf50ae1}{GetMemory}}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));  \textcolor{comment}{//CREACION DE VARIABLE CON EL POOL CREADO}}
+\DoxyCodeLine{192                     \textcolor{keywordtype}{string} \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}value"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{193                     \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrChunk = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a11be1060630220191d9b781028577b14}{FindChunkHoldingPointerTo}}(ptrvar);}
+\DoxyCodeLine{194                     ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aea2d750e12b1661ca8691fd2934e97d4}{name}} = name;}
+\DoxyCodeLine{195                     ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} = type;}
+\DoxyCodeLine{196                     ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a8babb6293dfbecf2a430ab8286309f03}{counter}} = 1;}
+\DoxyCodeLine{197                     *ptrvar = stoi(value);}
+\DoxyCodeLine{198                     \mbox{\hyperlink{classVariable}{Variable}} *variable = \textcolor{keyword}{new} \mbox{\hyperlink{classVariable}{Variable}}(name, ptrChunk);}
+\DoxyCodeLine{199                     \mbox{\hyperlink{main_8cpp_ab75bcb21af682a64c175845a1d7848f9}{globalList}}.push\_back(*variable);}
+\DoxyCodeLine{200                     \mbox{\hyperlink{main_8cpp_ab7be60372a907489a01fe0c7a042f4d5}{LtoS}}();}
+\DoxyCodeLine{201                     \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage = \mbox{\hyperlink{main_8cpp_a36895be712ca27d24fbb9bc7273863eb}{parseJson}}();}
+\DoxyCodeLine{202                     \textcolor{keywordtype}{string} message = mymessage.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}();}
+\DoxyCodeLine{203                     send(clientSocket, message.c\_str(), message.size() + 1, 0);}
+\DoxyCodeLine{204                 \}}
+\DoxyCodeLine{205             \}}
+\DoxyCodeLine{206         \}}
+\DoxyCodeLine{207         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{208             cout<<\textcolor{stringliteral}{"{}la madre \(\backslash\)n"{}};}
+\DoxyCodeLine{209         \}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211     \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(key == \textcolor{stringliteral}{"{}defineR"{}})\{}
+\DoxyCodeLine{212         \textcolor{keywordtype}{string} name = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}name"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{213         \textcolor{keywordtype}{bool} can = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{FindChunkHoldingSameName}}(name);}
+\DoxyCodeLine{214         \textcolor{keywordflow}{if} (can) \{}
+\DoxyCodeLine{215             \textcolor{keywordtype}{string} operation = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}operation"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{216             \textcolor{keywordflow}{if}(operation == \textcolor{stringliteral}{"{}true"{}})\{}
+\DoxyCodeLine{217                 \textcolor{keywordtype}{string} \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}value"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{218                 \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}}.erase(\mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}}.end()-\/10, \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}}.end());}
+\DoxyCodeLine{219                 \textcolor{keywordtype}{bool} can = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{FindChunkHoldingSameName}}(value);}
+\DoxyCodeLine{220                 \textcolor{keywordflow}{if} (!can) \{}
+\DoxyCodeLine{221                     \textcolor{keywordtype}{string} type = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}type"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{222                     \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrOrig = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_abc397437f82e468445f5094ba9fbd974}{FindChunkHoldingNameTo}}(value);}
+\DoxyCodeLine{223                     \textcolor{keywordflow}{if}(ptrOrig-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} == type \&\& !ptrOrig-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}})\{}
+\DoxyCodeLine{224                         \textcolor{keywordtype}{void} *ptrvar = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a3a00773e69c242bd75614a264bf50ae1}{GetMemory}}(1);  \textcolor{comment}{//CREACION DE VARIABLE CON EL POOL CREADO}}
+\DoxyCodeLine{225                         \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrChunk = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a11be1060630220191d9b781028577b14}{FindChunkHoldingPointerTo}}(ptrvar);}
+\DoxyCodeLine{226                         ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aea2d750e12b1661ca8691fd2934e97d4}{name}} = name;}
+\DoxyCodeLine{227                         ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} = type;}
+\DoxyCodeLine{228                         ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{229                         ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a0378b8bec7c39aa4a8329c030bbc6281}{reference}} = ptrOrig;}
+\DoxyCodeLine{230                         ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a8babb6293dfbecf2a430ab8286309f03}{counter}}= -\/1;}
+\DoxyCodeLine{231                         ptrOrig-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a8babb6293dfbecf2a430ab8286309f03}{counter}}++;}
+\DoxyCodeLine{232                         \mbox{\hyperlink{classVariable}{Variable}} *variable = \textcolor{keyword}{new} \mbox{\hyperlink{classVariable}{Variable}}(name, ptrChunk);        \textcolor{comment}{//NO ESTOY SEGURA JEJEPS}}
+\DoxyCodeLine{233                         \mbox{\hyperlink{main_8cpp_ab75bcb21af682a64c175845a1d7848f9}{globalList}}.push\_back(*variable);}
+\DoxyCodeLine{234                         \mbox{\hyperlink{main_8cpp_ab7be60372a907489a01fe0c7a042f4d5}{LtoS}}();}
+\DoxyCodeLine{235                         \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage = \mbox{\hyperlink{main_8cpp_a36895be712ca27d24fbb9bc7273863eb}{parseJson}}();}
+\DoxyCodeLine{236                         \textcolor{keywordtype}{string} message = mymessage.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}();}
+\DoxyCodeLine{237                         send(clientSocket, message.c\_str(), message.size() + 1, 0);}
+\DoxyCodeLine{238                     \}\textcolor{keywordflow}{else}\{ cout<< \textcolor{stringliteral}{"{}LAS VARIABLES NO COINCIDEN EN EL TIPO\(\backslash\)n"{}};\}}
+\DoxyCodeLine{239                 \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{240                     cout<< \textcolor{stringliteral}{"{}Variable no existe\(\backslash\)n"{}};}
+\DoxyCodeLine{241                 \}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243             \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{244                 \textcolor{keywordtype}{string} \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}value"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{245                 \textcolor{keywordtype}{bool} can = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{FindChunkHoldingSameName}}(value);}
+\DoxyCodeLine{246                 \textcolor{keywordflow}{if} (!can) \{}
+\DoxyCodeLine{247                     \textcolor{keywordtype}{string} type = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}type"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{248                     \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrRef = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_abc397437f82e468445f5094ba9fbd974}{FindChunkHoldingNameTo}}(value);}
+\DoxyCodeLine{249                     \textcolor{keywordflow}{if} (ptrRef-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}} \&\& ptrRef-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} == type) \{}
+\DoxyCodeLine{250                         \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrOrig = ptrRef-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a0378b8bec7c39aa4a8329c030bbc6281}{reference}};}
+\DoxyCodeLine{251                         \textcolor{keywordtype}{void} *ptrvar = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a3a00773e69c242bd75614a264bf50ae1}{GetMemory}}(1);  \textcolor{comment}{//CREACION DE VARIABLE CON EL POOL CREADO}}
+\DoxyCodeLine{252                         \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrChunk = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a11be1060630220191d9b781028577b14}{FindChunkHoldingPointerTo}}(ptrvar);}
+\DoxyCodeLine{253                         ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aea2d750e12b1661ca8691fd2934e97d4}{name}} = name;}
+\DoxyCodeLine{254                         ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} = type;}
+\DoxyCodeLine{255                         ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{256                         ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a0378b8bec7c39aa4a8329c030bbc6281}{reference}} = ptrOrig;}
+\DoxyCodeLine{257                         ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a8babb6293dfbecf2a430ab8286309f03}{counter}}= -\/1;}
+\DoxyCodeLine{258                         ptrOrig-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a8babb6293dfbecf2a430ab8286309f03}{counter}}++;}
+\DoxyCodeLine{259                         \mbox{\hyperlink{classVariable}{Variable}} *variable = \textcolor{keyword}{new} \mbox{\hyperlink{classVariable}{Variable}}(name, ptrChunk);        \textcolor{comment}{//NO ESTOY SEGURA JEJEPS}}
+\DoxyCodeLine{260                         \mbox{\hyperlink{main_8cpp_ab75bcb21af682a64c175845a1d7848f9}{globalList}}.push\_back(*variable);}
+\DoxyCodeLine{261                         \mbox{\hyperlink{main_8cpp_ab7be60372a907489a01fe0c7a042f4d5}{LtoS}}();}
+\DoxyCodeLine{262                         \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage = \mbox{\hyperlink{main_8cpp_a36895be712ca27d24fbb9bc7273863eb}{parseJson}}();}
+\DoxyCodeLine{263                         \textcolor{keywordtype}{string} message = mymessage.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}();}
+\DoxyCodeLine{264                         send(clientSocket, message.c\_str(), message.size() + 1, 0);}
+\DoxyCodeLine{265                     \}\textcolor{keywordflow}{else}\{ cout<< \textcolor{stringliteral}{"{}LAS VARIABLES NO COINCIDEN EN EL TIPO\(\backslash\)n"{}};\}\}}
+\DoxyCodeLine{266                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{267                     cout<< \textcolor{stringliteral}{"{}Variable no existe\(\backslash\)n"{}};}
+\DoxyCodeLine{268                 \}}
+\DoxyCodeLine{269             \}}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271         \}}
+\DoxyCodeLine{272     \}}
+\DoxyCodeLine{273     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(key == \textcolor{stringliteral}{"{}print"{}})\{}
+\DoxyCodeLine{274         \textcolor{keywordtype}{string} \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}value"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{275         \textcolor{keywordtype}{bool} can = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{FindChunkHoldingSameName}}(value);}
+\DoxyCodeLine{276         \textcolor{keywordflow}{if} (!can) \{}
+\DoxyCodeLine{277             \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrRef = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_abc397437f82e468445f5094ba9fbd974}{FindChunkHoldingNameTo}}(value);}
+\DoxyCodeLine{278             \textcolor{keywordtype}{string} type = ptrRef-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}};}
+\DoxyCodeLine{279             \textcolor{keywordflow}{if} (type == \textcolor{stringliteral}{"{}int"{}} \&\& !ptrRef-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}})\{}
+\DoxyCodeLine{280                 \textcolor{keywordtype}{int} valueprint = *((\textcolor{keywordtype}{int} *) ptrRef-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}{Data}});}
+\DoxyCodeLine{281                 \mbox{\hyperlink{main_8cpp_a28c18df06b723c9a8b2b4da835c3b5d6}{std\_out\_}} = \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(valueprint) + \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{282                 \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage = \mbox{\hyperlink{main_8cpp_a36895be712ca27d24fbb9bc7273863eb}{parseJson}}();}
+\DoxyCodeLine{283                 \textcolor{keywordtype}{string} message = mymessage.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}();}
+\DoxyCodeLine{284                 send(clientSocket, message.c\_str(), message.size() + 1, 0);}
+\DoxyCodeLine{285             \}}
+\DoxyCodeLine{286         \}}
+\DoxyCodeLine{287         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{288             cout<< \textcolor{stringliteral}{"{}Variable no existe\(\backslash\)n"{}};}
+\DoxyCodeLine{289         \}}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291     \}}
+\DoxyCodeLine{292     \textcolor{comment}{// Echo message back to client}}
+\DoxyCodeLine{293     \textcolor{comment}{//send(clientSocket, buf, bytesReceived + 1, 0);}}
+\DoxyCodeLine{294 }
+\DoxyCodeLine{295     close(clientSocket);}
+\DoxyCodeLine{296     \}}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298     \textcolor{comment}{// Close the socket}}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{301 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{main_8cpp_ab75bcb21af682a64c175845a1d7848f9}\label{main_8cpp_ab75bcb21af682a64c175845a1d7848f9}} 
+\index{main.cpp@{main.cpp}!globalList@{globalList}}
+\index{globalList@{globalList}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{globalList}{globalList}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{classVariable}{Variable}}$>$ global\+List}
+
+
+
+Definición en la línea 23 del archivo main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_aa1fa0cc327ca39566995318f7123225e}\label{main_8cpp_aa1fa0cc327ca39566995318f7123225e}} 
+\index{main.cpp@{main.cpp}!log\_@{log\_}}
+\index{log\_@{log\_}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{log\_}{log\_}}
+{\footnotesize\ttfamily string log\+\_\+}
+
+
+
+Definición en la línea 26 del archivo main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_aad25264a369aa0e504c42908037ec45a}\label{main_8cpp_aad25264a369aa0e504c42908037ec45a}} 
+\index{main.cpp@{main.cpp}!ram\_@{ram\_}}
+\index{ram\_@{ram\_}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ram\_}{ram\_}}
+{\footnotesize\ttfamily string ram\+\_\+}
+
+
+
+Definición en la línea 24 del archivo main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a28c18df06b723c9a8b2b4da835c3b5d6}\label{main_8cpp_a28c18df06b723c9a8b2b4da835c3b5d6}} 
+\index{main.cpp@{main.cpp}!std\_out\_@{std\_out\_}}
+\index{std\_out\_@{std\_out\_}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{std\_out\_}{std\_out\_}}
+{\footnotesize\ttfamily string std\+\_\+out\+\_\+}
+
+
+
+Definición en la línea 25 del archivo main.\+cpp.
+

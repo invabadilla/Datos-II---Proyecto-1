@@ -1,0 +1,154 @@
+\hypertarget{Compiler_8cpp}{}\doxysection{Referencia del Archivo Compiler.\+cpp}
+\label{Compiler_8cpp}\index{Compiler.cpp@{Compiler.cpp}}
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include \char`\"{}Compiler.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$QString$>$}\newline
+{\ttfamily \#include $<$QString\+List$>$}\newline
+{\ttfamily \#include \char`\"{}mainwindow.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$QApplication$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include \char`\"{}json.\+hpp\char`\"{}}\newline
+\doxysubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{Compiler_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} = \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{Compiler_8cpp_af6f4bcc815818e0b997f86f940b61870}{start\+Client}} (\mbox{\hyperlink{Compiler_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} message)
+\item 
+\mbox{\hyperlink{Compiler_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \mbox{\hyperlink{Compiler_8cpp_a4e53be69a03ac34b74784627e3e20a8b}{parse\+Json}} (QString\+List message, string operation)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de los \textquotesingle{}typedefs\textquotesingle{}}
+\mbox{\Hypertarget{Compiler_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}\label{Compiler_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}} 
+\index{Compiler.cpp@{Compiler.cpp}!json@{json}}
+\index{json@{json}!Compiler.cpp@{Compiler.cpp}}
+\doxysubsubsection{\texorpdfstring{json}{json}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{Compiler_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} =  \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}}
+
+
+
+Definición en la línea 28 del archivo Compiler.\+cpp.
+
+
+
+\doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{Compiler_8cpp_a4e53be69a03ac34b74784627e3e20a8b}\label{Compiler_8cpp_a4e53be69a03ac34b74784627e3e20a8b}} 
+\index{Compiler.cpp@{Compiler.cpp}!parseJson@{parseJson}}
+\index{parseJson@{parseJson}!Compiler.cpp@{Compiler.cpp}}
+\doxysubsubsection{\texorpdfstring{parseJson()}{parseJson()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Compiler_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} parse\+Json (\begin{DoxyParamCaption}\item[{QString\+List}]{message,  }\item[{string}]{operation }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 86 del archivo Compiler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{86                                                       \{}
+\DoxyCodeLine{87     \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} mymessage =}
+\DoxyCodeLine{88             \{}
+\DoxyCodeLine{89                     \{\textcolor{stringliteral}{"{}type"{}}, message.\mbox{\hyperlink{classnlohmann_1_1basic__json_a52b18a5b7e68652c65b070900c438c6e}{at}}(0).toStdString()\},}
+\DoxyCodeLine{90                     \{\textcolor{stringliteral}{"{}name"{}},message.\mbox{\hyperlink{classnlohmann_1_1basic__json_a52b18a5b7e68652c65b070900c438c6e}{at}}(1).toStdString()\},}
+\DoxyCodeLine{91                     \{\textcolor{stringliteral}{"{}value"{}},message.\mbox{\hyperlink{classnlohmann_1_1basic__json_a52b18a5b7e68652c65b070900c438c6e}{at}}(2).toStdString()\},}
+\DoxyCodeLine{92                     \{\textcolor{stringliteral}{"{}key"{}},message.\mbox{\hyperlink{classnlohmann_1_1basic__json_a52b18a5b7e68652c65b070900c438c6e}{at}}(3).toStdString()\},}
+\DoxyCodeLine{93                     \{\textcolor{stringliteral}{"{}operation"{}}, operation\},}
+\DoxyCodeLine{94             \};}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     \textcolor{comment}{// Access the values}}
+\DoxyCodeLine{97     \textcolor{keywordtype}{string} type = mymessage.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}type"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{98     \textcolor{keywordtype}{string} name = mymessage.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}name"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{99     \textcolor{keywordtype}{string} \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} = mymessage.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}value"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \textcolor{comment}{// Print the values}}
+\DoxyCodeLine{102     std::cout << \textcolor{stringliteral}{"{}Type: "{}} << type << std::endl;}
+\DoxyCodeLine{103     std::cout << \textcolor{stringliteral}{"{}Name: "{}} << name << std::endl;}
+\DoxyCodeLine{104     std::cout << \textcolor{stringliteral}{"{}Value: "{}} << \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa2063c1608d6e0baf80249c42e2be5804}{value}} << std::endl;}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106     \textcolor{keywordflow}{return} mymessage;}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Compiler_8cpp_af6f4bcc815818e0b997f86f940b61870}\label{Compiler_8cpp_af6f4bcc815818e0b997f86f940b61870}} 
+\index{Compiler.cpp@{Compiler.cpp}!startClient@{startClient}}
+\index{startClient@{startClient}!Compiler.cpp@{Compiler.cpp}}
+\doxysubsubsection{\texorpdfstring{startClient()}{startClient()}}
+{\footnotesize\ttfamily int start\+Client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Compiler_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}}]{message }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 30 del archivo Compiler.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30                               \{}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{int} sock = socket(AF\_INET, SOCK\_STREAM, 0);}
+\DoxyCodeLine{33     \textcolor{keywordflow}{if} (sock == -\/1)\{}
+\DoxyCodeLine{34         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{comment}{//  Create a hint structure for the server we're connecting with}}
+\DoxyCodeLine{38     \textcolor{keywordtype}{int} port = \mbox{\hyperlink{classCompiler_a4f7f12dd59e9e6163962afbb09d3cd9c}{Compiler::port}};}
+\DoxyCodeLine{39     \textcolor{keywordtype}{string} ipAddress = \textcolor{stringliteral}{"{}127.0.0.1"{}};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     sockaddr\_in hint;}
+\DoxyCodeLine{42     hint.sin\_family = AF\_INET;}
+\DoxyCodeLine{43     hint.sin\_port = htons(port);}
+\DoxyCodeLine{44     inet\_pton(AF\_INET, ipAddress.c\_str(), \&hint.sin\_addr);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{comment}{//  Connect to the server on the socket}}
+\DoxyCodeLine{47     \textcolor{keywordtype}{int} connectRes = connect(sock, (sockaddr*)\&hint, \textcolor{keyword}{sizeof}(hint));}
+\DoxyCodeLine{48     \textcolor{keywordflow}{if} (connectRes == -\/1)\{}
+\DoxyCodeLine{49         cout << \textcolor{stringliteral}{"{}Could not send to server! Whoops!\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{50         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{comment}{//  While loop:}}
+\DoxyCodeLine{54     \textcolor{keywordtype}{char} buf[4096];}
+\DoxyCodeLine{55     \textcolor{keywordtype}{string} userInput;}
+\DoxyCodeLine{56     \textcolor{keywordtype}{string} mymessage = message.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}();}
+\DoxyCodeLine{57     cout << mymessage << endl;}
+\DoxyCodeLine{58     \textcolor{comment}{//      Send to server}}
+\DoxyCodeLine{59     \textcolor{keywordtype}{int} sendRes = send(sock, mymessage.c\_str(), mymessage.size() + 1, 0);}
+\DoxyCodeLine{60     \textcolor{keywordflow}{if} (sendRes == -\/1)\{}
+\DoxyCodeLine{61         cout << \textcolor{stringliteral}{"{}Could not send to server! Whoops!\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{62     \}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{comment}{//      Wait for response}}
+\DoxyCodeLine{65     memset(buf, 0, 4096);}
+\DoxyCodeLine{66     \textcolor{keywordtype}{int} bytesReceived = recv(sock, buf, 4096, 0);}
+\DoxyCodeLine{67     \textcolor{keywordflow}{if} (bytesReceived == -\/1)\{}
+\DoxyCodeLine{68         cout << \textcolor{stringliteral}{"{}There was an error getting response from server\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{69     \}}
+\DoxyCodeLine{70     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{71         \textcolor{keywordtype}{string} messageR = \mbox{\hyperlink{namespacenlohmann_1_1detail_a1ed8fc6239da25abcaf681d30ace4985ab45cffe084dd3d20d928bee85e7b0f21}{string}}(buf, bytesReceived);}
+\DoxyCodeLine{72         cout << \mbox{\hyperlink{namespacenlohmann_1_1detail_a1ed8fc6239da25abcaf681d30ace4985ab45cffe084dd3d20d928bee85e7b0f21}{string}}(buf, bytesReceived);}
+\DoxyCodeLine{73         \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} jmessageR = \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(messageR);}
+\DoxyCodeLine{74         \textcolor{keywordtype}{string} std\_out\_ = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}std\_out\_"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{75         \textcolor{keywordtype}{string} ram\_ = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}ram\_"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{76         \textcolor{keywordtype}{string} log\_ = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}log\_"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{77         \mbox{\hyperlink{classCompiler_a1942f43fbbc0eebcf496564e5de43562}{Compiler::updateStrings}}(std\_out\_, log\_, ram\_);}
+\DoxyCodeLine{78     \}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{comment}{//  Close the socket}}
+\DoxyCodeLine{81 close(sock);}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{84 \}}
+
+\end{DoxyCode}

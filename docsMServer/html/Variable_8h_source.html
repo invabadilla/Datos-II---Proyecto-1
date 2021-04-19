@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Documentacion MServer: Fichero Fuente Variable.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Documentacion MServer
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Variable.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Variable_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by ingrid on 4/13/21.</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef SERVER_VARIABLE_H</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define SERVER_VARIABLE_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SMemoryChunk_8h.html">SMemoryChunk.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classVariable.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classVariable.html">Variable</a> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classVariable.html#a35efa28973c7703f9fdf455292717e83">Variable</a>(<span class="keywordtype">string</span> name_, <a class="code" href="structMemPool_1_1SMemoryChunk.html">MemPool::SMemoryChunk</a> *ptr_);</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classVariable.html#a20d3268aae34f6b98d7dbdecb65b17ed">   27</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classVariable.html#a20d3268aae34f6b98d7dbdecb65b17ed">name</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classVariable.html#a855a4931dffad56c6048ac813c4038ab">   28</a></span>&#160;    <a class="code" href="structMemPool_1_1SMemoryChunk.html">MemPool::SMemoryChunk</a> *<a class="code" href="classVariable.html#a855a4931dffad56c6048ac813c4038ab">ptr</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//SERVER_VARIABLE_H</span></div>
+<div class="ttc" id="aSMemoryChunk_8h_html"><div class="ttname"><a href="SMemoryChunk_8h.html">SMemoryChunk.h</a></div></div>
+<div class="ttc" id="aclassVariable_html"><div class="ttname"><a href="classVariable.html">Variable</a></div><div class="ttdef"><b>Definition:</b> <a href="Variable_8h_source.html#l00024">Variable.h:24</a></div></div>
+<div class="ttc" id="aclassVariable_html_a20d3268aae34f6b98d7dbdecb65b17ed"><div class="ttname"><a href="classVariable.html#a20d3268aae34f6b98d7dbdecb65b17ed">Variable::name</a></div><div class="ttdeci">string name</div><div class="ttdef"><b>Definition:</b> <a href="Variable_8h_source.html#l00027">Variable.h:27</a></div></div>
+<div class="ttc" id="aclassVariable_html_a35efa28973c7703f9fdf455292717e83"><div class="ttname"><a href="classVariable.html#a35efa28973c7703f9fdf455292717e83">Variable::Variable</a></div><div class="ttdeci">Variable(string name_, MemPool::SMemoryChunk *ptr_)</div><div class="ttdef"><b>Definition:</b> <a href="Variable_8cpp_source.html#l00016">Variable.cpp:16</a></div></div>
+<div class="ttc" id="aclassVariable_html_a855a4931dffad56c6048ac813c4038ab"><div class="ttname"><a href="classVariable.html#a855a4931dffad56c6048ac813c4038ab">Variable::ptr</a></div><div class="ttdeci">MemPool::SMemoryChunk * ptr</div><div class="ttdef"><b>Definition:</b> <a href="Variable_8h_source.html#l00028">Variable.h:28</a></div></div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition:</b> <a href="json_8hpp_source.html#l03975">json.hpp:3976</a></div></div>
+<div class="ttc" id="astructMemPool_1_1SMemoryChunk_html"><div class="ttname"><a href="structMemPool_1_1SMemoryChunk.html">MemPool::SMemoryChunk</a></div><div class="ttdef"><b>Definition:</b> <a href="SMemoryChunk_8h_source.html#l00012">SMemoryChunk.h:12</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

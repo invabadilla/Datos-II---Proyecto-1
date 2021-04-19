@@ -1,0 +1,294 @@
+\hypertarget{Split__getline_8h}{}\doxysection{Referencia del Archivo Split\+\_\+getline.\+h}
+\label{Split__getline_8h}\index{Split\_getline.h@{Split\_getline.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}CMemory\+Pool.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}json.\+hpp\char`\"{}}\newline
+\doxysubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{Split__getline_8h_a2a44680693c8951519e4c71877b8de48}{split\+\_\+getline}} (string str, \mbox{\hyperlink{classMemPool_1_1CMemoryPool}{Mem\+Pool\+::\+CMemory\+Pool}} $\ast$ptr\+\_\+mpool)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{Split__getline_8h_a2a44680693c8951519e4c71877b8de48}\label{Split__getline_8h_a2a44680693c8951519e4c71877b8de48}} 
+\index{Split\_getline.h@{Split\_getline.h}!split\_getline@{split\_getline}}
+\index{split\_getline@{split\_getline}!Split\_getline.h@{Split\_getline.h}}
+\doxysubsubsection{\texorpdfstring{split\_getline()}{split\_getline()}}
+{\footnotesize\ttfamily double split\+\_\+getline (\begin{DoxyParamCaption}\item[{string}]{str,  }\item[{\mbox{\hyperlink{classMemPool_1_1CMemoryPool}{Mem\+Pool\+::\+CMemory\+Pool}} $\ast$}]{ptr\+\_\+mpool }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 17 del archivo Split\+\_\+getline.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                                                                   \{}
+\DoxyCodeLine{18     \textcolor{keywordtype}{string} myword = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{19     \textcolor{keywordtype}{double} total = 0;}
+\DoxyCodeLine{20     \textcolor{keywordtype}{char} \textcolor{keyword}{final};}
+\DoxyCodeLine{21     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i < str.size(); i++)\{}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23         \textcolor{keywordflow}{if} (str[i] == \textcolor{charliteral}{'+'}) \{}
+\DoxyCodeLine{24             \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{25                 \textcolor{keywordflow}{if} (myword.length() == \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(stoi(myword)).length())\{}
+\DoxyCodeLine{26                     total += stod(myword);}
+\DoxyCodeLine{27                     myword = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{28                     \textcolor{keyword}{final} = \textcolor{charliteral}{'+'};}
+\DoxyCodeLine{29                 \}}
+\DoxyCodeLine{30                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{31                     stod(\textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{32                 \}}
+\DoxyCodeLine{33             \}\textcolor{keywordflow}{catch}(std::invalid\_argument)\{}
+\DoxyCodeLine{34                 \textcolor{keywordflow}{if}(ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{FindChunkHoldingSameName}}(myword))\{}
+\DoxyCodeLine{35                     cout<< \textcolor{stringliteral}{"{}No hay variable con ese nombre1"{}};}
+\DoxyCodeLine{36                     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{37                 \}}
+\DoxyCodeLine{38                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{39                     \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrChunk =ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_abc397437f82e468445f5094ba9fbd974}{FindChunkHoldingNameTo}}(myword);}
+\DoxyCodeLine{40                     \textcolor{keywordflow}{if} (ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}char"{}} \&\& ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}struct"{}} \&\& !ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}})\{}
+\DoxyCodeLine{41                         total += *ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}{Data}};}
+\DoxyCodeLine{42                     \}}
+\DoxyCodeLine{43                         \textcolor{comment}{//eslseif(reference)}}
+\DoxyCodeLine{44                     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{45                         cout<< \textcolor{stringliteral}{"{}El tipo de la variable llamada no coincide con el operador usado"{}};}
+\DoxyCodeLine{46                         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{47                     \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49                 \}}
+\DoxyCodeLine{50                 myword = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{51                 \textcolor{keyword}{final} = \textcolor{charliteral}{'+'};}
+\DoxyCodeLine{52             \}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54         \}}
+\DoxyCodeLine{55         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (str[i] == \textcolor{charliteral}{'-\/'})\{}
+\DoxyCodeLine{56             \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{57                 \textcolor{keywordflow}{if} (myword.length() == \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(stoi(myword)).length())\{}
+\DoxyCodeLine{58                     total -\/= stod(myword);}
+\DoxyCodeLine{59                     myword = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{60                     \textcolor{keyword}{final} = \textcolor{charliteral}{'-\/'};}
+\DoxyCodeLine{61                 \}}
+\DoxyCodeLine{62                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{63                     stod(\textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{64                 \}}
+\DoxyCodeLine{65             \}\textcolor{keywordflow}{catch}(std::invalid\_argument)\{}
+\DoxyCodeLine{66                 \textcolor{keywordflow}{if}(!ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{FindChunkHoldingSameName}}(myword))\{}
+\DoxyCodeLine{67                     \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrChunk = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_abc397437f82e468445f5094ba9fbd974}{FindChunkHoldingNameTo}}(myword);}
+\DoxyCodeLine{68                     \textcolor{keywordflow}{if} (ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}char"{}} \&\& ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}struct"{}} \&\& !ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}})\{}
+\DoxyCodeLine{69                         total -\/= *ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}{Data}};}
+\DoxyCodeLine{70                     \}}
+\DoxyCodeLine{71                         \textcolor{comment}{//eslseif(reference)}}
+\DoxyCodeLine{72                     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{73                         cout<< \textcolor{stringliteral}{"{}El tipo de la variable llamada no coincide con el operador usado"{}};}
+\DoxyCodeLine{74                         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{75                     \}}
+\DoxyCodeLine{76                 \}}
+\DoxyCodeLine{77                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{78                     cout<< \textcolor{stringliteral}{"{}No hay variable con ese nombre"{}};}
+\DoxyCodeLine{79                     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{80                 \}}
+\DoxyCodeLine{81                 myword = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{82                 \textcolor{keyword}{final} = \textcolor{charliteral}{'-\/'};}
+\DoxyCodeLine{83             \}}
+\DoxyCodeLine{84         \}}
+\DoxyCodeLine{85         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (str[i] == \textcolor{charliteral}{'*'})\{}
+\DoxyCodeLine{86             \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{87                 \textcolor{keywordflow}{if} (myword.length() == \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(stoi(myword)).length())\{}
+\DoxyCodeLine{88                     total *= stod(myword);}
+\DoxyCodeLine{89                     myword = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{90                     \textcolor{keyword}{final} = \textcolor{charliteral}{'*'};}
+\DoxyCodeLine{91                 \}}
+\DoxyCodeLine{92                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{93                     stod(\textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{94                 \}}
+\DoxyCodeLine{95             \}\textcolor{keywordflow}{catch}(std::invalid\_argument)\{}
+\DoxyCodeLine{96                 \textcolor{keywordflow}{if}(!ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{FindChunkHoldingSameName}}(myword))\{}
+\DoxyCodeLine{97                     \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrChunk =ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_abc397437f82e468445f5094ba9fbd974}{FindChunkHoldingNameTo}}(myword);}
+\DoxyCodeLine{98                     \textcolor{keywordflow}{if} (ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}char"{}} \&\& ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}struct"{}} \&\& !ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}})\{}
+\DoxyCodeLine{99                         total *= *ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}{Data}};}
+\DoxyCodeLine{100                     \}}
+\DoxyCodeLine{101                         \textcolor{comment}{//eslseif(reference)}}
+\DoxyCodeLine{102                     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{103                         cout<< \textcolor{stringliteral}{"{}El tipo de la variable llamada no coincide con el operador usado"{}};}
+\DoxyCodeLine{104                         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{105                     \}}
+\DoxyCodeLine{106                 \}}
+\DoxyCodeLine{107                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{108                     cout<< \textcolor{stringliteral}{"{}No hay variable con ese nombre"{}};}
+\DoxyCodeLine{109                     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{110                 \}}
+\DoxyCodeLine{111                 myword = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{112                 \textcolor{keyword}{final} = \textcolor{charliteral}{'*'};}
+\DoxyCodeLine{113             \}}
+\DoxyCodeLine{114         \}}
+\DoxyCodeLine{115         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (str[i] == \textcolor{charliteral}{'/'})\{}
+\DoxyCodeLine{116             \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{117                 \textcolor{keywordflow}{if} (myword.length() == \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(stoi(myword)).length())\{}
+\DoxyCodeLine{118                     total /= stod(myword);}
+\DoxyCodeLine{119                     myword = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{120                     \textcolor{keyword}{final} = \textcolor{charliteral}{'/'};}
+\DoxyCodeLine{121                 \}}
+\DoxyCodeLine{122                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{123                     stod(\textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{124                 \}}
+\DoxyCodeLine{125             \}\textcolor{keywordflow}{catch}(std::invalid\_argument)\{}
+\DoxyCodeLine{126                 \textcolor{keywordflow}{if}(!ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{FindChunkHoldingSameName}}(myword))\{}
+\DoxyCodeLine{127                     \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrChunk =ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_abc397437f82e468445f5094ba9fbd974}{FindChunkHoldingNameTo}}(myword);}
+\DoxyCodeLine{128                     \textcolor{keywordflow}{if} (ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}char"{}} \&\& ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}struct"{}} \&\& !ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}})\{}
+\DoxyCodeLine{129                         total /= *ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}{Data}};}
+\DoxyCodeLine{130                     \}}
+\DoxyCodeLine{131                         \textcolor{comment}{//eslseif(reference)}}
+\DoxyCodeLine{132                     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{133                         cout<< \textcolor{stringliteral}{"{}El tipo de la variable llamada no coincide con el operador usado"{}};}
+\DoxyCodeLine{134                         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{135                     \}}
+\DoxyCodeLine{136                 \}}
+\DoxyCodeLine{137                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{138                     cout<< \textcolor{stringliteral}{"{}No hay variable con ese nombre"{}};}
+\DoxyCodeLine{139                     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{140                 \}}
+\DoxyCodeLine{141                 myword = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{142                 \textcolor{keyword}{final} = \textcolor{charliteral}{'/'};}
+\DoxyCodeLine{143             \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145         \}}
+\DoxyCodeLine{146         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{147             myword = myword + str[i];}
+\DoxyCodeLine{148             cout<< i << \textcolor{stringliteral}{"{}: "{}}<< myword << endl;}
+\DoxyCodeLine{149             cout<<\textcolor{stringliteral}{"{}Total: "{}}<< total << endl;}
+\DoxyCodeLine{150         \}}
+\DoxyCodeLine{151     \}}
+\DoxyCodeLine{152     \textcolor{keywordflow}{if} (myword != \textcolor{stringliteral}{"{}"{}})\{}
+\DoxyCodeLine{153         \textcolor{keywordflow}{if} (\textcolor{keyword}{final} == \textcolor{charliteral}{'+'}) \{}
+\DoxyCodeLine{154             \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{155                 \textcolor{keywordflow}{if} (myword.length() == \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(stoi(myword)).length())\{}
+\DoxyCodeLine{156                     total += stod(myword);}
+\DoxyCodeLine{157                 \}}
+\DoxyCodeLine{158                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{159                     stod(\textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{160                 \}}
+\DoxyCodeLine{161             \}\textcolor{keywordflow}{catch}(std::invalid\_argument)\{}
+\DoxyCodeLine{162                 \textcolor{keywordflow}{if}(!ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{FindChunkHoldingSameName}}(myword))\{}
+\DoxyCodeLine{163                     \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrChunk = ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_abc397437f82e468445f5094ba9fbd974}{FindChunkHoldingNameTo}}(myword);}
+\DoxyCodeLine{164                     \textcolor{keywordflow}{if} (ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}char"{}} \&\& ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}struct"{}} \&\& !ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}})\{}
+\DoxyCodeLine{165                         total += *ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}{Data}};}
+\DoxyCodeLine{166                     \}}
+\DoxyCodeLine{167                         \textcolor{comment}{//eslseif(reference)}}
+\DoxyCodeLine{168                     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{169                         cout<< \textcolor{stringliteral}{"{}El tipo de la variable llamada no coincide con el operador usado"{}};}
+\DoxyCodeLine{170                         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{171                     \}}
+\DoxyCodeLine{172                 \}}
+\DoxyCodeLine{173                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{174                     cout<< \textcolor{stringliteral}{"{}No hay variable con ese nombre"{}};}
+\DoxyCodeLine{175                     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{176                 \}}
+\DoxyCodeLine{177             \}}
+\DoxyCodeLine{178         \}}
+\DoxyCodeLine{179         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\textcolor{keyword}{final} == \textcolor{charliteral}{'-\/'})\{}
+\DoxyCodeLine{180             \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{181                 \textcolor{keywordflow}{if} (myword.length() == \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(stoi(myword)).length())\{}
+\DoxyCodeLine{182                     total -\/= stod(myword);}
+\DoxyCodeLine{183                 \}}
+\DoxyCodeLine{184                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{185                     stod(\textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{186                 \}}
+\DoxyCodeLine{187             \}\textcolor{keywordflow}{catch}(std::invalid\_argument)\{}
+\DoxyCodeLine{188                 \textcolor{keywordflow}{if}(!ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{FindChunkHoldingSameName}}(myword))\{}
+\DoxyCodeLine{189                     \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrChunk =ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_abc397437f82e468445f5094ba9fbd974}{FindChunkHoldingNameTo}}(myword);}
+\DoxyCodeLine{190                     \textcolor{keywordflow}{if} (ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}char"{}} \&\& ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}struct"{}} \&\& !ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}})\{}
+\DoxyCodeLine{191                         total -\/= *ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}{Data}};}
+\DoxyCodeLine{192                     \}}
+\DoxyCodeLine{193                         \textcolor{comment}{//eslseif(reference)}}
+\DoxyCodeLine{194                     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{195                         cout<< \textcolor{stringliteral}{"{}El tipo de la variable llamada no coincide con el operador usado"{}};}
+\DoxyCodeLine{196                         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{197                     \}}
+\DoxyCodeLine{198                 \}}
+\DoxyCodeLine{199                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{200                     cout<< \textcolor{stringliteral}{"{}No hay variable con ese nombre"{}};}
+\DoxyCodeLine{201                     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{202                 \}}
+\DoxyCodeLine{203             \}}
+\DoxyCodeLine{204         \}}
+\DoxyCodeLine{205         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\textcolor{keyword}{final} == \textcolor{charliteral}{'*'})\{}
+\DoxyCodeLine{206             \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{207                 \textcolor{keywordflow}{if} (myword.length() == \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(stoi(myword)).length())\{}
+\DoxyCodeLine{208                     total *= stod(myword);}
+\DoxyCodeLine{209                 \}}
+\DoxyCodeLine{210                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{211                     stod(\textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{212                 \}}
+\DoxyCodeLine{213             \}\textcolor{keywordflow}{catch}(std::invalid\_argument)\{}
+\DoxyCodeLine{214                 \textcolor{keywordflow}{if}(!ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{FindChunkHoldingSameName}}(myword))\{}
+\DoxyCodeLine{215                     \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrChunk =ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_abc397437f82e468445f5094ba9fbd974}{FindChunkHoldingNameTo}}(myword);}
+\DoxyCodeLine{216                     \textcolor{keywordflow}{if} (ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}char"{}} \&\& ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}struct"{}} \&\& !ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}})\{}
+\DoxyCodeLine{217                         total *= *ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}{Data}};}
+\DoxyCodeLine{218                     \}}
+\DoxyCodeLine{219                         \textcolor{comment}{//eslseif(reference)}}
+\DoxyCodeLine{220                     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{221                         cout<< \textcolor{stringliteral}{"{}El tipo de la variable llamada no coincide con el operador usado"{}};}
+\DoxyCodeLine{222                         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{223                     \}}
+\DoxyCodeLine{224                 \}}
+\DoxyCodeLine{225                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{226                     cout<< \textcolor{stringliteral}{"{}No hay variable con ese nombre"{}};}
+\DoxyCodeLine{227                     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{228                 \}}
+\DoxyCodeLine{229             \}}
+\DoxyCodeLine{230         \}}
+\DoxyCodeLine{231         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\textcolor{keyword}{final} == \textcolor{charliteral}{'/'})\{}
+\DoxyCodeLine{232             \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{233                 \textcolor{keywordflow}{if} (myword.length() == \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(stoi(myword)).length())\{}
+\DoxyCodeLine{234                     total /= stod(myword);}
+\DoxyCodeLine{235                 \}}
+\DoxyCodeLine{236                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{237                     stod(\textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{238                 \}}
+\DoxyCodeLine{239             \}\textcolor{keywordflow}{catch}(std::invalid\_argument)\{}
+\DoxyCodeLine{240                 \textcolor{keywordflow}{if}(!ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{FindChunkHoldingSameName}}(myword))\{}
+\DoxyCodeLine{241                     \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrChunk =ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_abc397437f82e468445f5094ba9fbd974}{FindChunkHoldingNameTo}}(myword);}
+\DoxyCodeLine{242                     \textcolor{keywordflow}{if} (ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}char"{}} \&\& ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}struct"{}}\&\& !ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}})\{}
+\DoxyCodeLine{243                         total /= *ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}{Data}};}
+\DoxyCodeLine{244                     \}}
+\DoxyCodeLine{245                         \textcolor{comment}{//eslseif(reference)}}
+\DoxyCodeLine{246                     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{247                         cout<< \textcolor{stringliteral}{"{}El tipo de la variable llamada no coincide con el operador usado"{}};}
+\DoxyCodeLine{248                         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{249                     \}}
+\DoxyCodeLine{250                 \}}
+\DoxyCodeLine{251                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{252                     cout<< \textcolor{stringliteral}{"{}No hay variable con ese nombre"{}};}
+\DoxyCodeLine{253                     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{254                 \}}
+\DoxyCodeLine{255             \}}
+\DoxyCodeLine{256         \}}
+\DoxyCodeLine{257         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{258             \textcolor{keywordflow}{if}(!ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{FindChunkHoldingSameName}}(myword))\{}
+\DoxyCodeLine{259                 \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{MemPool::SMemoryChunk}} *ptrChunk =ptr\_mpool-\/>\mbox{\hyperlink{classMemPool_1_1CMemoryPool_abc397437f82e468445f5094ba9fbd974}{FindChunkHoldingNameTo}}(myword);}
+\DoxyCodeLine{260                 \textcolor{keywordflow}{if} (ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}char"{}} \&\& ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}{type}} != \textcolor{stringliteral}{"{}struct"{}}\&\& !ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{isReference}})\{}
+\DoxyCodeLine{261                     total = *ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}{Data}};}
+\DoxyCodeLine{262                 \}}
+\DoxyCodeLine{263                     \textcolor{comment}{//eslseif(reference)}}
+\DoxyCodeLine{264                 \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{265                     cout<< \textcolor{stringliteral}{"{}El tipo de la variable llamada no coincide con el operador usado"{}};}
+\DoxyCodeLine{266                     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{267                 \}}
+\DoxyCodeLine{268             \}}
+\DoxyCodeLine{269             \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{270                 cout<< \textcolor{stringliteral}{"{}No hay variable con ese nombre o valor no coincide con tipo de variable"{}};}
+\DoxyCodeLine{271                 \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{272             \}}
+\DoxyCodeLine{273         \}}
+\DoxyCodeLine{274     \}}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{277         cout<< \textcolor{stringliteral}{"{}Exrepresion esperada despues del ultimo operador"{}};}
+\DoxyCodeLine{278         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{279     \}}
+\DoxyCodeLine{280     cout<< total << endl;}
+\DoxyCodeLine{281     \textcolor{keywordflow}{return} total;}
+\DoxyCodeLine{282 \}}
+
+\end{DoxyCode}
