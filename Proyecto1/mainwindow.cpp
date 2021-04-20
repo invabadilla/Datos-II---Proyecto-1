@@ -36,6 +36,7 @@ void MainWindow::on_pushButton_clicked()
             this->Clear();
 
         }
+
     }
 }
 void MainWindow::UpdateGUI() {
@@ -59,3 +60,10 @@ void MainWindow::Clear() {
     compiler->compile("cancel");
 }
 
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    i_line = 0;
+    this->ui->textEdit->setEnabled(true);
+    this->Clear();
+}

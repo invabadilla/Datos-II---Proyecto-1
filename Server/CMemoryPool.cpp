@@ -392,10 +392,26 @@ SetChunkDefaults
             ptrChunk->UsedSize = 0 ;
             ptrChunk->IsAllocationChunk = false ;
             ptrChunk->Next = NULL ;
+            ptrChunk->isReference = false;
+            ptrChunk->reference = nullptr;
         }
         return ptrChunk ;
     }
 
+    void CMemoryPool::SetChunktoDefault(SMemoryChunk *ptrChunk)
+    {
+        if(ptrChunk)
+        {
+            ptrChunk->counter = 0;
+            ptrChunk->name = "0";
+            ptrChunk->type = "0";
+            //ptrChunk->Data = NULL ;
+            ptrChunk->UsedSize = 0 ;
+            ptrChunk->IsAllocationChunk = false ;
+            ptrChunk->isReference = false;
+            ptrChunk->reference = nullptr;
+        }
+    }
 /******************
 FindChunkHoldingPointerTo
 ******************/
@@ -460,12 +476,10 @@ FreeAllAllocatedMemory
         SMemoryChunk *ptrChunk = m_ptrFirstChunk ;
         while(ptrChunk)
         {
-            if(ptrChunk->IsAllocationChunk)
-            {
-                free(((void *) (ptrChunk->Data))) ;
-            }
-            ptrChunk = ptrChunk->Next ;
+            SetChunktoDefault(ptrChunk);
+            ptrChunk = ptrChunk->Next;
         }
+        m_ptrCursorChunk = m_ptrFirstChunk;
     }
 
 /******************

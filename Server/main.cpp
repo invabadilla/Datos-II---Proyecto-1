@@ -25,7 +25,6 @@ string ram_;
 string std_out_;
 string log_;
 json parseJson (){
-    // jdEmployees
     json mymessage =
             {
                     {"std_out_", std_out_},
@@ -72,6 +71,7 @@ void LtoS(){
         //otros casos
 
         ram_ +=" "+address+" / "+name+" / "+value+" / "+ref+" \n";
+        cout<< ram_<< endl;
 
     }
 
@@ -215,6 +215,8 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     json mymessage = parseJson();
                     string message = mymessage.dump();
                     send(clientSocket, message.c_str(), message.size() + 1, 0);
+
+
                 }
             }else if(type == "long"){
                 string operation = jmessageR.value("operation", "oops");
@@ -502,13 +504,11 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
 
     }
     else if(key == "cancel"){
-        ptr_mpool->FreeMemory(ptr_mpool->getMPtrFirstChunk());
-        std_out_ = "Finish \n";
+        globalList.clear();
+        ptr_mpool->FreeAllAllocatedMemory();
         json mymessage = parseJson();
         string message = mymessage.dump();
-        globalList.clear();
         send(clientSocket, message.c_str(), message.size() + 1, 0);
-
     }
     // Echo message back to client
     //send(clientSocket, buf, bytesReceived + 1, 0);

@@ -13,8 +13,8 @@ namespace MemPool {
         std::string type;         //TIpo de la variable almacenada
         std::string name;         //Nombre de la variable
         int counter;              //contador de referencias
-        bool isReference = false;
-        SMemoryChunk *reference = nullptr;
+        bool isReference;
+        SMemoryChunk *reference ;
         TByte *Data;              //El dato actual
         size_t DataSize;          //Tamano del bloque de datos
         size_t UsedSize;          //Tamano usado acutal
