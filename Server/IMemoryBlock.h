@@ -20,7 +20,7 @@ namespace MemPool{
     public:
         virtual ~IMemoryBlock(){};
         virtual void *GetMemory(const size_t &sMemorySize) = 0;
-        virtual void FreeMemory(void *ptrMemoryBlock, const size_t &sMemoryBlockSize)= 0;
+        virtual void FreeMemory(void *ptrMemoryBlock)= 0;
     };
 }
 

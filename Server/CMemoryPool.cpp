@@ -87,12 +87,13 @@ GetMemory
 /******************
 FreeMemory
 ******************/
-    void CMemoryPool::FreeMemory(void *ptrMemoryBlock, const std::size_t &sMemoryBlockSize)
+    void CMemoryPool::FreeMemory(void *ptrMemoryBlock)
     {
         // Search all Chunks for the one holding the "ptrMemoryBlock"-Pointer
         // ("SMemoryChunk->Data == ptrMemoryBlock"). Eventually, free that Chunks,
         // so it beecomes available to the Memory-Pool again...
         SMemoryChunk *ptrChunk = FindChunkHoldingPointerTo(ptrMemoryBlock) ;
+        std::cout << ptrChunk << std::endl;
         if(ptrChunk)
         {
             //std::cerr << "Freed Chunks OK (Used memPool Size : " << m_sUsedMemoryPoolSize << ")" << std::endl ;
@@ -515,6 +516,10 @@ MaxValue
             return sValueA ;
         }
         return sValueB ;
+    }
+
+    SMemoryChunk *CMemoryPool::getMPtrFirstChunk() const {
+        return m_ptrFirstChunk;
     }
 
 

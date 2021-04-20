@@ -22,5 +22,7 @@ private:
     Ui::MainWindow *ui;
 
     void UpdateGUI();
+
+    void Clear();
 };
 #endif // MAINWINDOW_H

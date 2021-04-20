@@ -22,7 +22,7 @@ namespace MemPool
 
         virtual void *GetMemory(const size_t &sMemorySize);
 
-        virtual void  FreeMemory(void  *ptrMemoryBlock, const size_t &sMemoryBlockSize);
+        virtual void FreeMemory(void *ptrMemoryBlock);
 
         bool WriteMemoryDumpToFile(const std::string &strFileName);
 
@@ -31,6 +31,8 @@ namespace MemPool
         SMemoryChunk *FindChunkHoldingNameTo(std::string name);
         SMemoryChunk *FindChunkHoldingPointerTo(void *ptrMemoryBlock);
         bool FindChunkHoldingSameName(std::string name_);
+
+        SMemoryChunk *getMPtrFirstChunk() const;
 
     private:
         bool AllocateMemory(const size_t &sMemorySize);

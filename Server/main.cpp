@@ -501,6 +501,15 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
         }
 
     }
+    else if(key == "cancel"){
+        ptr_mpool->FreeMemory(ptr_mpool->getMPtrFirstChunk());
+        std_out_ = "Finish \n";
+        json mymessage = parseJson();
+        string message = mymessage.dump();
+        globalList.clear();
+        send(clientSocket, message.c_str(), message.size() + 1, 0);
+
+    }
     // Echo message back to client
     //send(clientSocket, buf, bytesReceived + 1, 0);
 
@@ -515,8 +524,6 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
 
 
 int main(){
-
-
     cout<< "Ingrese el size del server en bits: ";
     string size;//En esta variable estará almacenado el nombre ingresado.
     cin >> size; //Se lee el nombre
