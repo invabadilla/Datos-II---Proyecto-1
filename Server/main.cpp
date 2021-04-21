@@ -19,6 +19,7 @@
 
 using json = nlohmann::json;
 using namespace std;
+bool in_scope = false;
 
 vector<Variable> globalList;
 string ram_;
@@ -153,6 +154,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->name = name;
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
+                    ptrChunk->isscope = in_scope;
                     double newvalue = split_getline(value, ptr_mpool);
                     int newvaluei = newvalue;
                     *ptrvar = newvaluei;
@@ -177,6 +179,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                             ptrChunk->name = name;
                             ptrChunk->type = type;
                             ptrChunk->counter= 1;
+                            ptrChunk->isscope = in_scope;
                             cout<< "Reference value: "<< *(int *)ptrRef->reference->Data<<"\n";
                             *ptrvar = *(int *)ptrRef->reference->Data;
                             Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
@@ -198,6 +201,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->name = name;
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
+                    ptrChunk->isscope = in_scope;
                     if(value != "") {
                         *ptrvar = stoi(value);
                     }else{ *ptrvar = NULL;}
@@ -219,6 +223,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->name = name;
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
+                    ptrChunk->isscope = in_scope;
                     double newvalue = split_getline(value, ptr_mpool);
                     long newvaluei = newvalue;
                     *ptrvar = newvaluei;
@@ -243,6 +248,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                             ptrChunk->name = name;
                             ptrChunk->type = type;
                             ptrChunk->counter= 1;
+                            ptrChunk->isscope = in_scope;
                             cout<< "Reference value: "<< *(long *)ptrRef->reference->Data<<"\n";
                             *ptrvar = *(long *)ptrRef->reference->Data;
                             Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
@@ -264,6 +270,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->name = name;
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
+                    ptrChunk->isscope = in_scope;
                     if(value != "") {
                         *ptrvar = stol(value);
                     }else{ *ptrvar = NULL;}
@@ -285,6 +292,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->name = name;
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
+                    ptrChunk->isscope = in_scope;
                     double newvalue = split_getline(value, ptr_mpool);
                     float newvaluei = newvalue;
                     *ptrvar = newvaluei;
@@ -309,6 +317,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                             ptrChunk->name = name;
                             ptrChunk->type = type;
                             ptrChunk->counter= 1;
+                            ptrChunk->isscope = in_scope;
                             cout<< "Reference value: "<< *(float *)ptrRef->reference->Data<<"\n";
                             *ptrvar = *(float *)ptrRef->reference->Data;
                             Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
@@ -330,6 +339,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->name = name;
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
+                    ptrChunk->isscope = in_scope;
                     if(value != "") {
                         *ptrvar = stof(value);
                     }else{ *ptrvar = NULL;}
@@ -351,6 +361,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->name = name;
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
+                    ptrChunk->isscope = in_scope;
                     double newvalue = split_getline(value, ptr_mpool);
                     double newvaluei = newvalue;
                     *ptrvar = newvaluei;
@@ -375,6 +386,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                             ptrChunk->name = name;
                             ptrChunk->type = type;
                             ptrChunk->counter= 1;
+                            ptrChunk->isscope = in_scope;
                             cout<< "Reference value: "<< *(double *)ptrRef->reference->Data<<"\n";
                             *ptrvar = *(double *)ptrRef->reference->Data;
                             Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
@@ -396,6 +408,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->name = name;
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
+                    ptrChunk->isscope = in_scope;
                     if(value != "") {
                         *ptrvar = stod(value);
                     }else{ *ptrvar = NULL;}
@@ -507,6 +520,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                         ptrChunk->isReference = true;
                         ptrChunk->reference = ptrOrig;
                         ptrChunk->counter= -1;
+                        ptrChunk->isscope = in_scope;
                         ptrOrig->counter++;
                         Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
                         globalList.push_back(*variable);
@@ -534,6 +548,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                         ptrChunk->isReference = true;
                         ptrChunk->reference = ptrOrig;
                         ptrChunk->counter= -1;
+                        ptrChunk->isscope = in_scope;
                         ptrOrig->counter++;
                         Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
                         globalList.push_back(*variable);
@@ -582,6 +597,29 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
         string message = mymessage.dump();
         send(clientSocket, message.c_str(), message.size() + 1, 0);
     }
+    else if (key== "scope"){
+        string name = jmessageR.value("name", "oops");
+        if (name == "scope_o" && !in_scope){
+            in_scope = true;
+            cout<< "izi\n";
+        }
+        if (name == "scope_c" && in_scope){
+            ptr_mpool->Freeinscope();
+            in_scope = false;
+
+        }
+    }
+    for (int i= 0; i< globalList.size(); i++){
+        if (globalList.at(i).ptr->counter == 0){
+            for (int j= i; j< globalList.size()-1; j++){
+                globalList [j] = globalList [j+1];
+            }
+            i--;
+            globalList.erase(globalList.end());
+        }
+    }
+    ptr_mpool->GarbageCollector();
+
     // Echo message back to client
     //send(clientSocket, buf, bytesReceived + 1, 0);
 
@@ -596,9 +634,19 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
 
 
 int main(){
-    cout<< "Ingrese el size del server en bits: ";
-    string size;//En esta variable estará almacenado el nombre ingresado.
-    cin >> size; //Se lee el nombre
+    bool flag = true;
+    string size;
+    while (flag){
+        cout<< "Ingrese el size del server en bits: ";
+        cin >> size; //Se lee el nombre
+        if (stoi(size) <= 54000){
+            flag = false;
+        }
+        else{
+            cout<< "Exceso de solicitud de memoria \n";
+        }
+    }
+
     cout<< "Ingrese el puerto de escucha del server: ";
     string port;//En esta variable estará almacenado el nombre ingresado.
     cin >> port; //Se lee el nombre

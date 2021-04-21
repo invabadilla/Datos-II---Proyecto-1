@@ -19,7 +19,6 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
     double total = 0;
     char final;
     for (int i=0; i < str.size(); i++){
-
         if (str[i] == '+') {
             try{
                 if (myword.length() == to_string(stoi(myword)).length()){

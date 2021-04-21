@@ -26,6 +26,7 @@
 
 using namespace std;
 using json = nlohmann::json;
+bool in_scope = false;
 
 int startClient(json message) {
 
@@ -156,6 +157,7 @@ QStringList Compiler::Divide(QStringList initial) {
 
 void Compiler::compile(QString line) {
     QStringList words = line.split(" ");
+
     if ("int" == words.at(0).toStdString()){
         cout <<"soy un int\n";
         words.removeOne("int");
@@ -523,8 +525,25 @@ void Compiler::compile(QString line) {
         json mymessage = parseJson(words, "true");
         startClient (mymessage);
     }
+
+    else if("{" == words.at(0).toStdString() && words.replaceInStrings("{","").at(0).toStdString() == "" && !in_scope){
+        in_scope = true;
+        words.append(QString::fromStdString("scope_o"));
+        words.append(QString::fromStdString("scope"));
+        words.append(QString::fromStdString("scope"));
+        json mymessage = parseJson(words, "true");
+        startClient (mymessage);
+    }
+    else if("}" == words.at(0).toStdString() && words.replaceInStrings("}","").at(0) == "" && in_scope){
+        in_scope = false;
+        words.append(QString::fromStdString("scope_c"));
+        words.append(QString::fromStdString("scope"));
+        words.append(QString::fromStdString("scope"));
+        json mymessage = parseJson(words, "true");
+        startClient (mymessage);
+    }
     else{
-        cout <<"error\n";
+        cout <<"error" << endl;
     }
 }
 

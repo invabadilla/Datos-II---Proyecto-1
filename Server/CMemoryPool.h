@@ -6,8 +6,10 @@
 #define SERVER_CMEMORYPOOL_H
 
 #include <string>
+#include <vector>
 #include "IMemoryBlock.h"
 #include "SMemoryChunk.h"
+#include "Variable.h"
 
 namespace MemPool
 {
@@ -33,6 +35,8 @@ namespace MemPool
         bool FindChunkHoldingSameName(std::string name_);
         void FreeAllAllocatedMemory();
         SMemoryChunk *getMPtrFirstChunk() const;
+        void Freeinscope();
+        void GarbageCollector();
 
     private:
         bool AllocateMemory(const size_t &sMemorySize);
@@ -73,6 +77,9 @@ namespace MemPool
 
 
         void SetChunktoDefault(SMemoryChunk *ptrChunk);
+
+
+
     };
 
 }

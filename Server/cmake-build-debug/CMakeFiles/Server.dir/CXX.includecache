@@ -9,10 +9,14 @@
 /home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMemoryPool.h
 string
 -
+vector
+-
 IMemoryBlock.h
 /home/usuario/Proyectos/Datos-II---Proyecto-1/Server/IMemoryBlock.h
 SMemoryChunk.h
 /home/usuario/Proyectos/Datos-II---Proyecto-1/Server/SMemoryChunk.h
+Variable.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable.h
 
 /home/usuario/Proyectos/Datos-II---Proyecto-1/Server/IMemoryBlock.h
 stdlib.h

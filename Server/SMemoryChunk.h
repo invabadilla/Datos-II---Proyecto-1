@@ -14,6 +14,7 @@ namespace MemPool {
         std::string name;         //Nombre de la variable
         int counter;              //contador de referencias
         bool isReference;
+        bool isscope;
         SMemoryChunk *reference ;
         TByte *Data;              //El dato actual
         size_t DataSize;          //Tamano del bloque de datos
