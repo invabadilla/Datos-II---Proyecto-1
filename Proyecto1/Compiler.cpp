@@ -259,15 +259,70 @@ void Compiler::compile(QString line) {
             }
         }
     }
+
     else if("char" == words.at(0).toStdString()){
         cout <<"soy un char\n";
-        if (validename(words.at(1).toStdString())){
-            cout  <<"nombre correcto\n";
-        }
-        else{
-            cout  <<"nombre incorrecto\n";
+        words.removeOne("char");
+        QStringList newList = Divide(words);
+        int num = newList.length();
+        switch (num) {
+            case 1: {
+                //char a;
+                newList.prepend("char");
+                newList.append(NULL);
+                newList.append("define");
+                cout <<"Generando variable\n";
+                json mymessage = parseJson(newList, "false");
+                startClient(mymessage);
+                break;
+            }
+            case 2:{
+                newList.prepend("char");
+                string value = newList.at(2).toStdString();
+                QRegExp separator("([-+*/])");
+                /*if(newList.at(2).split(separator).length() != 1){
+                    cout  <<"Operation"<< endl ;
+                    newList.append("define");
+                    json mymessage = parseJson(newList, "true");
+                    startClient (mymessage);
+                    break;
+                }*/
+                //char a=b.getValue();
+                if(newList.at(2).split(".").length() == 2 && newList.at(2).split(".").at(1).toStdString() == "getValue()"){
+                    cout  <<"get value"<< endl ;
+                    newList.append("define");
+                    json mymessage = parseJson(newList, "reference");
+                    startClient (mymessage);
+                }
+                else{
+                    try{
+                        char * ArrayChar = new char[value.length()];
+                        for(int i; i<value.length(); i++){
+                           ArrayChar[i] = value[i];
+                        }
+                        //char a='a';
+                        if (string(1,value[0]) == "'" && string(1,value[0]) == "'" && value.length() == 3){
+                            cout<<"Definido\n";
+                            newList.append("define");
+                            json mymessage = parseJson(newList, "false");
+                            startClient (mymessage);
+                            break;
+                        }else{
+                            newList.append("define");
+                            json mymessage = parseJson(newList, "true");
+                            startClient (mymessage);
+                            break;
+                            cout  <<"tipo no coincide con valor\n";}
+                    }catch (std::invalid_argument){
+                        cout<<"Error en algo del char";
+                        break;
+                    }
+                    break;
+                }
+            }
         }
     }
+
     else if("float" == words.at(0).toStdString()){
         cout <<"soy un foat\n";
         words.removeOne("float");
@@ -386,6 +441,7 @@ void Compiler::compile(QString line) {
             }
         }
     }
+
     /**
     else if("struct" == words.at(0).toStdString()){
         cout <<"soy un struct\n";
@@ -444,6 +500,7 @@ void Compiler::compile(QString line) {
         }
 
     }
+
     else if("print" == words.at(0).toStdString()){
         if (words.length() == 2){
             words.removeFirst();
@@ -459,6 +516,7 @@ void Compiler::compile(QString line) {
         }
 
     }
+
     else{
         cout <<"error\n";
     }
