@@ -436,6 +436,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                             ptrChunk->name = name;
                             ptrChunk->type = type;
                             ptrChunk->counter = 1;
+                            ptrChunk->isscope = in_scope;
                             *ptrvar = *ptrRef->Data;
                             Variable *variable = new Variable(name, ptrChunk);
                             globalList.push_back(*variable);
@@ -460,6 +461,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                             ptrChunk->name = name;
                             ptrChunk->type = type;
                             ptrChunk->counter= 1;
+                            ptrChunk->isscope = in_scope;
                             cout<< "Reference value: "<< *(char *)ptrRef->reference->Data<<"\n";
                             *ptrvar = *(char *)ptrRef->reference->Data;
                             Variable *variable = new Variable(name, ptrChunk);
@@ -481,6 +483,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->name = name;
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
+                    ptrChunk->isscope = in_scope;
                     char value1 = value[1];
                     if(value != "") {
                         *ptrvar = value1;
