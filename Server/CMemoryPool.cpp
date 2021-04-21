@@ -87,12 +87,13 @@ GetMemory
 /******************
 FreeMemory
 ******************/
-    void CMemoryPool::FreeMemory(void *ptrMemoryBlock, const std::size_t &sMemoryBlockSize)
+    void CMemoryPool::FreeMemory(void *ptrMemoryBlock)
     {
         // Search all Chunks for the one holding the "ptrMemoryBlock"-Pointer
         // ("SMemoryChunk->Data == ptrMemoryBlock"). Eventually, free that Chunks,
         // so it beecomes available to the Memory-Pool again...
         SMemoryChunk *ptrChunk = FindChunkHoldingPointerTo(ptrMemoryBlock) ;
+        std::cout << ptrChunk << std::endl;
         if(ptrChunk)
         {
             //std::cerr << "Freed Chunks OK (Used memPool Size : " << m_sUsedMemoryPoolSize << ")" << std::endl ;
@@ -391,10 +392,26 @@ SetChunkDefaults
             ptrChunk->UsedSize = 0 ;
             ptrChunk->IsAllocationChunk = false ;
             ptrChunk->Next = NULL ;
+            ptrChunk->isReference = false;
+            ptrChunk->reference = nullptr;
         }
         return ptrChunk ;
     }
 
+    void CMemoryPool::SetChunktoDefault(SMemoryChunk *ptrChunk)
+    {
+        if(ptrChunk)
+        {
+            ptrChunk->counter = 0;
+            ptrChunk->name = "0";
+            ptrChunk->type = "0";
+            //ptrChunk->Data = NULL ;
+            ptrChunk->UsedSize = 0 ;
+            ptrChunk->IsAllocationChunk = false ;
+            ptrChunk->isReference = false;
+            ptrChunk->reference = nullptr;
+        }
+    }
 /******************
 FindChunkHoldingPointerTo
 ******************/
@@ -459,12 +476,10 @@ FreeAllAllocatedMemory
         SMemoryChunk *ptrChunk = m_ptrFirstChunk ;
         while(ptrChunk)
         {
-            if(ptrChunk->IsAllocationChunk)
-            {
-                free(((void *) (ptrChunk->Data))) ;
-            }
-            ptrChunk = ptrChunk->Next ;
+            SetChunktoDefault(ptrChunk);
+            ptrChunk = ptrChunk->Next;
         }
+        m_ptrCursorChunk = m_ptrFirstChunk;
     }
 
 /******************
@@ -515,6 +530,10 @@ MaxValue
             return sValueA ;
         }
         return sValueB ;
+    }
+
+    SMemoryChunk *CMemoryPool::getMPtrFirstChunk() const {
+        return m_ptrFirstChunk;
     }
 
 

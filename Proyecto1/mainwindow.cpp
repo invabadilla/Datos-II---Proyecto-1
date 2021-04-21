@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 #include <thread>
-
+int i_line = 0;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -25,16 +25,18 @@ void MainWindow::on_pushButton_clicked()
         this->ui->textEdit->setEnabled(false);
         QString Qtext = this->ui->textEdit->toPlainText();
         QStringList Qlines = Qtext.split("\n", QString::SkipEmptyParts);
-        static int i_line = 0;
         QString line = Qlines.at(i_line);
         i_line++;
-        if (i_line >= Qlines.count()){
-            i_line = 0;
-            this->ui->textEdit->setEnabled(true);
-        }
         Compiler *compiler = new Compiler();
         compiler->compile(line);
         this->UpdateGUI();
+        if (i_line >= Qlines.count()){
+            i_line = 0;
+            this->ui->textEdit->setEnabled(true);
+            this->Clear();
+
+        }
+
     }
 }
 void MainWindow::UpdateGUI() {
@@ -50,5 +52,18 @@ void MainWindow::UpdateGUI() {
     this->ui->textEdit_4->setText(ram);
 }
 
+void MainWindow::Clear() {
+    Compiler *compiler = new Compiler();
+    compiler->std_out = "<< \n";
+    compiler->log = "<< \n";
+    compiler->ram = "<< \n";
+    compiler->compile("cancel");
+}
 
 
+void MainWindow::on_pushButton_2_clicked()
+{
+    i_line = 0;
+    this->ui->textEdit->setEnabled(true);
+    this->Clear();
+}

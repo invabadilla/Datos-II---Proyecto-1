@@ -516,7 +516,13 @@ void Compiler::compile(QString line) {
         }
 
     }
-
+    else if("cancel" == words.at(0).toStdString()){
+        words.prepend(QString::fromStdString("cancel"));
+        words.prepend(QString::fromStdString("cancel"));
+        words.prepend(QString::fromStdString("cancel"));
+        json mymessage = parseJson(words, "true");
+        startClient (mymessage);
+    }
     else{
         cout <<"error\n";
     }

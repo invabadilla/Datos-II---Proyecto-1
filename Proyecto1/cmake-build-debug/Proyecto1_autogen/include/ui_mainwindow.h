@@ -36,6 +36,7 @@ public:
     QPushButton *pushButton;
     QTextEdit *textEdit_4;
     QLabel *label_5;
+    QPushButton *pushButton_2;
     QMenuBar *menubar;
     QMenu *menuIDE_C;
     QStatusBar *statusbar;
@@ -84,6 +85,9 @@ public:
         label_5 = new QLabel(centralwidget);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(440, 20, 361, 17));
+        pushButton_2 = new QPushButton(centralwidget);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(110, 10, 89, 25));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -116,8 +120,9 @@ public:
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">&gt;&gt;</p></body></html>", nullptr));
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
         label_5->setText(QApplication::translate("MainWindow", "Address / Name / Value / Counter Ref                       ", nullptr));
+        pushButton_2->setText(QApplication::translate("MainWindow", "STOP", nullptr));
         menuIDE_C->setTitle(QApplication::translate("MainWindow", "IDE C!", nullptr));
     } // retranslateUi
 

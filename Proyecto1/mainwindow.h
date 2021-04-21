@@ -18,9 +18,13 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 
     void UpdateGUI();
+
+    void Clear();
 };
 #endif // MAINWINDOW_H

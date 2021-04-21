@@ -25,7 +25,6 @@ string ram_;
 string std_out_;
 string log_;
 json parseJson (){
-    // jdEmployees
     json mymessage =
             {
                     {"std_out_", std_out_},
@@ -64,6 +63,7 @@ void LtoS(){
         //otros casos
 
         ram_ +=" "+address+" / "+name+" / "+value+" / "+ref+" \n";
+        cout<< ram_<< endl;
 
     }
 
@@ -207,6 +207,8 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     json mymessage = parseJson();
                     string message = mymessage.dump();
                     send(clientSocket, message.c_str(), message.size() + 1, 0);
+
+
                 }
             }else if(type == "long"){
                 string operation = jmessageR.value("operation", "oops");
@@ -573,6 +575,13 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
         }
 
     }
+    else if(key == "cancel"){
+        globalList.clear();
+        ptr_mpool->FreeAllAllocatedMemory();
+        json mymessage = parseJson();
+        string message = mymessage.dump();
+        send(clientSocket, message.c_str(), message.size() + 1, 0);
+    }
     // Echo message back to client
     //send(clientSocket, buf, bytesReceived + 1, 0);
 
@@ -587,8 +596,6 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
 
 
 int main(){
-
-
     cout<< "Ingrese el size del server en bits: ";
     string size;//En esta variable estará almacenado el nombre ingresado.
     cin >> size; //Se lee el nombre

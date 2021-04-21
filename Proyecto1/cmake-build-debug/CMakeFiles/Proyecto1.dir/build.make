@@ -62,10 +62,10 @@ RM = /snap/clion/149/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1"
+CMAKE_SOURCE_DIR = /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug"
+CMAKE_BINARY_DIR = /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Proyecto1.dir/depend.make
@@ -78,55 +78,55 @@ include CMakeFiles/Proyecto1.dir/flags.make
 
 CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.o: CMakeFiles/Proyecto1.dir/flags.make
 CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.o: Proyecto1_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.o -c "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.o -c /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp
 
 CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp" > CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp > CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp" -o CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp -o CMakeFiles/Proyecto1.dir/Proyecto1_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/Proyecto1.dir/main.cpp.o: CMakeFiles/Proyecto1.dir/flags.make
 CMakeFiles/Proyecto1.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Proyecto1.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto1.dir/main.cpp.o -c "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Proyecto1.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto1.dir/main.cpp.o -c /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/main.cpp
 
 CMakeFiles/Proyecto1.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Proyecto1.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/main.cpp" > CMakeFiles/Proyecto1.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/main.cpp > CMakeFiles/Proyecto1.dir/main.cpp.i
 
 CMakeFiles/Proyecto1.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Proyecto1.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/main.cpp" -o CMakeFiles/Proyecto1.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/main.cpp -o CMakeFiles/Proyecto1.dir/main.cpp.s
 
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: CMakeFiles/Proyecto1.dir/flags.make
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.o: ../mainwindow.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Proyecto1.dir/mainwindow.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto1.dir/mainwindow.cpp.o -c "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Proyecto1.dir/mainwindow.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto1.dir/mainwindow.cpp.o -c /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.cpp
 
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Proyecto1.dir/mainwindow.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.cpp" > CMakeFiles/Proyecto1.dir/mainwindow.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.cpp > CMakeFiles/Proyecto1.dir/mainwindow.cpp.i
 
 CMakeFiles/Proyecto1.dir/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Proyecto1.dir/mainwindow.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.cpp" -o CMakeFiles/Proyecto1.dir/mainwindow.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.cpp -o CMakeFiles/Proyecto1.dir/mainwindow.cpp.s
 
 CMakeFiles/Proyecto1.dir/Compiler.cpp.o: CMakeFiles/Proyecto1.dir/flags.make
 CMakeFiles/Proyecto1.dir/Compiler.cpp.o: ../Compiler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Proyecto1.dir/Compiler.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto1.dir/Compiler.cpp.o -c "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/Compiler.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Proyecto1.dir/Compiler.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto1.dir/Compiler.cpp.o -c /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/Compiler.cpp
 
 CMakeFiles/Proyecto1.dir/Compiler.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Proyecto1.dir/Compiler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/Compiler.cpp" > CMakeFiles/Proyecto1.dir/Compiler.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/Compiler.cpp > CMakeFiles/Proyecto1.dir/Compiler.cpp.i
 
 CMakeFiles/Proyecto1.dir/Compiler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Proyecto1.dir/Compiler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/Compiler.cpp" -o CMakeFiles/Proyecto1.dir/Compiler.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/Compiler.cpp -o CMakeFiles/Proyecto1.dir/Compiler.cpp.s
 
 # Object files for target Proyecto1
 Proyecto1_OBJECTS = \
@@ -147,7 +147,7 @@ Proyecto1: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8
 Proyecto1: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8
 Proyecto1: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
 Proyecto1: CMakeFiles/Proyecto1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Proyecto1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Proyecto1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Proyecto1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -160,6 +160,6 @@ CMakeFiles/Proyecto1.dir/clean:
 .PHONY : CMakeFiles/Proyecto1.dir/clean
 
 CMakeFiles/Proyecto1.dir/depend:
-	cd "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1" "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1" "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug" "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug" "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1 /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1 /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Proyecto1.dir/depend
 
