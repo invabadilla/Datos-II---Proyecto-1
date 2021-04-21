@@ -4,6 +4,7 @@
 
 #include "CMemoryPool.h"
 #include "SMemoryChunk.h"
+#include "Variable.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -12,7 +13,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
-
+#include <vector>
 
 namespace MemPool {
 
@@ -393,6 +394,7 @@ SetChunkDefaults
             ptrChunk->IsAllocationChunk = false ;
             ptrChunk->Next = NULL ;
             ptrChunk->isReference = false;
+            ptrChunk->isscope = false;
             ptrChunk->reference = nullptr;
         }
         return ptrChunk ;
@@ -405,10 +407,10 @@ SetChunkDefaults
             ptrChunk->counter = 0;
             ptrChunk->name = "0";
             ptrChunk->type = "0";
-            //ptrChunk->Data = NULL ;
             ptrChunk->UsedSize = 0 ;
             ptrChunk->IsAllocationChunk = false ;
             ptrChunk->isReference = false;
+            ptrChunk->isscope = false;
             ptrChunk->reference = nullptr;
         }
     }
@@ -536,6 +538,33 @@ MaxValue
         return m_ptrFirstChunk;
     }
 
+    void CMemoryPool::Freeinscope(){
+        SMemoryChunk *ptrChunk = m_ptrFirstChunk ;
+        while(ptrChunk)
+        {
+            if (ptrChunk->isscope){
+                std::cout << "inscope" << endl;
+                ptrChunk->counter = 0;
+            }
+            ptrChunk = ptrChunk->Next;
+        }
+    }
+
+    void CMemoryPool::GarbageCollector(){
+        SMemoryChunk *ptrChunk = m_ptrFirstChunk ;
+        while(ptrChunk)
+        {
+            if (ptrChunk->counter == 0){
+                if (ptrChunk->isReference){
+                    ptrChunk->reference->counter -=1;
+                }
+                SetChunktoDefault(ptrChunk);
+            }
+            ptrChunk = ptrChunk->Next;
+        }
+        m_ptrCursorChunk = m_ptrFirstChunk;
+
+    }
 
 }
 
