@@ -152,8 +152,6 @@ QStringList Compiler::Divide(QStringList initial) {
 }
 
 
-
-
 void Compiler::compile(QString line) {
     QStringList words = line.split(" ");
     if ("int" == words.at(0).toStdString()){
@@ -295,29 +293,24 @@ void Compiler::compile(QString line) {
                     startClient (mymessage);
                 }
                 else{
-                    try{
-                        char * ArrayChar = new char[value.length()];
-                        for(int i; i<value.length(); i++){
-                           ArrayChar[i] = value[i];
-                        }
-                        //char a='a';
-                        if (string(1,value[0]) == "'" && string(1,value[0]) == "'" && value.length() == 3){
-                            cout<<"Definido\n";
-                            newList.append("define");
-                            json mymessage = parseJson(newList, "false");
-                            startClient (mymessage);
-                            break;
-                        }else{
-                            newList.append("define");
-                            json mymessage = parseJson(newList, "true");
-                            startClient (mymessage);
-                            break;
-                            cout  <<"tipo no coincide con valor\n";}
-                    }catch (std::invalid_argument){
-                        cout<<"Error en algo del char";
-                        break;
+
+                    char * ArrayChar = new char[value.length()];
+                    for(int i; i<value.length(); i++){
+                       ArrayChar[i] = value[i];
                     }
-                    break;
+                    //char a='a';
+                    if (string(1,value[0]) == "'" && string(1,value[0]) == "'" && value.length() == 3){
+                        cout<<"Definido\n";
+                        newList.append("define");
+                        json mymessage = parseJson(newList, "false");
+                        startClient (mymessage);
+
+                    }else{
+                        newList.append("define");
+                        json mymessage = parseJson(newList, "true");
+                        startClient (mymessage);
+                        cout  << "tipo no coincide con valor\n";
+                    }
                 }
             }
         }
@@ -525,8 +518,32 @@ void Compiler::compile(QString line) {
     }
     else{
         cout <<"error\n";
+        QStringList newList = Divide(words);
+        int num = newList.length();
+        if(num == 2) { //SI POSEE UN =
+            QRegExp separator("([-+*/])");
+            if (newList.at(1).split(separator).length() == 1) { //SI ES SOLO UNA VARIABLE IGUALADA O REFERENCE
+                if (newList.at(1).split(".getValue()").length() == newList.at(1).length()) { //VARIABLE IGUALADA A VARIABLE
+                    newList.prepend("variable"); //type
+                } else{
+                    newList.prepend("reference"); //type
+                }
+                newList.append("equal");
+                cout << "Igualacion var/ref\n";
+                json mymessage = parseJson(newList, "false");
+                startClient(mymessage);
+            }
+            else{
+                newList.prepend("operation"); //type
+                newList.append("equal"); //key
+                cout << "Igualacion operacion\n";
+                json mymessage = parseJson(newList, "false");
+                startClient(mymessage);
+            }
+        }
     }
 }
+
 
 string Compiler::valideReference(std::string name) {
     if(name == "<int>" || name == "<long>" || name == "<char>" || name == "<float>" || name == "<double>"){

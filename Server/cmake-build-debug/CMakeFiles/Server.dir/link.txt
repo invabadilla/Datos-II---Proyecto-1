@@ -1,1 +1,1 @@
-/usr/bin/c++ -pthread -g CMakeFiles/Server.dir/main.cpp.o CMakeFiles/Server.dir/CMemoryPool.cpp.o CMakeFiles/Server.dir/Variable.cpp.o -o Server 
+/usr/bin/c++ -pthread -g CMakeFiles/Server.dir/main.cpp.o CMakeFiles/Server.dir/CMemoryPool.cpp.o CMakeFiles/Server.dir/Variable.cpp.o -o Server  /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8 

@@ -16,6 +16,9 @@
 #include <list>
 #include "Split_getline.h"
 #include <sstream>
+#include <QString>
+#include <QStringList>
+
 
 using json = nlohmann::json;
 using namespace std;
@@ -549,6 +552,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
 
         }
     }
+
     else if(key == "print"){
         string value = jmessageR.value("value", "oops");
         bool can = ptr_mpool->FindChunkHoldingSameName(value);
@@ -572,15 +576,93 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
         }
         else{
             cout<< "Variable no existe\n";
+
         }
 
     }
+
     else if(key == "cancel"){
         globalList.clear();
         ptr_mpool->FreeAllAllocatedMemory();
         json mymessage = parseJson();
         string message = mymessage.dump();
         send(clientSocket, message.c_str(), message.size() + 1, 0);
+    }
+
+    else if(key == "equal"){
+        string name = jmessageR.value("name", "oops");
+        bool can = ptr_mpool->FindChunkHoldingSameName(name);
+        if (!can) {
+            MemPool::SMemoryChunk *ptrOrg = ptr_mpool->FindChunkHoldingNameTo(name);
+            if (!ptrOrg->isReference){
+                string type = jmessageR.value("type", "oops");
+                string value = jmessageR.value("value", "oops");
+                if(type == "variable"){
+                    try{
+                        if (value.length() == to_string(stoi(value)).length()){
+                            *ptrOrg->Data = stoi(value);
+                        }
+                        else if(value.length() == to_string(stol(value)).length()){
+                            *ptrOrg->Data = stoi(value);
+                        }
+                        string entero = QString::fromStdString(value).split(".").at(0).toStdString();
+                        string decimal = QString::fromStdString(value).split(".").at(1).toStdString();
+                        if (entero.length() == to_string(stol(entero)).length()
+                            && decimal.length() == to_string(stol(decimal)).length()){
+                            *ptrOrg->Data = stof(value);
+                        }else if (value.length() == to_string(stof(value)).length()){
+                            *ptrOrg->Data = stof(value);
+                        }
+
+
+
+
+
+                        else{
+                            stod("a");
+                        }
+                    }catch(std::invalid_argument){
+                        if(!ptr_mpool->FindChunkHoldingSameName(myword)){
+                            MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
+                            if (ptrChunk->type != "char" && ptrChunk->type != "struct" && !ptrChunk->isReference){
+                                total /= *ptrChunk->Data;
+                            }
+                                //eslseif(reference)
+                            else{
+                                cout<< "El tipo de la variable llamada no coincide con el operador usado";
+                                return -1;
+                            }
+                        }
+                        else{
+                            cout<< "No hay variable con ese nombre";
+                            return -1;
+                        }
+                        myword = "";
+                        final = '/';
+                    }
+                    bool isVariable = ptr_mpool->FindChunkHoldingSameName(value);
+                    if (!isVariable){
+                        MemPool::SMemoryChunk *ptrRef = ptr_mpool->FindChunkHoldingNameTo(value);
+                        if(ptrOrg->type == ptrRef->type){
+                            *ptrOrg->Data == *ptrRef->Data;
+                        }
+                        else{ cout << "NO FUNKO MAI BRO";}
+                    }
+                    else {
+                        try {
+                            if (value != "" && ptrOrg->type == "int") {
+                                *ptrOrg->Data = stoi(value);
+                            } else { *ptrOrg->Data = NULL; }
+                        }
+                    }
+                }
+
+
+                //string valuetemp = jmessageR.value("value", "oops").split(separator).length();
+            }
+
+        }
+
     }
     // Echo message back to client
     //send(clientSocket, buf, bytesReceived + 1, 0);
