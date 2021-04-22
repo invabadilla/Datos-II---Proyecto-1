@@ -23,11 +23,14 @@
 using json = nlohmann::json;
 using namespace std;
 bool in_scope = false;
+int deap= 0;
 
 vector<Variable> globalList;
 string ram_;
 string std_out_;
 string log_;
+
+
 json parseJson (){
     json mymessage =
             {
@@ -50,8 +53,20 @@ void LtoS(){
         string name = variable.name;
         string value;
         string ref;
-        if (variable.ptr->type != "char" && variable.ptr->type  != "struct" && !variable.ptr->isReference){
-            value = to_string(*variable.ptr->Data);
+        if (variable.ptr->type == "int" && !variable.ptr->isReference){
+            value = to_string(*(int*)variable.ptr->Data);
+            ref = to_string(variable.ptr->counter);
+        }
+        else if (variable.ptr->type == "long" && !variable.ptr->isReference){
+            value = to_string(*(long*)variable.ptr->Data);
+            ref = to_string(variable.ptr->counter);
+        }
+        if (variable.ptr->type == "float" && !variable.ptr->isReference){
+            value = to_string(*(float*)variable.ptr->Data);
+            ref = to_string(variable.ptr->counter);
+        }
+        if (variable.ptr->type == "double" && !variable.ptr->isReference){
+            value = to_string(*(double*)variable.ptr->Data);
             ref = to_string(variable.ptr->counter);
         }
         else if (variable.ptr->type == "char" && !variable.ptr->isReference){
@@ -158,6 +173,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
                     ptrChunk->isscope = in_scope;
+                    ptrChunk->deap = deap;
                     double newvalue = split_getline(value, ptr_mpool);
                     int newvaluei = newvalue;
                     *ptrvar = newvaluei;
@@ -183,6 +199,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                             ptrChunk->type = type;
                             ptrChunk->counter= 1;
                             ptrChunk->isscope = in_scope;
+                            ptrChunk->deap = deap;
                             cout<< "Reference value: "<< *(int *)ptrRef->reference->Data<<"\n";
                             *ptrvar = *(int *)ptrRef->reference->Data;
                             Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
@@ -205,6 +222,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
                     ptrChunk->isscope = in_scope;
+                    ptrChunk->deap = deap;
                     if(value != "") {
                         *ptrvar = stoi(value);
                     }else{ *ptrvar = NULL;}
@@ -227,6 +245,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
                     ptrChunk->isscope = in_scope;
+                    ptrChunk->deap = deap;
                     double newvalue = split_getline(value, ptr_mpool);
                     long newvaluei = newvalue;
                     *ptrvar = newvaluei;
@@ -252,6 +271,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                             ptrChunk->type = type;
                             ptrChunk->counter= 1;
                             ptrChunk->isscope = in_scope;
+                            ptrChunk->deap = deap;
                             cout<< "Reference value: "<< *(long *)ptrRef->reference->Data<<"\n";
                             *ptrvar = *(long *)ptrRef->reference->Data;
                             Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
@@ -274,6 +294,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
                     ptrChunk->isscope = in_scope;
+                    ptrChunk->deap = deap;
                     if(value != "") {
                         *ptrvar = stol(value);
                     }else{ *ptrvar = NULL;}
@@ -296,6 +317,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
                     ptrChunk->isscope = in_scope;
+                    ptrChunk->deap = deap;
                     double newvalue = split_getline(value, ptr_mpool);
                     float newvaluei = newvalue;
                     *ptrvar = newvaluei;
@@ -321,6 +343,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                             ptrChunk->type = type;
                             ptrChunk->counter= 1;
                             ptrChunk->isscope = in_scope;
+                            ptrChunk->deap = deap;
                             cout<< "Reference value: "<< *(float *)ptrRef->reference->Data<<"\n";
                             *ptrvar = *(float *)ptrRef->reference->Data;
                             Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
@@ -343,6 +366,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
                     ptrChunk->isscope = in_scope;
+                    ptrChunk->deap = deap;
                     if(value != "") {
                         *ptrvar = stof(value);
                     }else{ *ptrvar = NULL;}
@@ -365,6 +389,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
                     ptrChunk->isscope = in_scope;
+                    ptrChunk->deap = deap;
                     double newvalue = split_getline(value, ptr_mpool);
                     double newvaluei = newvalue;
                     *ptrvar = newvaluei;
@@ -390,6 +415,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                             ptrChunk->type = type;
                             ptrChunk->counter= 1;
                             ptrChunk->isscope = in_scope;
+                            ptrChunk->deap = deap;
                             cout<< "Reference value: "<< *(double *)ptrRef->reference->Data<<"\n";
                             *ptrvar = *(double *)ptrRef->reference->Data;
                             Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
@@ -412,6 +438,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
                     ptrChunk->isscope = in_scope;
+                    ptrChunk->deap = deap;
                     if(value != "") {
                         *ptrvar = stod(value);
                     }else{ *ptrvar = NULL;}
@@ -440,6 +467,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                             ptrChunk->type = type;
                             ptrChunk->counter = 1;
                             ptrChunk->isscope = in_scope;
+                            ptrChunk->deap = deap;
                             *ptrvar = *ptrRef->Data;
                             Variable *variable = new Variable(name, ptrChunk);
                             globalList.push_back(*variable);
@@ -465,6 +493,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                             ptrChunk->type = type;
                             ptrChunk->counter= 1;
                             ptrChunk->isscope = in_scope;
+                            ptrChunk->deap = deap;
                             cout<< "Reference value: "<< *(char *)ptrRef->reference->Data<<"\n";
                             *ptrvar = *(char *)ptrRef->reference->Data;
                             Variable *variable = new Variable(name, ptrChunk);
@@ -487,6 +516,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                     ptrChunk->type = type;
                     ptrChunk->counter = 1;
                     ptrChunk->isscope = in_scope;
+                    ptrChunk->deap = deap;
                     char value1 = value[1];
                     if(value != "") {
                         *ptrvar = value1;
@@ -527,6 +557,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                         ptrChunk->reference = ptrOrig;
                         ptrChunk->counter= -1;
                         ptrChunk->isscope = in_scope;
+                        ptrChunk->deap = deap;
                         ptrOrig->counter++;
                         Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
                         globalList.push_back(*variable);
@@ -541,31 +572,52 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
 
             }else{
                 string value = jmessageR.value("value", "oops");
-                bool can = ptr_mpool->FindChunkHoldingSameName(value);
-                if (!can) {
-                    string type = jmessageR.value("type", "oops");
-                    MemPool::SMemoryChunk *ptrRef = ptr_mpool->FindChunkHoldingNameTo(value);
-                    if (ptrRef->isReference && ptrRef->type == type) {
-                        MemPool::SMemoryChunk *ptrOrig = ptrRef->reference;
-                        void *ptrvar = ptr_mpool->GetMemory(1);  //CREACION DE VARIABLE CON EL POOL CREADO
-                        MemPool::SMemoryChunk *ptrChunk = ptr_mpool->FindChunkHoldingPointerTo(ptrvar);
-                        ptrChunk->name = name;
-                        ptrChunk->type = type;
-                        ptrChunk->isReference = true;
-                        ptrChunk->reference = ptrOrig;
-                        ptrChunk->counter= -1;
-                        ptrChunk->isscope = in_scope;
-                        ptrOrig->counter++;
-                        Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
-                        globalList.push_back(*variable);
-                        LtoS();
-                        json mymessage = parseJson();
-                        string message = mymessage.dump();
-                        send(clientSocket, message.c_str(), message.size() + 1, 0);
-                    }else{ cout<< "LAS VARIABLES NO COINCIDEN EN EL TIPO\n";}}
-                else{
-                    cout<< "Variable no existe\n";
+                if (value != ""){
+                    bool can = ptr_mpool->FindChunkHoldingSameName(value);
+                    if (!can) {
+                        string type = jmessageR.value("type", "oops");
+                        MemPool::SMemoryChunk *ptrRef = ptr_mpool->FindChunkHoldingNameTo(value);
+                        if (ptrRef->isReference && ptrRef->type == type) {
+                            MemPool::SMemoryChunk *ptrOrig = ptrRef->reference;
+                            void *ptrvar = ptr_mpool->GetMemory(1);  //CREACION DE VARIABLE CON EL POOL CREADO
+                            MemPool::SMemoryChunk *ptrChunk = ptr_mpool->FindChunkHoldingPointerTo(ptrvar);
+                            ptrChunk->name = name;
+                            ptrChunk->type = type;
+                            ptrChunk->isReference = true;
+                            ptrChunk->reference = ptrOrig;
+                            ptrChunk->counter= -1;
+                            ptrChunk->isscope = in_scope;
+                            ptrChunk->deap = deap;
+                            ptrOrig->counter++;
+                            Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
+                            globalList.push_back(*variable);
+                            LtoS();
+                            json mymessage = parseJson();
+                            string message = mymessage.dump();
+                            send(clientSocket, message.c_str(), message.size() + 1, 0);
+                        }else{ cout<< "LAS VARIABLES NO COINCIDEN EN EL TIPO\n";}}
+                    else{
+                        cout<< "Variable no existe\n";
+                    }
                 }
+                else{
+                    string type = jmessageR.value("type", "oops");
+                    void *ptrvar = ptr_mpool->GetMemory(1);  //CREACION DE VARIABLE CON EL POOL CREADO
+                    MemPool::SMemoryChunk *ptrChunk = ptr_mpool->FindChunkHoldingPointerTo(ptrvar);
+                    ptrChunk->name = name;
+                    ptrChunk->type = type;
+                    ptrChunk->isReference = true;
+                    ptrChunk->counter= -1;
+                    ptrChunk->isscope = in_scope;
+                    ptrChunk->deap = deap;
+                    Variable *variable = new Variable(name, ptrChunk);        //NO ESTOY SEGURA JEJEPS
+                    globalList.push_back(*variable);
+                    LtoS();
+                    json mymessage = parseJson();
+                    string message = mymessage.dump();
+                    send(clientSocket, message.c_str(), message.size() + 1, 0);
+                }
+
             }
 
         }
@@ -577,19 +629,45 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
         if (!can) {
             MemPool::SMemoryChunk *ptrRef = ptr_mpool->FindChunkHoldingNameTo(value);
             string type = ptrRef->type;
-            if (type != "char" && type != "struct" && !ptrRef->isReference){
-                //int valueprint = *((int *) ptrRef->Data);
-                std_out_ = to_string(*ptrRef->Data) + "\n";
+            if (type == "int" && !ptrRef->isReference){
+                int valueprint = *((int *) ptrRef->Data);
+                std_out_ = to_string(valueprint) + "\n";
                 json mymessage = parseJson();
                 string message = mymessage.dump();
                 send(clientSocket, message.c_str(), message.size() + 1, 0);
+                std_out_ = "";
             }
+            else if (type == "long" && !ptrRef->isReference){
+                long valueprint = *((long *) ptrRef->Data);
+                std_out_ = to_string(valueprint) + "\n";
+                json mymessage = parseJson();
+                string message = mymessage.dump();
+                send(clientSocket, message.c_str(), message.size() + 1, 0);
+                std_out_ = "";
+            }
+            else if (type == "float" && !ptrRef->isReference){
+                float valueprint = *((float *) ptrRef->Data);
+                std_out_ = to_string(valueprint) + "\n";
+                json mymessage = parseJson();
+                string message = mymessage.dump();
+                send(clientSocket, message.c_str(), message.size() + 1, 0);
+                std_out_ = "";
+            }
+            else if (type == "double" && !ptrRef->isReference){
+                double valueprint = *((double *) ptrRef->Data);
+                std_out_ = to_string(valueprint) + "\n";
+                json mymessage = parseJson();
+                string message = mymessage.dump();
+                send(clientSocket, message.c_str(), message.size() + 1, 0);
+                std_out_ = "";
+            }
+
             else if (type == "char" && !ptrRef->isReference){
-                //long valueprint = *((long *) ptrRef->Data);
                 std_out_ = string(1, *ptrRef->Data) + "\n";
                 json mymessage = parseJson();
                 string message = mymessage.dump();
                 send(clientSocket, message.c_str(), message.size() + 1, 0);
+                std_out_ = "";
             }
         }
         else{
@@ -597,6 +675,150 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
 
         }
 
+    }
+    else if(key == "equal"){
+        string name = jmessageR.value("name", "oops");
+        bool can = ptr_mpool->FindChunkHoldingSameName(name);
+        if (!can) {
+            MemPool::SMemoryChunk *ptrOrg = ptr_mpool->FindChunkHoldingNameTo(name);
+            if (!ptrOrg->isReference){
+                string type = jmessageR.value("type", "oops");
+                string value = jmessageR.value("value", "oops");
+                if(type == "variable"){
+                    try{
+                        cout<<"ola2"<<endl ;
+                        cout<< to_string(stoi(value)).length() << endl;
+                        if(ptrOrg->type == "char" && string(1,value[0]) == "'" && string(1,value[2]) == "'" && value.length() == 3){
+
+                        }
+                        //else if (){
+
+                        //}
+                        else if (ptrOrg->type == "int" && value.length() == to_string(stoi(value)).length()){
+
+                            *ptrOrg->Data = stoi(value);
+                        }
+                        else if(ptrOrg->type == "long" && value.length() == to_string(stol(value)).length()){
+                            *ptrOrg->Data = stol(value);
+                        }
+                        else if (ptrOrg->type == "float" && QString::fromStdString(value).split(".").at(0).toStdString().length() == to_string(stol(QString::fromStdString(value).split(".").at(0).toStdString())).length()
+                            && QString::fromStdString(value).split(".").at(1).toStdString().length() == to_string(stol(QString::fromStdString(value).split(".").at(1).toStdString())).length()){
+                            *ptrOrg->Data = stof(value);
+                        }else if (ptrOrg->type == "double" && QString::fromStdString(value).split(".").at(0).toStdString().length() == to_string(stol(QString::fromStdString(value).split(".").at(0).toStdString())).length()
+                            && QString::fromStdString(value).split(".").at(1).toStdString().length() == to_string(stol(QString::fromStdString(value).split(".").at(1).toStdString())).length()){
+                            *ptrOrg->Data = stod(value);
+
+                        }
+
+                        else{
+                            stod("a");
+                        }
+                        LtoS();
+                        json mymessage = parseJson();
+                        string message = mymessage.dump();
+                        send(clientSocket, message.c_str(), message.size() + 1, 0);
+                    }catch(std::invalid_argument){
+                        bool isVariable = ptr_mpool->FindChunkHoldingSameName(value);
+                        if (!isVariable){
+                            MemPool::SMemoryChunk *ptrRef = ptr_mpool->FindChunkHoldingNameTo(value);
+                            if(ptrOrg->type == ptrRef->type){
+                                *ptrOrg->Data = *ptrRef->Data;
+                                LtoS();
+                                json mymessage = parseJson();
+                                string message = mymessage.dump();
+                                send(clientSocket, message.c_str(), message.size() + 1, 0);
+                            }
+                            else{ cout << "NO FUNKO MAI BRO"<<endl;}
+                        }
+                    }
+
+                }
+                else if(type == "reference"){
+                    value.erase(value.end()-11, value.end());
+                    bool valide = ptr_mpool->FindChunkHoldingSameName(value);
+                    if (!valide) {
+                        MemPool::SMemoryChunk *ptrRef = ptr_mpool->FindChunkHoldingNameTo(value);
+                        if(ptrRef->type == ptrOrg->type && ptrRef->isReference){
+                               *ptrOrg->Data = *ptrRef->reference->Data;
+                                LtoS();
+                                json mymessage = parseJson();
+                                string message = mymessage.dump();
+                                send(clientSocket, message.c_str(), message.size() + 1, 0);
+                        }
+                        else{
+                            cout << "Ayuda"<< endl;
+                        }
+                    }
+
+                }
+                else if(type=="operation"){
+                    double newvalue = split_getline(value, ptr_mpool);
+                    if (ptrOrg->type == "int"){
+                        int newvaluei = newvalue;
+                        *ptrOrg->Data = newvaluei;
+                    }
+                    else if (ptrOrg->type == "long"){
+                        long newvaluei = newvalue;
+                        *ptrOrg->Data = newvaluei;
+                    }
+                    else if (ptrOrg->type == "float"){
+                        float newvaluei = newvalue;
+                        *ptrOrg->Data = newvaluei;
+                    }
+                    else if (ptrOrg->type == "double"){
+                        double newvaluei = newvalue;
+                        *ptrOrg->Data = newvaluei;
+                    }
+                    LtoS();
+                    json mymessage = parseJson();
+                    string message = mymessage.dump();
+                    send(clientSocket, message.c_str(), message.size() + 1, 0);
+
+                }
+            }else if(ptrOrg->isReference){
+                string type = jmessageR.value("type", "oops");
+                string value = jmessageR.value("value", "oops");
+                if(type == "variable"){
+                    bool isVariable = ptr_mpool->FindChunkHoldingSameName(value);
+                    if (!isVariable){
+                        MemPool::SMemoryChunk *ptrRef = ptr_mpool->FindChunkHoldingNameTo(value);
+                        if(ptrOrg->type == ptrRef->type){
+                            if (ptrOrg->reference != NULL){
+                                ptrOrg->reference->counter--;
+                            }
+                            ptrRef->reference->counter++;
+                            ptrOrg->reference = ptrRef->reference;
+                            LtoS();
+                            json mymessage = parseJson();
+                            string message = mymessage.dump();
+                            send(clientSocket, message.c_str(), message.size() + 1, 0);
+                        }
+
+                    }
+                }
+                else if(type == "reference"){
+                    value.erase(value.end()-10, value.end());
+                    bool valide = ptr_mpool->FindChunkHoldingSameName(value);
+                    if (!valide) {
+                        MemPool::SMemoryChunk *ptrRef = ptr_mpool->FindChunkHoldingNameTo(value);
+                        if(ptrRef->type == ptrOrg->type && !ptrRef->isReference){
+                            if (ptrOrg->reference != NULL){
+                                ptrOrg->reference->counter--;
+                            }
+                            ptrRef->counter++;
+                            ptrOrg->reference = ptrRef;
+                            LtoS();
+                            json mymessage = parseJson();
+                            string message = mymessage.dump();
+                            send(clientSocket, message.c_str(), message.size() + 1, 0);
+                        }
+                        else{
+                            cout << "Ayuda2"<< endl;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     else if(key == "cancel"){
@@ -608,13 +830,16 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
     }
     else if (key== "scope"){
         string name = jmessageR.value("name", "oops");
-        if (name == "scope_o" && !in_scope){
+        if (name == "scope_o"){
+            deap++;
             in_scope = true;
-            cout<< "izi\n";
         }
-        if (name == "scope_c" && in_scope){
-            ptr_mpool->Freeinscope();
-            in_scope = false;
+        else if (name == "scope_c" && in_scope){
+            ptr_mpool->Freeinscope(deap);
+            deap--;
+            if (deap ==0){
+                in_scope = false;
+            }
 
         }
     }
@@ -630,81 +855,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
     ptr_mpool->GarbageCollector();
 
 
-    else if(key == "equal"){
-        string name = jmessageR.value("name", "oops");
-        bool can = ptr_mpool->FindChunkHoldingSameName(name);
-        if (!can) {
-            MemPool::SMemoryChunk *ptrOrg = ptr_mpool->FindChunkHoldingNameTo(name);
-            if (!ptrOrg->isReference){
-                string type = jmessageR.value("type", "oops");
-                string value = jmessageR.value("value", "oops");
-                if(type == "variable"){
-                    try{
-                        if (value.length() == to_string(stoi(value)).length()){
-                            *ptrOrg->Data = stoi(value);
-                        }
-                        else if(value.length() == to_string(stol(value)).length()){
-                            *ptrOrg->Data = stoi(value);
-                        }
-                        string entero = QString::fromStdString(value).split(".").at(0).toStdString();
-                        string decimal = QString::fromStdString(value).split(".").at(1).toStdString();
-                        if (entero.length() == to_string(stol(entero)).length()
-                            && decimal.length() == to_string(stol(decimal)).length()){
-                            *ptrOrg->Data = stof(value);
-                        }else if (value.length() == to_string(stof(value)).length()){
-                            *ptrOrg->Data = stof(value);
-                        }
 
-
-
-
-
-                        else{
-                            stod("a");
-                        }
-                    }catch(std::invalid_argument){
-                        if(!ptr_mpool->FindChunkHoldingSameName(myword)){
-                            MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
-                            if (ptrChunk->type != "char" && ptrChunk->type != "struct" && !ptrChunk->isReference){
-                                total /= *ptrChunk->Data;
-                            }
-                                //eslseif(reference)
-                            else{
-                                cout<< "El tipo de la variable llamada no coincide con el operador usado";
-                                return -1;
-                            }
-                        }
-                        else{
-                            cout<< "No hay variable con ese nombre";
-                            return -1;
-                        }
-                        myword = "";
-                        final = '/';
-                    }
-                    bool isVariable = ptr_mpool->FindChunkHoldingSameName(value);
-                    if (!isVariable){
-                        MemPool::SMemoryChunk *ptrRef = ptr_mpool->FindChunkHoldingNameTo(value);
-                        if(ptrOrg->type == ptrRef->type){
-                            *ptrOrg->Data == *ptrRef->Data;
-                        }
-                        else{ cout << "NO FUNKO MAI BRO";}
-                    }
-                    else {
-                        try {
-                            if (value != "" && ptrOrg->type == "int") {
-                                *ptrOrg->Data = stoi(value);
-                            } else { *ptrOrg->Data = NULL; }
-                        }
-                    }
-                }
-
-
-                //string valuetemp = jmessageR.value("value", "oops").split(separator).length();
-            }
-
-        }
-
-    }
     // Echo message back to client
     //send(clientSocket, buf, bytesReceived + 1, 0);
 

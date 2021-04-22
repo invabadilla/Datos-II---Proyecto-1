@@ -395,6 +395,7 @@ SetChunkDefaults
             ptrChunk->Next = NULL ;
             ptrChunk->isReference = false;
             ptrChunk->isscope = false;
+            ptrChunk->deap =0;
             ptrChunk->reference = nullptr;
         }
         return ptrChunk ;
@@ -411,6 +412,7 @@ SetChunkDefaults
             ptrChunk->IsAllocationChunk = false ;
             ptrChunk->isReference = false;
             ptrChunk->isscope = false;
+            ptrChunk->deap=0;
             ptrChunk->reference = nullptr;
         }
     }
@@ -538,11 +540,11 @@ MaxValue
         return m_ptrFirstChunk;
     }
 
-    void CMemoryPool::Freeinscope(){
+    void CMemoryPool::Freeinscope(int deap){
         SMemoryChunk *ptrChunk = m_ptrFirstChunk ;
         while(ptrChunk)
         {
-            if (ptrChunk->isscope){
+            if (ptrChunk->isscope && deap == ptrChunk->deap){
                 std::cout << "inscope" << endl;
                 ptrChunk->counter = 0;
             }

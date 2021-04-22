@@ -35,7 +35,7 @@ namespace MemPool
         bool FindChunkHoldingSameName(std::string name_);
         void FreeAllAllocatedMemory();
         SMemoryChunk *getMPtrFirstChunk() const;
-        void Freeinscope();
+        void Freeinscope(int deap);
         void GarbageCollector();
 
     private:

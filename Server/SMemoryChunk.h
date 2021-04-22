@@ -15,6 +15,7 @@ namespace MemPool {
         int counter;              //contador de referencias
         bool isReference;
         bool isscope;
+        int deap;
         SMemoryChunk *reference ;
         TByte *Data;              //El dato actual
         size_t DataSize;          //Tamano del bloque de datos

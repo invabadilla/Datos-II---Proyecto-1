@@ -27,6 +27,7 @@
 using namespace std;
 using json = nlohmann::json;
 bool in_scope = false;
+int deap= 0;
 
 int startClient(json message) {
 
@@ -279,15 +280,6 @@ void Compiler::compile(QString line) {
             case 2:{
                 newList.prepend("char");
                 string value = newList.at(2).toStdString();
-                QRegExp separator("([-+*/])");
-                /*if(newList.at(2).split(separator).length() != 1){
-                    cout  <<"Operation"<< endl ;
-                    newList.append("define");
-                    json mymessage = parseJson(newList, "true");
-                    startClient (mymessage);
-                    break;
-                }*/
-                //char a=b.getValue();
                 if(newList.at(2).split(".").length() == 2 && newList.at(2).split(".").at(1).toStdString() == "getValue()"){
                     cout  <<"get value"<< endl ;
                     newList.append("define");
@@ -300,8 +292,7 @@ void Compiler::compile(QString line) {
                     for(int i; i<value.length(); i++){
                        ArrayChar[i] = value[i];
                     }
-                    //char a='a';
-                    if (string(1,value[0]) == "'" && string(1,value[0]) == "'" && value.length() == 3){
+                    if (string(1,value[0]) == "'" && string(1,value[2]) == "'" && value.length() == 3){
                         cout<<"Definido\n";
                         newList.append("define");
                         json mymessage = parseJson(newList, "false");
@@ -519,8 +510,9 @@ void Compiler::compile(QString line) {
         startClient (mymessage);
     }
 
-    else if("{" == words.at(0).toStdString() && words.replaceInStrings("{","").at(0).toStdString() == "" && !in_scope){
+    else if("{" == words.at(0).toStdString() && words.replaceInStrings("{","").at(0).toStdString() == ""){
         in_scope = true;
+        deap++;
         words.append(QString::fromStdString("scope_o"));
         words.append(QString::fromStdString("scope"));
         words.append(QString::fromStdString("scope"));
@@ -528,7 +520,10 @@ void Compiler::compile(QString line) {
         startClient (mymessage);
     }
     else if("}" == words.at(0).toStdString() && words.replaceInStrings("}","").at(0) == "" && in_scope){
-        in_scope = false;
+        deap--;
+        if (deap ==0){
+            in_scope = false;
+        }
         words.append(QString::fromStdString("scope_c"));
         words.append(QString::fromStdString("scope"));
         words.append(QString::fromStdString("scope"));
@@ -536,16 +531,18 @@ void Compiler::compile(QString line) {
         startClient (mymessage);
     }
     else{
-        cout <<"error\n";
         QStringList newList = Divide(words);
         int num = newList.length();
         if(num == 2) { //SI POSEE UN =
             QRegExp separator("([-+*/])");
             if (newList.at(1).split(separator).length() == 1) { //SI ES SOLO UNA VARIABLE IGUALADA O REFERENCE
-                if (newList.at(1).split(".getValue()").length() == newList.at(1).length()) { //VARIABLE IGUALADA A VARIABLE
-                    newList.prepend("variable"); //type
-                } else{
+                if (newList.at(1).split(".").length() == 2
+                && (newList.at(1).split(".").at(1).toStdString() == "getAddr()"
+                || newList.at(1).split(".").at(1).toStdString() == "getValue()" )){ //VARIABLE IGUALADA A VARIABLE
                     newList.prepend("reference"); //type
+                }
+                else{
+                    newList.prepend("variable"); //type
                 }
                 newList.append("equal");
                 cout << "Igualacion var/ref\n";
