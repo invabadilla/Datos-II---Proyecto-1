@@ -54,6 +54,7 @@ void MainWindow::UpdateGUI() {
 
 void MainWindow::Clear() {
     Compiler *compiler = new Compiler();
+    compiler->s_existing.clear();
     compiler->std_out = "<< \n";
     compiler->log = "<< \n";
     compiler->ram = "<< \n";

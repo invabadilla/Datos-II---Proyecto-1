@@ -119,6 +119,12 @@
 		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable.h">
 			<Option target="Server"/>
 		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable_struct.cpp">
+			<Option target="Server"/>
+		</Unit>
+		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable_struct.h">
+			<Option target="Server"/>
+		</Unit>
 		<Unit filename="/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/json.hpp">
 			<Option target="Server"/>
 		</Unit>

@@ -9,6 +9,7 @@
 #include <string>
 #include <QString>
 #include <QStringList>
+#include <vector>
 using namespace std;
 
 class Compiler {
@@ -17,6 +18,7 @@ public:
     inline static std::string log= "<< \n";
     inline static std::string ram ="<< \n";
     inline static int port;
+    inline static vector<string> s_existing;
 
     static void updateStrings(string std_out, string log, string ram);
     static string updateGUI();
@@ -30,7 +32,7 @@ public:
     QStringList Divide(QStringList initial);
 
 
-
+    bool validenamestruct(string name);
 };
 
 

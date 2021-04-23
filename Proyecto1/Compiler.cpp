@@ -27,6 +27,8 @@
 using namespace std;
 using json = nlohmann::json;
 bool in_scope = false;
+bool in_struct=false;
+
 int deap= 0;
 
 int startClient(json message) {
@@ -72,7 +74,17 @@ int startClient(json message) {
     else{
         string messageR = string(buf, bytesReceived);
         if(messageR != "") {
+            cout << "Message: " << messageR << endl;
             json jmessageR = json::parse(messageR);
+            string destroyed = jmessageR.value("destroyed", "oops");
+            if (destroyed != ""){
+                QString Qdestroyed = QString::fromStdString(destroyed);
+                QStringList deleted = Qdestroyed.split("$");
+                for (int i = 0; i < deleted.size(); i++) {
+                    Compiler::s_existing.erase(std::remove( Compiler::s_existing.begin(),  Compiler::s_existing.end()
+                                                            , deleted.at(i).toStdString()),  Compiler::s_existing.end());
+                }
+            }
             string std_out_ = jmessageR.value("std_out_", "oops");
             string ram_ = jmessageR.value("ram_", "oops");
             string log_ = jmessageR.value("log_", "oops");
@@ -156,7 +168,6 @@ QStringList Compiler::Divide(QStringList initial) {
 
 void Compiler::compile(QString line) {
     QStringList words = line.split(" ");
-
     if ("int" == words.at(0).toStdString()){
         cout <<"soy un int\n";
         words.removeOne("int");
@@ -187,6 +198,12 @@ void Compiler::compile(QString line) {
                         cout  <<"get value"<< endl ;
                         newList.append("define");
                         json mymessage = parseJson(newList, "reference");
+                        startClient (mymessage);
+                    }
+                    else if(newList.at(2).split(".").length() == 2){
+                        cout  <<"todo correcto"<< endl ;
+                        newList.append("define");
+                        json mymessage = parseJson(newList, "struct");
                         startClient (mymessage);
                     }
                     else{
@@ -239,6 +256,12 @@ void Compiler::compile(QString line) {
                     cout  <<"get value"<< endl ;
                     newList.append("define");
                     json mymessage = parseJson(newList, "reference");
+                    startClient (mymessage);
+                }
+                else if(newList.at(2).split(".").length() == 2){
+                    cout  <<"todo correcto"<< endl ;
+                    newList.append("define");
+                    json mymessage = parseJson(newList, "struct");
                     startClient (mymessage);
                 }
                 else{
@@ -299,10 +322,16 @@ void Compiler::compile(QString line) {
                         startClient (mymessage);
 
                     }else{
-                        newList.append("define");
-                        json mymessage = parseJson(newList, "true");
-                        startClient (mymessage);
-                        cout  << "tipo no coincide con valor\n";
+                        if(newList.at(2).split(".").length() == 2){
+                            cout  <<"todo correcto"<< endl ;
+                            newList.append("define");
+                            json mymessage = parseJson(newList, "struct");
+                            startClient (mymessage);
+                        }else{
+                            newList.append("define");
+                            json mymessage = parseJson(newList, "true");
+                            startClient (mymessage);
+                        }
                     }
                 }
             }
@@ -341,6 +370,7 @@ void Compiler::compile(QString line) {
                     json mymessage = parseJson(newList, "reference");
                     startClient (mymessage);
                 }
+
                 else{
                     try{
                         if (newList.at(2).split(".").length() == 2) {
@@ -348,7 +378,6 @@ void Compiler::compile(QString line) {
                             string decimal = newList.at(2).split(".").at(1).toStdString();
                             if (entero.length() == to_string(stol(entero)).length()
                                 && decimal.length() == to_string(stol(decimal)).length()) {
-
                                 newList.append("define");
                                 json mymessage = parseJson(newList, "false");
                                 startClient(mymessage);
@@ -358,10 +387,18 @@ void Compiler::compile(QString line) {
                             cout<< "Valor invalido\n";}
 
                     }catch (std::invalid_argument){
-                        newList.append("define");
-                        json mymessage = parseJson(newList, "true");
-                        startClient (mymessage);
+                        if(newList.at(2).split(".").length() == 2){
+                            cout  <<"todo correcto"<< endl ;
+                            newList.append("define");
+                            json mymessage = parseJson(newList, "struct");
+                            startClient (mymessage);
+                        }else{
+                            newList.append("define");
+                            json mymessage = parseJson(newList, "true");
+                            startClient (mymessage);
+                        }
                         break;
+
                     }
                     break;
                 }
@@ -401,6 +438,12 @@ void Compiler::compile(QString line) {
                     json mymessage = parseJson(newList, "reference");
                     startClient (mymessage);
                 }
+                else if(newList.at(2).split(".").length() == 2){
+                    cout  <<"todo correcto"<< endl ;
+                    newList.append("define");
+                    json mymessage = parseJson(newList, "struct");
+                    startClient (mymessage);
+                }
                 else{
                     try{
                         if (newList.at(2).split(".").length() == 2) {
@@ -428,17 +471,27 @@ void Compiler::compile(QString line) {
         }
     }
 
-    /**
-    else if("struct" == words.at(0).toStdString()){
-        cout <<"soy un struct\n";
-        if (validename(words.at(1).toStdString())){
-            cout  <<"nombre correcto\n";
+    else if(words.at(0).toStdString() == "struct" && string(1,words.at(1).toStdString()[words.at(1).toStdString().length()-1]) == "{"  && !in_struct){
+        cout<< "soy un struct\n";
+        string name = words.at(1).toStdString();
+        name.erase(name.end()-1);
+        if (validename(name)){
+            Compiler::s_existing.push_back(name);
+            in_struct = true;
+            words.append(QString::fromStdString("struct"));
+            words.append(QString::fromStdString("struct"));
+            json mymessage = parseJson(words, "false");
+            startClient (mymessage);
         }
-        else{
-            cout  <<"nombre incorrecto\n";
-        }
-    }**/
-
+    }
+    else if(words.at(0).toStdString() == "};" && in_struct){
+        in_struct = false;
+        words.prepend(QString::fromStdString("struct"));
+        words.prepend(QString::fromStdString("struct"));
+        words.append(QString::fromStdString("struct"));
+        json mymessage = parseJson(words, "false");
+        startClient (mymessage);
+    }
     else if("reference" == words.at(0).toStdString()){
         words.removeFirst();
         string type = valideReference(words.at(0).toStdString());
@@ -475,7 +528,13 @@ void Compiler::compile(QString line) {
                         json mymessage = parseJson(newList, "true");
                         startClient (mymessage);
                         break;
-                    }else{ cout<< "Sintaxis Error\n";}
+                    }else if(newList.at(2).split(".").length() == 2){
+                        cout  <<"todo correcto"<< endl ;
+                        newList.append("define");
+                        json mymessage = parseJson(newList, "struct");
+                        startClient (mymessage);
+                    }
+                    else{ cout<< "Sintaxis Error\n";}
                 }
             }
             cout << "nombre correcto\n";
@@ -510,7 +569,7 @@ void Compiler::compile(QString line) {
         startClient (mymessage);
     }
 
-    else if("{" == words.at(0).toStdString() && words.replaceInStrings("{","").at(0).toStdString() == ""){
+    else if("{" == words.at(0).toStdString() && words.replaceInStrings("{","").at(0).toStdString() == "" && !in_struct){
         in_scope = true;
         deap++;
         words.append(QString::fromStdString("scope_o"));
@@ -530,31 +589,65 @@ void Compiler::compile(QString line) {
         json mymessage = parseJson(words, "true");
         startClient (mymessage);
     }
-    else{
+    else if(validenamestruct(words.at(0).toStdString())){
+        string type = words.at(0).toStdString();
+        words.removeOne(words.at(0));
         QStringList newList = Divide(words);
         int num = newList.length();
-        if(num == 2) { //SI POSEE UN =
-            QRegExp separator("([-+*/])");
-            if (newList.at(1).split(separator).length() == 1) { //SI ES SOLO UNA VARIABLE IGUALADA O REFERENCE
-                if (newList.at(1).split(".").length() == 2
-                && (newList.at(1).split(".").at(1).toStdString() == "getAddr()"
-                || newList.at(1).split(".").at(1).toStdString() == "getValue()" )){ //VARIABLE IGUALADA A VARIABLE
-                    newList.prepend("reference"); //type
+        switch (num) {
+            case 1: {
+                newList.prepend(QString::fromStdString(type));
+                newList.append(NULL);
+                newList.append("define");
+                cout <<"Generando variable\n";
+                json mymessage = parseJson(newList, "false");
+                startClient(mymessage);
+                break;
+            }
+            case 2:{
+                newList.prepend(QString::fromStdString(type));
+                if(newList.at(2).split(".").length() == 2){
+                    cout  <<"todo correcto"<< endl ;
+                    newList.append("define");
+                    json mymessage = parseJson(newList, "struct");
+                    startClient (mymessage);
+                }else{
+                    string value = newList.at(2).toStdString();
+                    newList.append("define");
+                    json mymessage = parseJson(newList, "true");
+                    startClient (mymessage);
+                }
+                break;
+                }
+            }
+        }
+    else{
+        if (!in_struct){
+            QStringList newList = Divide(words);
+            int num = newList.length();
+            if(num == 2) { //SI POSEE UN =
+                QRegExp separator("([-+*/])");
+                if (newList.at(1).split(separator).length() == 1) { //SI ES SOLO UNA VARIABLE IGUALADA O REFERENCE
+                    if (newList.at(1).split(".").length() == 2
+                        && (newList.at(1).split(".").at(1).toStdString() == "getAddr()"
+                            || newList.at(1).split(".").at(1).toStdString() == "getValue()")){ //VARIABLE IGUALADA A VARIABLE
+                        newList.prepend("reference"); //type
+                    }
+                    else{
+                        newList.prepend("variable"); //type
+                    }
+                    newList.append("equal");
+                    cout << "Igualacion var/ref\n";
+                    json mymessage = parseJson(newList, "false");
+                    startClient(mymessage);
                 }
                 else{
-                    newList.prepend("variable"); //type
+                    newList.prepend("operation"); //type
+                    newList.append("equal"); //key
+                    cout << "Igualacion operacion\n";
+                    json mymessage = parseJson(newList, "false");
+                    startClient(mymessage);
                 }
-                newList.append("equal");
-                cout << "Igualacion var/ref\n";
-                json mymessage = parseJson(newList, "false");
-                startClient(mymessage);
-            }
-            else{
-                newList.prepend("operation"); //type
-                newList.append("equal"); //key
-                cout << "Igualacion operacion\n";
-                json mymessage = parseJson(newList, "false");
-                startClient(mymessage);
             }
         }
     }
@@ -572,12 +665,12 @@ string Compiler::valideReference(std::string name) {
 
 
 bool Compiler::validename(string name) {
-    cout << name <<"\n";
+    cout<<"valide name " << name <<"\n";
     if (name != "int" && name != "long" && name != "char" && name != "float" && name != "double" && name != "struct" &&
-        name != "reference") {
+        name != "reference" && !validenamestruct(name)) {
         if ((name[0] == '_') || (isalpha(name[0]))) {
             for (int i = 1; i < name.length(); i++) {
-                if (isalpha(name[i]) || name[i] == '_' || isdigit(name[i])) {
+                if (isalpha(name[i]) || name[i] == '_' ||(name[i] == '.') || isdigit(name[i])) {
                     continue;
                 } else if (i + 1 == name.length() && name[i] == ';') {
                     return true;
@@ -588,6 +681,16 @@ bool Compiler::validename(string name) {
     } else { return false; }
 }
 
+bool Compiler::validenamestruct(string name) {
+    bool flag = false;
+    for (int i=0; i< Compiler::s_existing.size(); i++){
+        if (name == Compiler::s_existing.at(i)){
+            flag=true;
+            return flag;
+        }
+    }
+    return flag;
+}
 
 
 
@@ -596,7 +699,9 @@ void Compiler::sendServer() {}
 void Compiler::updateStrings(string stdout_, string log_, string ram_) {
     Compiler::std_out += stdout_;
     Compiler::log += log_;
-    Compiler::ram = ram_;
+    if (ram_!=""){
+        Compiler::ram = ram_;
+    }
 }
 
 string Compiler::updateGUI() {

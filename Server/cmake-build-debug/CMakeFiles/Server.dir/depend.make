@@ -6,17 +6,23 @@ CMakeFiles/Server.dir/CMemoryPool.cpp.o: ../CMemoryPool.h
 CMakeFiles/Server.dir/CMemoryPool.cpp.o: ../IMemoryBlock.h
 CMakeFiles/Server.dir/CMemoryPool.cpp.o: ../SMemoryChunk.h
 CMakeFiles/Server.dir/CMemoryPool.cpp.o: ../Variable.h
+CMakeFiles/Server.dir/CMemoryPool.cpp.o: ../Variable_struct.h
 
 CMakeFiles/Server.dir/Variable.cpp.o: ../IMemoryBlock.h
 CMakeFiles/Server.dir/Variable.cpp.o: ../SMemoryChunk.h
 CMakeFiles/Server.dir/Variable.cpp.o: ../Variable.cpp
 CMakeFiles/Server.dir/Variable.cpp.o: ../Variable.h
+CMakeFiles/Server.dir/Variable.cpp.o: ../Variable_struct.h
+
+CMakeFiles/Server.dir/Variable_struct.cpp.o: ../Variable_struct.cpp
+CMakeFiles/Server.dir/Variable_struct.cpp.o: ../Variable_struct.h
 
 CMakeFiles/Server.dir/main.cpp.o: ../CMemoryPool.h
 CMakeFiles/Server.dir/main.cpp.o: ../IMemoryBlock.h
 CMakeFiles/Server.dir/main.cpp.o: ../SMemoryChunk.h
 CMakeFiles/Server.dir/main.cpp.o: ../Split_getline.h
 CMakeFiles/Server.dir/main.cpp.o: ../Variable.h
+CMakeFiles/Server.dir/main.cpp.o: ../Variable_struct.h
 CMakeFiles/Server.dir/main.cpp.o: ../json.hpp
 CMakeFiles/Server.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Server.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QString

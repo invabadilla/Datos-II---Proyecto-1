@@ -35,6 +35,10 @@ fstream
 /home/usuario/Proyectos/Datos-II---Proyecto-1/Server/SMemoryChunk.h
 IMemoryBlock.h
 /home/usuario/Proyectos/Datos-II---Proyecto-1/Server/IMemoryBlock.h
+Variable_struct.h
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable_struct.h
+vector
+-
 
 /home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Split_getline.h
 iostream
@@ -51,6 +55,10 @@ string
 -
 SMemoryChunk.h
 /home/usuario/Proyectos/Datos-II---Proyecto-1/Server/SMemoryChunk.h
+
+/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable_struct.h
+string
+-
 
 /home/usuario/Proyectos/Datos-II---Proyecto-1/Server/json.hpp
 algorithm
