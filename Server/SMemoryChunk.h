@@ -6,7 +6,8 @@
 #define SERVER_SMEMORYCHUNK_H
 
 #include "IMemoryBlock.h"
-
+#include "Variable_struct.h"
+#include <vector>
 namespace MemPool {
 
     typedef struct SMemoryChunk {
@@ -16,7 +17,9 @@ namespace MemPool {
         bool isReference;
         bool isscope;
         int deap;
-        SMemoryChunk *reference ;
+        SMemoryChunk *reference;
+        std::vector <Variable_struct> mstruct;
+        bool isstruct;
         TByte *Data;              //El dato actual
         size_t DataSize;          //Tamano del bloque de datos
         size_t UsedSize;          //Tamano usado acutal

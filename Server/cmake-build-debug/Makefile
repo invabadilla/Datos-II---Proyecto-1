@@ -196,6 +196,33 @@ Variable.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/Variable.cpp.s
 .PHONY : Variable.cpp.s
 
+Variable_struct.o: Variable_struct.cpp.o
+
+.PHONY : Variable_struct.o
+
+# target to build an object file
+Variable_struct.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/Variable_struct.cpp.o
+.PHONY : Variable_struct.cpp.o
+
+Variable_struct.i: Variable_struct.cpp.i
+
+.PHONY : Variable_struct.i
+
+# target to preprocess a source file
+Variable_struct.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/Variable_struct.cpp.i
+.PHONY : Variable_struct.cpp.i
+
+Variable_struct.s: Variable_struct.cpp.s
+
+.PHONY : Variable_struct.s
+
+# target to generate assembly for a file
+Variable_struct.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/Variable_struct.cpp.s
+.PHONY : Variable_struct.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -238,6 +265,9 @@ help:
 	@echo "... Variable.o"
 	@echo "... Variable.i"
 	@echo "... Variable.s"
+	@echo "... Variable_struct.o"
+	@echo "... Variable_struct.i"
+	@echo "... Variable_struct.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMemoryPool.cpp" "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles/Server.dir/CMemoryPool.cpp.o"
   "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable.cpp" "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles/Server.dir/Variable.cpp.o"
+  "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable_struct.cpp" "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles/Server.dir/Variable_struct.cpp.o"
   "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/main.cpp" "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles/Server.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

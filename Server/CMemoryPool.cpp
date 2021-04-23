@@ -395,8 +395,10 @@ SetChunkDefaults
             ptrChunk->Next = NULL ;
             ptrChunk->isReference = false;
             ptrChunk->isscope = false;
+            ptrChunk->isstruct = false;
             ptrChunk->deap =0;
             ptrChunk->reference = nullptr;
+            ptrChunk->mstruct.clear();
         }
         return ptrChunk ;
     }
@@ -412,8 +414,10 @@ SetChunkDefaults
             ptrChunk->IsAllocationChunk = false ;
             ptrChunk->isReference = false;
             ptrChunk->isscope = false;
+            ptrChunk->isstruct = false;
             ptrChunk->deap=0;
             ptrChunk->reference = nullptr;
+            ptrChunk->mstruct.clear();
         }
     }
 /******************
@@ -559,7 +563,17 @@ MaxValue
             if (ptrChunk->counter == 0){
                 if (ptrChunk->isReference){
                     ptrChunk->reference->counter -=1;
+                    if (ptrChunk->reference->counter < 0){
+                        ptrChunk->reference->counter =0;
+                    }
+                    SetChunktoDefault(ptrChunk);
                 }
+            }
+            ptrChunk = ptrChunk->Next;
+        }
+        ptrChunk = m_ptrFirstChunk ;
+        while(ptrChunk) {
+            if (ptrChunk->counter == 0){
                 SetChunktoDefault(ptrChunk);
             }
             ptrChunk = ptrChunk->Next;
