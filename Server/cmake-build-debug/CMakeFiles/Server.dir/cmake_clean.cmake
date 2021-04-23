@@ -2,7 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Server.dir/CMemoryPool.cpp.o"
   "CMakeFiles/Server.dir/Variable.cpp.o"
   "CMakeFiles/Server.dir/Variable_struct.cpp.o"
-  "CMakeFiles/Server.dir/main.cpp.o"
+  "CMakeFiles/Server.dir/mServer.cpp.o"
   "Server"
   "Server.pdb"
 )

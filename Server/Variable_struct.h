@@ -16,5 +16,4 @@ class Variable_struct {
 
 };
 
-
 #endif //SERVER_VARIABLE_STRUCT_H

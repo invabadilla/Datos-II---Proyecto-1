@@ -26,39 +26,41 @@ namespace MemPool
 
         virtual void FreeMemory(void *ptrMemoryBlock);
 
-        bool WriteMemoryDumpToFile(const std::string &strFileName);
-
-        bool IsValidPointer(void *ptrPointer);
-
         SMemoryChunk *FindChunkHoldingNameTo(std::string name);
+
         SMemoryChunk *FindChunkHoldingPointerTo(void *ptrMemoryBlock);
+
         bool FindChunkHoldingSameName(std::string name_);
+
         void FreeAllAllocatedMemory();
-        SMemoryChunk *getMPtrFirstChunk() const;
+
         void Freeinscope(int deap);
+
         void GarbageCollector();
 
     private:
         bool AllocateMemory(const size_t &sMemorySize);
 
-
         unsigned int CalculateNeededChunks(const size_t &sMemorySize);
+
         size_t CalculateBestMemoryBlockSize(const size_t &sRequestMemoryBlockSize);
 
         SMemoryChunk *FindChunkSuitableToHoldMemory(const size_t &sMemorySize);
 
-
         SMemoryChunk *SkipChunks(SMemoryChunk *ptrStartChunk, unsigned int uiChunksToSkip);
+
         SMemoryChunk *SetChunkDefaults(SMemoryChunk *ptrChunk);
 
         void FreeChunks(SMemoryChunk *ptrChunk);
+
         void DeallocateAllChunks();
 
         bool LinkChunksToData(SMemoryChunk *ptrNewChunk,unsigned int uiChunkCount, TByte *ptrNewMemBlock);
+
         void SetMemoryChunkValues(SMemoryChunk *ptrChunk, const size_t &sMemBlockSize);
+
         bool RecalcChunkMemorySize(SMemoryChunk *ptrChunks, unsigned int uiChunkCount);
 
-        size_t MaxValue(const size_t &sValueA, const size_t &sValueB) const;
 
         SMemoryChunk *m_ptrFirstChunk;
         SMemoryChunk *m_ptrLastChunk;
@@ -73,15 +75,10 @@ namespace MemPool
         unsigned int m_uiObjectCount;
 
         bool m_bSetMemoryData;
-        size_t m_sMinimalMemorySizeToAllocate;
-
 
         void SetChunktoDefault(SMemoryChunk *ptrChunk);
-
-
 
     };
 
 }
-
 #endif //SERVER_CMEMORYPOOL_H

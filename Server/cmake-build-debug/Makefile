@@ -67,10 +67,10 @@ RM = /snap/clion/149/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/usuario/Proyectos/Datos-II---Proyecto-1/Server
+CMAKE_SOURCE_DIR = "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug
+CMAKE_BINARY_DIR = "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles /home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles" "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/cmake-build-debug//CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -223,32 +223,32 @@ Variable_struct.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/Variable_struct.cpp.s
 .PHONY : Variable_struct.cpp.s
 
-main.o: main.cpp.o
+mServer.o: mServer.cpp.o
 
-.PHONY : main.o
+.PHONY : mServer.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/main.cpp.o
-.PHONY : main.cpp.o
+mServer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/mServer.cpp.o
+.PHONY : mServer.cpp.o
 
-main.i: main.cpp.i
+mServer.i: mServer.cpp.i
 
-.PHONY : main.i
+.PHONY : mServer.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/main.cpp.i
-.PHONY : main.cpp.i
+mServer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/mServer.cpp.i
+.PHONY : mServer.cpp.i
 
-main.s: main.cpp.s
+mServer.s: mServer.cpp.s
 
-.PHONY : main.s
+.PHONY : mServer.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/main.cpp.s
-.PHONY : main.cpp.s
+mServer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/mServer.cpp.s
+.PHONY : mServer.cpp.s
 
 # Help Target
 help:
@@ -268,9 +268,9 @@ help:
 	@echo "... Variable_struct.o"
 	@echo "... Variable_struct.i"
 	@echo "... Variable_struct.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... mServer.o"
+	@echo "... mServer.i"
+	@echo "... mServer.s"
 .PHONY : help
 
 

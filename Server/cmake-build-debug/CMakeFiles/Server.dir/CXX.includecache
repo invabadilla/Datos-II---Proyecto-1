@@ -6,19 +6,43 @@
 
 #IncludeRegexTransform: 
 
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMemoryPool.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.cpp
+CMemoryPool.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.h
+SMemoryChunk.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/SMemoryChunk.h
+Variable.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.h
+stdlib.h
+-
+stdio.h
+-
+math.h
+-
+assert.h
+-
+iostream
+-
+fstream
+-
+cstring
+-
+vector
+-
+
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.h
 string
 -
 vector
 -
 IMemoryBlock.h
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/IMemoryBlock.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/IMemoryBlock.h
 SMemoryChunk.h
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/SMemoryChunk.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/SMemoryChunk.h
 Variable.h
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.h
 
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/IMemoryBlock.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/IMemoryBlock.h
 stdlib.h
 -
 stdio.h
@@ -32,35 +56,47 @@ iostream
 fstream
 -
 
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/SMemoryChunk.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/SMemoryChunk.h
 IMemoryBlock.h
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/IMemoryBlock.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/IMemoryBlock.h
 Variable_struct.h
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable_struct.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable_struct.h
 vector
 -
 
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Split_getline.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Split_getline.h
 iostream
 -
 string
 -
 CMemoryPool.h
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMemoryPool.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.h
 json.hpp
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/json.hpp
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/json.hpp
 
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.cpp
+Variable.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.h
+SMemoryChunk.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/SMemoryChunk.h
+
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.h
 string
 -
 SMemoryChunk.h
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/SMemoryChunk.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/SMemoryChunk.h
 
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable_struct.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable_struct.cpp
+Variable_struct.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable_struct.h
 string
 -
 
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/json.hpp
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable_struct.h
+string
+-
+
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/json.hpp
 algorithm
 -
 cstddef
@@ -384,7 +420,7 @@ utility
 vector
 -
 
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/main.cpp
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/mServer.cpp
 iostream
 -
 thread
@@ -404,15 +440,15 @@ string.h
 string
 -
 CMemoryPool.h
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMemoryPool.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.h
 json.hpp
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/json.hpp
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/json.hpp
 Variable.h
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.h
 list
 -
 Split_getline.h
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Split_getline.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Split_getline.h
 sstream
 -
 QString

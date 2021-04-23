@@ -22,7 +22,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
         if (str[i] == '+') {
             try{
                 if (myword.length() == to_string(stoi(myword)).length()){
-                    total += stod(myword);
+                    total = stod(myword);
                     myword = "";
                     final = '+';
                 }
@@ -37,7 +37,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                 else{
                     MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
                     if (ptrChunk->type != "char" && ptrChunk->type != "struct" && !ptrChunk->isReference){
-                        total += *ptrChunk->Data;
+                        total = *ptrChunk->Data;
                     }
                         //eslseif(reference)
                     else{
@@ -54,7 +54,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
         else if (str[i] == '-'){
             try{
                 if (myword.length() == to_string(stoi(myword)).length()){
-                    total -= stod(myword);
+                    total = stod(myword);
                     myword = "";
                     final = '-';
                 }
@@ -65,7 +65,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk = ptr_mpool->FindChunkHoldingNameTo(myword);
                     if (ptrChunk->type != "char" && ptrChunk->type != "struct" && !ptrChunk->isReference){
-                        total -= *ptrChunk->Data;
+                        total = *ptrChunk->Data;
                     }
                         //eslseif(reference)
                     else{
@@ -84,7 +84,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
         else if (str[i] == '*'){
             try{
                 if (myword.length() == to_string(stoi(myword)).length()){
-                    total *= stod(myword);
+                    total = stod(myword);
                     myword = "";
                     final = '*';
                 }
@@ -95,7 +95,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
                     if (ptrChunk->type != "char" && ptrChunk->type != "struct" && !ptrChunk->isReference){
-                        total *= *ptrChunk->Data;
+                        total = *ptrChunk->Data;
                     }
                         //eslseif(reference)
                     else{
@@ -114,7 +114,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
         else if (str[i] == '/'){
             try{
                 if (myword.length() == to_string(stoi(myword)).length()){
-                    total /= stod(myword);
+                    total = stod(myword);
                     myword = "";
                     final = '/';
                 }
@@ -125,7 +125,7 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                 if(!ptr_mpool->FindChunkHoldingSameName(myword)){
                     MemPool::SMemoryChunk *ptrChunk =ptr_mpool->FindChunkHoldingNameTo(myword);
                     if (ptrChunk->type != "char" && ptrChunk->type != "struct" && !ptrChunk->isReference){
-                        total /= *ptrChunk->Data;
+                        total = *ptrChunk->Data;
                     }
                         //eslseif(reference)
                     else{

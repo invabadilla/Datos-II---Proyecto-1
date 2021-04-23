@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/CMemoryPool.cpp" "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles/Server.dir/CMemoryPool.cpp.o"
-  "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable.cpp" "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles/Server.dir/Variable.cpp.o"
-  "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/Variable_struct.cpp" "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles/Server.dir/Variable_struct.cpp.o"
-  "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/main.cpp" "/home/usuario/Proyectos/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles/Server.dir/main.cpp.o"
+  "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.cpp" "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles/Server.dir/CMemoryPool.cpp.o"
+  "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.cpp" "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles/Server.dir/Variable.cpp.o"
+  "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable_struct.cpp" "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles/Server.dir/Variable_struct.cpp.o"
+  "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/mServer.cpp" "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/cmake-build-debug/CMakeFiles/Server.dir/mServer.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/Compiler.cpp
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/Compiler.cpp
 iomanip
 -
 Compiler.h
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/Compiler.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/Compiler.h
 string
 -
 iostream
@@ -20,7 +20,7 @@ QString
 QStringList
 -
 mainwindow.h
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
 QApplication
 -
 iostream
@@ -46,11 +46,11 @@ sstream
 utility
 -
 json.hpp
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/json.hpp
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/json.hpp
 iomanip
 -
 
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/Compiler.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/Compiler.h
 string
 -
 QString
@@ -60,7 +60,19 @@ QStringList
 vector
 -
 
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/json.hpp
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/EWIEGA46WW/moc_mainwindow.cpp
+../../../mainwindow.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/mocs_compilation.cpp
+EWIEGA46WW/moc_mainwindow.cpp
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/Proyecto1_autogen/EWIEGA46WW/moc_mainwindow.cpp
+
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/json.hpp
 algorithm
 -
 cstddef
@@ -384,7 +396,31 @@ utility
 vector
 -
 
-/home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/main.cpp
+mainwindow.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+Compiler.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/Compiler.h
+QApplication
+-
+iostream
+-
+
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.cpp
+mainwindow.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
+./ui_mainwindow.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/ui_mainwindow.h
+Compiler.h
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/Compiler.h
+string
+-
+iostream
+-
+thread
+-
+
+/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/mainwindow.h
 QMainWindow
 -
 
@@ -395,6 +431,10 @@ qstring.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList
 qstringlist.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
+qvariant.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
 QtCore/qglobal.h
@@ -1314,6 +1354,14 @@ QtGui/qcolor.h
 QtGui/qbrush.h
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h
+QtGui/qtguiglobal.h
+-
+QtGui/qcolor.h
+-
+QtGui/qbrush.h
+-
+
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h
 QtGui/qtguiglobal.h
 -
@@ -1368,6 +1416,62 @@ QtCore/qprocessordetection.h
 QtGui/qtguiglobal.h
 -
 QtCore/qprocessordetection.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h
+QtGui/qtguiglobal.h
+-
+QtCore/qstring.h
+-
+QtCore/qshareddata.h
+-
+QtGui/qtextformat.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextdocument.h
+QtGui/qtguiglobal.h
+-
+QtCore/qobject.h
+-
+QtCore/qsize.h
+-
+QtCore/qrect.h
+-
+QtCore/qvariant.h
+-
+QtGui/qfont.h
+-
+QtCore/qurl.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h
+QtGui/qtguiglobal.h
+-
+QtGui/qcolor.h
+-
+QtGui/qfont.h
+-
+QtCore/qshareddata.h
+-
+QtCore/qvector.h
+-
+QtCore/qvariant.h
+-
+QtGui/qpen.h
+-
+QtGui/qbrush.h
+-
+QtGui/qtextoption.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h
+QtGui/qtguiglobal.h
+-
+QtCore/qnamespace.h
+-
+QtCore/qchar.h
+-
+QtCore/qmetatype.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qtgui-config.h
@@ -1426,13 +1530,83 @@ QtGui/qwindowdefs_win.h
 QtGui/qtguiglobal.h
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction
+qaction.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
 qapplication.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
+qlabel.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
 qmainwindow.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenu
+qmenu.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar
+qmenubar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
+qpushbutton.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStatusBar
+qstatusbar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstatusbar.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTextEdit
+qtextedit.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtextedit.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget
+qwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtGui/qicon.h
+-
+QtGui/qkeysequence.h
+-
+QtWidgets/qwidget.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qframe.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtGui/qkeysequence.h
+-
+QtCore/qstring.h
+-
+QtWidgets/qwidget.h
+-
+QtCore/qvariant.h
+-
+QtGui/qicon.h
+-
+QtWidgets/qactiongroup.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qaction.h
+-
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
 QtWidgets/qtwidgetsglobal.h
@@ -1458,12 +1632,48 @@ QtWidgets/qtwidgetsglobal.h
 QtWidgets/qwidget.h
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qwidget.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qframe.h
+-
+
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 QtWidgets/qtabwidget.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qwidget.h
+-
+QtCore/qstring.h
+-
+QtGui/qicon.h
+-
+QtWidgets/qaction.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qmenu.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qabstractbutton.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
@@ -1474,12 +1684,32 @@ QtCore/qobject.h
 QtCore/qalgorithms.h
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstatusbar.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qwidget.h
+-
+
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 QtGui/qicon.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtextedit.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qabstractscrollarea.h
+-
+QtGui/qtextdocument.h
+-
+QtGui/qtextoption.h
+-
+QtGui/qtextcursor.h
+-
+QtGui/qtextformat.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgets-config.h
@@ -1520,5 +1750,29 @@ QtGui/qcursor.h
 QtGui/qkeysequence.h
 -
 QtGui/qevent.h
+-
+
+Proyecto1_autogen/include/ui_mainwindow.h
+QtCore/QVariant
+-
+QtWidgets/QAction
+-
+QtWidgets/QApplication
+-
+QtWidgets/QLabel
+-
+QtWidgets/QMainWindow
+-
+QtWidgets/QMenu
+-
+QtWidgets/QMenuBar
+-
+QtWidgets/QPushButton
+-
+QtWidgets/QStatusBar
+-
+QtWidgets/QTextEdit
+-
+QtWidgets/QWidget
 -
 
