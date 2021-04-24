@@ -85,10 +85,9 @@ Atributos públicos</h2></td></tr>
 <tr class="separator:a855a4931dffad56c6048ac813c4038ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
-<div class="textblock"><p class="">template &lt;class T&gt;</p>
-<p class="">class <a class="el" href="classVariable.html">Variable</a> { public: <a class="el" href="classVariable.html">Variable(string type_, string name_, T *ptr_, int counter_, bool reference_)</a>; string type; string name; T *ptr; int counter; bool reference = false; }; </p>
+<div class="textblock"><p class="">Clase para la creacion de <a class="el" href="classVariable.html">Variable</a> que administra todas las variables creadas en el Pool de memoria </p>
 
-<p class="definition">Definición en la línea <a class="el" href="Variable_8h_source.html#l00024">24</a> del archivo <a class="el" href="Variable_8h_source.html">Variable.h</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="Variable_8h_source.html#l00017">17</a> del archivo <a class="el" href="Variable_8h_source.html">Variable.h</a>.</p>
 </div><h2 class="groupheader">Documentación del constructor y destructor</h2>
 <a id="a35efa28973c7703f9fdf455292717e83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a35efa28973c7703f9fdf455292717e83">&#9670;&nbsp;</a></span>Variable()</h2>
@@ -115,15 +114,21 @@ Atributos públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p class="">Variable::type = type_; <a class="el" href="classVariable.html#a20d3268aae34f6b98d7dbdecb65b17ed">Variable::name</a> = name_; <a class="el" href="classVariable.html#a855a4931dffad56c6048ac813c4038ab">Variable::ptr</a> = ptr_; Variable::counter = counter_; Variable::reference = reference_; </p>
+<p class="">Constructor para la creacion de tipo variable que administra las variables creadas en el Pool de memoria </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name_</td><td>Nombre de la variable </td></tr>
+    <tr><td class="paramname">ptr_</td><td>Puntero de referencia </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definición en la línea <a class="el" href="Variable_8cpp_source.html#l00016">16</a> del archivo <a class="el" href="Variable_8cpp_source.html">Variable.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                                                          {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classVariable.html#a20d3268aae34f6b98d7dbdecb65b17ed">Variable::name</a> = name_;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classVariable.html#a855a4931dffad56c6048ac813c4038ab">Variable::ptr</a> = ptr_;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
-<div class="ttc" id="aclassVariable_html_a20d3268aae34f6b98d7dbdecb65b17ed"><div class="ttname"><a href="classVariable.html#a20d3268aae34f6b98d7dbdecb65b17ed">Variable::name</a></div><div class="ttdeci">string name</div><div class="ttdef"><b>Definition:</b> <a href="Variable_8h_source.html#l00027">Variable.h:27</a></div></div>
-<div class="ttc" id="aclassVariable_html_a855a4931dffad56c6048ac813c4038ab"><div class="ttname"><a href="classVariable.html#a855a4931dffad56c6048ac813c4038ab">Variable::ptr</a></div><div class="ttdeci">MemPool::SMemoryChunk * ptr</div><div class="ttdef"><b>Definition:</b> <a href="Variable_8h_source.html#l00028">Variable.h:28</a></div></div>
+<p class="definition">Definición en la línea <a class="el" href="Variable_8cpp_source.html#l00014">14</a> del archivo <a class="el" href="Variable_8cpp_source.html">Variable.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                                                          {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classVariable.html#a20d3268aae34f6b98d7dbdecb65b17ed">Variable::name</a> = name_;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classVariable.html#a855a4931dffad56c6048ac813c4038ab">Variable::ptr</a> = ptr_;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="ttc" id="aclassVariable_html_a20d3268aae34f6b98d7dbdecb65b17ed"><div class="ttname"><a href="classVariable.html#a20d3268aae34f6b98d7dbdecb65b17ed">Variable::name</a></div><div class="ttdeci">string name</div><div class="ttdef"><b>Definition:</b> <a href="Variable_8h_source.html#l00020">Variable.h:20</a></div></div>
+<div class="ttc" id="aclassVariable_html_a855a4931dffad56c6048ac813c4038ab"><div class="ttname"><a href="classVariable.html#a855a4931dffad56c6048ac813c4038ab">Variable::ptr</a></div><div class="ttdeci">MemPool::SMemoryChunk * ptr</div><div class="ttdef"><b>Definition:</b> <a href="Variable_8h_source.html#l00021">Variable.h:21</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -140,7 +145,7 @@ Atributos públicos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="Variable_8h_source.html#l00027">27</a> del archivo <a class="el" href="Variable_8h_source.html">Variable.h</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="Variable_8h_source.html#l00020">20</a> del archivo <a class="el" href="Variable_8h_source.html">Variable.h</a>.</p>
 
 </div>
 </div>
@@ -156,7 +161,7 @@ Atributos públicos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="Variable_8h_source.html#l00028">28</a> del archivo <a class="el" href="Variable_8h_source.html">Variable.h</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="Variable_8h_source.html#l00021">21</a> del archivo <a class="el" href="Variable_8h_source.html">Variable.h</a>.</p>
 
 </div>
 </div>

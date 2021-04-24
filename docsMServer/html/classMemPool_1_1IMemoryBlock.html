@@ -90,12 +90,13 @@ Métodos públicos</h2></td></tr>
 <tr class="separator:a5a52d0790fd98adbb3a62a1395eed8aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1f1954b63042612d701aad528150968"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMemPool_1_1IMemoryBlock.html#ac1f1954b63042612d701aad528150968">GetMemory</a> (const size_t &amp;sMemorySize)=0</td></tr>
 <tr class="separator:ac1f1954b63042612d701aad528150968"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab556fce8ce3a6e83a756ff365b634f8b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMemPool_1_1IMemoryBlock.html#ab556fce8ce3a6e83a756ff365b634f8b">FreeMemory</a> (void *ptrMemoryBlock, const size_t &amp;sMemoryBlockSize)=0</td></tr>
-<tr class="separator:ab556fce8ce3a6e83a756ff365b634f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9907b6c8c0a30ebb47e33c02d39d9990"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMemPool_1_1IMemoryBlock.html#a9907b6c8c0a30ebb47e33c02d39d9990">FreeMemory</a> (void *ptrMemoryBlock)=0</td></tr>
+<tr class="separator:a9907b6c8c0a30ebb47e33c02d39d9990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
-<div class="textblock">
-<p class="definition">Definición en la línea <a class="el" href="IMemoryBlock_8h_source.html#l00019">19</a> del archivo <a class="el" href="IMemoryBlock_8h_source.html">IMemoryBlock.h</a>.</p>
+<div class="textblock"><p class="">Clase padre para la creacion del Pool de Memoria </p>
+
+<p class="definition">Definición en la línea <a class="el" href="IMemoryBlock_8h_source.html#l00022">22</a> del archivo <a class="el" href="IMemoryBlock_8h_source.html">IMemoryBlock.h</a>.</p>
 </div><h2 class="groupheader">Documentación del constructor y destructor</h2>
 <a id="a5a52d0790fd98adbb3a62a1395eed8aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a52d0790fd98adbb3a62a1395eed8aa">&#9670;&nbsp;</a></span>~IMemoryBlock()</h2>
@@ -120,14 +121,14 @@ Métodos públicos</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="IMemoryBlock_8h_source.html#l00021">21</a> del archivo <a class="el" href="IMemoryBlock_8h_source.html">IMemoryBlock.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{};</div>
+<p class="definition">Definición en la línea <a class="el" href="IMemoryBlock_8h_source.html#l00024">24</a> del archivo <a class="el" href="IMemoryBlock_8h_source.html">IMemoryBlock.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{};</div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Documentación de las funciones miembro</h2>
-<a id="ab556fce8ce3a6e83a756ff365b634f8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab556fce8ce3a6e83a756ff365b634f8b">&#9670;&nbsp;</a></span>FreeMemory()</h2>
+<a id="a9907b6c8c0a30ebb47e33c02d39d9990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9907b6c8c0a30ebb47e33c02d39d9990">&#9670;&nbsp;</a></span>FreeMemory()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -139,18 +140,8 @@ Métodos públicos</h2></td></tr>
           <td class="memname">virtual void MemPool::IMemoryBlock::FreeMemory </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ptrMemoryBlock</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>ptrMemoryBlock</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>sMemoryBlockSize</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -160,7 +151,7 @@ Métodos públicos</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementado en <a class="el" href="classMemPool_1_1CMemoryPool.html#af9a28093536a13f734c84e35e868c430">MemPool::CMemoryPool</a>.</p>
+<p>Implementado en <a class="el" href="classMemPool_1_1CMemoryPool.html#a02fe3cbf03f1449738097fc76ae863c1">MemPool::CMemoryPool</a>.</p>
 
 </div>
 </div>

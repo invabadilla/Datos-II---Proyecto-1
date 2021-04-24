@@ -103,13 +103,19 @@ Métodos públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p class="">Constructor de la interface para el GUI </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Heredacion de QMainWindow </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definición en la línea <a class="el" href="mainwindow_8cpp_source.html#l00009">9</a> del archivo <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    : QMainWindow(parent)</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    , ui(<span class="keyword">new</span> Ui::MainWindow)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    ui-&gt;setupUi(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
+<p class="definition">Definición en la línea <a class="el" href="mainwindow_8cpp_source.html#l00017">17</a> del archivo <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    : QMainWindow(parent)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    , ui(<span class="keyword">new</span> Ui::MainWindow)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    ui-&gt;setupUi(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -127,11 +133,12 @@ Métodos públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p class="">Destructor de la interface para el GUI </p>
 
-<p class="definition">Definición en la línea <a class="el" href="mainwindow_8cpp_source.html#l00016">16</a> del archivo <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">delete</span> ui;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<p class="definition">Definición en la línea <a class="el" href="mainwindow_8cpp_source.html#l00027">27</a> del archivo <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">delete</span> ui;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -14,8 +14,11 @@
 #include <fstream>
 
 namespace MemPool{
-    typedef unsigned char TByte;
+    typedef unsigned char TByte; //Plantilla para guardar memoria
 
+    /**
+     * Clase padre para la creacion del Pool de Memoria
+     */
     class IMemoryBlock{
     public:
         virtual ~IMemoryBlock(){};

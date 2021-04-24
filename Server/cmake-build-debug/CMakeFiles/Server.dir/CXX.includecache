@@ -6,30 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.cpp
-CMemoryPool.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.h
-SMemoryChunk.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/SMemoryChunk.h
-Variable.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.h
-stdlib.h
--
-stdio.h
--
-math.h
--
-assert.h
--
-iostream
--
-fstream
--
-cstring
--
-vector
--
-
 /home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/CMemoryPool.h
 string
 -
@@ -74,23 +50,11 @@ CMemoryPool.h
 json.hpp
 /home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/json.hpp
 
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.cpp
-Variable.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.h
-SMemoryChunk.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/SMemoryChunk.h
-
 /home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable.h
 string
 -
 SMemoryChunk.h
 /home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/SMemoryChunk.h
-
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable_struct.cpp
-Variable_struct.h
-/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable_struct.h
-string
--
 
 /home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Server/Variable_struct.h
 string
@@ -454,6 +418,10 @@ sstream
 QString
 -
 QStringList
+-
+chrono
+-
+ctime
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QString

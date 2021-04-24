@@ -18,25 +18,33 @@ int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int ar
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
 
+Clase encargada de inicializar el GUI y solicitar el puerto del m\+Server 
+\begin{DoxyParams}{Parámetros}
+{\em argc} & \\
+\hline
+{\em argv} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
 
 
-Definición en la línea 8 del archivo main.\+cpp.
+Definición en la línea 14 del archivo main.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{9 \{}
-\DoxyCodeLine{10     cout<< \textcolor{stringliteral}{"{}Ingrese el puerto de escucha del server: "{}};}
-\DoxyCodeLine{11     \textcolor{keywordtype}{string} port;}
-\DoxyCodeLine{12     cin >> port; \textcolor{comment}{//Se lee el nombre}}
-\DoxyCodeLine{13     \mbox{\hyperlink{classCompiler}{Compiler}} *compiler = \textcolor{keyword}{new} \mbox{\hyperlink{classCompiler}{Compiler}}();}
-\DoxyCodeLine{14     compiler-\/>\mbox{\hyperlink{classCompiler_a4f7f12dd59e9e6163962afbb09d3cd9c}{port}} = stoi(port);}
-\DoxyCodeLine{15     QApplication a(argc, argv);}
-\DoxyCodeLine{16     \mbox{\hyperlink{classMainWindow}{MainWindow}} w;}
-\DoxyCodeLine{17     w.show();}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19 }
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21     \textcolor{keywordflow}{return} a.exec();}
-\DoxyCodeLine{22 \}}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16     cout<< \textcolor{stringliteral}{"{}Ingrese el puerto de escucha del server: "{}};}
+\DoxyCodeLine{17     \textcolor{keywordtype}{string} port;}
+\DoxyCodeLine{18     cin >> port; \textcolor{comment}{//Se lee el nombre}}
+\DoxyCodeLine{19     \mbox{\hyperlink{classCompiler}{Compiler}} *compiler = \textcolor{keyword}{new} \mbox{\hyperlink{classCompiler}{Compiler}}();}
+\DoxyCodeLine{20     compiler-\/>\mbox{\hyperlink{classCompiler_a4f7f12dd59e9e6163962afbb09d3cd9c}{port}} = stoi(port);}
+\DoxyCodeLine{21     QApplication a(argc, argv);}
+\DoxyCodeLine{22     \mbox{\hyperlink{classMainWindow}{MainWindow}} w;}
+\DoxyCodeLine{23     w.show();}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordflow}{return} a.exec();}
+\DoxyCodeLine{26 \}}
 
 \end{DoxyCode}

@@ -53,10 +53,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/149/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/151/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/149/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/151/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -74,7 +74,7 @@ include CMakeFiles/Proyecto1_autogen.dir/progress.make
 
 CMakeFiles/Proyecto1_autogen:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir="/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target Proyecto1"
-	/snap/clion/149/bin/cmake/linux/bin/cmake -E cmake_autogen "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1_autogen.dir/AutogenInfo.json" Debug
+	/snap/clion/151/bin/cmake/linux/bin/cmake -E cmake_autogen "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug/CMakeFiles/Proyecto1_autogen.dir/AutogenInfo.json" Debug
 
 Proyecto1_autogen: CMakeFiles/Proyecto1_autogen
 Proyecto1_autogen: CMakeFiles/Proyecto1_autogen.dir/build.make

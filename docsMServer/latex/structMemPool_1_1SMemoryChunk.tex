@@ -13,9 +13,17 @@ std\+::string \mbox{\hyperlink{structMemPool_1_1SMemoryChunk_aea2d750e12b1661ca8
 \item 
 int \mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a8babb6293dfbecf2a430ab8286309f03}{counter}}
 \item 
-bool \mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{is\+Reference}} = false
+bool \mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}{is\+Reference}}
 \item 
-\mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{SMemory\+Chunk}} $\ast$ \mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a0378b8bec7c39aa4a8329c030bbc6281}{reference}} = nullptr
+bool \mbox{\hyperlink{structMemPool_1_1SMemoryChunk_af00d40111dde7576b8a953694ba630f6}{isscope}}
+\item 
+int \mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a5b97aed0e62435041e86589d8ab5cee5}{deap}}
+\item 
+\mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{SMemory\+Chunk}} $\ast$ \mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a0378b8bec7c39aa4a8329c030bbc6281}{reference}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classVariable__struct}{Variable\+\_\+struct}} $>$ \mbox{\hyperlink{structMemPool_1_1SMemoryChunk_ac5f56a309a377edfde4d7d9e6c8e3f02}{mstruct}}
+\item 
+bool \mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a897195a7c343da34ee23ff7e651cf8e5}{isstruct}}
 \item 
 \mbox{\hyperlink{namespaceMemPool_a88820e2f09727e44a7f638694a421ed4}{TByte}} $\ast$ \mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}{Data}}
 \item 
@@ -30,9 +38,9 @@ bool \mbox{\hyperlink{structMemPool_1_1SMemoryChunk_af318d6350564c1374f593b91a2b
 
 
 \doxysubsection{Descripción detallada}
+Struct para la creacion de cada Chunk del Pool de memoria 
 
-
-Definición en la línea 12 del archivo SMemory\+Chunk.\+h.
+Definición en la línea 16 del archivo SMemory\+Chunk.\+h.
 
 
 
@@ -45,7 +53,7 @@ Definición en la línea 12 del archivo SMemory\+Chunk.\+h.
 
 
 
-Definición en la línea 15 del archivo SMemory\+Chunk.\+h.
+Definición en la línea 19 del archivo SMemory\+Chunk.\+h.
 
 \mbox{\Hypertarget{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}\label{structMemPool_1_1SMemoryChunk_a4d16629d82643752f615e7df80c87612}} 
 \index{MemPool::SMemoryChunk@{MemPool::SMemoryChunk}!Data@{Data}}
@@ -55,7 +63,7 @@ Definición en la línea 15 del archivo SMemory\+Chunk.\+h.
 
 
 
-Definición en la línea 18 del archivo SMemory\+Chunk.\+h.
+Definición en la línea 26 del archivo SMemory\+Chunk.\+h.
 
 \mbox{\Hypertarget{structMemPool_1_1SMemoryChunk_a025f5d7208722a1caae656ae14e9a0a9}\label{structMemPool_1_1SMemoryChunk_a025f5d7208722a1caae656ae14e9a0a9}} 
 \index{MemPool::SMemoryChunk@{MemPool::SMemoryChunk}!DataSize@{DataSize}}
@@ -65,7 +73,17 @@ Definición en la línea 18 del archivo SMemory\+Chunk.\+h.
 
 
 
-Definición en la línea 19 del archivo SMemory\+Chunk.\+h.
+Definición en la línea 27 del archivo SMemory\+Chunk.\+h.
+
+\mbox{\Hypertarget{structMemPool_1_1SMemoryChunk_a5b97aed0e62435041e86589d8ab5cee5}\label{structMemPool_1_1SMemoryChunk_a5b97aed0e62435041e86589d8ab5cee5}} 
+\index{MemPool::SMemoryChunk@{MemPool::SMemoryChunk}!deap@{deap}}
+\index{deap@{deap}!MemPool::SMemoryChunk@{MemPool::SMemoryChunk}}
+\doxysubsubsection{\texorpdfstring{deap}{deap}}
+{\footnotesize\ttfamily int Mem\+Pool\+::\+SMemory\+Chunk\+::deap}
+
+
+
+Definición en la línea 22 del archivo SMemory\+Chunk.\+h.
 
 \mbox{\Hypertarget{structMemPool_1_1SMemoryChunk_af318d6350564c1374f593b91a2b403ae}\label{structMemPool_1_1SMemoryChunk_af318d6350564c1374f593b91a2b403ae}} 
 \index{MemPool::SMemoryChunk@{MemPool::SMemoryChunk}!IsAllocationChunk@{IsAllocationChunk}}
@@ -75,17 +93,47 @@ Definición en la línea 19 del archivo SMemory\+Chunk.\+h.
 
 
 
-Definición en la línea 21 del archivo SMemory\+Chunk.\+h.
+Definición en la línea 29 del archivo SMemory\+Chunk.\+h.
 
 \mbox{\Hypertarget{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}\label{structMemPool_1_1SMemoryChunk_a4b0fc81bbffc29ecc1f82fdc430f83a0}} 
 \index{MemPool::SMemoryChunk@{MemPool::SMemoryChunk}!isReference@{isReference}}
 \index{isReference@{isReference}!MemPool::SMemoryChunk@{MemPool::SMemoryChunk}}
 \doxysubsubsection{\texorpdfstring{isReference}{isReference}}
-{\footnotesize\ttfamily bool Mem\+Pool\+::\+SMemory\+Chunk\+::is\+Reference = false}
+{\footnotesize\ttfamily bool Mem\+Pool\+::\+SMemory\+Chunk\+::is\+Reference}
 
 
 
-Definición en la línea 16 del archivo SMemory\+Chunk.\+h.
+Definición en la línea 20 del archivo SMemory\+Chunk.\+h.
+
+\mbox{\Hypertarget{structMemPool_1_1SMemoryChunk_af00d40111dde7576b8a953694ba630f6}\label{structMemPool_1_1SMemoryChunk_af00d40111dde7576b8a953694ba630f6}} 
+\index{MemPool::SMemoryChunk@{MemPool::SMemoryChunk}!isscope@{isscope}}
+\index{isscope@{isscope}!MemPool::SMemoryChunk@{MemPool::SMemoryChunk}}
+\doxysubsubsection{\texorpdfstring{isscope}{isscope}}
+{\footnotesize\ttfamily bool Mem\+Pool\+::\+SMemory\+Chunk\+::isscope}
+
+
+
+Definición en la línea 21 del archivo SMemory\+Chunk.\+h.
+
+\mbox{\Hypertarget{structMemPool_1_1SMemoryChunk_a897195a7c343da34ee23ff7e651cf8e5}\label{structMemPool_1_1SMemoryChunk_a897195a7c343da34ee23ff7e651cf8e5}} 
+\index{MemPool::SMemoryChunk@{MemPool::SMemoryChunk}!isstruct@{isstruct}}
+\index{isstruct@{isstruct}!MemPool::SMemoryChunk@{MemPool::SMemoryChunk}}
+\doxysubsubsection{\texorpdfstring{isstruct}{isstruct}}
+{\footnotesize\ttfamily bool Mem\+Pool\+::\+SMemory\+Chunk\+::isstruct}
+
+
+
+Definición en la línea 25 del archivo SMemory\+Chunk.\+h.
+
+\mbox{\Hypertarget{structMemPool_1_1SMemoryChunk_ac5f56a309a377edfde4d7d9e6c8e3f02}\label{structMemPool_1_1SMemoryChunk_ac5f56a309a377edfde4d7d9e6c8e3f02}} 
+\index{MemPool::SMemoryChunk@{MemPool::SMemoryChunk}!mstruct@{mstruct}}
+\index{mstruct@{mstruct}!MemPool::SMemoryChunk@{MemPool::SMemoryChunk}}
+\doxysubsubsection{\texorpdfstring{mstruct}{mstruct}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classVariable__struct}{Variable\+\_\+struct}}$>$ Mem\+Pool\+::\+SMemory\+Chunk\+::mstruct}
+
+
+
+Definición en la línea 24 del archivo SMemory\+Chunk.\+h.
 
 \mbox{\Hypertarget{structMemPool_1_1SMemoryChunk_aea2d750e12b1661ca8691fd2934e97d4}\label{structMemPool_1_1SMemoryChunk_aea2d750e12b1661ca8691fd2934e97d4}} 
 \index{MemPool::SMemoryChunk@{MemPool::SMemoryChunk}!name@{name}}
@@ -95,7 +143,7 @@ Definición en la línea 16 del archivo SMemory\+Chunk.\+h.
 
 
 
-Definición en la línea 14 del archivo SMemory\+Chunk.\+h.
+Definición en la línea 18 del archivo SMemory\+Chunk.\+h.
 
 \mbox{\Hypertarget{structMemPool_1_1SMemoryChunk_af4a4771b533b7b39ce8bc5d8eb0e8b57}\label{structMemPool_1_1SMemoryChunk_af4a4771b533b7b39ce8bc5d8eb0e8b57}} 
 \index{MemPool::SMemoryChunk@{MemPool::SMemoryChunk}!Next@{Next}}
@@ -105,17 +153,17 @@ Definición en la línea 14 del archivo SMemory\+Chunk.\+h.
 
 
 
-Definición en la línea 22 del archivo SMemory\+Chunk.\+h.
+Definición en la línea 30 del archivo SMemory\+Chunk.\+h.
 
 \mbox{\Hypertarget{structMemPool_1_1SMemoryChunk_a0378b8bec7c39aa4a8329c030bbc6281}\label{structMemPool_1_1SMemoryChunk_a0378b8bec7c39aa4a8329c030bbc6281}} 
 \index{MemPool::SMemoryChunk@{MemPool::SMemoryChunk}!reference@{reference}}
 \index{reference@{reference}!MemPool::SMemoryChunk@{MemPool::SMemoryChunk}}
 \doxysubsubsection{\texorpdfstring{reference}{reference}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{SMemory\+Chunk}}$\ast$ Mem\+Pool\+::\+SMemory\+Chunk\+::reference = nullptr}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{SMemory\+Chunk}}$\ast$ Mem\+Pool\+::\+SMemory\+Chunk\+::reference}
 
 
 
-Definición en la línea 17 del archivo SMemory\+Chunk.\+h.
+Definición en la línea 23 del archivo SMemory\+Chunk.\+h.
 
 \mbox{\Hypertarget{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}\label{structMemPool_1_1SMemoryChunk_aa3131c30408943f68c0561f0836791cc}} 
 \index{MemPool::SMemoryChunk@{MemPool::SMemoryChunk}!type@{type}}
@@ -125,7 +173,7 @@ Definición en la línea 17 del archivo SMemory\+Chunk.\+h.
 
 
 
-Definición en la línea 13 del archivo SMemory\+Chunk.\+h.
+Definición en la línea 17 del archivo SMemory\+Chunk.\+h.
 
 \mbox{\Hypertarget{structMemPool_1_1SMemoryChunk_a5142675da1d0b442fe0424cec862a719}\label{structMemPool_1_1SMemoryChunk_a5142675da1d0b442fe0424cec862a719}} 
 \index{MemPool::SMemoryChunk@{MemPool::SMemoryChunk}!UsedSize@{UsedSize}}
@@ -135,7 +183,7 @@ Definición en la línea 13 del archivo SMemory\+Chunk.\+h.
 
 
 
-Definición en la línea 20 del archivo SMemory\+Chunk.\+h.
+Definición en la línea 28 del archivo SMemory\+Chunk.\+h.
 
 
 

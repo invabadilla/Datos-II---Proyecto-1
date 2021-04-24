@@ -14,6 +14,12 @@
 
 using namespace std;
 
+/**
+ * Funcion para separar y realizar las cadenas de operaciones
+ * @param str String con cadena de operaciones
+ * @param ptr_mpool Puntero al Pool de Memoria
+ * @return Resultado de la operacion
+ */
 double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
     string myword = "";
     double total = 0;
@@ -31,7 +37,6 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                 }
             }catch(std::invalid_argument){
                 if(ptr_mpool->FindChunkHoldingSameName(myword)){
-                    cout<< "No hay variable con ese nombre1";
                     return -1;
                 }
                 else{
@@ -41,7 +46,6 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                     }
                         //eslseif(reference)
                     else{
-                        cout<< "El tipo de la variable llamada no coincide con el operador usado";
                         return -1;
                     }
 
@@ -69,12 +73,10 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                     }
                         //eslseif(reference)
                     else{
-                        cout<< "El tipo de la variable llamada no coincide con el operador usado";
                         return -1;
                     }
                 }
                 else{
-                    cout<< "No hay variable con ese nombre";
                     return -1;
                 }
                 myword = "";
@@ -99,12 +101,10 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                     }
                         //eslseif(reference)
                     else{
-                        cout<< "El tipo de la variable llamada no coincide con el operador usado";
                         return -1;
                     }
                 }
                 else{
-                    cout<< "No hay variable con ese nombre";
                     return -1;
                 }
                 myword = "";
@@ -129,12 +129,10 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                     }
                         //eslseif(reference)
                     else{
-                        cout<< "El tipo de la variable llamada no coincide con el operador usado";
                         return -1;
                     }
                 }
                 else{
-                    cout<< "No hay variable con ese nombre";
                     return -1;
                 }
                 myword = "";
@@ -144,8 +142,6 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
         }
         else{
             myword = myword + str[i];
-            cout<< i << ": "<< myword << endl;
-            cout<<"Total: "<< total << endl;
         }
     }
     if (myword != ""){
@@ -165,12 +161,10 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                     }
                         //eslseif(reference)
                     else{
-                        cout<< "El tipo de la variable llamada no coincide con el operador usado";
                         return -1;
                     }
                 }
                 else{
-                    cout<< "No hay variable con ese nombre";
                     return -1;
                 }
             }
@@ -191,12 +185,10 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                     }
                         //eslseif(reference)
                     else{
-                        cout<< "El tipo de la variable llamada no coincide con el operador usado";
                         return -1;
                     }
                 }
                 else{
-                    cout<< "No hay variable con ese nombre";
                     return -1;
                 }
             }
@@ -217,12 +209,10 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                     }
                         //eslseif(reference)
                     else{
-                        cout<< "El tipo de la variable llamada no coincide con el operador usado";
                         return -1;
                     }
                 }
                 else{
-                    cout<< "No hay variable con ese nombre";
                     return -1;
                 }
             }
@@ -243,12 +233,10 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                     }
                         //eslseif(reference)
                     else{
-                        cout<< "El tipo de la variable llamada no coincide con el operador usado";
                         return -1;
                     }
                 }
                 else{
-                    cout<< "No hay variable con ese nombre";
                     return -1;
                 }
             }
@@ -261,21 +249,18 @@ double split_getline(string str,  MemPool::CMemoryPool *ptr_mpool ) {
                 }
                     //eslseif(reference)
                 else{
-                    cout<< "El tipo de la variable llamada no coincide con el operador usado";
                     return -1;
                 }
             }
             else{
-                cout<< "No hay variable con ese nombre o valor no coincide con tipo de variable";
                 return -1;
             }
         }
     }
 
     else{
-        cout<< "Exrepresion esperada despues del ultimo operador";
         return -1;
     }
-    cout<< total << endl;
+
     return total;
 }

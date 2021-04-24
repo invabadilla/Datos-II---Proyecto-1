@@ -13,14 +13,18 @@
 
 namespace MemPool
 {
-    static const std::size_t DEFAULT_MEMORY_POOL_SIZE        = 1000 ;                          //!< Initial MemoryPool size (in Bytes)
-    static const std::size_t DEFAULT_MEMORY_CHUNK_SIZE       = 128 ;                           //!< Default MemoryChunkSize (in Bytes)
-    static const std::size_t DEFAULT_MEMORY_SIZE_TO_ALLOCATE = DEFAULT_MEMORY_CHUNK_SIZE;
+    static const std::size_t DEFAULT_MEMORY_POOL_SIZE        = 1000 ;  //Size en Bytes por default de la memoria inicial del Pool
+    static const std::size_t DEFAULT_MEMORY_CHUNK_SIZE       = 128 ;   //Size en Bytes por default de los Chunks
+    static const std::size_t DEFAULT_MEMORY_SIZE_TO_ALLOCATE = DEFAULT_MEMORY_CHUNK_SIZE; //Size en Bytes por default a almacenar
 
+    /**
+     * Clase encargade de la asignacion y administracion de la memoria
+     */
     class CMemoryPool : public IMemoryBlock{
     public:
         CMemoryPool(const size_t &sInitialMemoryPoolSize, const size_t &sMemoryChunkSize, const size_t &sMinimalMemorySizeToAllocate, bool bSetMemoryData);
-        virtual ~CMemoryPool(); //Destructor
+
+        virtual ~CMemoryPool();
 
         virtual void *GetMemory(const size_t &sMemorySize);
 
@@ -61,22 +65,21 @@ namespace MemPool
 
         bool RecalcChunkMemorySize(SMemoryChunk *ptrChunks, unsigned int uiChunkCount);
 
-
-        SMemoryChunk *m_ptrFirstChunk;
-        SMemoryChunk *m_ptrLastChunk;
-        SMemoryChunk *m_ptrCursorChunk;
-
-        size_t m_sTotalMemoryPoolSize;
-        size_t m_sUsedMemoryPoolSize;
-        size_t m_sFreeMemoryPoolSize;
-
-        size_t m_sMemoryChunkSize;
-        unsigned int m_uiMemoryChunkCount;
-        unsigned int m_uiObjectCount;
-
-        bool m_bSetMemoryData;
-
         void SetChunktoDefault(SMemoryChunk *ptrChunk);
+
+        SMemoryChunk *m_ptrFirstChunk; //Puntero al Chunk inical
+        SMemoryChunk *m_ptrLastChunk; //Puntero al Chunk final
+        SMemoryChunk *m_ptrCursorChunk; //Puntero al ultimo Chunk utilizado
+
+        size_t m_sTotalMemoryPoolSize; //Size de la memoria total del Pool
+        size_t m_sUsedMemoryPoolSize; //Size de la memoria utilizada del Pool
+        size_t m_sFreeMemoryPoolSize; //Size de la memoria libre del Pool
+
+        size_t m_sMemoryChunkSize; //Size de cada Chunk
+        unsigned int m_uiMemoryChunkCount; //Contador del total de Chunks
+        unsigned int m_uiObjectCount; //Contador de los Chunks utilizados
+
+        bool m_bSetMemoryData; //Bool para establecer un espacio definido para el memset
 
     };
 

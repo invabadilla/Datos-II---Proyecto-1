@@ -19,11 +19,9 @@ string \mbox{\hyperlink{classVariable_a20d3268aae34f6b98d7dbdecb65b17ed}{name}}
 
 
 \doxysubsection{Descripción detallada}
-template $<$class T$>$
+Clase para la creacion de \mbox{\hyperlink{classVariable}{Variable}} que administra todas las variables creadas en el Pool de memoria 
 
-class \mbox{\hyperlink{classVariable}{Variable}} \{ public\+: \mbox{\hyperlink{classVariable}{Variable(string type\+\_\+, string name\+\_\+, T $\ast$ptr\+\_\+, int counter\+\_\+, bool reference\+\_\+)}}; string type; string name; T $\ast$ptr; int counter; bool reference = false; \}; 
-
-Definición en la línea 24 del archivo Variable.\+h.
+Definición en la línea 17 del archivo Variable.\+h.
 
 
 
@@ -34,16 +32,23 @@ Definición en la línea 24 del archivo Variable.\+h.
 \doxysubsubsection{\texorpdfstring{Variable()}{Variable()}}
 {\footnotesize\ttfamily Variable\+::\+Variable (\begin{DoxyParamCaption}\item[{string}]{name\+\_\+,  }\item[{\mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{Mem\+Pool\+::\+SMemory\+Chunk}} $\ast$}]{ptr\+\_\+ }\end{DoxyParamCaption})}
 
-Variable\+::type = type\+\_\+; \mbox{\hyperlink{classVariable_a20d3268aae34f6b98d7dbdecb65b17ed}{Variable\+::name}} = name\+\_\+; \mbox{\hyperlink{classVariable_a855a4931dffad56c6048ac813c4038ab}{Variable\+::ptr}} = ptr\+\_\+; Variable\+::counter = counter\+\_\+; Variable\+::reference = reference\+\_\+; 
+Constructor para la creacion de tipo variable que administra las variables creadas en el Pool de memoria 
+\begin{DoxyParams}{Parámetros}
+{\em name\+\_\+} & Nombre de la variable \\
+\hline
+{\em ptr\+\_\+} & Puntero de referencia \\
+\hline
+\end{DoxyParams}
 
-Definición en la línea 16 del archivo Variable.\+cpp.
+
+Definición en la línea 14 del archivo Variable.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{16                                                           \{}
-\DoxyCodeLine{17     \mbox{\hyperlink{classVariable_a20d3268aae34f6b98d7dbdecb65b17ed}{Variable::name}} = name\_;}
-\DoxyCodeLine{18     \mbox{\hyperlink{classVariable_a855a4931dffad56c6048ac813c4038ab}{Variable::ptr}} = ptr\_;}
-\DoxyCodeLine{19 \}}
+\DoxyCodeLine{14                                                           \{}
+\DoxyCodeLine{15     \mbox{\hyperlink{classVariable_a20d3268aae34f6b98d7dbdecb65b17ed}{Variable::name}} = name\_;}
+\DoxyCodeLine{16     \mbox{\hyperlink{classVariable_a855a4931dffad56c6048ac813c4038ab}{Variable::ptr}} = ptr\_;}
+\DoxyCodeLine{17 \}}
 
 \end{DoxyCode}
 
@@ -57,7 +62,7 @@ Definición en la línea 16 del archivo Variable.\+cpp.
 
 
 
-Definición en la línea 27 del archivo Variable.\+h.
+Definición en la línea 20 del archivo Variable.\+h.
 
 \mbox{\Hypertarget{classVariable_a855a4931dffad56c6048ac813c4038ab}\label{classVariable_a855a4931dffad56c6048ac813c4038ab}} 
 \index{Variable@{Variable}!ptr@{ptr}}
@@ -67,7 +72,7 @@ Definición en la línea 27 del archivo Variable.\+h.
 
 
 
-Definición en la línea 28 del archivo Variable.\+h.
+Definición en la línea 21 del archivo Variable.\+h.
 
 
 

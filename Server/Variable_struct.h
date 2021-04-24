@@ -8,11 +8,15 @@
 
 #include <string>
 
+/**
+ * Constructor para la creacion de tipo variable_struct que administra los
+ * Struct creadas en el Pool de memoria
+ */
 class Variable_struct {
     public:
     Variable_struct(std::string name_);
 
-    std::string name;
+    std::string name; //Nombre del Struct
 
 };
 

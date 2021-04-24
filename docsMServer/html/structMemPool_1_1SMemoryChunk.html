@@ -83,10 +83,18 @@ Atributos públicos</h2></td></tr>
 <tr class="separator:aea2d750e12b1661ca8691fd2934e97d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8babb6293dfbecf2a430ab8286309f03"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMemPool_1_1SMemoryChunk.html#a8babb6293dfbecf2a430ab8286309f03">counter</a></td></tr>
 <tr class="separator:a8babb6293dfbecf2a430ab8286309f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b0fc81bbffc29ecc1f82fdc430f83a0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMemPool_1_1SMemoryChunk.html#a4b0fc81bbffc29ecc1f82fdc430f83a0">isReference</a> = false</td></tr>
+<tr class="memitem:a4b0fc81bbffc29ecc1f82fdc430f83a0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMemPool_1_1SMemoryChunk.html#a4b0fc81bbffc29ecc1f82fdc430f83a0">isReference</a></td></tr>
 <tr class="separator:a4b0fc81bbffc29ecc1f82fdc430f83a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0378b8bec7c39aa4a8329c030bbc6281"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMemPool_1_1SMemoryChunk.html">SMemoryChunk</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMemPool_1_1SMemoryChunk.html#a0378b8bec7c39aa4a8329c030bbc6281">reference</a> = nullptr</td></tr>
+<tr class="memitem:af00d40111dde7576b8a953694ba630f6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMemPool_1_1SMemoryChunk.html#af00d40111dde7576b8a953694ba630f6">isscope</a></td></tr>
+<tr class="separator:af00d40111dde7576b8a953694ba630f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b97aed0e62435041e86589d8ab5cee5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMemPool_1_1SMemoryChunk.html#a5b97aed0e62435041e86589d8ab5cee5">deap</a></td></tr>
+<tr class="separator:a5b97aed0e62435041e86589d8ab5cee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0378b8bec7c39aa4a8329c030bbc6281"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMemPool_1_1SMemoryChunk.html">SMemoryChunk</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMemPool_1_1SMemoryChunk.html#a0378b8bec7c39aa4a8329c030bbc6281">reference</a></td></tr>
 <tr class="separator:a0378b8bec7c39aa4a8329c030bbc6281"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5f56a309a377edfde4d7d9e6c8e3f02"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classVariable__struct.html">Variable_struct</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMemPool_1_1SMemoryChunk.html#ac5f56a309a377edfde4d7d9e6c8e3f02">mstruct</a></td></tr>
+<tr class="separator:ac5f56a309a377edfde4d7d9e6c8e3f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a897195a7c343da34ee23ff7e651cf8e5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMemPool_1_1SMemoryChunk.html#a897195a7c343da34ee23ff7e651cf8e5">isstruct</a></td></tr>
+<tr class="separator:a897195a7c343da34ee23ff7e651cf8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d16629d82643752f615e7df80c87612"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceMemPool.html#a88820e2f09727e44a7f638694a421ed4">TByte</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMemPool_1_1SMemoryChunk.html#a4d16629d82643752f615e7df80c87612">Data</a></td></tr>
 <tr class="separator:a4d16629d82643752f615e7df80c87612"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a025f5d7208722a1caae656ae14e9a0a9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMemPool_1_1SMemoryChunk.html#a025f5d7208722a1caae656ae14e9a0a9">DataSize</a></td></tr>
@@ -99,8 +107,9 @@ Atributos públicos</h2></td></tr>
 <tr class="separator:af4a4771b533b7b39ce8bc5d8eb0e8b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
-<div class="textblock">
-<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00012">12</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
+<div class="textblock"><p class="">Struct para la creacion de cada Chunk del Pool de memoria </p>
+
+<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00016">16</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
 </div><h2 class="groupheader">Documentación de los datos miembro</h2>
 <a id="a8babb6293dfbecf2a430ab8286309f03"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8babb6293dfbecf2a430ab8286309f03">&#9670;&nbsp;</a></span>counter</h2>
@@ -114,7 +123,7 @@ Atributos públicos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00015">15</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00019">19</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
 
 </div>
 </div>
@@ -130,7 +139,7 @@ Atributos públicos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00018">18</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00026">26</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
 
 </div>
 </div>
@@ -146,7 +155,23 @@ Atributos públicos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00019">19</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00027">27</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
+
+</div>
+</div>
+<a id="a5b97aed0e62435041e86589d8ab5cee5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b97aed0e62435041e86589d8ab5cee5">&#9670;&nbsp;</a></span>deap</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MemPool::SMemoryChunk::deap</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00022">22</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
 
 </div>
 </div>
@@ -162,7 +187,7 @@ Atributos públicos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00021">21</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00029">29</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
 
 </div>
 </div>
@@ -173,12 +198,60 @@ Atributos públicos</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool MemPool::SMemoryChunk::isReference = false</td>
+          <td class="memname">bool MemPool::SMemoryChunk::isReference</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00016">16</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00020">20</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
+
+</div>
+</div>
+<a id="af00d40111dde7576b8a953694ba630f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af00d40111dde7576b8a953694ba630f6">&#9670;&nbsp;</a></span>isscope</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MemPool::SMemoryChunk::isscope</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00021">21</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
+
+</div>
+</div>
+<a id="a897195a7c343da34ee23ff7e651cf8e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a897195a7c343da34ee23ff7e651cf8e5">&#9670;&nbsp;</a></span>isstruct</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MemPool::SMemoryChunk::isstruct</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00025">25</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
+
+</div>
+</div>
+<a id="ac5f56a309a377edfde4d7d9e6c8e3f02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5f56a309a377edfde4d7d9e6c8e3f02">&#9670;&nbsp;</a></span>mstruct</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classVariable__struct.html">Variable_struct</a>&gt; MemPool::SMemoryChunk::mstruct</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00024">24</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
 
 </div>
 </div>
@@ -194,7 +267,7 @@ Atributos públicos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00014">14</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00018">18</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
 
 </div>
 </div>
@@ -210,7 +283,7 @@ Atributos públicos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00022">22</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00030">30</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
 
 </div>
 </div>
@@ -221,12 +294,12 @@ Atributos públicos</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structMemPool_1_1SMemoryChunk.html">SMemoryChunk</a>* MemPool::SMemoryChunk::reference = nullptr</td>
+          <td class="memname"><a class="el" href="structMemPool_1_1SMemoryChunk.html">SMemoryChunk</a>* MemPool::SMemoryChunk::reference</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00017">17</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00023">23</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
 
 </div>
 </div>
@@ -242,7 +315,7 @@ Atributos públicos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00013">13</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00017">17</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
 
 </div>
 </div>
@@ -258,7 +331,7 @@ Atributos públicos</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00020">20</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="SMemoryChunk_8h_source.html#l00028">28</a> del archivo <a class="el" href="SMemoryChunk_8h_source.html">SMemoryChunk.h</a>.</p>
 
 </div>
 </div>

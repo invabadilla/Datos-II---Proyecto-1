@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['object_5fiterator_1073',['object_iterator',['../structnlohmann_1_1detail_1_1internal__iterator.html#a8cb0af3498061426c1d0a65ad6220408',1,'nlohmann::detail::internal_iterator']]]
+  ['minus_1081',['minus',['../structnlohmann_1_1detail_1_1dtoa__impl_1_1boundaries.html#aec4e5028333c01f3229062f31ce16763',1,'nlohmann::detail::dtoa_impl::boundaries']]]
 ];

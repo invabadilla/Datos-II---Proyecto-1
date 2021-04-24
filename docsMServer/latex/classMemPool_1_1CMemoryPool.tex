@@ -19,24 +19,26 @@ virtual \mbox{\hyperlink{classMemPool_1_1CMemoryPool_ab960c563ece0f17ad567213468
 \item 
 virtual void $\ast$ \mbox{\hyperlink{classMemPool_1_1CMemoryPool_a3a00773e69c242bd75614a264bf50ae1}{Get\+Memory}} (const size\+\_\+t \&s\+Memory\+Size)
 \item 
-virtual void \mbox{\hyperlink{classMemPool_1_1CMemoryPool_af9a28093536a13f734c84e35e868c430}{Free\+Memory}} (void $\ast$ptr\+Memory\+Block, const size\+\_\+t \&s\+Memory\+Block\+Size)
-\item 
-bool \mbox{\hyperlink{classMemPool_1_1CMemoryPool_a62f6fb8b3f6c3257708c6c272038212d}{Write\+Memory\+Dump\+To\+File}} (const std\+::string \&str\+File\+Name)
-\item 
-bool \mbox{\hyperlink{classMemPool_1_1CMemoryPool_a8790e6504a77fce9b52e77b6afbafb09}{Is\+Valid\+Pointer}} (void $\ast$ptr\+Pointer)
+virtual void \mbox{\hyperlink{classMemPool_1_1CMemoryPool_a02fe3cbf03f1449738097fc76ae863c1}{Free\+Memory}} (void $\ast$ptr\+Memory\+Block)
 \item 
 \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{SMemory\+Chunk}} $\ast$ \mbox{\hyperlink{classMemPool_1_1CMemoryPool_abc397437f82e468445f5094ba9fbd974}{Find\+Chunk\+Holding\+Name\+To}} (std\+::string name)
 \item 
 \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{SMemory\+Chunk}} $\ast$ \mbox{\hyperlink{classMemPool_1_1CMemoryPool_a11be1060630220191d9b781028577b14}{Find\+Chunk\+Holding\+Pointer\+To}} (void $\ast$ptr\+Memory\+Block)
 \item 
 bool \mbox{\hyperlink{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}{Find\+Chunk\+Holding\+Same\+Name}} (std\+::string name\+\_\+)
+\item 
+void \mbox{\hyperlink{classMemPool_1_1CMemoryPool_aa99b123d4dfc20c76476205a9e44afb6}{Free\+All\+Allocated\+Memory}} ()
+\item 
+void \mbox{\hyperlink{classMemPool_1_1CMemoryPool_a16f8054c1ac90ef1d56329ea85bbdecc}{Freeinscope}} (int \mbox{\hyperlink{mServer_8cpp_ae3694c2ca82196797913ff8d50bdabd2}{deap}})
+\item 
+void \mbox{\hyperlink{classMemPool_1_1CMemoryPool_a00c93f2ca8bb080ade2fcf3b92d6ae6f}{Garbage\+Collector}} ()
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Descripción detallada}
+Clase encargade de la asignacion y administracion de la memoria 
 
-
-Definición en la línea 18 del archivo CMemory\+Pool.\+h.
+Definición en la línea 23 del archivo CMemory\+Pool.\+h.
 
 
 
@@ -47,31 +49,41 @@ Definición en la línea 18 del archivo CMemory\+Pool.\+h.
 \doxysubsubsection{\texorpdfstring{CMemoryPool()}{CMemoryPool()}}
 {\footnotesize\ttfamily Mem\+Pool\+::\+CMemory\+Pool\+::\+CMemory\+Pool (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{s\+Initial\+Memory\+Pool\+Size,  }\item[{const size\+\_\+t \&}]{s\+Memory\+Chunk\+Size,  }\item[{const size\+\_\+t \&}]{s\+Minimal\+Memory\+Size\+To\+Allocate,  }\item[{bool}]{b\+Set\+Memory\+Data }\end{DoxyParamCaption})}
 
+Constructor del Pool de Memoria 
+\begin{DoxyParams}{Parámetros}
+{\em s\+Initial\+Memory\+Pool\+Size} & Memoria total del Pool \\
+\hline
+{\em s\+Memory\+Chunk\+Size} & Size de cada Chunk \\
+\hline
+{\em s\+Minimal\+Memory\+Size\+To\+Allocate} & Minimo espacio de memoria que se pueda solicitar \\
+\hline
+{\em b\+Set\+Memory\+Data} & Bool para establecer un espacio definido para el memset \\
+\hline
+\end{DoxyParams}
 
 
-Definición en la línea 22 del archivo CMemory\+Pool.\+cpp.
+Definición en la línea 29 del archivo CMemory\+Pool.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{23                                                                                               \{}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25         m\_ptrFirstChunk = NULL;}
-\DoxyCodeLine{26         m\_ptrLastChunk = NULL;}
-\DoxyCodeLine{27         m\_ptrCursorChunk = NULL;}
-\DoxyCodeLine{28 }
-\DoxyCodeLine{29         m\_sTotalMemoryPoolSize = 0 ;}
-\DoxyCodeLine{30         m\_sUsedMemoryPoolSize = 0 ;}
-\DoxyCodeLine{31         m\_sFreeMemoryPoolSize = 0 ;}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33         m\_sMemoryChunkSize = sMemoryChunkSize ;}
-\DoxyCodeLine{34         m\_uiMemoryChunkCount = 0 ;}
-\DoxyCodeLine{35         m\_uiObjectCount = 0 ;}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37         m\_bSetMemoryData = bSetMemoryData ;}
-\DoxyCodeLine{38         m\_sMinimalMemorySizeToAllocate = sMinimalMemorySizeToAllocate;}
+\DoxyCodeLine{30                                                                                               \{}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32         m\_ptrFirstChunk = NULL;}
+\DoxyCodeLine{33         m\_ptrLastChunk = NULL;}
+\DoxyCodeLine{34         m\_ptrCursorChunk = NULL;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36         m\_sTotalMemoryPoolSize = 0 ;}
+\DoxyCodeLine{37         m\_sUsedMemoryPoolSize = 0 ;}
+\DoxyCodeLine{38         m\_sFreeMemoryPoolSize = 0 ;}
 \DoxyCodeLine{39 }
-\DoxyCodeLine{40         AllocateMemory(sInitialMemoryPoolSize) ;}
-\DoxyCodeLine{41     \}}
+\DoxyCodeLine{40         m\_sMemoryChunkSize = sMemoryChunkSize ;}
+\DoxyCodeLine{41         m\_uiMemoryChunkCount = 0 ;}
+\DoxyCodeLine{42         m\_uiObjectCount = 0 ;}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         m\_bSetMemoryData = bSetMemoryData ;}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46         AllocateMemory(sInitialMemoryPoolSize) ;}
+\DoxyCodeLine{47     \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classMemPool_1_1CMemoryPool_ab960c563ece0f17ad567213468fce9cc}\label{classMemPool_1_1CMemoryPool_ab960c563ece0f17ad567213468fce9cc}} 
@@ -80,17 +92,16 @@ Definición en la línea 22 del archivo CMemory\+Pool.\+cpp.
 \doxysubsubsection{\texorpdfstring{$\sim$CMemoryPool()}{~CMemoryPool()}}
 {\footnotesize\ttfamily Mem\+Pool\+::\+CMemory\+Pool\+::$\sim$\+CMemory\+Pool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+Destructor del Pool de Memoria 
 
-
-Definición en la línea 43 del archivo CMemory\+Pool.\+cpp.
+Definición en la línea 52 del archivo CMemory\+Pool.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{44     \{}
-\DoxyCodeLine{45         FreeAllAllocatedMemory() ;}
-\DoxyCodeLine{46         DeallocateAllChunks();}
-\DoxyCodeLine{47         assert((m\_uiObjectCount == 0) \&\& \textcolor{stringliteral}{"{}WARNING : Memory-\/Leak : You have not freed all allocated Memory"{}}) ;}
-\DoxyCodeLine{48     \}}
+\DoxyCodeLine{52                              \{}
+\DoxyCodeLine{53         \mbox{\hyperlink{classMemPool_1_1CMemoryPool_aa99b123d4dfc20c76476205a9e44afb6}{FreeAllAllocatedMemory}}() ;}
+\DoxyCodeLine{54         DeallocateAllChunks();}
+\DoxyCodeLine{55     \}}
 
 \end{DoxyCode}
 
@@ -102,24 +113,30 @@ Definición en la línea 43 del archivo CMemory\+Pool.\+cpp.
 \doxysubsubsection{\texorpdfstring{FindChunkHoldingNameTo()}{FindChunkHoldingNameTo()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{SMemory\+Chunk}} $\ast$ Mem\+Pool\+::\+CMemory\+Pool\+::\+Find\+Chunk\+Holding\+Name\+To (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
 
+Busca Chunks por su nombre 
+\begin{DoxyParams}{Parámetros}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
 
 
-Definición en la línea 420 del archivo CMemory\+Pool.\+cpp.
+Definición en la línea 354 del archivo CMemory\+Pool.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{421     \{}
-\DoxyCodeLine{422         \mbox{\hyperlink{namespaceMemPool_a152300ff2924436a5c16a5b7bf06b7b9}{SMemoryChunk}} *ptrTempChunk = CMemoryPool::m\_ptrFirstChunk ;}
-\DoxyCodeLine{423         \textcolor{keywordflow}{while}(ptrTempChunk)}
-\DoxyCodeLine{424         \{}
-\DoxyCodeLine{425             \textcolor{keywordflow}{if}(ptrTempChunk-\/>name == name)}
-\DoxyCodeLine{426             \{}
-\DoxyCodeLine{427                 break ;}
-\DoxyCodeLine{428             \}}
-\DoxyCodeLine{429             ptrTempChunk = ptrTempChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_af4a4771b533b7b39ce8bc5d8eb0e8b57}{Next}} ;}
-\DoxyCodeLine{430         \}}
-\DoxyCodeLine{431         \textcolor{keywordflow}{return} ptrTempChunk ;}
-\DoxyCodeLine{432     \}}
+\DoxyCodeLine{354                                                                    \{}
+\DoxyCodeLine{355         \mbox{\hyperlink{namespaceMemPool_a152300ff2924436a5c16a5b7bf06b7b9}{SMemoryChunk}} *ptrTempChunk = CMemoryPool::m\_ptrFirstChunk ;}
+\DoxyCodeLine{356         \textcolor{keywordflow}{while}(ptrTempChunk)\{}
+\DoxyCodeLine{357             \textcolor{keywordflow}{if}(ptrTempChunk-\/>name == name)\{}
+\DoxyCodeLine{358                 break ;}
+\DoxyCodeLine{359             \}}
+\DoxyCodeLine{360             ptrTempChunk = ptrTempChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_af4a4771b533b7b39ce8bc5d8eb0e8b57}{Next}} ;}
+\DoxyCodeLine{361         \}}
+\DoxyCodeLine{362         \textcolor{keywordflow}{return} ptrTempChunk ;}
+\DoxyCodeLine{363     \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classMemPool_1_1CMemoryPool_a11be1060630220191d9b781028577b14}\label{classMemPool_1_1CMemoryPool_a11be1060630220191d9b781028577b14}} 
@@ -128,25 +145,31 @@ Definición en la línea 420 del archivo CMemory\+Pool.\+cpp.
 \doxysubsubsection{\texorpdfstring{FindChunkHoldingPointerTo()}{FindChunkHoldingPointerTo()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structMemPool_1_1SMemoryChunk}{SMemory\+Chunk}} $\ast$ Mem\+Pool\+::\+CMemory\+Pool\+::\+Find\+Chunk\+Holding\+Pointer\+To (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr\+Memory\+Block }\end{DoxyParamCaption})}
 
+Busca Chunks de una direccion de memoria de Data 
+\begin{DoxyParams}{Parámetros}
+{\em ptr\+Memory\+Block} & Direccion de Data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Chunk 
+\end{DoxyReturn}
 
 
-Definición en la línea 401 del archivo CMemory\+Pool.\+cpp.
+Definición en la línea 337 del archivo CMemory\+Pool.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{402     \{}
-\DoxyCodeLine{403         \mbox{\hyperlink{namespaceMemPool_a152300ff2924436a5c16a5b7bf06b7b9}{SMemoryChunk}} *ptrTempChunk = m\_ptrFirstChunk ;}
-\DoxyCodeLine{404         \textcolor{keywordflow}{while}(ptrTempChunk)}
-\DoxyCodeLine{405         \{}
-\DoxyCodeLine{406             \textcolor{keywordflow}{if}(ptrTempChunk-\/>Data == ((\mbox{\hyperlink{namespaceMemPool_a88820e2f09727e44a7f638694a421ed4}{TByte}} *) ptrMemoryBlock))}
-\DoxyCodeLine{407             \{}
-\DoxyCodeLine{408                 break ;}
-\DoxyCodeLine{409             \}}
-\DoxyCodeLine{410 }
-\DoxyCodeLine{411             ptrTempChunk = ptrTempChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_af4a4771b533b7b39ce8bc5d8eb0e8b57}{Next}} ;}
-\DoxyCodeLine{412         \}}
-\DoxyCodeLine{413         \textcolor{keywordflow}{return} ptrTempChunk ;}
-\DoxyCodeLine{414     \}}
+\DoxyCodeLine{337                                                                             \{}
+\DoxyCodeLine{338         \mbox{\hyperlink{namespaceMemPool_a152300ff2924436a5c16a5b7bf06b7b9}{SMemoryChunk}} *ptrTempChunk = m\_ptrFirstChunk ;}
+\DoxyCodeLine{339         \textcolor{keywordflow}{while}(ptrTempChunk)\{}
+\DoxyCodeLine{340             \textcolor{keywordflow}{if}(ptrTempChunk-\/>Data == ((\mbox{\hyperlink{namespaceMemPool_a88820e2f09727e44a7f638694a421ed4}{TByte}} *) ptrMemoryBlock))\{}
+\DoxyCodeLine{341                 break ;}
+\DoxyCodeLine{342             \}}
+\DoxyCodeLine{343 }
+\DoxyCodeLine{344             ptrTempChunk = ptrTempChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_af4a4771b533b7b39ce8bc5d8eb0e8b57}{Next}} ;}
+\DoxyCodeLine{345         \}}
+\DoxyCodeLine{346         \textcolor{keywordflow}{return} ptrTempChunk ;}
+\DoxyCodeLine{347     \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}\label{classMemPool_1_1CMemoryPool_a5ec6d7d063b63c55abe69a60e575397c}} 
@@ -155,62 +178,155 @@ Definición en la línea 401 del archivo CMemory\+Pool.\+cpp.
 \doxysubsubsection{\texorpdfstring{FindChunkHoldingSameName()}{FindChunkHoldingSameName()}}
 {\footnotesize\ttfamily bool Mem\+Pool\+::\+CMemory\+Pool\+::\+Find\+Chunk\+Holding\+Same\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{name\+\_\+ }\end{DoxyParamCaption})}
 
+Confirma si existe un Chunk asignado con un nombre en especifico 
+\begin{DoxyParams}{Parámetros}
+{\em name\+\_\+} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
 
 
-Definición en la línea 438 del archivo CMemory\+Pool.\+cpp.
+Definición en la línea 371 del archivo CMemory\+Pool.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{438                                                               \{}
-\DoxyCodeLine{439         \mbox{\hyperlink{namespaceMemPool_a152300ff2924436a5c16a5b7bf06b7b9}{SMemoryChunk}} *ptrTempChunk = m\_ptrFirstChunk;}
-\DoxyCodeLine{440         \textcolor{keywordtype}{bool} can = \textcolor{keyword}{true};}
-\DoxyCodeLine{441         \textcolor{keywordflow}{while}(ptrTempChunk)}
-\DoxyCodeLine{442         \{}
-\DoxyCodeLine{443             \textcolor{keywordflow}{if}(ptrTempChunk-\/>name == name\_)}
-\DoxyCodeLine{444             \{}
-\DoxyCodeLine{445                 can = \textcolor{keyword}{false};}
-\DoxyCodeLine{446                 break ;}
-\DoxyCodeLine{447             \}}
-\DoxyCodeLine{448             ptrTempChunk = ptrTempChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_af4a4771b533b7b39ce8bc5d8eb0e8b57}{Next}} ;}
-\DoxyCodeLine{449         \}}
-\DoxyCodeLine{450 }
-\DoxyCodeLine{451         \textcolor{keywordflow}{return} can;}
-\DoxyCodeLine{452     \}}
+\DoxyCodeLine{371                                                               \{}
+\DoxyCodeLine{372         \mbox{\hyperlink{namespaceMemPool_a152300ff2924436a5c16a5b7bf06b7b9}{SMemoryChunk}} *ptrTempChunk = m\_ptrFirstChunk;}
+\DoxyCodeLine{373         \textcolor{keywordtype}{bool} can = \textcolor{keyword}{true};}
+\DoxyCodeLine{374         \textcolor{keywordflow}{while}(ptrTempChunk)\{}
+\DoxyCodeLine{375             \textcolor{keywordflow}{if}(ptrTempChunk-\/>name == name\_)\{}
+\DoxyCodeLine{376                 can = \textcolor{keyword}{false};}
+\DoxyCodeLine{377                 break ;}
+\DoxyCodeLine{378             \}}
+\DoxyCodeLine{379             ptrTempChunk = ptrTempChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_af4a4771b533b7b39ce8bc5d8eb0e8b57}{Next}} ;}
+\DoxyCodeLine{380         \}}
+\DoxyCodeLine{381 }
+\DoxyCodeLine{382         \textcolor{keywordflow}{return} can;}
+\DoxyCodeLine{383     \}}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{classMemPool_1_1CMemoryPool_af9a28093536a13f734c84e35e868c430}\label{classMemPool_1_1CMemoryPool_af9a28093536a13f734c84e35e868c430}} 
+\mbox{\Hypertarget{classMemPool_1_1CMemoryPool_aa99b123d4dfc20c76476205a9e44afb6}\label{classMemPool_1_1CMemoryPool_aa99b123d4dfc20c76476205a9e44afb6}} 
+\index{MemPool::CMemoryPool@{MemPool::CMemoryPool}!FreeAllAllocatedMemory@{FreeAllAllocatedMemory}}
+\index{FreeAllAllocatedMemory@{FreeAllAllocatedMemory}!MemPool::CMemoryPool@{MemPool::CMemoryPool}}
+\doxysubsubsection{\texorpdfstring{FreeAllAllocatedMemory()}{FreeAllAllocatedMemory()}}
+{\footnotesize\ttfamily void Mem\+Pool\+::\+CMemory\+Pool\+::\+Free\+All\+Allocated\+Memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Resetea la memoria de los Chunks al ejecutar el Destructor 
+
+Definición en la línea 388 del archivo CMemory\+Pool.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{388                                             \{}
+\DoxyCodeLine{389         \mbox{\hyperlink{namespaceMemPool_a152300ff2924436a5c16a5b7bf06b7b9}{SMemoryChunk}} *ptrChunk = m\_ptrFirstChunk ;}
+\DoxyCodeLine{390         \textcolor{keywordflow}{while}(ptrChunk)\{}
+\DoxyCodeLine{391             SetChunktoDefault(ptrChunk);}
+\DoxyCodeLine{392             ptrChunk = ptrChunk-\/>Next;}
+\DoxyCodeLine{393         \}}
+\DoxyCodeLine{394         m\_ptrCursorChunk = m\_ptrFirstChunk;}
+\DoxyCodeLine{395     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMemPool_1_1CMemoryPool_a16f8054c1ac90ef1d56329ea85bbdecc}\label{classMemPool_1_1CMemoryPool_a16f8054c1ac90ef1d56329ea85bbdecc}} 
+\index{MemPool::CMemoryPool@{MemPool::CMemoryPool}!Freeinscope@{Freeinscope}}
+\index{Freeinscope@{Freeinscope}!MemPool::CMemoryPool@{MemPool::CMemoryPool}}
+\doxysubsubsection{\texorpdfstring{Freeinscope()}{Freeinscope()}}
+{\footnotesize\ttfamily void Mem\+Pool\+::\+CMemory\+Pool\+::\+Freeinscope (\begin{DoxyParamCaption}\item[{int}]{deap }\end{DoxyParamCaption})}
+
+Libera la memoria de los Chunks al cerrarse un Scope 
+\begin{DoxyParams}{Parámetros}
+{\em deap} & \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 418 del archivo CMemory\+Pool.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{418                                          \{}
+\DoxyCodeLine{419         \mbox{\hyperlink{namespaceMemPool_a152300ff2924436a5c16a5b7bf06b7b9}{SMemoryChunk}} *ptrChunk = m\_ptrFirstChunk ;}
+\DoxyCodeLine{420         \textcolor{keywordflow}{while}(ptrChunk)\{}
+\DoxyCodeLine{421             \textcolor{keywordflow}{if} (ptrChunk-\/>isscope \&\& \mbox{\hyperlink{mServer_8cpp_ae3694c2ca82196797913ff8d50bdabd2}{deap}} == ptrChunk-\/>deap)\{}
+\DoxyCodeLine{422                 ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a8babb6293dfbecf2a430ab8286309f03}{counter}} = 0;}
+\DoxyCodeLine{423             \}}
+\DoxyCodeLine{424             ptrChunk = ptrChunk-\/>Next;}
+\DoxyCodeLine{425         \}}
+\DoxyCodeLine{426     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMemPool_1_1CMemoryPool_a02fe3cbf03f1449738097fc76ae863c1}\label{classMemPool_1_1CMemoryPool_a02fe3cbf03f1449738097fc76ae863c1}} 
 \index{MemPool::CMemoryPool@{MemPool::CMemoryPool}!FreeMemory@{FreeMemory}}
 \index{FreeMemory@{FreeMemory}!MemPool::CMemoryPool@{MemPool::CMemoryPool}}
 \doxysubsubsection{\texorpdfstring{FreeMemory()}{FreeMemory()}}
-{\footnotesize\ttfamily void Mem\+Pool\+::\+CMemory\+Pool\+::\+Free\+Memory (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr\+Memory\+Block,  }\item[{const size\+\_\+t \&}]{s\+Memory\+Block\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Mem\+Pool\+::\+CMemory\+Pool\+::\+Free\+Memory (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr\+Memory\+Block }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Funcion para liberar ciertos espacios de memoria 
+\begin{DoxyParams}{Parámetros}
+{\em ptr\+Memory\+Block} & \\
+\hline
+\end{DoxyParams}
+
+
+Implementa \mbox{\hyperlink{classMemPool_1_1IMemoryBlock_a9907b6c8c0a30ebb47e33c02d39d9990}{Mem\+Pool\+::\+IMemory\+Block}}.
 
 
 
-Implementa \mbox{\hyperlink{classMemPool_1_1IMemoryBlock_ab556fce8ce3a6e83a756ff365b634f8b}{Mem\+Pool\+::\+IMemory\+Block}}.
-
-
-
-Definición en la línea 90 del archivo CMemory\+Pool.\+cpp.
+Definición en la línea 87 del archivo CMemory\+Pool.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{91     \{}
-\DoxyCodeLine{92         \textcolor{comment}{// Search all Chunks for the one holding the "{}ptrMemoryBlock"{}-\/Pointer}}
-\DoxyCodeLine{93         \textcolor{comment}{// ("{}SMemoryChunk-\/>Data == ptrMemoryBlock"{}). Eventually, free that Chunks,}}
-\DoxyCodeLine{94         \textcolor{comment}{// so it beecomes available to the Memory-\/Pool again...}}
-\DoxyCodeLine{95         \mbox{\hyperlink{namespaceMemPool_a152300ff2924436a5c16a5b7bf06b7b9}{SMemoryChunk}} *ptrChunk = \mbox{\hyperlink{classMemPool_1_1CMemoryPool_a11be1060630220191d9b781028577b14}{FindChunkHoldingPointerTo}}(ptrMemoryBlock) ;}
-\DoxyCodeLine{96         \textcolor{keywordflow}{if}(ptrChunk)}
-\DoxyCodeLine{97         \{}
-\DoxyCodeLine{98             \textcolor{comment}{//std::cerr << "{}Freed Chunks OK (Used memPool Size : "{} << m\_sUsedMemoryPoolSize << "{})"{} << std::endl ;}}
-\DoxyCodeLine{99             FreeChunks(ptrChunk) ;}
-\DoxyCodeLine{100         \}}
-\DoxyCodeLine{101         \textcolor{keywordflow}{else}}
-\DoxyCodeLine{102         \{}
-\DoxyCodeLine{103             assert(\textcolor{keyword}{false} \&\& \textcolor{stringliteral}{"{}ERROR : Requested Pointer not in Memory Pool"{}}) ;}
-\DoxyCodeLine{104         \}}
-\DoxyCodeLine{105         assert((m\_uiObjectCount > 0) \&\& \textcolor{stringliteral}{"{}ERROR : Request to delete more Memory then allocated."{}}) ;}
-\DoxyCodeLine{106         m\_uiObjectCount-\/-\/ ;}
-\DoxyCodeLine{107     \}}
+\DoxyCodeLine{87                                                     \{}
+\DoxyCodeLine{88         \mbox{\hyperlink{namespaceMemPool_a152300ff2924436a5c16a5b7bf06b7b9}{SMemoryChunk}} *ptrChunk = \mbox{\hyperlink{classMemPool_1_1CMemoryPool_a11be1060630220191d9b781028577b14}{FindChunkHoldingPointerTo}}(ptrMemoryBlock) ;}
+\DoxyCodeLine{89         std::cout << ptrChunk << std::endl;}
+\DoxyCodeLine{90         \textcolor{keywordflow}{if}(ptrChunk)\{}
+\DoxyCodeLine{91             FreeChunks(ptrChunk) ;}
+\DoxyCodeLine{92         \}}
+\DoxyCodeLine{93         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{94             assert(\textcolor{keyword}{false} \&\& \textcolor{stringliteral}{"{}ERROR : Requested Pointer not in Memory Pool"{}}) ;}
+\DoxyCodeLine{95         \}}
+\DoxyCodeLine{96         assert((m\_uiObjectCount > 0) \&\& \textcolor{stringliteral}{"{}ERROR : Request to delete more Memory then allocated."{}}) ;}
+\DoxyCodeLine{97         m\_uiObjectCount-\/-\/ ;}
+\DoxyCodeLine{98     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMemPool_1_1CMemoryPool_a00c93f2ca8bb080ade2fcf3b92d6ae6f}\label{classMemPool_1_1CMemoryPool_a00c93f2ca8bb080ade2fcf3b92d6ae6f}} 
+\index{MemPool::CMemoryPool@{MemPool::CMemoryPool}!GarbageCollector@{GarbageCollector}}
+\index{GarbageCollector@{GarbageCollector}!MemPool::CMemoryPool@{MemPool::CMemoryPool}}
+\doxysubsubsection{\texorpdfstring{GarbageCollector()}{GarbageCollector()}}
+{\footnotesize\ttfamily void Mem\+Pool\+::\+CMemory\+Pool\+::\+Garbage\+Collector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Realiza una inspeccion de las variables para la liberacion de las que no poseen referencias y las libera para su reutilizacion 
+
+Definición en la línea 432 del archivo CMemory\+Pool.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{432                                       \{}
+\DoxyCodeLine{433         \mbox{\hyperlink{namespaceMemPool_a152300ff2924436a5c16a5b7bf06b7b9}{SMemoryChunk}} *ptrChunk = m\_ptrFirstChunk ;}
+\DoxyCodeLine{434         \textcolor{keywordflow}{while}(ptrChunk)\{}
+\DoxyCodeLine{435             \textcolor{keywordflow}{if} (ptrChunk-\/>counter == 0)\{}
+\DoxyCodeLine{436                 \textcolor{keywordflow}{if} (ptrChunk-\/>isReference)\{}
+\DoxyCodeLine{437                     ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a0378b8bec7c39aa4a8329c030bbc6281}{reference}}-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_a8babb6293dfbecf2a430ab8286309f03}{counter}} -\/=1;}
+\DoxyCodeLine{438                     \textcolor{keywordflow}{if} (ptrChunk-\/>reference-\/>counter < 0)\{}
+\DoxyCodeLine{439                         ptrChunk-\/>reference-\/>counter =0;}
+\DoxyCodeLine{440                     \}}
+\DoxyCodeLine{441                     SetChunktoDefault(ptrChunk);}
+\DoxyCodeLine{442                 \}}
+\DoxyCodeLine{443             \}}
+\DoxyCodeLine{444             ptrChunk = ptrChunk-\/>Next;}
+\DoxyCodeLine{445         \}}
+\DoxyCodeLine{446         ptrChunk = m\_ptrFirstChunk ;}
+\DoxyCodeLine{447         \textcolor{keywordflow}{while}(ptrChunk) \{}
+\DoxyCodeLine{448             \textcolor{keywordflow}{if} (ptrChunk-\/>counter == 0)\{}
+\DoxyCodeLine{449                 SetChunktoDefault(ptrChunk);}
+\DoxyCodeLine{450             \}}
+\DoxyCodeLine{451             ptrChunk = ptrChunk-\/>Next;}
+\DoxyCodeLine{452         \}}
+\DoxyCodeLine{453         m\_ptrCursorChunk = m\_ptrFirstChunk;}
+\DoxyCodeLine{454     \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classMemPool_1_1CMemoryPool_a3a00773e69c242bd75614a264bf50ae1}\label{classMemPool_1_1CMemoryPool_a3a00773e69c242bd75614a264bf50ae1}} 
@@ -219,106 +335,44 @@ Definición en la línea 90 del archivo CMemory\+Pool.\+cpp.
 \doxysubsubsection{\texorpdfstring{GetMemory()}{GetMemory()}}
 {\footnotesize\ttfamily void $\ast$ Mem\+Pool\+::\+CMemory\+Pool\+::\+Get\+Memory (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{s\+Memory\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+Funcion para solicitar espacios de memoria en el Pool 
+\begin{DoxyParams}{Parámetros}
+{\em s\+Memory\+Size} & Size del espacio de memoria solicitado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
 
 
 Implementa \mbox{\hyperlink{classMemPool_1_1IMemoryBlock_ac1f1954b63042612d701aad528150968}{Mem\+Pool\+::\+IMemory\+Block}}.
 
 
 
-Definición en la línea 53 del archivo CMemory\+Pool.\+cpp.
+Definición en la línea 62 del archivo CMemory\+Pool.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{54     \{}
-\DoxyCodeLine{55         std::size\_t sBestMemBlockSize = CalculateBestMemoryBlockSize(sMemorySize) ;}
-\DoxyCodeLine{56         \mbox{\hyperlink{namespaceMemPool_a152300ff2924436a5c16a5b7bf06b7b9}{SMemoryChunk}} *ptrChunk = NULL ;}
-\DoxyCodeLine{57         \textcolor{keywordflow}{while}(!ptrChunk)}
-\DoxyCodeLine{58         \{}
-\DoxyCodeLine{59             \textcolor{comment}{// Is a Chunks available to hold the requested amount of Memory ?}}
-\DoxyCodeLine{60             ptrChunk = FindChunkSuitableToHoldMemory(sBestMemBlockSize) ;}
-\DoxyCodeLine{61             \textcolor{keywordflow}{if}(!ptrChunk)}
-\DoxyCodeLine{62             \{}
-\DoxyCodeLine{63                 std::cout << \textcolor{stringliteral}{"{}toy chikito"{}};}
-\DoxyCodeLine{64                 \textcolor{comment}{//INSERTAR LOG}}
-\DoxyCodeLine{65                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{67                 \textcolor{comment}{// No chunk can be found}}
-\DoxyCodeLine{68                 \textcolor{comment}{// => Memory-\/Pool is to small. We have to request}}
-\DoxyCodeLine{69                 \textcolor{comment}{//    more Memory from the Operating-\/System....}}
-\DoxyCodeLine{70                 \textcolor{comment}{//sBestMemBlockSize = MaxValue(sBestMemBlockSize, CalculateBestMemoryBlockSize(m\_sMinimalMemorySizeToAllocate)) ;}}
-\DoxyCodeLine{71                 \textcolor{comment}{//AllocateMemory(sBestMemBlockSize) ;}}
-\DoxyCodeLine{72             \}}
-\DoxyCodeLine{73         \}}
-\DoxyCodeLine{74 }
-\DoxyCodeLine{75         \textcolor{comment}{// Finally, a suitable Chunk was found.}}
-\DoxyCodeLine{76         \textcolor{comment}{// Adjust the Values of the internal "{}TotalSize"{}/"{}UsedSize"{} Members and}}
-\DoxyCodeLine{77         \textcolor{comment}{// the Values of the MemoryChunk itself.}}
-\DoxyCodeLine{78         m\_sUsedMemoryPoolSize += sBestMemBlockSize ;}
-\DoxyCodeLine{79         m\_sFreeMemoryPoolSize -\/= sBestMemBlockSize ;}
-\DoxyCodeLine{80         m\_uiObjectCount++ ;}
-\DoxyCodeLine{81         SetMemoryChunkValues(ptrChunk, sBestMemBlockSize) ;}
-\DoxyCodeLine{82 }
-\DoxyCodeLine{83         \textcolor{comment}{// eventually, return the Pointer to the User}}
-\DoxyCodeLine{84         \textcolor{keywordflow}{return} ((\textcolor{keywordtype}{void} *) ptrChunk-\/>Data) ;}
-\DoxyCodeLine{85     \}}
-
-\end{DoxyCode}
-\mbox{\Hypertarget{classMemPool_1_1CMemoryPool_a8790e6504a77fce9b52e77b6afbafb09}\label{classMemPool_1_1CMemoryPool_a8790e6504a77fce9b52e77b6afbafb09}} 
-\index{MemPool::CMemoryPool@{MemPool::CMemoryPool}!IsValidPointer@{IsValidPointer}}
-\index{IsValidPointer@{IsValidPointer}!MemPool::CMemoryPool@{MemPool::CMemoryPool}}
-\doxysubsubsection{\texorpdfstring{IsValidPointer()}{IsValidPointer()}}
-{\footnotesize\ttfamily bool Mem\+Pool\+::\+CMemory\+Pool\+::\+Is\+Valid\+Pointer (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr\+Pointer }\end{DoxyParamCaption})}
-
-
-
-Definición en la línea 494 del archivo CMemory\+Pool.\+cpp.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{495     \{}
-\DoxyCodeLine{496         \mbox{\hyperlink{namespaceMemPool_a152300ff2924436a5c16a5b7bf06b7b9}{SMemoryChunk}} *ptrChunk = m\_ptrFirstChunk ;}
-\DoxyCodeLine{497         \textcolor{keywordflow}{while}(ptrChunk)}
-\DoxyCodeLine{498         \{}
-\DoxyCodeLine{499             \textcolor{keywordflow}{if}(ptrChunk-\/>Data == ((\mbox{\hyperlink{namespaceMemPool_a88820e2f09727e44a7f638694a421ed4}{TByte}} *) ptrPointer))}
-\DoxyCodeLine{500             \{}
-\DoxyCodeLine{501                 \textcolor{keywordflow}{return} true ;}
-\DoxyCodeLine{502             \}}
-\DoxyCodeLine{503             ptrChunk = ptrChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_af4a4771b533b7b39ce8bc5d8eb0e8b57}{Next}} ;}
-\DoxyCodeLine{504         \}}
-\DoxyCodeLine{505         \textcolor{keywordflow}{return} false ;}
-\DoxyCodeLine{506     \}}
-
-\end{DoxyCode}
-\mbox{\Hypertarget{classMemPool_1_1CMemoryPool_a62f6fb8b3f6c3257708c6c272038212d}\label{classMemPool_1_1CMemoryPool_a62f6fb8b3f6c3257708c6c272038212d}} 
-\index{MemPool::CMemoryPool@{MemPool::CMemoryPool}!WriteMemoryDumpToFile@{WriteMemoryDumpToFile}}
-\index{WriteMemoryDumpToFile@{WriteMemoryDumpToFile}!MemPool::CMemoryPool@{MemPool::CMemoryPool}}
-\doxysubsubsection{\texorpdfstring{WriteMemoryDumpToFile()}{WriteMemoryDumpToFile()}}
-{\footnotesize\ttfamily bool Mem\+Pool\+::\+CMemory\+Pool\+::\+Write\+Memory\+Dump\+To\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str\+File\+Name }\end{DoxyParamCaption})}
-
-
-
-Definición en la línea 296 del archivo CMemory\+Pool.\+cpp.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{297     \{}
-\DoxyCodeLine{298         \textcolor{keywordtype}{bool} bWriteSuccesfull = false ;}
-\DoxyCodeLine{299         std::ofstream ofOutputFile ;}
-\DoxyCodeLine{300         ofOutputFile.open(strFileName.c\_str(), std::ofstream::out | std::ofstream::binary) ;}
-\DoxyCodeLine{301 }
-\DoxyCodeLine{302         \mbox{\hyperlink{namespaceMemPool_a152300ff2924436a5c16a5b7bf06b7b9}{SMemoryChunk}} *ptrCurrentChunk = m\_ptrFirstChunk ;}
-\DoxyCodeLine{303         \textcolor{keywordflow}{while}(ptrCurrentChunk)}
-\DoxyCodeLine{304         \{}
-\DoxyCodeLine{305             \textcolor{keywordflow}{if}(ofOutputFile.good())}
-\DoxyCodeLine{306             \{}
-\DoxyCodeLine{307                 ofOutputFile.write(((\textcolor{keywordtype}{char} *)ptrCurrentChunk-\/>Data), ((std::streamsize) m\_sMemoryChunkSize)) ;}
-\DoxyCodeLine{308                 bWriteSuccesfull = true ;}
-\DoxyCodeLine{309             \}}
-\DoxyCodeLine{310             ptrCurrentChunk = ptrCurrentChunk-\/>\mbox{\hyperlink{structMemPool_1_1SMemoryChunk_af4a4771b533b7b39ce8bc5d8eb0e8b57}{Next}} ;}
-\DoxyCodeLine{311         \}}
-\DoxyCodeLine{312         ofOutputFile.close() ;}
-\DoxyCodeLine{313         \textcolor{keywordflow}{return} bWriteSuccesfull ;}
-\DoxyCodeLine{314     \}}
+\DoxyCodeLine{62                                                             \{}
+\DoxyCodeLine{63         std::size\_t sBestMemBlockSize = CalculateBestMemoryBlockSize(sMemorySize) ;}
+\DoxyCodeLine{64         \mbox{\hyperlink{namespaceMemPool_a152300ff2924436a5c16a5b7bf06b7b9}{SMemoryChunk}} *ptrChunk = NULL ;}
+\DoxyCodeLine{65         \textcolor{keywordflow}{while}(!ptrChunk)\{}
+\DoxyCodeLine{66             ptrChunk = FindChunkSuitableToHoldMemory(sBestMemBlockSize) ;}
+\DoxyCodeLine{67             \textcolor{keywordflow}{if}(!ptrChunk)\{}
+\DoxyCodeLine{68                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{69             \}}
+\DoxyCodeLine{70         \}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72         m\_sUsedMemoryPoolSize += sBestMemBlockSize ;}
+\DoxyCodeLine{73         m\_sFreeMemoryPoolSize -\/= sBestMemBlockSize ;}
+\DoxyCodeLine{74         m\_uiObjectCount++ ;}
+\DoxyCodeLine{75         \textcolor{keywordflow}{if} (ptrChunk != NULL) \{}
+\DoxyCodeLine{76             SetMemoryChunkValues(ptrChunk, sBestMemBlockSize);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78             \textcolor{keywordflow}{return} ((\textcolor{keywordtype}{void} *) ptrChunk-\/>Data);}
+\DoxyCodeLine{79         \}}
+\DoxyCodeLine{80         \textcolor{keywordflow}{else}\{ \textcolor{keywordflow}{return} NULL;\}}
+\DoxyCodeLine{81     \}}
 
 \end{DoxyCode}
 

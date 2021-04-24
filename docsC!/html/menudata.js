@@ -180,7 +180,9 @@ var menudata={children:[
 {text:"Lista de archivos",url:"files.html"},
 {text:"Miembros de los ficheros",url:"globals.html",children:[
 {text:"Todo",url:"globals.html",children:[
-{text:"i",url:"globals.html#index_i"},
+{text:"a",url:"globals.html#index_a"},
+{text:"d",url:"globals_d.html#index_d"},
+{text:"i",url:"globals_i.html#index_i"},
 {text:"j",url:"globals_j.html#index_j"},
 {text:"m",url:"globals_m.html#index_m"},
 {text:"n",url:"globals_n.html#index_n"},
@@ -188,6 +190,7 @@ var menudata={children:[
 {text:"p",url:"globals_p.html#index_p"},
 {text:"s",url:"globals_s.html#index_s"}]},
 {text:"Funciones",url:"globals_func.html"},
+{text:"Variables",url:"globals_vars.html"},
 {text:"typedefs",url:"globals_type.html"},
 {text:"defines",url:"globals_defs.html",children:[
 {text:"i",url:"globals_defs.html#index_i"},

@@ -16,10 +16,16 @@
 #include <vector>
 
 namespace MemPool {
-
     static const int FREEED_MEMORY_CONTENT = 0xAA;
     static const int NEW_ALLOCATED_MEMORY_CONTENT = 0xFF;
 
+    /**
+     * Constructor del Pool de Memoria
+     * @param sInitialMemoryPoolSize Memoria total del Pool
+     * @param sMemoryChunkSize  Size de cada Chunk
+     * @param sMinimalMemorySizeToAllocate Minimo espacio de memoria que se pueda solicitar
+     * @param bSetMemoryData Bool para establecer un espacio definido para el memset
+     */
     CMemoryPool::CMemoryPool(const size_t &sInitialMemoryPoolSize, const size_t &sMemoryChunkSize,
                              const size_t &sMinimalMemorySizeToAllocate, bool bSetMemoryData) {
 
@@ -40,23 +46,25 @@ namespace MemPool {
         AllocateMemory(sInitialMemoryPoolSize) ;
     }
 
+    /**
+     * Destructor del Pool de Memoria
+     */
     CMemoryPool::~CMemoryPool(){
         FreeAllAllocatedMemory() ;
         DeallocateAllChunks();
-        assert((m_uiObjectCount == 0) && "WARNING : Memory-Leak : You have not freed all allocated Memory") ;
     }
 
-/******************
-GetMemory
-******************/
+    /**
+     * Funcion para solicitar espacios de memoria en el Pool
+     * @param sMemorySize Size del espacio de memoria solicitado
+     * @return
+     */
     void *CMemoryPool::GetMemory(const std::size_t &sMemorySize){
         std::size_t sBestMemBlockSize = CalculateBestMemoryBlockSize(sMemorySize) ;
         SMemoryChunk *ptrChunk = NULL ;
         while(!ptrChunk){
             ptrChunk = FindChunkSuitableToHoldMemory(sBestMemBlockSize) ;
             if(!ptrChunk){
-                std::cout << "toy chikito";
-                //INSERTAR LOG
                 break;
             }
         }
@@ -64,16 +72,19 @@ GetMemory
         m_sUsedMemoryPoolSize += sBestMemBlockSize ;
         m_sFreeMemoryPoolSize -= sBestMemBlockSize ;
         m_uiObjectCount++ ;
-        SetMemoryChunkValues(ptrChunk, sBestMemBlockSize) ;
+        if (ptrChunk != NULL) {
+            SetMemoryChunkValues(ptrChunk, sBestMemBlockSize);
 
-        return ((void *) ptrChunk->Data) ;
+            return ((void *) ptrChunk->Data);
+        }
+        else{ return NULL;}
     }
 
-/******************
-FreeMemory
-******************/
+    /**
+     * Funcion para liberar ciertos espacios de memoria
+     * @param ptrMemoryBlock
+     */
     void CMemoryPool::FreeMemory(void *ptrMemoryBlock){
-
         SMemoryChunk *ptrChunk = FindChunkHoldingPointerTo(ptrMemoryBlock) ;
         std::cout << ptrChunk << std::endl;
         if(ptrChunk){
@@ -86,11 +97,12 @@ FreeMemory
         m_uiObjectCount-- ;
     }
 
-/******************
-AllocateMemory
-******************/
+    /**
+     * Funcion que realiza la asignacion del Pool de Memoria
+     * @param sMemorySize Size del Pool
+     * @return
+     */
     bool CMemoryPool::AllocateMemory(const std::size_t &sMemorySize){
-
         unsigned int uiNeededChunks = CalculateNeededChunks(sMemorySize) ;
         std::size_t sBestMemBlockSize = CalculateBestMemoryBlockSize(sMemorySize) ;
 
@@ -109,25 +121,30 @@ AllocateMemory
         return LinkChunksToData(ptrNewChunks, uiNeededChunks, ptrNewMemBlock) ; ;
     }
 
-/******************
-CalculateNeededChunks
-******************/
+    /**
+     * Realiza el calculo de la cantidad de Chunks para cada espacio de memoria de variables
+     * @param sMemorySize Espacio de memoria requerido
+     * @return
+     */
     unsigned int CMemoryPool::CalculateNeededChunks(const std::size_t &sMemorySize){
         float f = (float) (((float)sMemorySize) / ((float)m_sMemoryChunkSize)) ;
         return ((unsigned int) ceil(f)) ;
     }
 
-/******************
-CalculateBestMemoryBlockSize
-******************/
+    /**
+     * Calcula el mejor espacio de los Chunks para llenar el Pool
+     * @param sRequestedMemoryBlockSize Size del Pool
+     * @return
+     */
     std::size_t CMemoryPool::CalculateBestMemoryBlockSize(const std::size_t &sRequestedMemoryBlockSize){
         unsigned int uiNeededChunks = CalculateNeededChunks(sRequestedMemoryBlockSize) ;
         return std::size_t((uiNeededChunks * m_sMemoryChunkSize)) ;
     }
 
-/******************
-FreeChunks
-******************/
+    /**
+     * Libera la memoria de todos los Chunks
+     * @param ptrChunk
+     */
     void CMemoryPool::FreeChunks(SMemoryChunk *ptrChunk){
         SMemoryChunk *ptrCurrentChunk = ptrChunk ;
         unsigned int uiChunkCount = CalculateNeededChunks(ptrCurrentChunk->UsedSize);
@@ -144,9 +161,11 @@ FreeChunks
     }
 
 
-/******************
-FindChunkSuitableToHoldMemory
-******************/
+    /**
+     * Busca Chunks disponibles para almacenar datos
+     * @param sMemorySize Size requerido de la variable
+     * @return Chunk disponible
+     */
     SMemoryChunk *CMemoryPool::FindChunkSuitableToHoldMemory(const std::size_t &sMemorySize){
         unsigned int uiChunksToSkip = 0 ;
         bool bContinueSearch = true ;
@@ -173,9 +192,12 @@ FindChunkSuitableToHoldMemory
         return NULL ;
     }
 
-/******************
-SkipChunks
-******************/
+    /**
+     * Descarta los Chunks que estan reservados
+     * @param ptrStartChunk Chunk inicial
+     * @param uiChunksToSkip Cantidad de chunks que se deben saltar
+     * @return Siguiente Chunk disponible
+     */
     SMemoryChunk *CMemoryPool::SkipChunks(SMemoryChunk *ptrStartChunk, unsigned int uiChunksToSkip){
         SMemoryChunk *ptrCurrentChunk = ptrStartChunk ;
         for(unsigned int i = 0; i < uiChunksToSkip; i++){
@@ -190,21 +212,28 @@ SkipChunks
         return ptrCurrentChunk ;
     }
 
-/******************
-SetMemoryChunkValues
-******************/
+    /**
+     * Reestrablece la memoria utilizada
+     * @param ptrChunk Chunk a restablecer
+     * @param sMemBlockSize Espacio utilizado
+     */
     void CMemoryPool::SetMemoryChunkValues(SMemoryChunk *ptrChunk, const std::size_t &sMemBlockSize){
         if((ptrChunk)){
             ptrChunk->UsedSize = sMemBlockSize ;
         }
-        else{
-            assert(false && "Error : Invalid NULL-Pointer passed") ;
-        }
+        /*else{
+            //assert(false && "Error : Invalid NULL-Pointer passed") ;
+            continue;
+        }*/
     }
 
-/******************
-LinkChunksToData
-******************/
+    /**
+     * Funcion que enlaza el Chunk designado a cada variable y a su correspondiente espacio
+     * @param ptrNewChunks Puntero a los Chunks designados
+     * @param uiChunkCount Cantidad de Chunk del bloque de memoria
+     * @param ptrNewMemBlock Puntero a el espacio de memoria asignado
+     * @return Funcion RecalcChunkMemorySize
+     */
     bool CMemoryPool::LinkChunksToData(SMemoryChunk *ptrNewChunks, unsigned int uiChunkCount, TByte *ptrNewMemBlock){
         SMemoryChunk *ptrNewChunk = NULL ;
         unsigned int uiMemOffSet = 0 ;
@@ -232,9 +261,13 @@ LinkChunksToData
         return RecalcChunkMemorySize(m_ptrFirstChunk, m_uiMemoryChunkCount) ;
     }
 
-/******************
-RecalcChunkMemorySize
-******************/
+    /**
+     * Funcion que determina si la cantidad de Chunks disponibles son
+     * suficientes para el espacio de memoria solicitado
+     * @param ptrChunk Puntero al primer Chunk disponible
+     * @param uiChunkCount Cantidad de Chunks requeridos
+     * @return bool True si es posible, False si no existen los Chunks requeridos
+     */
     bool CMemoryPool::RecalcChunkMemorySize(SMemoryChunk *ptrChunk, unsigned int uiChunkCount){
         unsigned int uiMemOffSet = 0 ;
         for(unsigned int i = 0; i < uiChunkCount; i++){
@@ -251,9 +284,11 @@ RecalcChunkMemorySize
         return true ;
     }
 
-/******************
-SetChunkDefaults
-******************/
+    /**
+     * Resetea en el inicio los Chunks a los valores predeterminados para su utilizacion
+     * @param ptrChunk Puntero a resetear
+     * @return Puntero reseteado
+     */
     SMemoryChunk *CMemoryPool::SetChunkDefaults(SMemoryChunk *ptrChunk){
         if(ptrChunk){
             ptrChunk->counter = 0;
@@ -274,6 +309,10 @@ SetChunkDefaults
         return ptrChunk ;
     }
 
+    /**
+     * Resetea los Chunks a valores predeterminamos para su reutilizacion
+     * @param ptrChunk puntero a resetear
+     */
     void CMemoryPool::SetChunktoDefault(SMemoryChunk *ptrChunk){
         if(ptrChunk){
             ptrChunk->counter = 0;
@@ -289,9 +328,12 @@ SetChunkDefaults
             ptrChunk->mstruct.clear();
         }
     }
-/******************
-FindChunkHoldingPointerTo
-******************/
+
+    /**
+     * Busca Chunks de una direccion de memoria de Data
+     * @param ptrMemoryBlock Direccion de Data
+     * @return Chunk
+     */
     SMemoryChunk *CMemoryPool::FindChunkHoldingPointerTo(void *ptrMemoryBlock){
         SMemoryChunk *ptrTempChunk = m_ptrFirstChunk ;
         while(ptrTempChunk){
@@ -304,10 +346,11 @@ FindChunkHoldingPointerTo
         return ptrTempChunk ;
     }
 
-/******************
-FindChunkHoldingNameTo
-******************/
-
+    /**
+     * Busca Chunks por su nombre
+     * @param name
+     * @return
+     */
     SMemoryChunk *CMemoryPool::FindChunkHoldingNameTo(std::string name){
         SMemoryChunk *ptrTempChunk = CMemoryPool::m_ptrFirstChunk ;
         while(ptrTempChunk){
@@ -319,10 +362,12 @@ FindChunkHoldingNameTo
         return ptrTempChunk ;
     }
 
-/******************
-FindChunkHoldingNameTo
-******************/
 
+    /**
+     * Confirma si existe un Chunk asignado con un nombre en especifico
+     * @param name_
+     * @return
+     */
     bool CMemoryPool::FindChunkHoldingSameName(std::string name_) {
         SMemoryChunk *ptrTempChunk = m_ptrFirstChunk;
         bool can = true;
@@ -337,9 +382,9 @@ FindChunkHoldingNameTo
         return can;
     }
 
-/******************
-FreeAllAllocatedMemory
-******************/
+    /**
+     * Resetea la memoria de los Chunks al ejecutar el Destructor
+     */
     void CMemoryPool::FreeAllAllocatedMemory(){
         SMemoryChunk *ptrChunk = m_ptrFirstChunk ;
         while(ptrChunk){
@@ -349,9 +394,9 @@ FreeAllAllocatedMemory
         m_ptrCursorChunk = m_ptrFirstChunk;
     }
 
-/******************
-DeallocateAllChunks
-******************/
+    /**
+     * Libera la memoria de los Chunks al ejecutar el Destructor
+     */
     void CMemoryPool::DeallocateAllChunks(){
         SMemoryChunk *ptrChunk = m_ptrFirstChunk ;
         SMemoryChunk *ptrChunkToDelete = NULL ;
@@ -366,18 +411,24 @@ DeallocateAllChunks
         }
     }
 
-
+    /**
+     * Libera la memoria de los Chunks al cerrarse un Scope
+     * @param deap
+     */
     void CMemoryPool::Freeinscope(int deap){
         SMemoryChunk *ptrChunk = m_ptrFirstChunk ;
         while(ptrChunk){
             if (ptrChunk->isscope && deap == ptrChunk->deap){
-                std::cout << "inscope" << endl;
                 ptrChunk->counter = 0;
             }
             ptrChunk = ptrChunk->Next;
         }
     }
 
+    /**
+     * Realiza una inspeccion de las variables para la liberacion de las que
+     * no poseen referencias y las libera para su reutilizacion
+     */
     void CMemoryPool::GarbageCollector(){
         SMemoryChunk *ptrChunk = m_ptrFirstChunk ;
         while(ptrChunk){

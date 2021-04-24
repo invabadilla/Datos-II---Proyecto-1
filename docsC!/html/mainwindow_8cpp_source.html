@@ -72,60 +72,92 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d">    9</a></span>&#160;<a class="code" href="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d">MainWindow::MainWindow</a>(QWidget *parent)</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    : QMainWindow(parent)</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    , ui(new <a class="code" href="namespaceUi.html">Ui</a>::<a class="code" href="classMainWindow.html">MainWindow</a>)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    ui-&gt;setupUi(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7">   16</a></span>&#160;<a class="code" href="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7">MainWindow::~MainWindow</a>()</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">delete</span> ui;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> MainWindow::on_pushButton_clicked()</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span> (this-&gt;ui-&gt;textEdit-&gt;toPlainText() != NULL){</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        this-&gt;ui-&gt;textEdit-&gt;setEnabled(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        QString Qtext = this-&gt;ui-&gt;textEdit-&gt;toPlainText();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        QStringList Qlines = Qtext.split(<span class="stringliteral">&quot;\n&quot;</span>, QString::SkipEmptyParts);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> i_line = 0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        QString line = Qlines.at(i_line);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        i_line++;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">if</span> (i_line &gt;= Qlines.count()){</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            i_line = 0;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            this-&gt;ui-&gt;textEdit-&gt;setEnabled(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="classCompiler.html">Compiler</a> *compiler = <span class="keyword">new</span> <a class="code" href="classCompiler.html">Compiler</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        compiler-&gt;<a class="code" href="classCompiler.html#a029eaac36f999682335987a81ddabfc5">compile</a>(line);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        this-&gt;UpdateGUI();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> MainWindow::UpdateGUI() {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classCompiler.html">Compiler</a> *compiler = <span class="keyword">new</span> <a class="code" href="classCompiler.html">Compiler</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::string info = compiler-&gt;<a class="code" href="classCompiler.html#ab10bda95cf921baf9bd82f4108775408">updateGUI</a>();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    QString Qinfo = QString::fromStdString(info);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    QStringList Qlistinfo = Qinfo.split(<span class="stringliteral">&quot;-&quot;</span>, QString::SkipEmptyParts);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    QString std_out = Qlistinfo.at(0);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    QString log = Qlistinfo.at(1);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    QString ram = Qlistinfo.at(2);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    this-&gt;ui-&gt;textEdit_2-&gt;setText(std_out);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    this-&gt;ui-&gt;textEdit_3-&gt;setText(log);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    this-&gt;ui-&gt;textEdit_4-&gt;setText(ram);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="mainwindow_8cpp.html#a21426166c188a715b20c1a3f949ce11a">   11</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="mainwindow_8cpp.html#a21426166c188a715b20c1a3f949ce11a">i_line</a> = 0;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d">   17</a></span>&#160;<a class="code" href="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d">MainWindow::MainWindow</a>(QWidget *parent)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    : QMainWindow(parent)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    , ui(new <a class="code" href="namespaceUi.html">Ui</a>::<a class="code" href="classMainWindow.html">MainWindow</a>)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    ui-&gt;setupUi(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7">   27</a></span>&#160;<a class="code" href="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7">MainWindow::~MainWindow</a>()</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">delete</span> ui;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> MainWindow::on_pushButton_clicked()</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span> (this-&gt;ui-&gt;textEdit-&gt;toPlainText() != NULL){</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        this-&gt;ui-&gt;textEdit-&gt;setEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        QString Qtext = this-&gt;ui-&gt;textEdit-&gt;toPlainText();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        QStringList Qlines = Qtext.split(<span class="stringliteral">&quot;\n&quot;</span>, QString::SkipEmptyParts);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        QString line = Qlines.at(<a class="code" href="mainwindow_8cpp.html#a21426166c188a715b20c1a3f949ce11a">i_line</a>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="mainwindow_8cpp.html#a21426166c188a715b20c1a3f949ce11a">i_line</a>++;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="classCompiler.html">Compiler</a> *compiler = <span class="keyword">new</span> <a class="code" href="classCompiler.html">Compiler</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        compiler-&gt;<a class="code" href="classCompiler.html#a029eaac36f999682335987a81ddabfc5">compile</a>(line);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        this-&gt;UpdateGUI();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="mainwindow_8cpp.html#a21426166c188a715b20c1a3f949ce11a">i_line</a> &gt;= Qlines.count()){</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <a class="code" href="mainwindow_8cpp.html#a21426166c188a715b20c1a3f949ce11a">i_line</a> = 0;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            this-&gt;ui-&gt;textEdit-&gt;setEnabled(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            this-&gt;Clear();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">void</span> MainWindow::UpdateGUI() {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="classCompiler.html">Compiler</a> *compiler = <span class="keyword">new</span> <a class="code" href="classCompiler.html">Compiler</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    std::string info = compiler-&gt;<a class="code" href="classCompiler.html#ab10bda95cf921baf9bd82f4108775408">updateGUI</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    QString Qinfo = QString::fromStdString(info);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    QStringList Qlistinfo = Qinfo.split(<span class="stringliteral">&quot;-&quot;</span>, QString::SkipEmptyParts);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    QString std_out = Qlistinfo.at(0);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    QString log = Qlistinfo.at(1);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    QString ram = Qlistinfo.at(2);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    this-&gt;ui-&gt;textEdit_2-&gt;setText(std_out);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    this-&gt;ui-&gt;textEdit_3-&gt;setText(log);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    this-&gt;ui-&gt;textEdit_4-&gt;setText(ram);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    QStringList logParts = log.split(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i &lt; logParts.length(); i++){</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">if</span>(logParts.at(i).split(<span class="stringliteral">&quot;ERROR&quot;</span>).length() == 2 || logParts.at(i).split(<span class="stringliteral">&quot;FATAL&quot;</span>).length() == 2 ){</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            this-&gt;ui-&gt;textEdit-&gt;setEnabled(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            this-&gt;Clear();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <a class="code" href="mainwindow_8cpp.html#a21426166c188a715b20c1a3f949ce11a">i_line</a> = 0;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordtype">void</span> MainWindow::Clear() {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classCompiler.html">Compiler</a> *compiler = <span class="keyword">new</span> <a class="code" href="classCompiler.html">Compiler</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    compiler-&gt;<a class="code" href="classCompiler.html#a029eaac36f999682335987a81ddabfc5">compile</a>(<span class="stringliteral">&quot;y!@#$%^&amp;*(&quot;</span>);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    this-&gt;UpdateGUI();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    compiler-&gt;<a class="code" href="classCompiler.html#a2a3bf5304aef1924aecdf42de57db4b9">s_existing</a>.clear();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    compiler-&gt;<a class="code" href="classCompiler.html#aa3856bbd850b3bd52a2f826036c98a2d">std_out</a> = <span class="stringliteral">&quot;&lt;&lt; \n&quot;</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    compiler-&gt;<a class="code" href="classCompiler.html#a09d7fbbf218a7306d5fe26e02e819c45">log</a> = <span class="stringliteral">&quot;&lt;&lt; \n&quot;</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    compiler-&gt;<a class="code" href="classCompiler.html#af367642238d1651185125c2311f13960">ram</a> = <span class="stringliteral">&quot;&lt;&lt; \n&quot;</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordtype">void</span> MainWindow::on_pushButton_2_clicked()</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="mainwindow_8cpp.html#a21426166c188a715b20c1a3f949ce11a">i_line</a> = 0;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    this-&gt;ui-&gt;textEdit-&gt;setEnabled(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    this-&gt;Clear();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
 <div class="ttc" id="aCompiler_8h_html"><div class="ttname"><a href="Compiler_8h.html">Compiler.h</a></div></div>
-<div class="ttc" id="aclassCompiler_html"><div class="ttname"><a href="classCompiler.html">Compiler</a></div><div class="ttdef"><b>Definition:</b> <a href="Compiler_8h_source.html#l00014">Compiler.h:14</a></div></div>
-<div class="ttc" id="aclassCompiler_html_a029eaac36f999682335987a81ddabfc5"><div class="ttname"><a href="classCompiler.html#a029eaac36f999682335987a81ddabfc5">Compiler::compile</a></div><div class="ttdeci">void compile(QString line)</div><div class="ttdef"><b>Definition:</b> <a href="Compiler_8cpp_source.html#l00156">Compiler.cpp:156</a></div></div>
-<div class="ttc" id="aclassCompiler_html_ab10bda95cf921baf9bd82f4108775408"><div class="ttname"><a href="classCompiler.html#ab10bda95cf921baf9bd82f4108775408">Compiler::updateGUI</a></div><div class="ttdeci">static string updateGUI()</div><div class="ttdef"><b>Definition:</b> <a href="Compiler_8cpp_source.html#l00363">Compiler.cpp:363</a></div></div>
+<div class="ttc" id="aclassCompiler_html"><div class="ttname"><a href="classCompiler.html">Compiler</a></div><div class="ttdef"><b>Definition:</b> <a href="Compiler_8h_source.html#l00018">Compiler.h:18</a></div></div>
+<div class="ttc" id="aclassCompiler_html_a029eaac36f999682335987a81ddabfc5"><div class="ttname"><a href="classCompiler.html#a029eaac36f999682335987a81ddabfc5">Compiler::compile</a></div><div class="ttdeci">void compile(QString line)</div><div class="ttdef"><b>Definition:</b> <a href="Compiler_8cpp_source.html#l00197">Compiler.cpp:197</a></div></div>
+<div class="ttc" id="aclassCompiler_html_a09d7fbbf218a7306d5fe26e02e819c45"><div class="ttname"><a href="classCompiler.html#a09d7fbbf218a7306d5fe26e02e819c45">Compiler::log</a></div><div class="ttdeci">static std::string log</div><div class="ttdef"><b>Definition:</b> <a href="Compiler_8h_source.html#l00021">Compiler.h:21</a></div></div>
+<div class="ttc" id="aclassCompiler_html_a2a3bf5304aef1924aecdf42de57db4b9"><div class="ttname"><a href="classCompiler.html#a2a3bf5304aef1924aecdf42de57db4b9">Compiler::s_existing</a></div><div class="ttdeci">static vector&lt; string &gt; s_existing</div><div class="ttdef"><b>Definition:</b> <a href="Compiler_8h_source.html#l00024">Compiler.h:24</a></div></div>
+<div class="ttc" id="aclassCompiler_html_aa3856bbd850b3bd52a2f826036c98a2d"><div class="ttname"><a href="classCompiler.html#aa3856bbd850b3bd52a2f826036c98a2d">Compiler::std_out</a></div><div class="ttdeci">static std::string std_out</div><div class="ttdef"><b>Definition:</b> <a href="Compiler_8h_source.html#l00020">Compiler.h:20</a></div></div>
+<div class="ttc" id="aclassCompiler_html_ab10bda95cf921baf9bd82f4108775408"><div class="ttname"><a href="classCompiler.html#ab10bda95cf921baf9bd82f4108775408">Compiler::updateGUI</a></div><div class="ttdeci">static string updateGUI()</div><div class="ttdef"><b>Definition:</b> <a href="Compiler_8cpp_source.html#l00774">Compiler.cpp:774</a></div></div>
+<div class="ttc" id="aclassCompiler_html_af367642238d1651185125c2311f13960"><div class="ttname"><a href="classCompiler.html#af367642238d1651185125c2311f13960">Compiler::ram</a></div><div class="ttdeci">static std::string ram</div><div class="ttdef"><b>Definition:</b> <a href="Compiler_8h_source.html#l00022">Compiler.h:22</a></div></div>
 <div class="ttc" id="aclassMainWindow_html"><div class="ttname"><a href="classMainWindow.html">MainWindow</a></div><div class="ttdef"><b>Definition:</b> <a href="mainwindow_8h_source.html#l00010">mainwindow.h:11</a></div></div>
-<div class="ttc" id="aclassMainWindow_html_a996c5a2b6f77944776856f08ec30858d"><div class="ttname"><a href="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d">MainWindow::MainWindow</a></div><div class="ttdeci">MainWindow(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="mainwindow_8cpp_source.html#l00009">mainwindow.cpp:9</a></div></div>
-<div class="ttc" id="aclassMainWindow_html_ae98d00a93bc118200eeef9f9bba1dba7"><div class="ttname"><a href="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7">MainWindow::~MainWindow</a></div><div class="ttdeci">~MainWindow()</div><div class="ttdef"><b>Definition:</b> <a href="mainwindow_8cpp_source.html#l00016">mainwindow.cpp:16</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a996c5a2b6f77944776856f08ec30858d"><div class="ttname"><a href="classMainWindow.html#a996c5a2b6f77944776856f08ec30858d">MainWindow::MainWindow</a></div><div class="ttdeci">MainWindow(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="mainwindow_8cpp_source.html#l00017">mainwindow.cpp:17</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_ae98d00a93bc118200eeef9f9bba1dba7"><div class="ttname"><a href="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7">MainWindow::~MainWindow</a></div><div class="ttdeci">~MainWindow()</div><div class="ttdef"><b>Definition:</b> <a href="mainwindow_8cpp_source.html#l00027">mainwindow.cpp:27</a></div></div>
+<div class="ttc" id="amainwindow_8cpp_html_a21426166c188a715b20c1a3f949ce11a"><div class="ttname"><a href="mainwindow_8cpp.html#a21426166c188a715b20c1a3f949ce11a">i_line</a></div><div class="ttdeci">int i_line</div><div class="ttdef"><b>Definition:</b> <a href="mainwindow_8cpp_source.html#l00011">mainwindow.cpp:11</a></div></div>
 <div class="ttc" id="amainwindow_8h_html"><div class="ttname"><a href="mainwindow_8h.html">mainwindow.h</a></div></div>
 <div class="ttc" id="anamespaceUi_html"><div class="ttname"><a href="namespaceUi.html">Ui</a></div><div class="ttdef"><b>Definition:</b> <a href="mainwindow_8h_source.html#l00007">mainwindow.h:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

@@ -105,24 +105,30 @@ Funciones</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p class="">Clase encargada de inicializar el GUI y solicitar el puerto del mServer </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td></td></tr>
+    <tr><td class="paramname">argv</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd></dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="main_8cpp_source.html#l00008">8</a> del archivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    cout&lt;&lt; <span class="stringliteral">&quot;Ingrese el puerto de escucha del server: &quot;</span>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">string</span> port;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    cin &gt;&gt; port; <span class="comment">//Se lee el nombre</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classCompiler.html">Compiler</a> *compiler = <span class="keyword">new</span> <a class="code" href="classCompiler.html">Compiler</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    compiler-&gt;<a class="code" href="classCompiler.html#a4f7f12dd59e9e6163962afbb09d3cd9c">port</a> = stoi(port);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    QApplication a(argc, argv);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classMainWindow.html">MainWindow</a> w;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    w.show();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> a.exec();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
-<div class="ttc" id="aclassCompiler_html"><div class="ttname"><a href="classCompiler.html">Compiler</a></div><div class="ttdef"><b>Definition:</b> <a href="Compiler_8h_source.html#l00014">Compiler.h:14</a></div></div>
-<div class="ttc" id="aclassCompiler_html_a4f7f12dd59e9e6163962afbb09d3cd9c"><div class="ttname"><a href="classCompiler.html#a4f7f12dd59e9e6163962afbb09d3cd9c">Compiler::port</a></div><div class="ttdeci">static int port</div><div class="ttdef"><b>Definition:</b> <a href="Compiler_8h_source.html#l00019">Compiler.h:19</a></div></div>
+<p class="definition">Definición en la línea <a class="el" href="main_8cpp_source.html#l00014">14</a> del archivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    cout&lt;&lt; <span class="stringliteral">&quot;Ingrese el puerto de escucha del server: &quot;</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">string</span> port;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    cin &gt;&gt; port; <span class="comment">//Se lee el nombre</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classCompiler.html">Compiler</a> *compiler = <span class="keyword">new</span> <a class="code" href="classCompiler.html">Compiler</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    compiler-&gt;<a class="code" href="classCompiler.html#a4f7f12dd59e9e6163962afbb09d3cd9c">port</a> = stoi(port);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    QApplication a(argc, argv);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classMainWindow.html">MainWindow</a> w;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    w.show();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> a.exec();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="ttc" id="aclassCompiler_html"><div class="ttname"><a href="classCompiler.html">Compiler</a></div><div class="ttdef"><b>Definition:</b> <a href="Compiler_8h_source.html#l00018">Compiler.h:18</a></div></div>
+<div class="ttc" id="aclassCompiler_html_a4f7f12dd59e9e6163962afbb09d3cd9c"><div class="ttname"><a href="classCompiler.html#a4f7f12dd59e9e6163962afbb09d3cd9c">Compiler::port</a></div><div class="ttdeci">static int port</div><div class="ttdef"><b>Definition:</b> <a href="Compiler_8h_source.html#l00023">Compiler.h:23</a></div></div>
 <div class="ttc" id="aclassMainWindow_html"><div class="ttname"><a href="classMainWindow.html">MainWindow</a></div><div class="ttdef"><b>Definition:</b> <a href="mainwindow_8h_source.html#l00010">mainwindow.h:11</a></div></div>
 </div><!-- fragment -->
 </div>

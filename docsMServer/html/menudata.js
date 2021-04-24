@@ -183,7 +183,9 @@ var menudata={children:[
 {text:"Lista de archivos",url:"files.html"},
 {text:"Miembros de los ficheros",url:"globals.html",children:[
 {text:"Todo",url:"globals.html",children:[
-{text:"g",url:"globals.html#index_g"},
+{text:"a",url:"globals.html#index_a"},
+{text:"d",url:"globals_d.html#index_d"},
+{text:"g",url:"globals_g.html#index_g"},
 {text:"i",url:"globals_i.html#index_i"},
 {text:"j",url:"globals_j.html#index_j"},
 {text:"l",url:"globals_l.html#index_l"},
@@ -192,7 +194,8 @@ var menudata={children:[
 {text:"o",url:"globals_o.html#index_o"},
 {text:"p",url:"globals_p.html#index_p"},
 {text:"r",url:"globals_r.html#index_r"},
-{text:"s",url:"globals_s.html#index_s"}]},
+{text:"s",url:"globals_s.html#index_s"},
+{text:"v",url:"globals_v.html#index_v"}]},
 {text:"Funciones",url:"globals_func.html"},
 {text:"Variables",url:"globals_vars.html"},
 {text:"typedefs",url:"globals_type.html"},
