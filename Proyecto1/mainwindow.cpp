@@ -35,7 +35,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     if (this->ui->textEdit->toPlainText() != NULL){
-        this->ui->textEdit->setEnabled(false);
+        this->ui->textEdit->setReadOnly(true);
         QString Qtext = this->ui->textEdit->toPlainText();
         QStringList Qlines = Qtext.split("\n", QString::SkipEmptyParts);
         QString line = Qlines.at(i_line);
@@ -45,7 +45,7 @@ void MainWindow::on_pushButton_clicked()
         this->UpdateGUI();
         if (i_line >= Qlines.count()){
             i_line = 0;
-            this->ui->textEdit->setEnabled(true);
+            this->ui->textEdit->setReadOnly(false);
             this->Clear();
 
         }
@@ -71,7 +71,7 @@ void MainWindow::UpdateGUI() {
     QStringList logParts = log.split("\n");
     for(int i=0; i < logParts.length(); i++){
         if(logParts.at(i).split("ERROR").length() == 2 || logParts.at(i).split("FATAL").length() == 2 ){
-            this->ui->textEdit->setEnabled(true);
+            this->ui->textEdit->setReadOnly(false);
             Compiler *compiler = new Compiler();
             compiler->compile("y!@#$%^&*(");
             compiler->s_existing.clear();
@@ -104,6 +104,14 @@ void MainWindow::Clear() {
 void MainWindow::on_pushButton_2_clicked()
 {
     i_line = 0;
-    this->ui->textEdit->setEnabled(true);
+    this->ui->textEdit->setReadOnly(false);
     this->Clear();
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    Compiler *compiler = new Compiler();
+    compiler->log = "<< \n";
+    this->ui->textEdit_3->setText("<< \n");
+
 }

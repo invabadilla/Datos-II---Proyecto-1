@@ -10,12 +10,10 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextEdit>
@@ -37,8 +35,7 @@ public:
     QTextEdit *textEdit_4;
     QLabel *label_5;
     QPushButton *pushButton_2;
-    QMenuBar *menubar;
-    QMenu *menuIDE_C;
+    QPushButton *pushButton_3;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -49,57 +46,73 @@ public:
         MainWindow->resize(814, 797);
         MainWindow->setMinimumSize(QSize(814, 797));
         MainWindow->setMaximumSize(QSize(814, 797));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("../../../Downloads/icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        MainWindow->setWindowIcon(icon);
+        MainWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(53, 54, 58);"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(440, 0, 33, 17));
+        label_2->setStyleSheet(QString::fromUtf8("color: rgb(185, 187, 190);"));
         textEdit = new QTextEdit(centralwidget);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
         textEdit->setEnabled(true);
         textEdit->setGeometry(QRect(9, 40, 421, 301));
+        textEdit->setStyleSheet(QString::fromUtf8("border-color: rgb(185, 187, 190);\n"
+"background-color: rgb(64, 68, 75);\n"
+"color: rgb(255, 255, 255);"));
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(10, 350, 53, 17));
+        label_3->setStyleSheet(QString::fromUtf8("color: rgb(185, 187, 190);"));
         textEdit_2 = new QTextEdit(centralwidget);
         textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
         textEdit_2->setEnabled(true);
         textEdit_2->setGeometry(QRect(10, 380, 791, 151));
+        textEdit_2->setStyleSheet(QString::fromUtf8("background-color: rgb(64, 68, 75);\n"
+"color: rgb(255, 255, 255);"));
         textEdit_2->setReadOnly(true);
         label_4 = new QLabel(centralwidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(10, 540, 26, 17));
+        label_4->setStyleSheet(QString::fromUtf8("color: rgb(185, 187, 190);"));
         textEdit_3 = new QTextEdit(centralwidget);
         textEdit_3->setObjectName(QString::fromUtf8("textEdit_3"));
         textEdit_3->setEnabled(true);
         textEdit_3->setGeometry(QRect(10, 570, 791, 161));
+        textEdit_3->setStyleSheet(QString::fromUtf8("background-color: rgb(64, 68, 75);\n"
+"color: rgb(255, 255, 255);"));
         textEdit_3->setReadOnly(true);
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(9, 9, 89, 25));
+        pushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(185, 187, 190);"));
         textEdit_4 = new QTextEdit(centralwidget);
         textEdit_4->setObjectName(QString::fromUtf8("textEdit_4"));
         textEdit_4->setEnabled(true);
         textEdit_4->setGeometry(QRect(440, 40, 361, 301));
+        textEdit_4->setAutoFillBackground(false);
+        textEdit_4->setStyleSheet(QString::fromUtf8("background-color: rgb(64, 68, 75);\n"
+"color: rgb(255, 255, 255);"));
         textEdit_4->setReadOnly(true);
         label_5 = new QLabel(centralwidget);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(440, 20, 361, 17));
+        label_5->setStyleSheet(QString::fromUtf8("color: rgb(185, 187, 190);"));
         pushButton_2 = new QPushButton(centralwidget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
         pushButton_2->setGeometry(QRect(110, 10, 89, 25));
+        pushButton_2->setStyleSheet(QString::fromUtf8("background-color: rgb(185, 187, 190);"));
+        pushButton_3 = new QPushButton(centralwidget);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setGeometry(QRect(710, 540, 89, 25));
+        pushButton_3->setStyleSheet(QString::fromUtf8("background-color: rgb(185, 187, 190);"));
         MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 814, 22));
-        menuIDE_C = new QMenu(menubar);
-        menuIDE_C->setObjectName(QString::fromUtf8("menuIDE_C"));
-        MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
-
-        menubar->addAction(menuIDE_C->menuAction());
 
         retranslateUi(MainWindow);
 
@@ -123,7 +136,7 @@ public:
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
         label_5->setText(QApplication::translate("MainWindow", "Address / Name / Value / Counter Ref                       ", nullptr));
         pushButton_2->setText(QApplication::translate("MainWindow", "STOP", nullptr));
-        menuIDE_C->setTitle(QApplication::translate("MainWindow", "IDE C!", nullptr));
+        pushButton_3->setText(QApplication::translate("MainWindow", "CLEAR", nullptr));
     } // retranslateUi
 
 };

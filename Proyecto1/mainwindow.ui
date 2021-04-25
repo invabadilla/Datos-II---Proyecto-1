@@ -28,8 +28,15 @@
   <property name="windowTitle">
    <string>IDE C!</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../Downloads/icon.png</normaloff>../../../Downloads/icon.png</iconset>
+  </property>
   <property name="toolTip">
    <string/>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(53, 54, 58);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_2">
@@ -40,6 +47,9 @@
       <width>33</width>
       <height>17</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(185, 187, 190);</string>
     </property>
     <property name="text">
      <string>RAM</string>
@@ -57,6 +67,11 @@
       <height>301</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(185, 187, 190);
+background-color: rgb(64, 68, 75);
+color: rgb(255, 255, 255);</string>
+    </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
@@ -66,6 +81,9 @@
       <width>53</width>
       <height>17</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(185, 187, 190);</string>
     </property>
     <property name="text">
      <string>Std Out</string>
@@ -83,6 +101,10 @@
       <height>151</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(64, 68, 75);
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="readOnly">
      <bool>true</bool>
     </property>
@@ -95,6 +117,9 @@
       <width>26</width>
       <height>17</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(185, 187, 190);</string>
     </property>
     <property name="text">
      <string>Log</string>
@@ -112,6 +137,10 @@
       <height>161</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(64, 68, 75);
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="readOnly">
      <bool>true</bool>
     </property>
@@ -124,6 +153,9 @@
       <width>89</width>
       <height>25</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(185, 187, 190);</string>
     </property>
     <property name="text">
      <string>RUN</string>
@@ -140,6 +172,13 @@
       <width>361</width>
       <height>301</height>
      </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(64, 68, 75);
+color: rgb(255, 255, 255);</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -161,6 +200,9 @@ p, li { white-space: pre-wrap; }
       <height>17</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(185, 187, 190);</string>
+    </property>
     <property name="text">
      <string>Address / Name / Value / Counter Ref                       </string>
     </property>
@@ -174,26 +216,29 @@ p, li { white-space: pre-wrap; }
       <height>25</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(185, 187, 190);</string>
+    </property>
     <property name="text">
      <string>STOP</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>814</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuIDE_C">
-    <property name="title">
-     <string>IDE C!</string>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>540</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(185, 187, 190);</string>
+    </property>
+    <property name="text">
+     <string>CLEAR</string>
     </property>
    </widget>
-   <addaction name="menuIDE_C"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

@@ -1,4 +1,4 @@
-/snap/clion/151/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1"
+/snap/clion/151/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/ingrid/Documents/Proyecto 1/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug
+-- Build files have been written to: /home/usuario/Proyectos/Datos-II---Proyecto-1/Proyecto1/cmake-build-debug

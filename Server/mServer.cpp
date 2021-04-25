@@ -169,7 +169,6 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
         memset(service, 0, NI_MAXSERV);
 
         if (getnameinfo((sockaddr *) &client, sizeof(client), host, NI_MAXHOST, service, NI_MAXSERV, 0) == 0) {
-            cout << host << " conectado " << endl;
         } else {
             inet_ntop(AF_INET, &client.sin_addr, host, NI_MAXHOST);
             cout << host << " conectado al puerto " << ntohs(client.sin_port) << endl;
@@ -261,7 +260,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                                     addTolog("INFO: Variable creada");
                                 }
 
-                            } else { addTolog("ERROR: Las variables no coinciden con el tipo"); }
+                            } else { addTolog("ERROR: Las variables no coinciden con el tipo o se encuentra dentro de un struct"); }
                         } else {
                             addTolog("ERROR: Variable no existe");
                         }
@@ -422,7 +421,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                                     addTolog("INFO: Variable creada");
                                 }
 
-                            } else { addTolog("ERROR: Las variables no coinciden con el tipo"); }
+                            } else { addTolog("ERROR: Las variables no coinciden con el tipo o se encuentra dentro de un struct"); }
                         } else {
                             addTolog("ERROR: Variable no existe");
                         }
@@ -579,7 +578,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                                     addTolog("INFO: Variable creada");
                                 }
 
-                            } else { addTolog("ERROR: Las variables no coinciden con el tipo"); }
+                            } else { addTolog("ERROR: Las variables no coinciden con el tipo o se encuentra dentro de un struct"); }
                         } else {
                             addTolog("ERROR: Variable no existe");
                         }
@@ -735,7 +734,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                                     addTolog("INFO: Variable creada");
                                 }
 
-                            } else { addTolog("ERROR: Las variables no coinciden con el tipo");}
+                            } else { addTolog("ERROR: Las variables no coinciden con el tipo o se encuentra dentro de un struct");}
                         } else {
                             addTolog("ERROR: Variable no existe");
                         }
@@ -860,7 +859,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                                 }
 
                             } else{
-                                addTolog("ERROR: Las variables no coinciden con el tipo");
+                                addTolog("ERROR: Las variables no coinciden con el tipo o se encuentra dentro de un struct");
                             }
                         }
                         else{
@@ -898,7 +897,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                                     addTolog("INFO: Variable creada");
                                 }
 
-                            } else { addTolog("ERROR: Las variables no coinciden con el tipo"); }
+                            } else { addTolog("ERROR: Las variables no coinciden con el tipo o se encuentra dentro de un struct"); }
                         } else {
                             addTolog("ERROR: Variable no existe");
                             }
@@ -1154,7 +1153,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                                 addTolog("INFO: Variable creada");
                             }
 
-                        } else {addTolog("ERROR: Las variables no coinciden con el tipo");}
+                        } else {addTolog("ERROR: Las variables no coinciden con el tipo o se encuentra dentro de un struct");}
                     } else {
                         addTolog("ERROR: Variable no existe");
                     }
@@ -1244,7 +1243,7 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                                     addTolog("INFO: Variable creada");
                                 }
 
-                            } else { addTolog("ERROR: Las variables no coinciden con el tipo");}
+                            } else { addTolog("ERROR: Las variables no coinciden con el tipo o se encuentra dentro de un struct");}
                         } else {
                             addTolog("ERROR: Variable no existe");
                         }
@@ -1339,18 +1338,16 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                             } else if (ptrOrg->type == "float" && QString::fromStdString(value).split(".").length() ==2){
                                 string entero = QString::fromStdString(value).split(".").at(0).toStdString();
                                 string decimal = QString::fromStdString(value).split(".").at(1).toStdString();
-
                                 if(entero.length() == to_string(stol(entero)).length() &&
                                 decimal.length() == to_string(stol(decimal)).length()){
-                                    *ptrOrg->Data = stof(value);
+                                    *(float*)ptrOrg->Data = stof(value);
                                 }
                             } else if (ptrOrg->type == "double" && QString::fromStdString(value).split(".").length() ==2) {
                                 string entero = QString::fromStdString(value).split(".").at(0).toStdString();
                                 string decimal = QString::fromStdString(value).split(".").at(1).toStdString();
-
                                 if (entero.length() == to_string(stol(entero)).length() &&
                                     decimal.length() == to_string(stol(decimal)).length()) {
-                                    *ptrOrg->Data = stod(value);
+                                    *(double*)ptrOrg->Data = stod(value);
                                 }
                             }
                             else {
@@ -1379,7 +1376,17 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                                             }
                                             if (flag){ //Si el atributo pertenece a Struct
                                                 if (ptrOrg->type != "struct" && ptrOrg->type != "reference") {
-                                                    *ptrOrg->Data = *ptrvariable->Data;
+                                                    if (ptrOrg->type == "int") {
+                                                        *ptrOrg->Data = *(int*)ptrvariable->Data;
+                                                    } else if (ptrOrg->type == "long") {
+                                                        *ptrOrg->Data = *(long*)ptrvariable->Data;
+                                                    } else if (ptrOrg->type == "float") {
+                                                        *(float*)ptrOrg->Data = *(float*)ptrvariable->Data;
+                                                    } else if (ptrOrg->type == "double") {
+                                                        *(double*)ptrOrg->Data = *(double*)ptrvariable->Data;
+                                                    } else if (ptrOrg->type == "char") {
+                                                        *ptrOrg->Data = *(char*)ptrvariable->Data;
+                                                    }
                                                 }
                                             }else{ addTolog("ERROR: La variable no existe en el Struct");}
                                         } else{addTolog("ERROR: Tipo de variable accedida no es compatible");}
@@ -1393,7 +1400,17 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                                 if (!isVariable) { //Si el nombre de lo asignado esta reservado
                                     MemPool::SMemoryChunk *ptrRef = ptr_mpool->FindChunkHoldingNameTo(value);
                                     if (ptrOrg->type == ptrRef->type) {
-                                        *ptrOrg->Data = *ptrRef->Data;
+                                        if (ptrOrg->type == "int") {
+                                            *ptrOrg->Data = *(int*)ptrRef->Data;
+                                        } else if (ptrOrg->type == "long") {
+                                            *ptrOrg->Data = *(long*)ptrRef->Data;
+                                        } else if (ptrOrg->type == "float") {
+                                            *ptrOrg->Data = *(float*)ptrRef->Data;
+                                        } else if (ptrOrg->type == "double") {
+                                            *ptrOrg->Data = *(double*)ptrRef->Data;
+                                        } else if (ptrOrg->type == "char") {
+                                            *ptrOrg->Data = *(char*)ptrRef->Data;
+                                        }
 
                                     } else { addTolog("ERROR: La variable igualada no coincide con el tipo");}
                                 }else{
@@ -1529,7 +1546,17 @@ int startServer(int port, MemPool::CMemoryPool *ptr_mpool) {
                                     }
                                     if (flag){ //Si atributo pertenece a Struct
                                         if (ptrOrg->type != "struct" && ptrOrg->type != "reference") {
-                                            *ptrOrg->Data = *ptrvariable->Data;
+                                            if (ptrOrg->type == "int") {
+                                                *ptrOrg->Data = *(int*)ptrvariable->Data;
+                                            } else if (ptrOrg->type == "long") {
+                                                *ptrOrg->Data = *(long*)ptrvariable->Data;
+                                            } else if (ptrOrg->type == "float") {
+                                                *ptrOrg->Data = *(float*)ptrvariable->Data;
+                                            } else if (ptrOrg->type == "double") {
+                                                *ptrOrg->Data = *(double*)ptrvariable->Data;
+                                            } else if (ptrOrg->type == "char") {
+                                                *ptrOrg->Data = *(char*)ptrvariable->Data;
+                                            }
                                             ptrvariable->counter++;
                                         }
                                         else if( ptrOrg->type == "reference"){

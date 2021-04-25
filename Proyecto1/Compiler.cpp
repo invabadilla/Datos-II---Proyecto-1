@@ -247,7 +247,7 @@ void Compiler::compile(QString line) {
                             break;
                         }
                         break;
-                    }
+                    }break;
                 }
             default:{
                 addTolog("ERROR: Variable no creada");
@@ -306,7 +306,7 @@ void Compiler::compile(QString line) {
                         break;
                     }
                     break;
-                }
+                }break;
             }
             default:{
                 addTolog("ERROR: Variable no creada");
@@ -359,9 +359,10 @@ void Compiler::compile(QString line) {
                             startClient (mymessage);
                         }
                     }
-                }
+                }break;
             }
             default:{
+                cout <<"hola" << endl;
                 addTolog("ERROR: Variable no creada");
             }
         }
@@ -410,7 +411,7 @@ void Compiler::compile(QString line) {
                                 break;
                             } else { addTolog("ERROR: Tipo no coincide con valor"); }
                         }else {
-                            addTolog("ERROR: Valor invalido");}
+                            stoi("a");}
 
                     }catch (std::invalid_argument){
                         //Valor con una referencia a un Struct
@@ -427,7 +428,7 @@ void Compiler::compile(QString line) {
 
                     }
                     break;
-                }
+                }break;
             }
             default:{
                 addTolog("ERROR: Variable no creada");
@@ -464,12 +465,6 @@ void Compiler::compile(QString line) {
                     json mymessage = parseJson(newList, "reference");
                     startClient (mymessage);
                 }
-                    //Valor con una referencia a un Struct
-                else if(newList.at(2).split(".").length() == 2){
-                    newList.append("define");
-                    json mymessage = parseJson(newList, "struct");
-                    startClient (mymessage);
-                }
                     //Valor es un numero o una variable
                 else{
                     try{
@@ -485,15 +480,22 @@ void Compiler::compile(QString line) {
                                 break;
                             } else { addTolog("ERROR: Tipo no coincide con valor"); }
                         }else {
-                            addTolog("ERROR: Valor invalido");}
+                            stoi("a");}
                     }catch (std::invalid_argument){
-                        newList.append("define");
-                        json mymessage = parseJson(newList, "true");
-                        startClient (mymessage);
+                        //Valor con una referencia a un Struct
+                        if(newList.at(2).split(".").length() == 2){
+                            newList.append("define");
+                            json mymessage = parseJson(newList, "struct");
+                            startClient (mymessage);
+                        }else{
+                            newList.append("define");
+                            json mymessage = parseJson(newList, "true");
+                            startClient (mymessage);
+                        }
                         break;
                     }
                     break;
-                }
+                }break;
             }
             default:{
                 addTolog("ERROR: Variable no creada");
@@ -564,6 +566,7 @@ void Compiler::compile(QString line) {
                         startClient (mymessage);
                     }
                     else{ addTolog("ERROR: Sintaxis Error");}
+                    break;
                 }
                 default:{
                     addTolog("ERROR: Variable no creada");
